@@ -1,11 +1,7 @@
 <template>
-  <header>
-    Header
-  </header>
+  <TheHeader></TheHeader>
   <div>
     <slot />
   </div>
-  <footer>
-    Footer
-  </footer>
+  <TheFooter></TheFooter>
 </template>
