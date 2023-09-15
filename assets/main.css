@@ -4,8 +4,26 @@
   box-sizing: border-box;
 }
 
+body {
+  min-height: 100vh;
+}
+
 .header {
-  padding: 0.5em;
-  height: 30%;
+  position: sticky;
+  top: 0;
+  padding: .8em;
   background-color: gray;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: .8em;
+  background-color: gray;
+  text-align: center;
+}
+
+.content {
+  margin-bottom: 3em;
 }
