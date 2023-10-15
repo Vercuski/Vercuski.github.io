@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/*
+Dark Royal Blue = #002349
+Gold = #957C3D
+Deepest blue = 054A91
+mid blue = 3E7CB1
+light blue = 81A4CD
+gray = DBE4EE
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* .maincontent {
+  padding: 1% 0% 1% 5%;
+  border-color: red;border: 1px solid red;
+  background: linear-gradient(to bottom, #DBE4EE 60px, white 0%);
+  height: 90vh;
+} */
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header{
+  background: #002349;
+  color: #dfc689;
+  padding: 1em;
+}
+
+.footer{
+  background: #002349;
+  text-align: center;
+  color: #dfc689;
+  padding: 1em;
+  bottom: 0;
+  width: 100%;
+}
+
+.flex-container .innerheader{
+  flex: 0 1 auto;
+  background: #DBE4EE 60px;
+  padding: 1em;
+}
+
+.flex-container .maincontent{
+  flex: 1;
+  background: white 0%;
+  overflow-y: auto;
+}
+
+/* .header {
+  position: sticky;
+  top: 0;
+  padding: 1em;
+  width: 100%;
+  background-color: #002349;
+  color: #dfc689
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1em;
+  background-color: #002349;
+  text-align: center;
+  color: #dfc689;
+} */
+
+.footerlink {
+  color: lightblue;
+  text-decoration: none;
+}
+
+.footerlink :visited{
+  color: lightblue;
+  text-decoration: none;
+}
+
+.icon32 {
+  width: 32px;
+  height: 32px;
+}
+
+/* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
+.icon-bar {
+  background-color: #81A4CD;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: block;
+  text-align: center;
+  /* Padding: T R B L */
+  padding: 9px 6px 11px 8px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Style the social media icons with color, if you want */
+.icon-bar a:hover {
+  background-color: darkgray;
+}
+
+.iconsize {
+  width: 48px;
+  height: 48px;
+}
+
+.facebook {
+  color: white;
+}
+
+.twitter {
+  color: white;
+}
+
+.github {
+  color: white;
+}
+
+.linkedin {
+  color: white;
+}
+
+.instagram {
+  color: white;
+}
+
+.youtube {
+  color: white;
+}
