@@ -13,7 +13,7 @@ import { RouterView } from 'vue-router'
   </div>
   <div class="flex-container">
     <div class="header">
-      Header
+      
     </div>
     <RouterView />
     <div class="footer">
