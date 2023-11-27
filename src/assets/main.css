@@ -15,7 +15,8 @@ gray = DBE4EE
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100vh;
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
@@ -28,19 +29,19 @@ html, body {
   height: 90vh;
 } */
 
-.flex-container{
+.flex-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.header{
+.header {
   background: #002349;
   color: #dfc689;
   padding: 1em;
 }
 
-.footer{
+.footer {
   background: #002349;
   text-align: center;
   color: #dfc689;
@@ -49,13 +50,13 @@ html, body {
   width: 100%;
 }
 
-.flex-container .innerheader{
+.flex-container .innerheader {
   flex: 0 1 auto;
-  background: #DBE4EE 60px;
+  background: #dbe4ee 60px;
   padding: 1em;
 }
 
-.flex-container .maincontent{
+.flex-container .maincontent {
   flex: 1;
   background: white 0%;
   overflow-y: auto;
@@ -85,7 +86,7 @@ html, body {
   text-decoration: none;
 }
 
-.footerlink :visited{
+.footerlink :visited {
   color: lightblue;
   text-decoration: none;
 }
@@ -97,7 +98,7 @@ html, body {
 
 /* Fixed/sticky icon bar (vertically aligned 50% from the top of the screen) */
 .icon-bar {
-  background-color: #81A4CD;
+  background-color: #81a4cd;
   position: absolute;
   left: 0;
   top: 50%;
@@ -130,7 +131,7 @@ html, body {
   color: white;
 }
 
-.twitter {
+.blusky {
   color: white;
 }
 
