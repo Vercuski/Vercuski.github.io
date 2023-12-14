@@ -62,25 +62,6 @@ body {
   overflow-y: auto;
 }
 
-/* .header {
-  position: sticky;
-  top: 0;
-  padding: 1em;
-  width: 100%;
-  background-color: #002349;
-  color: #dfc689
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 1em;
-  background-color: #002349;
-  text-align: center;
-  color: #dfc689;
-} */
-
 .footerlink {
   color: lightblue;
   text-decoration: none;
