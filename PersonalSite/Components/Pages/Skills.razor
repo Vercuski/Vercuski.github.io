@@ -2,26 +2,25 @@
 
 <PageTitle>Skills</PageTitle>
 
-@foreach(var heading in badges.Select(b => b.Heading).Distinct())
-{
-    <RadzenCard class="rz-mb-4">
-        <RadzenCardHeader>
-            @heading
-        </RadzenCardHeader>
-        <RadzenCardText>
-            <RadzenStack Orientation="Orientation.Horizontal" Wrap="FlexWrap.Wrap" JustifyContent="JustifyContent.Left" Gap="1rem">
-                @foreach(var badge in badges.Where(b => b.Heading == heading).OrderByDescending(x => x.Years))
-                {
-                    <RadzenButton ButtonStyle="ButtonStyle.Light" class="rz-border-radius-6 rz-shadow-6 rz-border-black">
-                        @badge.Text
-                        <RadzenBadge BadgeStyle="BadgeStyle.Primary" Shade="Shade.Lighter" IsPill="@true" Text="@badge.Years.ToString()" class="rz-ml-2" />
-                    </RadzenButton>
-                }
-            </RadzenStack>
-        </RadzenCardText>
-    </RadzenCard>
-}
-<RadzenStack Orientation="Orientation.Horizontal" Wrap="FlexWrap.Wrap" JustifyContent="JustifyContent.Left" Class="rz-p-12" Gap="2rem">
+<RadzenStack class="rz-mx-auto rz-mt-10" style="height: 100%; width: 100%;" Gap="0px" Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Start">
+    <RadzenText TextAlign="TextAlign.Center" TextStyle="TextStyle.H3" Style="font-family: Roboto; font-weight: bold;">Skills</RadzenText>
+    @foreach(var heading in badges.Select(b => b.Heading).Distinct())
+    {
+        <RadzenCard class="rz-mb-4">
+            <RadzenText>@heading</RadzenText>
+            <RadzenText>
+                <RadzenStack Orientation="Orientation.Horizontal" Wrap="FlexWrap.Wrap" JustifyContent="JustifyContent.Left" Gap="1rem">
+                    @foreach(var badge in badges.Where(b => b.Heading == heading).OrderByDescending(x => x.Years))
+                    {
+                        <RadzenButton ButtonStyle="ButtonStyle.Light" class="rz-border-radius-6 rz-shadow-6 rz-border-black">
+                            @badge.Text
+                            <RadzenBadge BadgeStyle="BadgeStyle.Primary" Shade="Shade.Lighter" IsPill="@true" Text="@badge.Years.ToString()" class="rz-ml-2" />
+                        </RadzenButton>
+                    }
+                </RadzenStack>
+            </RadzenText>
+        </RadzenCard>
+    }
 </RadzenStack>
 
 @code

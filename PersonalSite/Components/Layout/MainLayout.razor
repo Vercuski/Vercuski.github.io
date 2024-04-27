@@ -2,19 +2,19 @@
 
 <RadzenLayout>
     <RadzenHeader>
-        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
-            <RadzenSidebarToggle Click="@(() => sidebar1Expanded = !sidebar1Expanded)" />
-            <RadzenLabel Text="Header" />
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.End" JustifyContent="JustifyContent.End" Gap="0">
+            <NavMenu/>
         </RadzenStack>
     </RadzenHeader>
-    <RadzenSidebar @bind-Expanded="@sidebar1Expanded">
-        <NavMenu/>
-    </RadzenSidebar>
-    <RadzenBody>
+    <RadzenBody class="rz-m-0 rz-p-0">
         @Body
     </RadzenBody>
     <RadzenFooter>
-        Footer
+        <hr width="70%" style="border-color: black; margin: auto; height:4px;" />
+        <br/>
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center" Gap="0">
+            &copy; Copyright 2024. Created by Scott Vercuski
+        </RadzenStack>
     </RadzenFooter>
 </RadzenLayout>
 
