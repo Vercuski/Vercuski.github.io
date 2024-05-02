@@ -1,15 +1,16 @@
 ﻿@inherits LayoutComponentBase
 
 <RadzenLayout>
-    <RadzenHeader>
-        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.End" JustifyContent="JustifyContent.End" Gap="0">
-            <NavMenu/>
+    <RadzenHeader style="background-color: var(--backgroundcolor)">
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween" Gap="0">
+            <a href="/"><RadzenText TextStyle="TextStyle.H6" Style="font-family: Roboto; font-weight: bold; color:white;">Scott Vercuski</RadzenText></a>
+            <NavMenu />
         </RadzenStack>
     </RadzenHeader>
     <RadzenBody class="rz-m-0 rz-p-0">
         @Body
     </RadzenBody>
-    <RadzenFooter>
+    <RadzenFooter style="background-color: var(--backgroundcolor)">
         <hr width="70%" style="border-color: black; margin: auto; height:4px;" />
         <br/>
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center" Gap="0">
@@ -19,5 +20,5 @@
 </RadzenLayout>
 
 @code {
-    bool sidebar1Expanded = true;
+    
 }

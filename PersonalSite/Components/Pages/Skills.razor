@@ -2,83 +2,95 @@
 
 <PageTitle>Skills</PageTitle>
 
-<RadzenStack class="rz-mx-auto rz-mt-10" style="height: 100%; width: 100%;" Gap="0px" Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Start">
-    <RadzenText TextAlign="TextAlign.Center" TextStyle="TextStyle.H3" Style="font-family: Roboto; font-weight: bold;">Skills</RadzenText>
+<RadzenStack class="rz-mx-auto rz-mt-5" style="height: auto; width: auto;" Gap="0px" Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Start">
+    <RadzenText TextAlign="TextAlign.Center" TextStyle="TextStyle.H4" Style="font-family: Roboto; font-weight: bold;">SKILLS</RadzenText>
     @foreach(var heading in badges.Select(b => b.Heading).Distinct())
     {
-        <RadzenCard class="rz-mb-4">
+        <RadzenStack class="rz-mx-4 rz-my-2">
             <RadzenText>@heading</RadzenText>
             <RadzenText>
                 <RadzenStack Orientation="Orientation.Horizontal" Wrap="FlexWrap.Wrap" JustifyContent="JustifyContent.Left" Gap="1rem">
-                    @foreach(var badge in badges.Where(b => b.Heading == heading).OrderByDescending(x => x.Years))
+                    @foreach(var badge in badges.Where(b => b.Heading == heading).OrderBy(x => x.Rank))
                     {
                         <RadzenButton ButtonStyle="ButtonStyle.Light" class="rz-border-radius-6 rz-shadow-6 rz-border-black">
                             @badge.Text
-                            <RadzenBadge BadgeStyle="BadgeStyle.Primary" Shade="Shade.Lighter" IsPill="@true" Text="@badge.Years.ToString()" class="rz-ml-2" />
+                            @* <RadzenBadge BadgeStyle="BadgeStyle.Primary" Shade="Shade.Lighter" IsPill="@true" Text="@badge.Years.ToString()" class="rz-ml-2" /> *@
                         </RadzenButton>
                     }
                 </RadzenStack>
             </RadzenText>
-        </RadzenCard>
+        </RadzenStack>
     }
 </RadzenStack>
 
 @code
 {
-    private record Badge (string Heading, string Text, int Years)
+    private record Badge (string Heading, string Text, int Rank)
     {
         public string Heading { get; set; } = Heading;
         public string Text { get; set; } = Text;
-        public int Years { get; set; } = Years;
+        public int Rank { get; set; } = Rank;
     }
 
     private List<Badge> badges = new()
     {
-        new Badge("Languages", "C", 2),
-        new Badge("Languages", "C++", 2),
-        new Badge("Languages", "C#", GetYearsSinceIntroduction(2002)),
-        new Badge("Languages", "Javascript", GetYearsSinceIntroduction(2015)),
-        new Badge("Languages", "Markdown", GetYearsSinceIntroduction(2012)),
-        new Badge("Languages", "Powershell", GetYearsSinceIntroduction(2010)),
-        new Badge("Languages", "Typescript", GetYearsSinceIntroduction(2017)),
-        new Badge("Databases", "Firebase", 2),
-        new Badge("Databases", "MSSQL", GetYearsSinceIntroduction(1998)),
-        new Badge("Databases", "MongoDB", 2),
-        new Badge("Databases", "MySQL", 4),
-        new Badge("Databases", "PostgreSQL", 2),
-        new Badge("Databases", "SQLite", 2),
-        new Badge("Frameworks", ".NET", GetYearsSinceIntroduction(2002)),
-        new Badge("Frameworks", "Blazor", 2),
-        new Badge("Frameworks", "Bootstrap", 2),
-        new Badge("Frameworks", "NPM", 2),
-        new Badge("Frameworks", "Node.JS", 2),
-        new Badge("Frameworks", "CSS", 2),
-        new Badge("Frameworks", "SASS", 2),
-        new Badge("Frameworks", "Vite", 2),
-        new Badge("Frameworks", "VueJS", 2),
-        new Badge("Frameworks", "Vuetify", 2),
-        new Badge("Frameworks", "Yarn", 2),
-        new Badge("Tools", "Docker", GetYearsSinceIntroduction(2018)),
-        new Badge("Tools", "Git", GetYearsSinceIntroduction(2015)),
-        new Badge("Tools", "Github", 2),
-        new Badge("Tools", "Jira", 2),
-        new Badge("Tools", "Postman", 2),
-        new Badge("Tools", "RabbitMQ", 2),
-        new Badge("Tools", "Redis", 2),
-        new Badge("Tools", "MassTransit", 2),
-        new Badge("Tools", "VSCode", 2),
-        new Badge("Tools", "Visual Studio", GetYearsSinceIntroduction(1999)),
-        new Badge("Operating Systems", "Raspberry PI", 2),
-        new Badge("Operating Systems", "Linux", 2),
-        new Badge("Operating Systems", "Ubuntu", 2),
-        new Badge("Operating Systems", "Windows", GetYearsSinceIntroduction(1997)),
-        new Badge("Operating Systems", "Windows Server", 2),
-        new Badge("Security", "JWT", 2),
-        new Badge("Security", "OAuth", 2),
-    };
+        new Badge("Languages", "C", 7),
+        new Badge("Languages", "C++", 6),
+        new Badge("Languages", "C#", 1),
+        new Badge("Languages", "Typescript", 2),
+        new Badge("Languages", "Javascript", 3),
+        new Badge("Languages", "Markdown", 5),
+        new Badge("Languages", "Powershell", 4),
 
-    private static int GetYearsSinceIntroduction(int introYear)
-    {
-        return (DateTime.Now.Year - introYear);
-    }
+        new Badge("Databases", "Firebase", 6),
+        new Badge("Databases", "MSSQL", 1),
+        new Badge("Databases", "MongoDB", 3),
+        new Badge("Databases", "CosmosDB", 4),
+        new Badge("Databases", "MySQL", 2),
+        new Badge("Databases", "PostgreSQL", 5),
+        new Badge("Databases", "SQLite", 7),
+
+        new Badge("Frameworks", ".NET", 1),
+        new Badge("Frameworks", "Blazor", 2),
+        new Badge("Frameworks", "Bootstrap", 5),
+        new Badge("Frameworks", "Node.JS", 4),
+        new Badge("Frameworks", "CSS", 7),
+        new Badge("Frameworks", "SASS", 8),
+        new Badge("Frameworks", "VueJS", 3),
+        new Badge("Frameworks", "Vuetify", 6),
+
+        new Badge("Tools", "Docker", 5),
+        new Badge("Tools", "Git", 2),
+        new Badge("Tools", "Github", 3),
+        new Badge("Tools", "Jira", 6),
+        new Badge("Tools", "Postman", 7),
+        new Badge("Tools", "RabbitMQ", 8),
+        new Badge("Tools", "Redis", 10),
+        new Badge("Tools", "MassTransit", 9),
+        new Badge("Tools", "VSCode", 4),
+        new Badge("Tools", "Visual Studio", 1),
+
+        new Badge("Operating Systems", "Raspberry PI", 5),
+        new Badge("Operating Systems", "*nix", 4),
+        new Badge("Operating Systems", "Linux", 3),
+        new Badge("Operating Systems", "Windows", 1),
+        new Badge("Operating Systems", "Windows Server", 2),
+
+        new Badge("Security", "JWT", 2),
+        new Badge("Security", "OAuth", 1),
+        new Badge("Security", "OpenID", 3),
+
+        new Badge("Architectures", "Onion", 1),
+        new Badge("Architectures", "Clean", 2),
+        new Badge("Architectures", "Event Driven", 3),
+        new Badge("Architectures", "Microservice", 4),
+        new Badge("Architectures", "Modular Monolith", 5),
+        new Badge("Architectures", "Hexagonal", 6),
+        new Badge("Architectures", "Vertical Slice", 7),
+        new Badge("Architectures", "Cloud Native", 8),
+
+        new Badge("Cloud Providers", "Azure", 1),
+        new Badge("Cloud Providers", "Google", 2),
+        new Badge("Cloud Providers", "AWS", 1)
+    };
 }
