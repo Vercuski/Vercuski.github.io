@@ -1,20 +1,18 @@
 ﻿@inherits LayoutComponentBase
 
-<RadzenLayout>
+<RadzenLayout class="rz-m-0 rz-p-0">
     <RadzenHeader style="background-color: var(--backgroundcolor)">
-        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween" Gap="0">
-            <a href="/"><RadzenText TextStyle="TextStyle.H6" Style="font-family: Roboto; font-weight: bold; color:white;">Scott Vercuski</RadzenText></a>
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0">
             <NavMenu />
         </RadzenStack>
     </RadzenHeader>
-    <RadzenBody class="rz-m-0 rz-p-0">
+    <RadzenBody>
         @Body
     </RadzenBody>
     <RadzenFooter style="background-color: var(--backgroundcolor)">
-        <hr width="70%" style="border-color: black; margin: auto; height:4px;" />
         <br/>
         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.Center" Gap="0">
-            &copy; Copyright 2024. Created by Scott Vercuski
+            <RadzenText Style="color: var(--rz-text-contrast-color)">&copy; Copyright 2024. Created by Scott Vercuski</RadzenText>
         </RadzenStack>
     </RadzenFooter>
 </RadzenLayout>

@@ -1,23 +1,26 @@
 ﻿@page "/Skills"
 
-<PageTitle>Skills</PageTitle>
+<PageTitle>Scott Vercuski | Architect</PageTitle>
 
-<RadzenStack class="rz-mx-auto rz-mt-5" style="height: auto; width: auto;" Gap="0px" Orientation="Orientation.Vertical" JustifyContent="JustifyContent.Start">
-    <RadzenText TextAlign="TextAlign.Center" TextStyle="TextStyle.H4" Style="font-family: Roboto; font-weight: bold;">SKILLS</RadzenText>
+<RadzenStack class="rz-mx-auto rz-mt-0" style="height: auto; width: auto;" Gap="0px" Orientation="Orientation.Vertical" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceAround">
+    <RadzenText TextAlign="TextAlign.Center" TextStyle="TextStyle.H4" Style="rz-mt-5; font-family: Roboto; font-weight: bold;">SKILLS</RadzenText>
+    <RadzenText TextAlign="TextAlign.Center" TextStyle="TextStyle.H6" Style="rz-mt-5; font-family: Roboto; font-weight: bold;">
+        A list of skills I've picked up over the years, ranked top to bottom of familiarity .
+    </RadzenText>
+</RadzenStack>
+<RadzenStack class="rz-mx-auto rz-mt-5" style="height: auto; width: auto;" Gap="0px" Orientation="Orientation.Horizontal" AlignItems="AlignItems.Start" JustifyContent="JustifyContent.SpaceAround">
     @foreach(var heading in badges.Select(b => b.Heading).Distinct())
     {
-        <RadzenStack class="rz-mx-4 rz-my-2">
-            <RadzenText>@heading</RadzenText>
+        <RadzenStack Orientation="Orientation.Vertical" AlignItems="AlignItems.Normal" JustifyContent="JustifyContent.Center" Gap="1rem">
+            <RadzenText Style="font-weight: bold">@heading</RadzenText>
             <RadzenText>
-                <RadzenStack Orientation="Orientation.Horizontal" Wrap="FlexWrap.Wrap" JustifyContent="JustifyContent.Left" Gap="1rem">
-                    @foreach(var badge in badges.Where(b => b.Heading == heading).OrderBy(x => x.Rank))
+                    @foreach(var badge in badges.Where(b => b.Heading == heading))
                     {
-                        <RadzenButton ButtonStyle="ButtonStyle.Light" class="rz-border-radius-6 rz-shadow-6 rz-border-black">
+                        <RadzenButton ButtonStyle="ButtonStyle.Light" class="rz-mb-3 rz-border-radius-2 rz-shadow-4 rz-border-black">
                             @badge.Text
-                            @* <RadzenBadge BadgeStyle="BadgeStyle.Primary" Shade="Shade.Lighter" IsPill="@true" Text="@badge.Years.ToString()" class="rz-ml-2" /> *@
                         </RadzenButton>
+                        <br/>
                     }
-                </RadzenStack>
             </RadzenText>
         </RadzenStack>
     }
@@ -25,72 +28,86 @@
 
 @code
 {
-    private record Badge (string Heading, string Text, int Rank)
+    private record Badge (string Heading, string Text)
     {
         public string Heading { get; set; } = Heading;
         public string Text { get; set; } = Text;
-        public int Rank { get; set; } = Rank;
     }
 
     private List<Badge> badges = new()
     {
-        new Badge("Languages", "C", 7),
-        new Badge("Languages", "C++", 6),
-        new Badge("Languages", "C#", 1),
-        new Badge("Languages", "Typescript", 2),
-        new Badge("Languages", "Javascript", 3),
-        new Badge("Languages", "Markdown", 5),
-        new Badge("Languages", "Powershell", 4),
+        new Badge("Languages", "C#"),
+        new Badge("Languages", "SQL"),
+        new Badge("Languages", "Typescript"),
+        new Badge("Languages", "Javascript"),
+        new Badge("Languages", "Powershell"),
+        new Badge("Languages", "Markdown"),
+        new Badge("Languages", "C++"),
+        new Badge("Languages", "C"),
 
-        new Badge("Databases", "Firebase", 6),
-        new Badge("Databases", "MSSQL", 1),
-        new Badge("Databases", "MongoDB", 3),
-        new Badge("Databases", "CosmosDB", 4),
-        new Badge("Databases", "MySQL", 2),
-        new Badge("Databases", "PostgreSQL", 5),
-        new Badge("Databases", "SQLite", 7),
+        new Badge("Databases", "MSSQL"),
+        new Badge("Databases", "MySQL"),
+        new Badge("Databases", "MongoDB"),
+        new Badge("Databases", "CosmosDB"),
+        new Badge("Databases", "PostgreSQL"),
+        new Badge("Databases", "Firebase"),
+        new Badge("Databases", "SQLite"),
 
-        new Badge("Frameworks", ".NET", 1),
-        new Badge("Frameworks", "Blazor", 2),
-        new Badge("Frameworks", "Bootstrap", 5),
-        new Badge("Frameworks", "Node.JS", 4),
-        new Badge("Frameworks", "CSS", 7),
-        new Badge("Frameworks", "SASS", 8),
-        new Badge("Frameworks", "VueJS", 3),
-        new Badge("Frameworks", "Vuetify", 6),
+        new Badge("Frameworks", ".NET"),
+        new Badge("Frameworks", "Blazor"),
+        new Badge("Frameworks", "VueJS"),
+        new Badge("Frameworks", "Node.JS"),
+        new Badge("Frameworks", "Bootstrap"),
+        new Badge("Frameworks", "Vuetify"),
+        new Badge("Frameworks", "CSS"),
+        new Badge("Frameworks", "SASS"),
 
-        new Badge("Tools", "Docker", 5),
-        new Badge("Tools", "Git", 2),
-        new Badge("Tools", "Github", 3),
-        new Badge("Tools", "Jira", 6),
-        new Badge("Tools", "Postman", 7),
-        new Badge("Tools", "RabbitMQ", 8),
-        new Badge("Tools", "Redis", 10),
-        new Badge("Tools", "MassTransit", 9),
-        new Badge("Tools", "VSCode", 4),
-        new Badge("Tools", "Visual Studio", 1),
+        new Badge("Tools", "Visual Studio"),
+        new Badge("Tools", "Git"),
+        new Badge("Tools", "VSCode"),
+        new Badge("Tools", "Docker"),
+        new Badge("Tools", "Jira"),
+        new Badge("Tools", "Postman"),
+        new Badge("Tools", "RabbitMQ"),
+        new Badge("Tools", "MassTransit"),
+        new Badge("Tools", "Nginx"),
+        new Badge("Tools", "Redis"),
 
-        new Badge("Operating Systems", "Raspberry PI", 5),
-        new Badge("Operating Systems", "*nix", 4),
-        new Badge("Operating Systems", "Linux", 3),
-        new Badge("Operating Systems", "Windows", 1),
-        new Badge("Operating Systems", "Windows Server", 2),
+        new Badge("Operating Systems", "Windows"),
+        new Badge("Operating Systems", "Windows Server"),
+        new Badge("Operating Systems", "Linux"),
+        new Badge("Operating Systems", "*nix"),
+        new Badge("Operating Systems", "Raspberry PI"),
 
-        new Badge("Security", "JWT", 2),
-        new Badge("Security", "OAuth", 1),
-        new Badge("Security", "OpenID", 3),
+        new Badge("Security", "OAuth"),
+        new Badge("Security", "JWT"),
+        new Badge("Security", "OpenID"),
 
-        new Badge("Architectures", "Onion", 1),
-        new Badge("Architectures", "Clean", 2),
-        new Badge("Architectures", "Event Driven", 3),
-        new Badge("Architectures", "Microservice", 4),
-        new Badge("Architectures", "Modular Monolith", 5),
-        new Badge("Architectures", "Hexagonal", 6),
-        new Badge("Architectures", "Vertical Slice", 7),
-        new Badge("Architectures", "Cloud Native", 8),
+        new Badge("Architectures", "Onion"),
+        new Badge("Architectures", "Clean"),
+        new Badge("Architectures", "Event Driven"),
+        new Badge("Architectures", "Microservice"),
+        new Badge("Architectures", "Modular Monolith"),
+        new Badge("Architectures", "Hexagonal"),
+        new Badge("Architectures", "Vertical Slice"),
+        new Badge("Architectures", "Cloud Native"),
 
-        new Badge("Cloud Providers", "Azure", 1),
-        new Badge("Cloud Providers", "Google", 2),
-        new Badge("Cloud Providers", "AWS", 1)
+        new Badge("Cloud Providers", "Azure"),
+        new Badge("Cloud Providers", "AWS"),
+        new Badge("Cloud Providers", "GCP"),
+
+        new Badge("DevOps", "Azure DevOps"),
+        new Badge("DevOps", "Github"),
+        new Badge("DevOps", "BitBucket"),
+        new Badge("DevOps", "Octopus"),
+
+        new Badge("Networking", "Topology"),
+        new Badge("Networking", "DNS"),
+        new Badge("Networking", "Load Balancing"),
+        new Badge("Networking", "Firewalls"),
+        new Badge("Networking", "Email & SMTP"),
+        new Badge("Networking", "TCP/IP & UDP"),
+        new Badge("Networking", "Routing"),
+        new Badge("Networking", "Hardware"),
     };
 }

@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\Pages\Contact.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\Pages\Contact.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Radzen.Blazor" Version="4.29.9" />
   </ItemGroup>
 
