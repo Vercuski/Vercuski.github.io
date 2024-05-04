@@ -4,10 +4,19 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GHPagesBase>/</GHPagesBase>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Remove="Components\Pages\Contact.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="CNAME" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="CNAME" />
   </ItemGroup>
 
   <ItemGroup>
