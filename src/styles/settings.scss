@@ -8,3 +8,37 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+@import '../node_modules/@fontsource/roboto/index.css';
+
+$backgroundcolor1: #66627a;
+$backgroundcolor2: white;
+$headerandfooterheight: 80px;
+
+:root {
+  font-family: Roboto;
+  font-size: 16px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.main {
+  background-color: $backgroundcolor2;
+  color: black;
+}
+
+.header {
+  background-color: $backgroundcolor1;
+  height: $headerandfooterheight;
+}
+
+.footer {
+  background-color: $backgroundcolor1;
+  height: $headerandfooterheight;
+  align-items: center;
+}
+
+.headerrouterlink {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}

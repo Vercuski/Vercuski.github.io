@@ -8,6 +8,7 @@
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.0.13",
     "@mdi/font": "6.2.95",
     "core-js": "^3.34.0",
     "roboto-fontface": "*",
