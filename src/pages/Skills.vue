@@ -1,15 +1,17 @@
 <template>
   <v-container fill-height fluid>
+    <br/>
     <v-row class="align-center justify-center">
-      <span class="text-h2 text-center" style="font-weight: bold">SKILLS</span>
+      <span class="text-h4 text-center" style="font-weight: bold">SKILLS</span>
     </v-row>
+    <br/>
     <v-row class="align-center justify-center">
-      <span class="text-body1 text-center">
+      <span class="text-h6 text-center" style="font-weight: bold">
         A list of skills I've picked up over the years, ranked top to bottom of
         familiarity.
-        <br />
       </span>
     </v-row>
+    <br/><br/>
     <v-row class="align-start justify-center">
       <v-col
         v-for="heading in headings"

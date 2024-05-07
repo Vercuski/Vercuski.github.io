@@ -12,7 +12,7 @@
         >SKILLS</router-link
       >
     </v-header>
-    <v-main app class="d-flex align-center justify-center main">
+    <v-main app class="d-flex justify-center main">
       <router-view />
     </v-main>
     <v-footer app class="d-flex align-center justify-center footer">
