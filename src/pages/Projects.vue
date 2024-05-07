@@ -7,7 +7,7 @@
     <v-row class="align-center justify-center">
       <!-- Card Definition Start -->
       <v-col align-self="center" cols="4">
-        <v-card class="my-12 mx-auto" style="max-width: 420px">
+        <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
           <v-card-item class="p-4" style="background-color: white; color:black">
             <v-row>
               <v-col cols="4">
@@ -44,7 +44,7 @@
       <!-- Card Definition End -->
       <!-- Card Definition Start -->
       <v-col align-self="center" cols="4">
-        <v-card class="my-12 mx-auto" style="max-width: 420px">
+        <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
           <v-card-item class="p-4" style="background-color: white; color:black">
             <v-row>
               <v-col cols="4">
@@ -81,7 +81,7 @@
       <!-- Card Definition End -->
       <!-- Card Definition Start -->
       <v-col align-self="center" cols="4">
-        <v-card class="my-12 mx-auto" style="max-width: 420px">
+        <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
           <v-card-item class="p-4" style="background-color: white; color:black">
             <v-row>
               <v-col cols="4">
