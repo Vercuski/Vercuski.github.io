@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <v-header app class="d-flex align-center justify-end header">
       <router-link to="/" class="headerrouterlink my-5 mx-5">HOME</router-link>
       <router-link to="/About" class="headerrouterlink my-5 mx-5"
