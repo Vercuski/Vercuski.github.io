@@ -14,7 +14,7 @@
             hobbyist, and enthusiast of many things. <br /><br />
             Feel free to check out my short,
             <br />
-            but, hopefully, growing list of <a href="/projects">projects.</a>
+            but, hopefully, growing list of <router-link to="/Projects">projects.</router-link>
           </div>
         </v-row>
     </v-col>

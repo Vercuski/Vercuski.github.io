@@ -45,7 +45,7 @@
         >
         to chat about development, a project, my hobbies/interests, or just to say
         hi. Check out my list of
-        <a href="/skills">skills</a> to see if I'm a good fit for a project you
+        <router-link to="/Skills">skills</router-link> to see if I'm a good fit for a project you
         have in mind.</p>
       </v-col>
       <v-col cols="4" offset="1">
