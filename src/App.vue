@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <v-header app class="d-flex align-center justify-end header">
+    <div app class="d-flex align-center justify-end header">
       <router-link to="/" class="headerrouterlink my-5 mx-5">HOME</router-link>
       <router-link to="/About" class="headerrouterlink my-5 mx-5"
         >ABOUT</router-link
@@ -11,7 +11,7 @@
       <router-link to="/Skills" class="headerrouterlink my-5 mx-5"
         >SKILLS</router-link
       >
-    </v-header>
+    </div>
     <v-main class="main">
       <router-view />
     </v-main>
