@@ -12,7 +12,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to.fullPath);
   if (to.fullPath.substring(0,2) === "/?") {
     const newto = to.fullPath.replace('/?', '');
     router.push(newto);
