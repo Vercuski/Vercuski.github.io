@@ -1,3 +1,4 @@
 User-agent: *
 Disallow:
 Sitemap: https://scott.vercuski.dev/sitemap.txt
+Sitemap: https://scott.vercuski.dev/sitemap.xml
