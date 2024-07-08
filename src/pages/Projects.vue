@@ -48,7 +48,7 @@
           <v-card-item class="p-4" style="background-color: white; color:black">
             <v-row>
               <v-col cols="4">
-                <a href="https://github.com/Vercuski/MICROSERVICEARCH.Template" target="_blank"><img src="../assets/icons/Microservice-icon.webp" Style="width: 100px; height: 100px; border-radius: 30%;" /></a>
+                <a href="https://github.com/Vercuski/MICROSERVICEARCH.Template" target="_blank"><img src="../assets/icons/microservice-icon.webp" Style="width: 100px; height: 100px; border-radius: 30%;" /></a>
               </v-col> 
               <v-col>
                   <div class="d flex text-overline">Repository Name</div>
