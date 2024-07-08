@@ -1,0 +1,67 @@
+<template>
+  <div>
+    {{ quote }}
+  </div>
+</template>
+
+<script lang="ts" setup>
+const quotes: string[] = [
+    "\"Books are uniquely portable magic.\" - Stephen King",
+    "\"I cannot live without books.\" - Thomas Jefferson",
+    "\"If you have a garden and a library, you have everything you need.\" - Cicero",
+    "\"The only thing that you absolutely have to know, is the location of the library.\" a- Albert Einstein",
+    "\"We have two lives, the second begins when we realize we have only one.\" -	Confucius",
+    "\"The only true wisdom is in knowing you know nothing.\" - Socrates",
+    "\"The only way to do great work is to love what you do.\" - Steve Jobs",
+    "\"The most merciful thing in the world, I think, is the inability of the human mind to correlate all its contents.\" -	H.P. Lovecraft \"The Call of Cthulhu\"",
+    "\"The only thing we have to fear is fear itself.\" - Franklin D. Roosevelt",
+    "\"He who fights with monsters should take care lest he become a monster, for as you gaze into the abyss, the abyss also gazes into you.\" - Friedrich Nietzsche",
+    "\"Those who were seen dancing were thought to be insane by those who could not hear the music.\" -	Friedrich Nietzsche",
+    "\"The conductor of an orchestra doesn't make a sound. He depends, for his power, on his ability to make other people powerful.\" -	Benjamin Zander",
+    "\"One of the characteristics of a leader is that they not doubt, for one moment, the capacity of the people they are leading to realize the dream.\" -	Benjamin Zander",
+    "\"Art is how we decorate space; music is how we decorate time.\" -Jean-Michel Basquiat",
+    "\"The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it.\" - Jordan Belfort",
+    "\"I have been in the revenge business so long, now that it's over, I don't know what to do with the rest of my life.\" - Inigo Montoya",
+    "\"'Begin at the beginning,' the King said, very gravely, 'and go on till you come to the end: then stop.'\" - Lewis Carroll, Alice in Wonderland",
+    "\"We can solve any problem by introducing an extra level of abstraction, except the problem of too many levels of abstraction.\"",
+    "\"And now that you don't have to be perfect, you can be good.\" -	John Steinbeck's East of Eden",
+    "\"If you want to build a ship, don't drum up the men to gather wood, divide the work and give orders. Instead, teach them to yearn for the vast and endless sea.\" -Antoine de Saint-Exupéry",
+    "\"A ship is safe in a harbor. But then again that's not what ships are for.\" -Unknown",
+    "\"The best time to plant a tree was 20 years ago. The second best time is now.\" -Chinese Proverb",
+    "\"Forgive others, not because they deserve forgiveness, but because you deserve peace.\" -Jonathan Lockwood Huie",
+    "\"A society grows great when old men plant trees whose shade they know they shall never sit in.\" - Greek proverb",
+    "\"If your plan is for one year, plant rice. If your plan is for ten years, plant trees. If your plan is for one hundred years, educate children.\" ― Confucius",
+    "\"The surest way to corrupt a youth is to instruct him to hold in higher esteem those who think alike than those who think differently.\" - Nietzsche",
+    "\"Beware the fury of a patient man\" - John Dryden",
+    "\"There are three things all wise men fear: the sea in storm, a night with no moon, and the anger of a gentle man.\" ― Patrick Rothfuss",
+    "\"Extinction is the rule. Survival is the exception.\" - Carl Sagan",
+    "\"At the end of the game, the king and the pawn go back in the same box.\" - Italian Proverb", 
+    "\"Confidence is quiet. Insecurities are loud.\" - Unknown",
+    "\"When I was a child, my mother said to me, 'If you become a soldier, you'll be a general. If you become a monk you'll end up as the pope.' Instead, I became a painter and wound up as Picasso.\" -Pablo Picasso",
+    "\"The problem with the world is that the intelligent people are full of doubts, while the stupid ones are full of confidence.\" ― Charles Bukowski",
+    "\"Two possibilities exist: Either we are alone in the Universe or we are not. Both are equally terrifying.\" - Arthur C. Clarke",
+    "\"I don't know what weapons World War 3 will be fought with, but I know that World War 4 will be fought with sticks and stones\" - Albert Einstein",
+    "\"The master has failed more times than the beginner has even tried.\" - Stephen McCranie",
+    "\"You cannot conquer a free man. The most you can do is kill him.\" - Robert Heinlein",
+    "\"Holding a grudge is like drinking poison and expecting the other person to die.\" - Unknown",
+    "\"Fight like you're the third monkey on the ramp to Noah's Ark, and brother, it's starting to rain.\" - Unknown",
+    "\"No man is free who cannot control himself.\" - Pythagoras",
+    "\"Everyone must choose one of two pains: The pain of discipline or the pain of regret.\" - Jim Rohn",
+    "\"We suffer more often in imagination than in reality.\" - Seneca",
+    "\"No amount of anxiety makes any difference to anything that is going to happen.\" - Alan Watts",
+    "\"Almost nothing material is needed for a happy life, for he who has understood existence.\" - Marcus Aurelius",
+    "\"It may seem difficult at first but everything is difficult at first.\" - Miyamoto Musashi",
+    "\"Do not spoil what you have by desiring what you have not; remember that what you now have was once among the things you only hoped for.\" - Epicurus",
+    "\"It's never too late to be what you might have been.\" - George Eliot",
+    "\"Our life is what our thoughts make it.\" - Marcus Aurelius",
+    "\"Thinking is difficult, that's why most people judge.\" - Carl Jung",
+    "\"Care what other people think and you will always be their prisoner.\" - Lao Tzu",
+    "\"A fool is known by his speech, and a wise may by silence.\" - Pythagoras",
+    "\"If you are the smartest person in the room, then you are in the wrong room.\" - Confucius",
+    "\"The quieter you become, the more you are able to hear.\" - Rumi",
+    "\"The only way to make sense out of change is to plunge into it, move with it, and join the dance.\" - Alan Watts",
+    "\"The only thing that is constant is change.\" - Heraclitus"
+  ];
+
+const quote = quotes[Math.floor(Math.random() * quotes.length)];
+</script>

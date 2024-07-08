@@ -17,11 +17,16 @@
             but, hopefully, growing list of <router-link to="/Projects">projects.</router-link>
           </div>
         </v-row>
+        <br /><br /><br /><br />
+        <v-row class="align-center justify-center">
+          <div class="text-h5 text-center">
+            <quote></quote>
+          </div>
+        </v-row>
     </v-col>
   </v-row>
   </v-container>
 </template>
 
 <script lang="ts" setup>
-//
 </script>
