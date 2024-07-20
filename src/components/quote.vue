@@ -60,7 +60,17 @@ const quotes: string[] = [
     "\"If you are the smartest person in the room, then you are in the wrong room.\" - Confucius",
     "\"The quieter you become, the more you are able to hear.\" - Rumi",
     "\"The only way to make sense out of change is to plunge into it, move with it, and join the dance.\" - Alan Watts",
-    "\"The only thing that is constant is change.\" - Heraclitus"
+    "\"The only thing that is constant is change.\" - Heraclitus",
+    "\"People aren't against you, they are for themselves.\"",
+    "\"Climb mountains, not so the world can see you, but so you can see the world.\"",
+    "\"You learn more from failure than from success, don't let it stop you. Failure builds character.\"",
+    "\"The most dangerous risk of all is the risk of spending your life not doing what you want on the bet that you can buy yourself the freedom to do it later.\"",
+    "\"Go where you're celebrated, not where you're tolerated.\"",
+    "\"The person you will spend the most time with in your life is yourself, so you'd better try to make yourself as interesting as possible.\"",
+    "\"If you accept your limitations, you go beyond.\"",
+    "\"People often say that motivation doesn't last, well neither does bathing, that's why we recommend it daily\"",
+    "\"Everyone you meet is afraid of something, loved something, and has lost something.\"",
+    "\"Comfort is the enemy of achievement.\""
   ];
 
 const quote = quotes[Math.floor(Math.random() * quotes.length)];
