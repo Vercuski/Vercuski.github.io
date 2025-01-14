@@ -28,7 +28,7 @@
               <v-row Gap="0">
                   <v-col cols="6">
                       <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Framework</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET Core 8</b></p>
+                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET 9</b></p>
                   </v-col>
                   <v-col cols="6">
                       <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Language</p>
@@ -65,7 +65,7 @@
               <v-row Gap="0">
                   <v-col cols="6">
                       <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Framework</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET Core 8</b></p>
+                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET 9</b></p>
                   </v-col>
                   <v-col cols="6">
                       <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Language</p>
@@ -102,7 +102,7 @@
               <v-row Gap="0">
                   <v-col cols="6">
                       <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Framework</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET Core 8</b></p>
+                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET 9</b></p>
                   </v-col>
                   <v-col cols="6">
                       <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Language</p>

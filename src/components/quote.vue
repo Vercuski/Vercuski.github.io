@@ -70,7 +70,9 @@ const quotes: string[] = [
     "\"If you accept your limitations, you go beyond.\"",
     "\"People often say that motivation doesn't last, well neither does bathing, that's why we recommend it daily\"",
     "\"Everyone you meet is afraid of something, loved something, and has lost something.\"",
-    "\"Comfort is the enemy of achievement.\""
+    "\"Comfort is the enemy of achievement.\"",
+    "\"Tradition is a dangerous substitute for critical thinking.\"",
+    "\"Sarcasm is a poor substitute for leadership.\""
   ];
 
 const quote = quotes[Math.floor(Math.random() * quotes.length)];
