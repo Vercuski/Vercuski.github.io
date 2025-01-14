@@ -71,6 +71,15 @@ const quotes: string[] = [
     "\"People often say that motivation doesn't last, well neither does bathing, that's why we recommend it daily\"",
     "\"Everyone you meet is afraid of something, loved something, and has lost something.\"",
     "\"Comfort is the enemy of achievement.\"",
+    "\"In the land of the blind, the one-eyed man is king. - Erasmus\"",
+    "\"A mistake repeated more than once is a decision. - Paulo Coelho\"",
+    "\"We are all living in cages with the door wide open. - George Lucas\"",
+    "\"You didn't become selfish. You became harder to manipulate. Don't confuse the two\"",
+    "\"Mistakes are proof that you're trying. - Ernest Hemingway\"",
+    "\"It's ok to live a life that others don't understand. - Jenna Woginrich\"",
+    "\"To gain your own voice, you have to forget about having it heard. - Allen Ginsberg\"",
+    "\"Be a good person but don't waste time to prove it.\"",
+    "\"If everything around seems dark, look again, you may be the light.	- Rumi\"",
     "\"Tradition is a dangerous substitute for critical thinking.\"",
     "\"Sarcasm is a poor substitute for leadership.\""
   ];
