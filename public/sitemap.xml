@@ -2,18 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://scott.vercuski.dev/</loc>
-    <lastmod>2024-05-21</lastmod>
+    <lastmod>2025-02-08</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.dev/About</loc>
-    <lastmod>2024-05-21</lastmod>
+    <lastmod>2025-02-08</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.dev/Projects</loc>
-    <lastmod>2024-05-21</lastmod>
+    <lastmod>2025-02-08</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.dev/Skills</loc>
-    <lastmod>2024-05-21</lastmod>
+    <lastmod>2025-02-08</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/</loc>
+    <lastmod>2025-02-08</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/About</loc>
+    <lastmod>2025-02-08</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/Projects</loc>
+    <lastmod>2025-02-08</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/Skills</loc>
+    <lastmod>2025-02-08</lastmod>
   </url>
 </urlset>
