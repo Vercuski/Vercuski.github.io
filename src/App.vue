@@ -11,6 +11,9 @@
       <router-link to="/Skills" class="headerrouterlink my-5 mx-5"
         >SKILLS</router-link
       >
+      <router-link to="/Math" class="headerrouterlink my-5 mx-5"
+        >MATH</router-link
+      >
     </div>
     <v-main class="main">
       <router-view />

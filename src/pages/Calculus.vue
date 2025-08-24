@@ -1,0 +1,497 @@
+<template>
+  <v-container fill-height fluid>
+    <br/>
+    <v-row class="align-center justify-center">
+      <span class="text-h4 text-center" style="font-weight: bold">CALCULUS</span>
+    </v-row>
+    <br/>
+    <v-row>
+      <v-col>
+        <fieldset class="mathfieldset">
+          <legend class="mathlegend">DEFINITE INTEGRAL DEFINITION</legend>
+          <div class="mathtable">
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                    </mrow>
+                    <mo>=</mo>
+                    <munder>
+                      <mo>lim</mo>
+                      <mrow>
+                        <mi>n</mi><mo>→</mo><mo>∞</mo>
+                      </mrow>
+                    </munder>
+                    <mrow>
+                      <munderover>
+                        <mo>∑</mo>
+                        <mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow>
+                        <mi>n</mi>
+                      </munderover>
+                      <mrow>
+                        <mi>f</mi>
+                        <mo>(</mo>
+                        <msub><mi>x</mi><mi>k</mi></msub>
+                        <mo>)</mo>
+                      </mrow>
+                      <mi>Δx</mi>
+                    </mrow>
+                  </mrow>
+                </math>
+              </div>
+            </div>
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mrow>
+                    <mtext>where &nbsp; </mtext>
+                    <mi>Δx</mi>
+                    <mo>=</mo>
+                    <mfrac>
+                      <mrow><mi>b</mi><mo>-</mo><mi>a</mi></mrow>
+                      <mi>n</mi>
+                    </mfrac>
+                    <mtext> &nbsp; and &nbsp; </mtext>
+                    <msub><mi>x</mi><mi>k</mi></msub>
+                    <mo>=</mo>
+                    <mi>a</mi>
+                    <mo>+</mo>
+                    <mi>k</mi><mi>Δx</mi>
+                  </mrow>
+                </math>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        &nbsp;
+        <fieldset class="mathfieldset">
+          <legend class="mathlegend">FUNDAMENTAL THEOREM OF CALCULUS</legend>
+          <div class="mathtable">
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <msubsup>
+                        <mrow>
+                          <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                          <mo>=</mo>
+                          <mo>[</mo><mi>F</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+                          <mo>]</mo>
+                        </mrow>
+                        <mi>a</mi>
+                        <mi>b</mi>
+                      </msubsup>
+                    </mrow>
+                    <mo>=</mo>
+                    <mrow>
+                      <mi>F</mi><mo>(</mo><mi>b</mi><mo>)</mo>
+                    </mrow>
+                    <mo>-</mo>
+                    <mrow>
+                      <mi>F</mi><mo>(</mo><mi>a</mi><mo>)</mo>
+                    </mrow>
+                    <mo>,</mo>
+                  </mrow>
+                </math>
+              </div>
+            </div>
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mrow>
+                    <mtext> where &nbsp; </mtext>
+                    <mi>f</mi>
+                    <mtext> &nbsp; is continuous on &nbsp; </mtext>
+                    <mo>[</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo>]</mo>
+                    <mo>,</mo>
+                    <mi>F</mi><mo>'</mo><mo>=</mo><mi>f</mi>
+                  </mrow>
+                </math>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        &nbsp;
+        <fieldset class="mathfieldset">
+          <legend class="mathlegend">INTEGRATION PROPERTIES</legend>
+          <div class="mathtable">
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>c</mi><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                      <mo>=</mo>
+                      <mi>c</mi>
+                    </mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                    </mrow>
+                  </mrow>
+                </math>
+              </div>
+            </div>
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <mo>(</mo>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+                      <mo>±</mo>
+                      <mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo>
+                      <mo>)</mo><mi>d</mi><mi>x</mi>
+                    </mrow>
+                    <mo>=</mo>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                      <mo>±</mo>
+                    </mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                    </mrow>
+                  </mrow>
+                </math>
+              </div>
+            </div>
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>a</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                      <mo>=</mo>
+                      <mn>0</mn>
+                    </mrow>
+                    <mtext> &nbsp; and &nbsp; </mtext>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                      <mo>=</mo>
+                      <mo>-</mo>
+                    </mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>b</mi>
+                      <mi>a</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                    </mrow>
+                  </mrow>
+                </math>
+              </div>
+            </div>
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>b</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                      <mo>+</mo>
+                    </mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>b</mi>
+                      <mi>c</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                      <mo>=</mo>
+                    </mrow>
+                    <msubsup>
+                      <mo>∫</mo>
+                      <mi>a</mi>
+                      <mi>c</mi>
+                    </msubsup>
+                    <mrow>
+                      <mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mi>d</mi><mi>x</mi>
+                    </mrow>
+                  </mrow>
+                </math>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        &nbsp;
+        <fieldset class="mathfieldset">
+          <legend class="mathlegend">APPROXIMATING DEFINITE INTEGRALS</legend>
+          <div class="mathtable">
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mtable>
+                    <mtr>
+                      <mtd>
+                        <mrow>
+                          <mtext>Left-hand and right-hand rectangle approximations</mtext>
+                        </mrow>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>&nbsp;</mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>
+                        <mrow>
+                          <msub><mi>L</mi><mi>n</mi></msub>
+                          <mo>=</mo>
+                          <mi>Δx</mi>
+                        </mrow>
+                        <mrow>
+                          <munderover>
+                            <mo>∑</mo>
+                            <mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow>
+                            <mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow>
+                          </munderover>
+                        </mrow>
+                        <mrow>
+                          <mi>f</mi><mo>(</mo><msub><mi>x</mi><mi>k</mi></msub><mo>)</mo>
+                        </mrow>
+                        <mspace width="20px"></mspace>
+                        <mrow>
+                          <msub><mi>R</mi><mi>n</mi></msub>
+                          <mo>=</mo>
+                          <mi>Δx</mi>
+                          <munderover>
+                            <mo>∑</mo>
+                            <mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow>
+                            <mi>n</mi>
+                          </munderover>
+                        </mrow>
+                        <mrow>
+                          <mi>f</mi>
+                          <mo>(</mo><msub><mi>x</mi><mi>k</mi></msub><mo>)</mo>
+                        </mrow>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>&nbsp;</mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>&nbsp;</mtd>
+                    </mtr>
+                  </mtable>
+                </math>
+      	      </div>
+            </div>
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mtable>
+                    <mtr>
+                      <mtd>
+                        <mrow>
+                          <mtext>Midpoint Rule</mtext>
+                        </mrow>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>&nbsp;</mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>
+                        <mrow>
+                          <msub>
+                            <mi>M</mi>
+                            <mi>n</mi>
+                          </msub>
+                          <mo>=</mo>
+                          <mi>Δx</mi>
+                          <munder>
+                            <mo>∑</mo>
+                            <mrow>
+                              <mi>k</mi>
+                              <mo>=</mo>
+                              <mn>0</mn>
+                            </mrow>
+                          </munder>
+                          <msup>
+                            <mo></mo>
+                            <mrow>
+                              <mi>n</mi>
+                              <mo>-</mo>
+                              <mn>1</mn>
+                            </mrow>
+                          </msup>
+                          <mrow>
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <mfrac>
+                              <mrow>
+                                <msub><mi>x</mi><mi>k</mi></msub>
+                                <mo>+</mo>
+                                <msub>
+                                  <mi>x</mi>
+                                  <mrow>
+                                    <mi>k</mi>
+                                    <mo>+</mo>
+                                    <mn>1</mn>
+                                  </mrow>
+                                </msub>
+                              </mrow>
+                              <mn>2</mn>
+                            </mfrac>
+                            <mo>)</mo>
+                          </mrow>
+                        </mrow>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>&nbsp;</mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>&nbsp;</mtd>
+                    </mtr>
+                  </mtable>
+                </math>
+              </div>
+            </div>
+            <div class="mathrow">
+              <div class="mathcolumn">
+                <math>
+                  <mtable>
+                    <mtr>
+                      <mtd>
+                        <mrow>
+                          <mtext>Trapezoid Rule</mtext>
+                        </mrow>
+                      </mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>&nbsp;</mtd>
+                    </mtr>
+                    <mtr>
+                      <mtd>
+                        <mrow>
+                          <msub>
+                            <mi>T</mi>
+                            <mi>n</mi>
+                          </msub>
+                          <mo>=</mo>
+                          <mfrac>
+                            <mi>Δx</mi>
+                            <mn>3</mn>
+                          </mfrac>
+                          <mo>(</mo>
+                          <mrow>
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <msub><mi>x</mi><mn>0</mn></msub>
+                            <mo>)</mo>
+                            <mo>+</mo>
+                            <mn>4</mn>
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <msub><mi>x</mi><mn>1</mn></msub>
+                            <mo>)</mo>
+                            <mo>+</mo>
+                            <mn>2</mn>
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <msub><mi>x</mi><mn>2</mn></msub>
+                            <mo>)</mo>
+                            <mo>+</mo>
+                            <mo>⋯</mo>
+                            <mo>+</mo>
+                            <mn>2</mn>
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <msub>
+                              <mi>x</mi>
+                              <mrow>
+                                <mi>n</mi>
+                                <mo>-</mo>
+                                <mn>2</mn>
+                              </mrow>
+                            </msub>
+                            <mo>)</mo>
+                            <mo>+</mo>
+                            <mn>4</mn>
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <msub>
+                              <mi>x</mi>
+                              <mrow>
+                                <mi>n</mi>
+                                <mo>-</mo>
+                                <mn>1</mn>
+                              </mrow>
+                            </msub>
+                            <mo>)</mo>
+                            <mo>+</mo>
+                            <mi>f</mi>
+                            <mo>(</mo>
+                            <msub><mi>x</mi><mi>n</mi></msub>
+                            <mo>)</mo>
+                          </mrow>
+                          <mo>)</mo>
+                        </mrow>
+                      </mtd>
+                    </mtr>
+                  </mtable>
+                </math>
+              </div>
+            </div>
+          </div>
+        </fieldset>        
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script lang="ts" setup>
+//
+</script>

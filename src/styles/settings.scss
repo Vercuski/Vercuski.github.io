@@ -43,3 +43,39 @@ $headerandfooterheight: 80px;
   text-decoration: none;
   font-weight: bold;
 }
+
+.mathfieldset {
+  display: inline-block;   /* Shrink to fit content */
+  min-width: 0;            /* Prevent browser-enforced minimums */
+  padding: 0.5em 1em;
+  border: 1px solid black;
+  width: auto;
+}
+
+.mathlegend {
+  color: black;
+  border: 1px solid grey;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 5px;
+  background-color: lightblue;
+}
+
+.mathtable {
+  display: flex;
+  flex-direction: column;
+}
+
+.mathrow {
+  display: flex;
+  flex: 1; /* equal height rows */
+  align-items: flex-start; /* aligns text to the top inside each cell */
+}
+
+.mathcolumn {
+  font-size: 1.3em !important;
+  flex: 1;
+  padding: 8px;
+  text-align: left;       /* horizontal alignment */
+  align-items: flex-start; /* vertical alignment if needed */
+}
