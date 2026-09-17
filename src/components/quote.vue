@@ -20,7 +20,7 @@ const quotes: string[] = [
     "\"The conductor of an orchestra does not make a sound. He depends, for his power, on his ability to make other people powerful.\" -	Benjamin Zander",
     "\"One of the characteristics of a leader is that they not doubt, for one moment, the capacity of the people they are leading to realize the dream.\" -	Benjamin Zander",
     "\"Art is how we decorate space; music is how we decorate time.\" -Jean-Michel Basquiat",
-    "\"The only thing standing between you and your goal is the story you keep telling yourself as to why you can not achieve0 it.\" - Jordan Belfort",
+    "\"The only thing standing between you and your goal is the story you keep telling yourself as to why you can not achieve it.\" - Jordan Belfort",
     "\"I have been in the revenge business so long, now that it is over, I do not know what to do with the rest of my life.\" - Inigo Montoya",
     "\"'Begin at the beginning,' the King said, very gravely, 'and go on till you come to the end: then stop.'\" - Lewis Carroll, Alice in Wonderland",
     "\"We can solve any problem by introducing an extra level of abstraction, except the problem of too many levels of abstraction.\"",
@@ -82,7 +82,11 @@ const quotes: string[] = [
     "\"If everything around seems dark, look again, you may be the light.	- Rumi\"",
     "\"Tradition is a dangerous substitute for critical thinking.\"",
     "\"Sarcasm is a poor substitute for leadership.\"",
-    "\"When someone is saved from certain death by a strange concatenation of circumstances, they say that is a miracle. But of course if someone is killed by a freak chain of events -- the oil spilled just there, the safety fence broken just there -- that must also be a miracle. Just because it is not nice does not mean it is not miraculous. - Terry Pratchett\""
+    "\"When someone is saved from certain death by a strange concatenation of circumstances, they say that is a miracle. But of course if someone is killed by a freak chain of events -- the oil spilled just there, the safety fence broken just there -- that must also be a miracle. Just because it is not nice does not mean it is not miraculous. - Terry Pratchett\"",
+    "\"Be curious, not judgemental.\"",
+    "\"Look up. Your dreams are bigger than your fears.\"",
+    "\"You don't go to flight school to learn how to fly airplanes. You go to flight school to learn how to fly a broken airplane, over mountains, in a thunderstorm, with no radio. You learn how to work the problem.\"",
+    "\"Life does not come with instructions, you have to figure it out as you go.\"",
   ];
 
 const quote = quotes[Math.floor(Math.random() * quotes.length)];
