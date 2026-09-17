@@ -29,4 +29,15 @@
 </template>
 
 <script lang="ts" setup>
+import { useHead } from '@unhead/vue'
+
+useHead({
+  title: 'Scott Vercuski | Software Architect',
+  meta: [
+    {
+      name: 'description',
+      content: "I'm a long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer, gamer, hobbyist, and enthusiast of many things.",
+    },
+  ],
+})
 </script>

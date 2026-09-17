@@ -168,5 +168,15 @@
 </template>
 
 <script lang="ts" setup>
+import { useHead } from '@unhead/vue'
 
+useHead({
+  title: 'Projects | Scott Vercuski',
+  meta: [
+    {
+      name: 'description',
+      content: 'A selection of software architecture and backend project templates by Scott Vercuski, including Onion Architecture, Microservice Architecture, messaging, and Docker Compose scripts.',
+    },
+  ],
+})
 </script>

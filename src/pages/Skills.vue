@@ -34,6 +34,18 @@
 </template>
 
 <script lang="ts" setup>
+import { useHead } from '@unhead/vue'
+
+useHead({
+  title: 'Skills | Scott Vercuski',
+  meta: [
+    {
+      name: 'description',
+      content: 'Technical skills and expertise of Scott Vercuski across languages, databases, frameworks, cloud platforms, DevOps tooling, and software architecture patterns.',
+    },
+  ],
+})
+
 class Badge {
   Heading: string;
   Text: string;

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite-ssg build",
     "preview": "vite preview",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d dist",
@@ -12,8 +12,10 @@
   "dependencies": {
     "@fontsource/roboto": "^5.0.13",
     "@mdi/font": "6.2.95",
+    "@unhead/vue": "^1.11.20",
     "core-js": "^3.34.0",
     "roboto-fontface": "*",
+    "vite-ssg": "25.2.0",
     "vue": "^3.4.21",
     "vuetify": "^3.5.8"
   },

@@ -51,4 +51,16 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  // Vuetify's components import their own .css files as a side effect;
+  // without this, vite-ssg's Node-run SSR bundle tries to import those
+  // .css files directly and fails with ERR_UNKNOWN_FILE_EXTENSION.
+  ssr: {
+    noExternal: ['vuetify'],
+  },
+  // '/About' -> 'About/index.html' rather than 'About.html' — matches
+  // GitHub Pages' unambiguous directory-serving behavior instead of
+  // relying on extensionless-.html resolution.
+  ssgOptions: {
+    dirStyle: 'nested',
+  },
 })

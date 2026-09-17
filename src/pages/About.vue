@@ -77,5 +77,15 @@
 </template>
 
 <script lang="ts" setup>
-//
+import { useHead } from '@unhead/vue'
+
+useHead({
+  title: 'About | Scott Vercuski',
+  meta: [
+    {
+      name: 'description',
+      content: 'Background and career history of Scott Vercuski — a long time developer with experience as a network administrator, DevOps engineer, project manager, and software architect — plus hobbies and interests outside of work.',
+    },
+  ],
+})
 </script>
