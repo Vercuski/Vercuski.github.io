@@ -63,7 +63,7 @@ const personJsonLd = {
     name: 'Scott Vercuski',
     url: 'https://scott.vercuski.com/',
     image: 'https://scott.vercuski.com/images/me.jpg',
-    jobTitle: 'Software/Software Architect',
+    jobTitle: 'Solution/Software Architect',
     description: "Solution/Software Architect, long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer.",
     sameAs: [
       'https://www.linkedin.com/in/scott-vercuski/',
