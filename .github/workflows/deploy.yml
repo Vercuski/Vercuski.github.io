@@ -1,0 +1,76 @@
+name: Build and Deploy
+
+# Wave 3 of the FrontendRedesign migration plan: replaces the manual
+# `yarn deploy` (gh-pages CLI) push with an automated pipeline.
+#
+# - Every push to `main` or `dev`, and every PR targeting `main`, runs the
+#   build (type-check + vite-ssg) so breakage is caught before it reaches
+#   `main` -- useful now that work lands on `dev` first and gets reviewed
+#   before merging.
+# - Only a push to `main` actually deploys, publishing `dist/` to the
+#   `gh-pages` branch (unchanged from how GitHub Pages is already
+#   configured for this repo -- Settings > Pages > Deploy from a branch:
+#   gh-pages). This keeps the manual `yarn deploy` fallback in the
+#   migration plan's rollback strategy fully intact: it pushes to the same
+#   branch this workflow does, so either one can be used interchangeably
+#   if the pipeline ever needs to be bypassed.
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build (type-check + vite-ssg)
+        run: yarn build
+
+      - name: Upload build output
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 1
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
