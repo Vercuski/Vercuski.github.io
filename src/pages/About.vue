@@ -32,7 +32,7 @@
         <p>I've held a number of positions in the span of my career:</p>
         <ul class="ml-10">
           <li>Network Administrator</li>
-          <li>Software Developer (Junior/Mid/Senior/Lead)</li>
+          <li>Software Engineer (Junior/Mid/Senior/Lead/Principal)</li>
           <li>Pseudo DBA</li>
           <li>DevOps Engineer</li>
           <li>Project Manager</li>
