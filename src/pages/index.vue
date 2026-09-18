@@ -31,12 +31,39 @@
 <script lang="ts" setup>
 import { useHead } from '@unhead/vue'
 
+// Person/ProfilePage JSON-LD (ADR-0003 / migration plan Wave 2) — describes
+// Scott as a Person, nested as the mainEntity of this page as a ProfilePage.
+// Only added here (the homepage) rather than on every route, since this is
+// the site's canonical profile page.
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Scott Vercuski',
+    url: 'https://scott.vercuski.com/',
+    image: 'https://scott.vercuski.com/images/me.jpg',
+    jobTitle: 'Software/Software Architect',
+    description: "Solution/Software Architect, long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer.",
+    sameAs: [
+      'https://www.linkedin.com/in/scott-vercuski/',
+      'https://github.com/Vercuski',
+    ],
+  },
+}
+
 useHead({
   title: 'Scott Vercuski | Software Architect',
   meta: [
     {
       name: 'description',
       content: "I'm a long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer, gamer, hobbyist, and enthusiast of many things.",
+    },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify(personJsonLd),
     },
   ],
 })
