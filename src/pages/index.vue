@@ -3,21 +3,41 @@
     <v-row>
       <v-col>
         <v-row class="d flex align-center justify-center">
-          <div class="text-h2" style="font-weight: bold">Hi, I'm Scott Vercuski</div>
+          <div class="text-h2 text-center" style="font-weight: bold">Scott Vercuski</div>
         </v-row>
-        <br /><br />
         <v-row class="align-center justify-center">
-          <div class="text-h5 text-center">
-            I'm a long time developer, mainly in C#/Typescript/Vue/SQL spaces,
-            <br />
-            a pseudo DBA, one time DevOps/Network engineer, gamer,<br />
-            hobbyist, and enthusiast of many things. <br /><br />
-            Feel free to check out my short,
-            <br />
-            but, hopefully, growing list of <router-link to="/Projects">projects.</router-link>
+          <div class="text-h4 text-center" style="font-weight: 500">Software &amp; Solution Architect</div>
+        </v-row>
+        <br />
+        <v-row class="align-center justify-center">
+          <div class="text-h5 text-center" style="max-width: 900px">
+            30+ years turning ambiguous requirements into systems that scale
+            &mdash; architecture, backend engineering, and DevOps across the
+            full lifecycle, mostly in C#/.NET, SQL, and Vue.
           </div>
         </v-row>
-        <br /><br /><br /><br />
+        <br />
+        <v-row class="align-center justify-center">
+          <v-btn
+            color="primary"
+            size="large"
+            href="https://www.linkedin.com/in/scott-vercuski/"
+            target="_blank"
+            rel="noopener"
+            class="mx-2"
+          >
+            Connect on LinkedIn
+          </v-btn>
+          <v-btn
+            variant="outlined"
+            size="large"
+            to="/Projects"
+            class="mx-2"
+          >
+            View my projects
+          </v-btn>
+        </v-row>
+        <br /><br />
         <v-row class="align-center justify-center">
           <div class="text-h5 text-center">
             <quote></quote>

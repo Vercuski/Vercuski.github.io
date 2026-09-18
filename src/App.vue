@@ -16,11 +16,11 @@
       <router-view />
     </v-main>
     <v-footer app class="d-flex align-center justify-center footer">
-      <span class="text-body-1">&copy; 2024. Created by Scott Vercuski</span>
+      <span class="text-body-1">&copy; {{ currentYear }}. Created by Scott Vercuski</span>
     </v-footer>
   </v-app>
 </template>
 
 <script lang="ts" setup>
-//
+const currentYear = new Date().getFullYear()
 </script>

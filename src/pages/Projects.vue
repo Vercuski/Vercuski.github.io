@@ -23,7 +23,7 @@
           </v-card-item>
           <v-card-item class="pa-8" style="background-color: #6966db;">
               <p class="text-h6 rz-color-on-primary-light"><strong>Description</strong></p>
-              <p class="text-body-1 rz-color-on-primary-light">Template for simple message structures to be used for a messaging system.</p>
+              <p class="text-body-1 rz-color-on-primary-light">A lightweight message-contract template for decoupling producers and consumers in event-driven systems &mdash; shared message shapes defined up front so services can evolve independently without breaking downstream consumers.</p>
               <br />
               <v-row Gap="0">
                   <v-col cols="6">
@@ -60,7 +60,7 @@
           </v-card-item>
           <v-card-item class="pa-8" style="background-color: #6966db;">
               <p class="text-h6 rz-color-on-primary-light"><strong>Description</strong></p>
-              <p class="text-body-1 rz-color-on-primary-light">Project template utilizing a Microservice Architecture</p>
+              <p class="text-body-1 rz-color-on-primary-light">A starting point for service boundaries done right &mdash; independent deployability, per-service data ownership, and clean inter-service contracts, the patterns that keep a microservice architecture from becoming a distributed monolith.</p>
               <br />
               <v-row Gap="0">
                   <v-col cols="6">
@@ -97,7 +97,7 @@
           </v-card-item>
           <v-card-item class="pa-8" style="background-color: #6966db;">
               <p class="text-h6 rz-color-on-primary-light"><strong>Description</strong></p>
-              <p class="text-body-1 rz-color-on-primary-light">Project template utilizing an Onion Architecture.</p>
+              <p class="text-body-1 rz-color-on-primary-light">A reference implementation of Onion Architecture &mdash; domain logic at the center, infrastructure and frameworks kept at the edges, so business rules stay testable and technology choices stay swappable.</p>
               <br />
               <v-row Gap="0">
                   <v-col cols="6">
@@ -136,7 +136,7 @@
           </v-card-item>
           <v-card-item class="pa-8" style="background-color: #6966db;">
               <p class="text-h6 rz-color-on-primary-light"><strong>Description</strong></p>
-              <p class="text-body-1 rz-color-on-primary-light">Repository of docker compse scripts for various applications.</p>
+              <p class="text-body-1 rz-color-on-primary-light">A working library of Docker Compose configurations for common local-dev and self-hosted scenarios &mdash; the kind of infrastructure scaffolding that turns 'works on my machine' into 'works everywhere.'</p>
               <br />
               <v-row Gap="0">
                   <v-col cols="6">
