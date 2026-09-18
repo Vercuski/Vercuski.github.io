@@ -12,33 +12,78 @@
       </span>
     </v-row>
     <br/><br/>
-    <v-row class="align-start justify-center">
-      <v-col
-        v-for="heading in headings"
-        :key="heading"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-        class="align-center justify-center"
-      >
-        <span style="font-weight: bold">{{ heading }}</span
-        ><br />
-        <span
-          v-for="badge in badges.filter((x) => x.Heading === heading)"
-          :key="badge.Text"
+
+    <!-- Core Expertise: a curated set of headline skills, called out up
+         front so a visitor skimming for a few seconds sees what matters
+         most before scrolling to the full inventory below. -->
+    <v-row class="justify-center">
+      <v-col cols="12" lg="10" xl="8">
+        <div
+          class="pa-6 rounded-lg"
+          style="background-color: rgb(var(--v-theme-primary)); color: rgb(var(--v-theme-on-primary));"
         >
-          <v-chip size="large" class="my-1" label>
-            <span class="text-body-1">{{ badge.Text }}</span> </v-chip
-          ><br />
-        </span>
+          <div class="text-overline mb-3" style="opacity: 0.75; letter-spacing: 0.1em;">
+            Core Expertise
+          </div>
+          <div class="d-flex flex-wrap" style="gap: 12px">
+            <v-chip
+              v-for="skill in coreSkills"
+              :key="skill"
+              size="large"
+              color="white"
+              variant="flat"
+              class="text-primary font-weight-bold"
+            >
+              {{ skill }}
+            </v-chip>
+          </div>
+        </div>
       </v-col>
     </v-row>
+
+    <br/><br/>
+
+    <!-- Full inventory: the complete, categorized list for anyone who
+         scrolls past the headline skills above. -->
+    <v-row class="justify-center">
+      <v-col cols="12" lg="10" xl="8">
+        <div class="text-overline text-medium-emphasis mb-2">Full Skill Inventory</div>
+      </v-col>
+    </v-row>
+    <v-row class="align-start justify-center">
+      <v-col cols="12" lg="10" xl="8">
+        <v-row>
+          <v-col
+            v-for="category in categories"
+            :key="category.name"
+            cols="12"
+            sm="6"
+            md="4"
+          >
+            <div class="text-overline font-weight-bold mb-2">{{ category.name }}</div>
+            <div class="d-flex flex-wrap" style="gap: 8px">
+              <v-chip
+                v-for="skill in category.skills"
+                :key="skill"
+                size="small"
+                color="secondary"
+                variant="tonal"
+                label
+              >
+                {{ skill }}
+              </v-chip>
+            </div>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+    <br/>
   </v-container>
 </template>
 
 <script lang="ts" setup>
 import { useHead } from '@unhead/vue'
+import type { SkillCategory } from '../types/skill'
 
 useHead({
   title: 'Skills | Scott Vercuski',
@@ -50,90 +95,60 @@ useHead({
   ],
 })
 
-class Badge {
-  Heading: string;
-  Text: string;
+// Headline skills, called out in the Core Expertise band above the full
+// inventory. Scott's own wording/ordering — not derived from the
+// categorized list below.
+const coreSkills: string[] = [
+  'Software/Solution Architecture',
+  'C# / .NET',
+  'SQL Server',
+  'REST API Design',
+  'Docker',
+  'DevOps',
+  'Vue.js',
+  'TypeScript',
+]
 
-  constructor(heading: string, text: string) {
-    this.Heading = heading;
-    this.Text = text;
-  }
-}
-
-let badges: Array<Badge> = [
-  new Badge("Languages", "C#"),
-  new Badge("Languages", "SQL"),
-  new Badge("Languages", "Typescript"),
-  new Badge("Languages", "Javascript"),
-  new Badge("Languages", "Powershell"),
-  new Badge("Languages", "Markdown"),
-  new Badge("Languages", "C++"),
-  new Badge("Languages", "C"),
-
-  new Badge("Databases", "MSSQL"),
-  new Badge("Databases", "MySQL"),
-  new Badge("Databases", "MongoDB"),
-  new Badge("Databases", "CosmosDB"),
-  new Badge("Databases", "PostgreSQL"),
-  new Badge("Databases", "Firebase"),
-  new Badge("Databases", "SQLite"),
-
-  new Badge("Frameworks", ".NET"),
-  new Badge("Frameworks", "Blazor"),
-  new Badge("Frameworks", "VueJS"),
-  new Badge("Frameworks", "Node.JS"),
-  new Badge("Frameworks", "Bootstrap"),
-  new Badge("Frameworks", "Vuetify"),
-  new Badge("Frameworks", "CSS"),
-  new Badge("Frameworks", "SASS"),
-
-  new Badge("Tools", "Visual Studio"),
-  new Badge("Tools", "Git"),
-  new Badge("Tools", "VSCode"),
-  new Badge("Tools", "Docker"),
-  new Badge("Tools", "Jira"),
-  new Badge("Tools", "Postman"),
-  new Badge("Tools", "RabbitMQ"),
-  new Badge("Tools", "MassTransit"),
-  new Badge("Tools", "Nginx"),
-  new Badge("Tools", "Redis"),
-
-  new Badge("OS", "Windows"),
-  new Badge("OS", "Linux"),
-  new Badge("OS", "*nix"),
-  new Badge("OS", "Raspberry PI"),
-
-  new Badge("Security", "OAuth"),
-  new Badge("Security", "JWT"),
-  new Badge("Security", "OpenID"),
-
-  new Badge("Architectures", "Onion"),
-  new Badge("Architectures", "Clean"),
-  new Badge("Architectures", "Event Driven"),
-  new Badge("Architectures", "Microservice"),
-  new Badge("Architectures", "Modular Monolith"),
-  new Badge("Architectures", "Hexagonal"),
-  new Badge("Architectures", "Vertical Slice"),
-  new Badge("Architectures", "Cloud Native"),
-
-  new Badge("Cloud Providers", "Azure"),
-  new Badge("Cloud Providers", "AWS"),
-  new Badge("Cloud Providers", "GCP"),
-
-  new Badge("DevOps", "Azure DevOps"),
-  new Badge("DevOps", "Github"),
-  new Badge("DevOps", "BitBucket"),
-  new Badge("DevOps", "Octopus"),
-
-  new Badge("Networking", "Topology"),
-  new Badge("Networking", "DNS"),
-  new Badge("Networking", "Load Balancing"),
-  new Badge("Networking", "Firewalls"),
-  new Badge("Networking", "Email & SMTP"),
-  new Badge("Networking", "TCP/IP & UDP"),
-  new Badge("Networking", "Routing"),
-  new Badge("Networking", "Hardware"),
-];
-
-const headings = [...new Set(badges.map((item) => item.Heading))];
+const categories: SkillCategory[] = [
+  {
+    name: 'Languages',
+    skills: ['C#', 'SQL', 'TypeScript', 'JavaScript', 'PowerShell', 'Markdown', 'C++', 'C'],
+  },
+  {
+    name: 'Databases',
+    skills: ['SQL Server', 'MySQL', 'MongoDB', 'CosmosDB', 'PostgreSQL', 'Firebase', 'SQLite'],
+  },
+  {
+    name: 'Frameworks',
+    skills: ['.NET', 'Blazor', 'Vue.js', 'Node.JS', 'Bootstrap', 'Vuetify', 'CSS', 'SASS'],
+  },
+  {
+    name: 'Tools',
+    skills: ['Visual Studio', 'Git', 'VSCode', 'Docker', 'Jira', 'Postman', 'RabbitMQ', 'MassTransit', 'Nginx', 'Redis'],
+  },
+  {
+    name: 'OS',
+    skills: ['Windows', 'Linux', '*nix', 'Raspberry PI'],
+  },
+  {
+    name: 'Security',
+    skills: ['OAuth', 'JWT', 'OpenID'],
+  },
+  {
+    name: 'Architectures',
+    skills: ['Onion', 'Clean', 'Event Driven', 'Microservice', 'Modular Monolith', 'Hexagonal', 'Vertical Slice', 'Cloud Native', 'REST API Design'],
+  },
+  {
+    name: 'Cloud Providers',
+    skills: ['Azure', 'AWS', 'GCP'],
+  },
+  {
+    name: 'DevOps',
+    skills: ['Azure DevOps', 'Github', 'BitBucket', 'Octopus'],
+  },
+  {
+    name: 'Networking',
+    skills: ['Topology', 'DNS', 'Load Balancing', 'Firewalls', 'Email & SMTP', 'TCP/IP & UDP', 'Routing', 'Hardware'],
+  },
+]
 </script>
