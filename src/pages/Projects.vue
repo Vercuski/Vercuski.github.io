@@ -4,163 +4,31 @@
     <v-row class="align-center justify-center">
       <span class="text-h4 text-center" style="font-weight: bold">PROJECTS</span>
     </v-row>
-    <v-row class="align-center justify-center">
-      <!-- Card Definition Start -->
-      <v-col cols="12" sm="6" md="4">
-        <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
-          <v-card-item class="p-4">
-            <v-row>
-              <v-col cols="4">
-                <a href="https://github.com/Vercuski/MESSAGING.Template" target="_blank"><img src="../assets/icons/messagingicon.webp" style="width: 100px; height: 100px; border-radius: 50%;" alt="Messaging.Template icon" /></a>
-              </v-col>
-              <v-col>
-                  <div class="d flex text-overline">Repository Name</div>
-                  <div class="text-body-1 font-weight-bold">Messaging.Template</div>
-                  <div class="d flex mt-2 my-0 text-overline">Location</div>
-                  <div class="text-body-1 font-weight-bold">GitHub</div>
-              </v-col>
-            </v-row>
-          </v-card-item>
-          <v-card-item class="pa-8" color="primary">
-              <p class="text-h6"><strong>Description</strong></p>
-              <p class="text-body-1">A lightweight message-contract template for decoupling producers and consumers in event-driven systems &mdash; shared message shapes defined up front so services can evolve independently without breaking downstream consumers.</p>
-              <br />
-              <v-row>
-                  <v-col cols="6">
-                      <p class="text-overline d-flex mt-4 mb-0">Framework</p>
-                      <p class="text-body-1"><b>.NET 9</b></p>
-                  </v-col>
-                  <v-col cols="6">
-                      <p class="text-overline d-flex mt-4 mb-0">Language</p>
-                      <p class="text-body-1"><b>C#</b></p>
-                  </v-col>
-              </v-row>
-          </v-card-item>
-          <v-card-item class="d flex" style="justify-content: end;">
-              <a href="https://github.com/Vercuski/MESSAGING.Template" target="_blank"><img src="../assets/icons/github-mark.png" style="width: 32px; height: 32px;" alt="View Messaging.Template on GitHub" /></a>
-          </v-card-item>
-        </v-card>
+    <br/><br/>
+    <v-row class="align-start justify-center">
+      <v-col
+        v-for="project in projects"
+        :key="project.repoName"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+        class="mb-6"
+      >
+        <ProjectCard :project="project" />
       </v-col>
-      <!-- Card Definition End -->
-      <!-- Card Definition Start -->
-      <v-col cols="12" sm="6" md="4">
-        <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
-          <v-card-item class="p-4">
-            <v-row>
-              <v-col cols="4">
-                <a href="https://github.com/Vercuski/MICROSERVICEARCH.Template" target="_blank"><img src="../assets/icons/microservice-icon.webp" style="width: 100px; height: 100px; border-radius: 30%;" alt="MicroserviceArch.Template icon" /></a>
-              </v-col>
-              <v-col>
-                  <div class="d flex text-overline">Repository Name</div>
-                  <div class="text-body-1 font-weight-bold">MicroserviceArch.Template</div>
-                  <div class="d flex mt-2 my-0 text-overline">Location</div>
-                  <div class="text-body-1 font-weight-bold">GitHub</div>
-              </v-col>
-            </v-row>
-          </v-card-item>
-          <v-card-item class="pa-8" color="primary">
-              <p class="text-h6"><strong>Description</strong></p>
-              <p class="text-body-1">A starting point for service boundaries done right &mdash; independent deployability, per-service data ownership, and clean inter-service contracts, the patterns that keep a microservice architecture from becoming a distributed monolith.</p>
-              <br />
-              <v-row>
-                  <v-col cols="6">
-                      <p class="text-overline d-flex mt-4 mb-0">Framework</p>
-                      <p class="text-body-1"><b>.NET 9</b></p>
-                  </v-col>
-                  <v-col cols="6">
-                      <p class="text-overline d-flex mt-4 mb-0">Language</p>
-                      <p class="text-body-1"><b>C#</b></p>
-                  </v-col>
-              </v-row>
-          </v-card-item>
-          <v-card-item class="d flex" style="justify-content: end;">
-              <a href="https://github.com/Vercuski/MICROSERVICEARCH.Template" target="_blank"><img src="../assets/icons/github-mark.png" style="width: 32px; height: 32px;" alt="View MicroserviceArch.Template on GitHub" /></a>
-          </v-card-item>
-        </v-card>
-      </v-col>
-      <!-- Card Definition End -->
-      <!-- Card Definition Start -->
-      <v-col cols="12" sm="6" md="4">
-        <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
-          <v-card-item class="p-4">
-            <v-row>
-              <v-col cols="4">
-                <a href="https://github.com/Vercuski/ONIONARCH.Template" target="_blank"><img src="../assets/icons/onion-architecture-icon.webp" style="width: 100px; height: 100px; border-radius: 50%;" alt="OnionArch.Template icon" /></a>
-              </v-col>
-              <v-col>
-                  <div class="d flex text-overline">Repository Name</div>
-                  <div class="text-body-1 font-weight-bold">OnionArch.Template</div>
-                  <div class="d flex mt-2 my-0 text-overline">Location</div>
-                  <div class="text-body-1 font-weight-bold">GitHub</div>
-              </v-col>
-            </v-row>
-          </v-card-item>
-          <v-card-item class="pa-8" color="primary">
-              <p class="text-h6"><strong>Description</strong></p>
-              <p class="text-body-1">A reference implementation of Onion Architecture &mdash; domain logic at the center, infrastructure and frameworks kept at the edges, so business rules stay testable and technology choices stay swappable.</p>
-              <br />
-              <v-row>
-                  <v-col cols="6">
-                      <p class="text-overline d-flex mt-4 mb-0">Framework</p>
-                      <p class="text-body-1"><b>.NET 9</b></p>
-                  </v-col>
-                  <v-col cols="6">
-                      <p class="text-overline d-flex mt-4 mb-0">Language</p>
-                      <p class="text-body-1"><b>C#</b></p>
-                  </v-col>
-              </v-row>
-          </v-card-item>
-          <v-card-item class="d flex" style="justify-content: end;">
-              <a href="https://github.com/Vercuski/ONIONARCH.Template" target="_blank"><img src="../assets/icons/github-mark.png" style="width: 32px; height: 32px;" alt="View OnionArch.Template on GitHub" /></a>
-          </v-card-item>
-        </v-card>
-      </v-col>
-      <!-- Card Definition End -->
-    </v-row>
-    <v-row class="align-center justify-center">
-      <!-- Card Definition Start -->
-      <v-col cols="12" sm="6" md="4">
-        <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
-          <v-card-item class="p-4">
-            <v-row>
-              <v-col cols="4">
-                <a href="https://github.com/Vercuski/Docker-Scripts" target="_blank"><img src="../assets/icons/docker-icon.webp" style="width: 100px; height: 100px; border-radius: 50%;" alt="Docker-Scripts icon" /></a>
-              </v-col>
-              <v-col>
-                  <div class="d flex text-overline">Repository Name</div>
-                  <div class="text-body-1 font-weight-bold">Docker-Scripts</div>
-                  <div class="d flex mt-2 my-0 text-overline">Location</div>
-                  <div class="text-body-1 font-weight-bold">GitHub</div>
-              </v-col>
-            </v-row>
-          </v-card-item>
-          <v-card-item class="pa-8" color="primary">
-              <p class="text-h6"><strong>Description</strong></p>
-              <p class="text-body-1">A working library of Docker Compose configurations for common local-dev and self-hosted scenarios &mdash; the kind of infrastructure scaffolding that turns 'works on my machine' into 'works everywhere.'</p>
-              <br />
-              <v-row>
-                  <v-col cols="6">
-                      <p class="text-overline d-flex mt-4 mb-0">Framework</p>
-                      <p class="text-body-1"><b>Various</b></p>
-                  </v-col>
-                  <v-col cols="6">
-                      <p class="text-overline d-flex mt-4 mb-0">Language</p>
-                      <p class="text-body-1"><b>Various</b></p>
-                  </v-col>
-              </v-row>
-          </v-card-item>
-          <v-card-item class="d flex" style="justify-content: end;">
-              <a href="https://github.com/Vercuski/Docker-Scripts" target="_blank"><img src="../assets/icons/github-mark.png" style="width: 32px; height: 32px;" alt="View Docker-Scripts on GitHub" /></a>
-          </v-card-item>
-        </v-card>
-      </v-col>
-      <!-- Card Definition End -->
     </v-row>
   </v-container>
 </template>
 
 <script lang="ts" setup>
 import { useHead } from '@unhead/vue'
+
+import messagingIcon from '../assets/icons/messagingicon.webp'
+import microserviceIcon from '../assets/icons/microservice-icon.webp'
+import onionIcon from '../assets/icons/onion-architecture-icon.webp'
+import dockerIcon from '../assets/icons/docker-icon.webp'
+import type { Project } from '../types/project'
 
 useHead({
   title: 'Projects | Scott Vercuski',
@@ -171,4 +39,46 @@ useHead({
     },
   ],
 })
+
+// Adding a new project card going forward is just appending an entry here
+// — ProjectCard.vue handles the layout, and the grid above wraps
+// automatically as the list grows.
+const projects: Project[] = [
+  {
+    repoName: 'Messaging.Template',
+    icon: messagingIcon,
+    iconAlt: 'Messaging.Template icon',
+    description: 'A lightweight message-contract template for decoupling producers and consumers in event-driven systems — shared message shapes defined up front so services can evolve independently without breaking downstream consumers.',
+    framework: '.NET 9',
+    language: 'C#',
+    githubUrl: 'https://github.com/Vercuski/MESSAGING.Template',
+  },
+  {
+    repoName: 'MicroserviceArch.Template',
+    icon: microserviceIcon,
+    iconAlt: 'MicroserviceArch.Template icon',
+    description: 'A starting point for service boundaries done right — independent deployability, per-service data ownership, and clean inter-service contracts, the patterns that keep a microservice architecture from becoming a distributed monolith.',
+    framework: '.NET 9',
+    language: 'C#',
+    githubUrl: 'https://github.com/Vercuski/MICROSERVICEARCH.Template',
+  },
+  {
+    repoName: 'OnionArch.Template',
+    icon: onionIcon,
+    iconAlt: 'OnionArch.Template icon',
+    description: 'A reference implementation of Onion Architecture — domain logic at the center, infrastructure and frameworks kept at the edges, so business rules stay testable and technology choices stay swappable.',
+    framework: '.NET 9',
+    language: 'C#',
+    githubUrl: 'https://github.com/Vercuski/ONIONARCH.Template',
+  },
+  {
+    repoName: 'Docker-Scripts',
+    icon: dockerIcon,
+    iconAlt: 'Docker-Scripts icon',
+    description: "A working library of Docker Compose configurations for common local-dev and self-hosted scenarios — the kind of infrastructure scaffolding that turns 'works on my machine' into 'works everywhere.'",
+    framework: 'Various',
+    language: 'Various',
+    githubUrl: 'https://github.com/Vercuski/Docker-Scripts',
+  },
+]
 </script>
