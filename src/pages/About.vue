@@ -6,14 +6,20 @@
     </v-row>
     <br/>
     <v-row class="align-center justify-center">
-      <span class="text-h7 text-center" style="font-weight: bold">
+      <span class="text-h6 text-center" style="font-weight: bold">
         A brief summary about me, mostly about my skillset in technology,
         programming and management, but also about my hobbies and interests.
       </span>
     </v-row>
     <br/><br/>
+    <v-row class="align-center justify-center">
+      <v-avatar size="160" class="elevation-3">
+        <v-img :src="profilePhoto" alt="Portrait of Scott Vercuski" cover />
+      </v-avatar>
+    </v-row>
+    <br/><br/>
     <v-row justify="center">
-      <v-col align-self="center" cols="4" offset="1">
+      <v-col cols="12" md="6" class="px-6">
         <p class="text-center" style="font-weight: bold">Who Am I?</p>
         <br />
         <p>Long time developer, primarily focused on the Backend and Database areas.
@@ -48,7 +54,7 @@
         <router-link to="/Skills">skills</router-link> to see if I'm a good fit for a project you
         have in mind.</p>
       </v-col>
-      <v-col cols="4" offset="1">
+      <v-col cols="12" md="6" class="px-6">
         <p class="text-center" style="font-weight: bold">Hobbies & Interests</p>
         <br/>
         <p>A brief (or not so brief) list of things I do, or attempt to do (with
@@ -78,6 +84,7 @@
 
 <script lang="ts" setup>
 import { useHead } from '@unhead/vue'
+import profilePhoto from '../assets/icons/Me.jpg'
 
 useHead({
   title: 'About | Scott Vercuski',

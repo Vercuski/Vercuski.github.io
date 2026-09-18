@@ -16,6 +16,10 @@
       <v-col
         v-for="heading in headings"
         :key="heading"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
         class="align-center justify-center"
       >
         <span style="font-weight: bold">{{ heading }}</span

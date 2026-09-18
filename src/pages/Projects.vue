@@ -6,13 +6,13 @@
     </v-row>
     <v-row class="align-center justify-center">
       <!-- Card Definition Start -->
-      <v-col align-self="center" cols="4">
+      <v-col cols="12" sm="6" md="4">
         <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
-          <v-card-item class="p-4" style="background-color: white; color:black">
+          <v-card-item class="p-4">
             <v-row>
               <v-col cols="4">
-                <a href="https://github.com/Vercuski/MESSAGING.Template" target="_blank"><img src="../assets/icons/messagingicon.webp" Style="width: 100px; height: 100px; border-radius: 50%;" /></a>
-              </v-col> 
+                <a href="https://github.com/Vercuski/MESSAGING.Template" target="_blank"><img src="../assets/icons/messagingicon.webp" style="width: 100px; height: 100px; border-radius: 50%;" alt="Messaging.Template icon" /></a>
+              </v-col>
               <v-col>
                   <div class="d flex text-overline">Repository Name</div>
                   <div class="text-body-1 font-weight-bold">Messaging.Template</div>
@@ -21,35 +21,35 @@
               </v-col>
             </v-row>
           </v-card-item>
-          <v-card-item class="pa-8" style="background-color: #6966db;">
-              <p class="text-h6 rz-color-on-primary-light"><strong>Description</strong></p>
-              <p class="text-body-1 rz-color-on-primary-light">A lightweight message-contract template for decoupling producers and consumers in event-driven systems &mdash; shared message shapes defined up front so services can evolve independently without breaking downstream consumers.</p>
+          <v-card-item class="pa-8" color="primary">
+              <p class="text-h6"><strong>Description</strong></p>
+              <p class="text-body-1">A lightweight message-contract template for decoupling producers and consumers in event-driven systems &mdash; shared message shapes defined up front so services can evolve independently without breaking downstream consumers.</p>
               <br />
-              <v-row Gap="0">
+              <v-row>
                   <v-col cols="6">
-                      <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Framework</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET 9</b></p>
+                      <p class="text-overline d-flex mt-4 mb-0">Framework</p>
+                      <p class="text-body-1"><b>.NET 9</b></p>
                   </v-col>
                   <v-col cols="6">
-                      <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Language</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>C#</b></p>
+                      <p class="text-overline d-flex mt-4 mb-0">Language</p>
+                      <p class="text-body-1"><b>C#</b></p>
                   </v-col>
               </v-row>
           </v-card-item>
-          <v-card-item class="d flex" style="background-color: white; color:black; justify-content: end;">
-              <a href="https://github.com/Vercuski/MESSAGING.Template" target="_blank"><img src="../assets/icons/github-mark.png" Style="width: 32px; height: 32px;" /></a>
+          <v-card-item class="d flex" style="justify-content: end;">
+              <a href="https://github.com/Vercuski/MESSAGING.Template" target="_blank"><img src="../assets/icons/github-mark.png" style="width: 32px; height: 32px;" alt="View Messaging.Template on GitHub" /></a>
           </v-card-item>
         </v-card>
       </v-col>
       <!-- Card Definition End -->
       <!-- Card Definition Start -->
-      <v-col align-self="center" cols="4">
+      <v-col cols="12" sm="6" md="4">
         <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
-          <v-card-item class="p-4" style="background-color: white; color:black">
+          <v-card-item class="p-4">
             <v-row>
               <v-col cols="4">
-                <a href="https://github.com/Vercuski/MICROSERVICEARCH.Template" target="_blank"><img src="../assets/icons/microservice-icon.webp" Style="width: 100px; height: 100px; border-radius: 30%;" /></a>
-              </v-col> 
+                <a href="https://github.com/Vercuski/MICROSERVICEARCH.Template" target="_blank"><img src="../assets/icons/microservice-icon.webp" style="width: 100px; height: 100px; border-radius: 30%;" alt="MicroserviceArch.Template icon" /></a>
+              </v-col>
               <v-col>
                   <div class="d flex text-overline">Repository Name</div>
                   <div class="text-body-1 font-weight-bold">MicroserviceArch.Template</div>
@@ -58,35 +58,35 @@
               </v-col>
             </v-row>
           </v-card-item>
-          <v-card-item class="pa-8" style="background-color: #6966db;">
-              <p class="text-h6 rz-color-on-primary-light"><strong>Description</strong></p>
-              <p class="text-body-1 rz-color-on-primary-light">A starting point for service boundaries done right &mdash; independent deployability, per-service data ownership, and clean inter-service contracts, the patterns that keep a microservice architecture from becoming a distributed monolith.</p>
+          <v-card-item class="pa-8" color="primary">
+              <p class="text-h6"><strong>Description</strong></p>
+              <p class="text-body-1">A starting point for service boundaries done right &mdash; independent deployability, per-service data ownership, and clean inter-service contracts, the patterns that keep a microservice architecture from becoming a distributed monolith.</p>
               <br />
-              <v-row Gap="0">
+              <v-row>
                   <v-col cols="6">
-                      <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Framework</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET 9</b></p>
+                      <p class="text-overline d-flex mt-4 mb-0">Framework</p>
+                      <p class="text-body-1"><b>.NET 9</b></p>
                   </v-col>
                   <v-col cols="6">
-                      <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Language</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>C#</b></p>
+                      <p class="text-overline d-flex mt-4 mb-0">Language</p>
+                      <p class="text-body-1"><b>C#</b></p>
                   </v-col>
               </v-row>
           </v-card-item>
-          <v-card-item class="d flex" style="background-color: white; color:black; justify-content: end;">
-              <a href="https://github.com/Vercuski/MICROSERVICEARCH.Template" target="_blank"><img src="../assets/icons/github-mark.png" Style="width: 32px; height: 32px;" /></a>
+          <v-card-item class="d flex" style="justify-content: end;">
+              <a href="https://github.com/Vercuski/MICROSERVICEARCH.Template" target="_blank"><img src="../assets/icons/github-mark.png" style="width: 32px; height: 32px;" alt="View MicroserviceArch.Template on GitHub" /></a>
           </v-card-item>
         </v-card>
       </v-col>
       <!-- Card Definition End -->
       <!-- Card Definition Start -->
-      <v-col align-self="center" cols="4">
+      <v-col cols="12" sm="6" md="4">
         <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
-          <v-card-item class="p-4" style="background-color: white; color:black">
+          <v-card-item class="p-4">
             <v-row>
               <v-col cols="4">
-                <a href="https://github.com/Vercuski/ONIONARCH.Template" target="_blank"><img src="../assets/icons/onion-architecture-icon.webp" Style="width: 100px; height: 100px; border-radius: 50%;" /></a>
-              </v-col> 
+                <a href="https://github.com/Vercuski/ONIONARCH.Template" target="_blank"><img src="../assets/icons/onion-architecture-icon.webp" style="width: 100px; height: 100px; border-radius: 50%;" alt="OnionArch.Template icon" /></a>
+              </v-col>
               <v-col>
                   <div class="d flex text-overline">Repository Name</div>
                   <div class="text-body-1 font-weight-bold">OnionArch.Template</div>
@@ -95,23 +95,23 @@
               </v-col>
             </v-row>
           </v-card-item>
-          <v-card-item class="pa-8" style="background-color: #6966db;">
-              <p class="text-h6 rz-color-on-primary-light"><strong>Description</strong></p>
-              <p class="text-body-1 rz-color-on-primary-light">A reference implementation of Onion Architecture &mdash; domain logic at the center, infrastructure and frameworks kept at the edges, so business rules stay testable and technology choices stay swappable.</p>
+          <v-card-item class="pa-8" color="primary">
+              <p class="text-h6"><strong>Description</strong></p>
+              <p class="text-body-1">A reference implementation of Onion Architecture &mdash; domain logic at the center, infrastructure and frameworks kept at the edges, so business rules stay testable and technology choices stay swappable.</p>
               <br />
-              <v-row Gap="0">
+              <v-row>
                   <v-col cols="6">
-                      <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Framework</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>.NET 9</b></p>
+                      <p class="text-overline d-flex mt-4 mb-0">Framework</p>
+                      <p class="text-body-1"><b>.NET 9</b></p>
                   </v-col>
                   <v-col cols="6">
-                      <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Language</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>C#</b></p>
+                      <p class="text-overline d-flex mt-4 mb-0">Language</p>
+                      <p class="text-body-1"><b>C#</b></p>
                   </v-col>
               </v-row>
           </v-card-item>
-          <v-card-item class="d flex" style="background-color: white; color:black; justify-content: end;">
-              <a href="https://github.com/Vercuski/ONIONARCH.Template" target="_blank"><img src="../assets/icons/github-mark.png" Style="width: 32px; height: 32px;" /></a>
+          <v-card-item class="d flex" style="justify-content: end;">
+              <a href="https://github.com/Vercuski/ONIONARCH.Template" target="_blank"><img src="../assets/icons/github-mark.png" style="width: 32px; height: 32px;" alt="View OnionArch.Template on GitHub" /></a>
           </v-card-item>
         </v-card>
       </v-col>
@@ -119,13 +119,13 @@
     </v-row>
     <v-row class="align-center justify-center">
       <!-- Card Definition Start -->
-      <v-col align-self="center" cols="4">
+      <v-col cols="12" sm="6" md="4">
         <v-card class="my-12 mx-auto" style="max-width: 420px; border: 1px solid black">
-          <v-card-item class="p-4" style="background-color: white; color:black">
+          <v-card-item class="p-4">
             <v-row>
               <v-col cols="4">
-                <a href="https://github.com/Vercuski/Docker-Scripts" target="_blank"><img src="../assets/icons/docker-icon.webp" Style="width: 100px; height: 100px; border-radius: 50%;" /></a>
-              </v-col> 
+                <a href="https://github.com/Vercuski/Docker-Scripts" target="_blank"><img src="../assets/icons/docker-icon.webp" style="width: 100px; height: 100px; border-radius: 50%;" alt="Docker-Scripts icon" /></a>
+              </v-col>
               <v-col>
                   <div class="d flex text-overline">Repository Name</div>
                   <div class="text-body-1 font-weight-bold">Docker-Scripts</div>
@@ -134,33 +134,25 @@
               </v-col>
             </v-row>
           </v-card-item>
-          <v-card-item class="pa-8" style="background-color: #6966db;">
-              <p class="text-h6 rz-color-on-primary-light"><strong>Description</strong></p>
-              <p class="text-body-1 rz-color-on-primary-light">A working library of Docker Compose configurations for common local-dev and self-hosted scenarios &mdash; the kind of infrastructure scaffolding that turns 'works on my machine' into 'works everywhere.'</p>
+          <v-card-item class="pa-8" color="primary">
+              <p class="text-h6"><strong>Description</strong></p>
+              <p class="text-body-1">A working library of Docker Compose configurations for common local-dev and self-hosted scenarios &mdash; the kind of infrastructure scaffolding that turns 'works on my machine' into 'works everywhere.'</p>
               <br />
-              <v-row Gap="0">
+              <v-row>
                   <v-col cols="6">
-                      <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Framework</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>Various</b></p>
+                      <p class="text-overline d-flex mt-4 mb-0">Framework</p>
+                      <p class="text-body-1"><b>Various</b></p>
                   </v-col>
                   <v-col cols="6">
-                      <p class="text-overline rz-color-on-primary-light rz-display-flex rz-mt-4 rz-mb-0">Language</p>
-                      <p class="text-body-1 rz-color-on-primary-light"><b>Various</b></p>
+                      <p class="text-overline d-flex mt-4 mb-0">Language</p>
+                      <p class="text-body-1"><b>Various</b></p>
                   </v-col>
               </v-row>
           </v-card-item>
-          <v-card-item class="d flex" style="background-color: white; color:black; justify-content: end;">
-              <a href="https://github.com/Vercuski/Docker-Scripts" target="_blank"><img src="../assets/icons/github-mark.png" Style="width: 32px; height: 32px;" /></a>
+          <v-card-item class="d flex" style="justify-content: end;">
+              <a href="https://github.com/Vercuski/Docker-Scripts" target="_blank"><img src="../assets/icons/github-mark.png" style="width: 32px; height: 32px;" alt="View Docker-Scripts on GitHub" /></a>
           </v-card-item>
         </v-card>
-      </v-col>
-      <!-- Card Definition End -->
-      <!-- Card Definition Start -->
-      <v-col align-self="center" cols="4">
-      </v-col>
-      <!-- Card Definition End -->
-      <!-- Card Definition Start -->
-      <v-col align-self="center" cols="4">
       </v-col>
       <!-- Card Definition End -->
     </v-row>

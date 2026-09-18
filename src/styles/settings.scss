@@ -22,9 +22,16 @@ $headerandfooterheight: 80px;
 }
 
 .main {
-  // background-color: $backgroundcolor2;
+  // Wave 5: cover/center/no-repeat instead of the CSS default (tile from the
+  // top-left), so the background image actually fills the viewport at every
+  // size instead of repeating as a visible grid on wide/short screens.
   background-image: url("/backgrounds/background.webp");
-  color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // Matches the new light theme's actual on-background color (see
+  // plugins/vuetify.ts) instead of a plain #000 fighting it.
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .header {
