@@ -143,3 +143,7 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+# Vite dependency pre-bundling cache — build artifact, should never be
+# committed (was previously tracked by mistake; see cleanup 2026-09).
+.vite/

@@ -308,13 +308,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/roboto@npm:^5.0.13":
-  version: 5.0.13
-  resolution: "@fontsource/roboto@npm:5.0.13"
-  checksum: 10c0/7128bf10a82120cd343bb1d8352e2635d2c4612c2988ef9dc1f2536614475a8ec13db09dafd4df8061bfaa17f1b728fa0de24e4f5ffd889aad61d9b00271f45d
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -402,13 +395,6 @@ __metadata:
     "@jridgewell/resolve-uri": "npm:^3.1.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
   checksum: 10c0/4b30ec8cd56c5fd9a661f088230af01e0c1a3888d11ffb6b47639700f71225be21d1f7e168048d6d4f9449207b978a235c07c8f15c07705685d16dc06280e9d9
-  languageName: node
-  linkType: hard
-
-"@mdi/font@npm:6.2.95":
-  version: 6.2.95
-  resolution: "@mdi/font@npm:6.2.95"
-  checksum: 10c0/2626d586a26f790ae26bd17a6ba81d2faa661f2bbbebb001969d317ab5b169fd24c3e9f2dedb6322830a608e6867b1a08a9841369edd7777a16234a69f64e2a7
   languageName: node
   linkType: hard
 
@@ -1032,14 +1018,11 @@ __metadata:
   resolution: "PersonalSite@workspace:."
   dependencies:
     "@babel/types": "npm:^7.24.0"
-    "@fontsource/roboto": "npm:^5.0.13"
-    "@mdi/font": "npm:6.2.95"
     "@types/gh-pages": "npm:^6"
     "@types/node": "npm:^20.11.25"
     "@unhead/vue": "npm:^1.11.20"
     "@vitejs/plugin-vue": "npm:^5.0.4"
     "@vue/eslint-config-typescript": "npm:^13.0.0"
-    core-js: "npm:^3.34.0"
     eslint: "npm:^8.57.0"
     eslint-config-standard: "npm:^17.1.0"
     eslint-plugin-import: "npm:^2.29.1"
@@ -1048,7 +1031,6 @@ __metadata:
     eslint-plugin-promise: "npm:^6.1.1"
     eslint-plugin-vue: "npm:^9.22.0"
     gh-pages: "npm:^6.1.1"
-    roboto-fontface: "npm:*"
     sass: "npm:^1.71.1"
     typescript: "npm:^5.4.2"
     unplugin-fonts: "npm:^1.1.1"
@@ -1570,13 +1552,6 @@ __metadata:
   version: 0.1.7
   resolution: "confbox@npm:0.1.7"
   checksum: 10c0/18b40c2f652196a833f3f1a5db2326a8a579cd14eacabfe637e4fc8cb9b68d7cf296139a38c5e7c688ce5041bf46f9adce05932d43fde44cf7e012840b5da111
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^3.34.0":
-  version: 3.37.0
-  resolution: "core-js@npm:3.37.0"
-  checksum: 10c0/7e00331f346318ca3f595c08ce9e74ddae744715aef137486c1399163afd79792fb94c3161280863adfdc3e30f8026912d56bd3036f93cacfc689d33e185f2ee
   languageName: node
   linkType: hard
 
@@ -4161,13 +4136,6 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 10c0/9cb7757acb489bd83757ba1a274ab545eafd75598a9d817e0c3f8b164238dd90eba50d6b848bd4dcc5f3040912e882dc7ba71653e35af660d77b25c381d402e8
-  languageName: node
-  linkType: hard
-
-"roboto-fontface@npm:*":
-  version: 0.10.0
-  resolution: "roboto-fontface@npm:0.10.0"
-  checksum: 10c0/175b3190d67f87b062e63d5fabe5aac10aaf8bc143854a2afd6beeac942302c62846de2de617dd202f76fb55a31e89e062e72be8c7ca7316caa9ba87cbafc9e1
   languageName: node
   linkType: hard
 
