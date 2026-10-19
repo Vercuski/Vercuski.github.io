@@ -12,9 +12,13 @@
       </template>
       <DocumentationTree :nodes="node.children ?? []" :selected="selected" />
     </v-list-group>
+    <!-- exact: without it Vuetify ignores the query when deciding whether a
+         link is active, so every document would count as active and
+         Vuetify would expand its parent folder on load. -->
     <v-list-item
       v-else-if="node.type === 'markdown'"
       :to="{ query: { doc: node.path } }"
+      exact
       :active="node.path === selected"
       :prepend-icon="mdiFileDocumentOutline"
       :title="displayName(node.name)"
