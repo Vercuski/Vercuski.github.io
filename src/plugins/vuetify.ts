@@ -9,6 +9,7 @@ import 'vuetify/styles'
 
 // Composables
 import { createVuetify } from 'vuetify'
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 
 // Wave 5 (visual/design system): the site previously used Vuetify's built-in
 // 'dark' theme (light text, dark-surface-calibrated component colors) while
@@ -28,6 +29,14 @@ import { createVuetify } from 'vuetify'
 //
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
+  // SVG icons from @mdi/js: only the icons actually imported are bundled,
+  // and no icon font has to load. Also provides the chevrons Vuetify's own
+  // components use (e.g. v-list-group's expand arrow).
+  icons: {
+    defaultSet: 'mdi',
+    aliases,
+    sets: { mdi },
+  },
   theme: {
     defaultTheme: 'scottLight',
     themes: {

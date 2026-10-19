@@ -7,9 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    DocumentationBrowser: typeof import('./src/components/DocumentationBrowser.vue')['default']
+    DocumentationTree: typeof import('./src/components/DocumentationTree.vue')['default']
+    MermaidDiagram: typeof import('./src/components/MermaidDiagram.vue')['default']
     ProjectCard: typeof import('./src/components/ProjectCard.vue')['default']
     Quote: typeof import('./src/components/quote.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TopicNavItem: typeof import('./src/components/TopicNavItem.vue')['default']
   }
 }
