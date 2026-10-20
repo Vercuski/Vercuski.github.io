@@ -10,6 +10,7 @@
 import type { RouteLocationNormalized, RouteRecordRaw } from 'vue-router'
 
 import AboutView from '../pages/About.vue'
+import ContactView from '../pages/Contact.vue'
 import IndexView from '../pages/index.vue'
 import ProjectsView from '../pages/Projects.vue'
 import SkillsView from '../pages/Skills.vue'
@@ -26,6 +27,7 @@ export const routes: RouteRecordRaw[] = [
   { path: '/about', component: AboutView },
   { path: '/projects', component: ProjectsView },
   { path: '/skills', component: SkillsView },
+  { path: '/contact', component: ContactView },
   {
     path: '/topics',
     component: TopicsView,

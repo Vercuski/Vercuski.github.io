@@ -14,6 +14,9 @@
       <router-link to="/topics/" class="headerrouterlink my-5 mx-5"
         >TOPICS</router-link
       >
+      <router-link to="/contact/" class="headerrouterlink my-5 mx-5"
+        >CONTACT</router-link
+      >
     </div>
     <v-main class="main">
       <router-view />
