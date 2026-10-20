@@ -17,14 +17,20 @@
           </div>
         </v-row>
         <br />
-        <v-row class="align-center justify-center">
+        <v-row class="align-center justify-center ga-4 px-4">
           <v-btn
             color="primary"
+            size="large"
+            to="/contact/"
+          >
+            Get in touch
+          </v-btn>
+          <v-btn
+            variant="outlined"
             size="large"
             href="https://www.linkedin.com/in/scott-vercuski/"
             target="_blank"
             rel="noopener"
-            class="mx-2"
           >
             Connect on LinkedIn
           </v-btn>
@@ -32,7 +38,6 @@
             variant="outlined"
             size="large"
             to="/projects/"
-            class="mx-2"
           >
             View my projects
           </v-btn>

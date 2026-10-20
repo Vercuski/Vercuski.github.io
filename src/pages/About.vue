@@ -20,7 +20,7 @@
     <br/><br/>
     <v-row justify="center">
       <v-col cols="12" md="6" class="px-6">
-        <p class="text-center" style="font-weight: bold">Who Am I?</p>
+        <h2 class="text-body-1 text-center" style="font-weight: bold">Who Am I?</h2>
         <br />
         <p>Long time developer, primarily focused on the Backend and Database areas.
         My preferred Frontend frameworks are Vue.js and Microsoft Blazor.</p>
@@ -45,8 +45,9 @@
         to date. My PC is a mishmash of projects and technologies that I'm
         currently learning or working on.</p>
         <br />
-        <p>Please feel free to contact me on
-        <a href="https://www.linkedin.com/in/scott-vercuski/" target="_blank"
+        <p>Please feel free to
+        <router-link to="/contact/">send me a message</router-link> or connect on
+        <a href="https://www.linkedin.com/in/scott-vercuski/" target="_blank" rel="noopener"
           >LinkedIn</a
         >
         to chat about development, a project, my hobbies/interests, or just to say
@@ -55,7 +56,7 @@
         have in mind.</p>
       </v-col>
       <v-col cols="12" md="6" class="px-6">
-        <p class="text-center" style="font-weight: bold">Hobbies & Interests</p>
+        <h2 class="text-body-1 text-center" style="font-weight: bold">Hobbies & Interests</h2>
         <br/>
         <p>A brief (or not so brief) list of things I do, or attempt to do (with
         varying degrees of success), in my spare time.</p>

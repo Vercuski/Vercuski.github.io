@@ -18,6 +18,7 @@ import TopicsView from '../pages/Topics.vue'
 import TopicsIndexView from '../pages/TopicsIndex.vue'
 import TopicDetailView from '../pages/TopicDetail.vue'
 import NotFoundView from '../pages/NotFound.vue'
+import PrivacyView from '../pages/Privacy.vue'
 import { allTopics } from '../data/topics'
 
 // Paths are lowercase: the live host redirects every URL to lowercase with
@@ -28,6 +29,7 @@ export const routes: RouteRecordRaw[] = [
   { path: '/projects', component: ProjectsView },
   { path: '/skills', component: SkillsView },
   { path: '/contact', component: ContactView },
+  { path: '/privacy', component: PrivacyView },
   {
     path: '/topics',
     component: TopicsView,

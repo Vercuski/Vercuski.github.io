@@ -75,6 +75,14 @@
           >
             Send Message
           </v-btn>
+          <p class="text-caption text-medium-emphasis mt-4">
+            Your details are only used to reply to your message. See the
+            <router-link to="/privacy/">privacy policy</router-link> for how they're
+            handled. This form is protected by hCaptcha, and its
+            <a href="https://www.hcaptcha.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+            and <a href="https://www.hcaptcha.com/terms" target="_blank" rel="noopener">Terms of Service</a>
+            apply.
+          </p>
         </v-form>
       </v-col>
     </v-row>
