@@ -1,0 +1,763 @@
+<!DOCTYPE html><html lang="en"><head>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-423SL0YDHG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-423SL0YDHG');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Scott Vercuski">
+    <meta name="description" content="Azure Event Hubs Premium scored 4.25 / 5, ahead of Confluent Cloud (3.95) and Azure Service Bus Premium (3.20). Self-managed Kafka was excluded on a hard…">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Scott Vercuski | Software Architect">
+    <meta name="google-site-verification" content="ZHe0GpV-ugL5aqoWWPA-TtJK4-8xT49Vkgx4UzQVkj0">
+    <meta property="og:site_name" content="Scott Vercuski Portfolio Website">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://scott.vercuski.com/images/me.jpg">
+    <meta property="og:image:alt" content="Portrait of Scott Vercuski">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://scott.vercuski.com/images/me.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Evaluation / Trade Study — Tap Ingestion and Event Backbone | Architecture Documentation Example | Scott Vercuski</title>
+  <script type="module" crossorigin="" src="/assets/app-D6qqIIQm.js"></script>
+  <link rel="stylesheet" crossorigin="" href="/assets/app-BtO1POyz.css">
+<link rel="modulepreload" crossorigin="" href="/assets/DocumentationBrowser-pcF5qxTV.js"><link rel="stylesheet" href="/assets/DocumentationBrowser-CvcsScn1.css"><style id="vuetify-theme-stylesheet">:root {
+      --v-theme-background: 245,245,245;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 105,102,219;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 102,98,122;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 204,191,214;
+      --v-theme-surface-bright-overlay-multiplier: 2;
+      --v-theme-surface-light: 66,66,66;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 163,163,163;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 66,66,66;
+      --v-theme-primary: 33,150,243;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 39,124,193;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 84,182,178;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 72,169,166;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 1;
+      --v-medium-emphasis-opacity: 0.7;
+      --v-disabled-opacity: 0.5;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .v-theme--scottLight {
+      color-scheme: normal;
+      --v-theme-background: 245,245,245;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 105,102,219;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 102,98,122;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background-color: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-bright {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-bright-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-bright)) !important;
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .bg-surface-light {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-light-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-light)) !important;
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background-color: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background-color: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background-color: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background-color: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-bright {
+      color: rgb(var(--v-theme-surface-bright)) !important;
+    }
+    .border-surface-bright {
+      --v-border-color: var(--v-theme-surface-bright);
+    }
+    .text-surface-light {
+      color: rgb(var(--v-theme-surface-light)) !important;
+    }
+    .border-surface-light {
+      --v-border-color: var(--v-theme-surface-light);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-surface-bright {
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .on-surface-light {
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style><link rel="canonical" href="https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/technology-evaluation-trade-study/"><meta property="og:url" content="https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/technology-evaluation-trade-study/"><meta property="og:title" content="Technology Evaluation / Trade Study — Tap Ingestion and Event Backbone | Architecture Documentation Example | Scott Vercuski"><meta property="og:description" content="Azure Event Hubs Premium scored 4.25 / 5, ahead of Confluent Cloud (3.95) and Azure Service Bus Premium (3.20). Self-managed Kafka was excluded on a hard…"><meta name="twitter:title" content="Technology Evaluation / Trade Study — Tap Ingestion and Event Backbone | Architecture Documentation Example | Scott Vercuski"><meta name="twitter:description" content="Azure Event Hubs Premium scored 4.25 / 5, ahead of Confluent Cloud (3.95) and Azure Service Bus Premium (3.20). Self-managed Kafka was excluded on a hard…"></head>
+
+<body>
+    <div id="app" data-server-rendered="true"><div class="v-application v-theme--scottLight v-layout v-layout--full-height v-locale--is-ltr" style="" id="app"><div class="v-application__wrap"><!--[--><!--[--><div app="" class="d-flex align-center justify-end header"><a href="/" class="headerrouterlink my-5 mx-5">HOME</a><a href="/about/" class="headerrouterlink my-5 mx-5">ABOUT</a><a href="/projects/" class="headerrouterlink my-5 mx-5">PROJECTS</a><a href="/skills/" class="headerrouterlink my-5 mx-5">SKILLS</a><a href="/topics/" class="router-link-active headerrouterlink my-5 mx-5">TOPICS</a></div><main class="v-main main" style="--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:32px;transition:none !important;"><!--[--><div class="topicslayout" data-v-5e4b00c1=""><nav class="topicsnav" data-v-5e4b00c1=""><div class="text-overline font-weight-bold px-4 pt-4" data-v-5e4b00c1="">Topics</div><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-comfortable v-list--one-line" style="" tabindex="0" role="listbox" data-v-5e4b00c1=""><!--[--><!--[--><div class="v-list-group v-list-group--open" style="" data-v-5e4b00c1=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/" tabindex="-2" id="v-list-group--id-solution-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Solution Architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture"><!--[--><!--[--><div class="v-list-group v-list-group--open" style=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/documentation-and-example/" tabindex="-2" id="v-list-group--id-solution-architecture/documentation-and-example"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Documentation and Example</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture/documentation-and-example"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/templates/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Templates</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Example</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></div><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/" tabindex="-2" data-v-5e4b00c1=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Architecture</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-design-patterns/" tabindex="-2" data-v-5e4b00c1=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Design Patterns</div><!----><!----></div><!----></a><!--]--><!--]--></div></nav><div class="topicscontent pa-6" data-v-5e4b00c1=""><div class="px-2" data-v-5e4b00c1=""><div class="text-h5" style="font-weight:bold;">Architecture Documentation Example</div><br><p>Every template filled in for Project Tapline, a fictional program in which a regional transit agency replaces its legacy smart-card fare system with an account-based fare platform on .NET and Azure.</p><br><div class="docbrowser" data-v-203546dc=""><nav class="doctree" aria-label="Documents" data-v-203546dc=""><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-compact v-list--one-line" style="" tabindex="0" role="listbox" data-v-203546dc=""><!--[--><!--[--><!--[--><div class="v-list-group" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-00-vision-and-strategy"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">00-vision-and-strategy</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-00-vision-and-strategy" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/architecture-roadmap/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-roadmap</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/architecture-vision/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-vision</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/business-case/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">business-case</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-01-requirements"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">01-requirements</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-01-requirements" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/01-requirements/business-requirements/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">business-requirements</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/01-requirements/functional-requirements/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">functional-requirements</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/01-requirements/non-functional-requirements/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">non-functional-requirements</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/01-requirements/use-cases-and-user-stories/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">use-cases-and-user-stories</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-02-core-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">02-core-architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-02-core-architecture" style="display:none;"><!--[--><!--[--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-02-core-architecture/c4-model"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">c4-model</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-02-core-architecture/c4-model" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/component-diagram/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">component-diagram</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/container-diagram/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">container-diagram</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/context-diagram/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">context-diagram</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/4plus1-views/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">4plus1-views</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/data-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">data-architecture</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/domain-model/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">domain-model</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/sequence-diagrams/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">sequence-diagrams</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/solution-architecture-document/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">solution-architecture-document</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-03-interfaces-and-integration"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">03-interfaces-and-integration</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-03-interfaces-and-integration" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/api-specification-guide/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">api-specification-guide</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/integration-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">integration-architecture</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/interface-control-document/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">interface-control-document</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-04-infrastructure-and-network"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">04-infrastructure-and-network</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-04-infrastructure-and-network" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/deployment-topology/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">deployment-topology</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/infrastructure-as-code-notes/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">infrastructure-as-code-notes</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/network-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">network-architecture</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-05-security"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">05-security</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-05-security" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/05-security/security-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">security-architecture</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/05-security/threat-model/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">threat-model</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend v-list-group--open" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-06-decisions-and-standards"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6.1,10L4,18V8H21A2,2 0 0,0 19,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H19C19.9,20 20.7,19.4 20.9,18.5L23.2,10H6.1M19,18H6L7.6,12H20.6L19,18Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">06-decisions-and-standards</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-06-decisions-and-standards"><!--[--><!--[--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-06-decisions-and-standards/adr"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">adr</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-06-decisions-and-standards/adr" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0001-record-architecture-decisions/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0001-record-architecture-decisions</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0002-account-based-fare-model/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0002-account-based-fare-model</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0003-event-hubs-for-tap-ingestion/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0003-event-hubs-for-tap-ingestion</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0004-offline-first-validators-with-signed-deny-lists/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0004-offline-first-validators-with-signed-deny-lists</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0005-no-card-numbers-in-crt-systems/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0005-no-card-numbers-in-crt-systems</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0006-azure-sql-ledger-tables-for-fare-ledger/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0006-azure-sql-ledger-tables-for-fare-ledger</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0007-services-by-bounded-context/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0007-services-by-bounded-context</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0008-time-handling-utc-instants-and-service-day-boundaries/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0008-time-handling-utc-instants-and-service-day-boundaries</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/adr-log/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">adr-log</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/adr-template/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">adr-template</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/architecture-principles/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-principles</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/coding-standards/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">coding-standards</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/reference-architecture-and-technology-radar/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">reference-architecture-and-technology-radar</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/technology-evaluation-trade-study/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">technology-evaluation-trade-study</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-07-governance"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">07-governance</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-07-governance" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/arb-minutes-template/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">arb-minutes-template</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/architecture-exception-request/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-exception-request</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/compliance-matrix/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">compliance-matrix</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/governance-framework/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">governance-framework</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/rfc-template/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">rfc-template</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-08-risk-and-operations"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">08-risk-and-operations</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-08-risk-and-operations" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/capacity-planning/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">capacity-planning</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/disaster-recovery-plan/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">disaster-recovery-plan</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/incident-postmortem/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">incident-postmortem</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/observability-strategy/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">observability-strategy</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/risk-register/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">risk-register</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/runbook-template/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">runbook-template</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/sla-slo-sli-definitions/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">sla-slo-sli-definitions</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-09-transition-and-migration"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">09-transition-and-migration</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-09-transition-and-migration" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/data-migration-strategy/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">data-migration-strategy</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/gap-analysis/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">gap-analysis</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/migration-plan/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">migration-plan</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/transition-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">transition-architecture</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-10-testing-and-validation"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">10-testing-and-validation</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-10-testing-and-validation" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/10-testing-and-validation/architecture-compliance-review/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-compliance-review</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/10-testing-and-validation/test-strategy/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">test-strategy</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-11-handover"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">11-handover</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-11-handover" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/11-handover/as-built-documentation/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">as-built-documentation</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/11-handover/onboarding-knowledge-transfer/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">onboarding-knowledge-transfer</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Project Tapline Brief</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></nav><article class="docviewer" data-v-203546dc=""><div class="text-caption text-medium-emphasis mb-4" data-v-203546dc="">06-decisions-and-standards/technology-evaluation-trade-study.md</div><div class="markdownbody" data-v-203546dc=""><h1 id="technology-evaluation--trade-study--tap-ingestion-and-event-backbone">Technology Evaluation / Trade Study — Tap Ingestion and Event Backbone</h1>
+<blockquote class="callout callout-summary"><div class="callout-title">Result</div>
+<p><strong>Azure Event Hubs Premium</strong> scored <strong>4.25 / 5</strong>, ahead of Confluent Cloud (3.95) and Azure Service Bus Premium (3.20). Self-managed Kafka was excluded on a hard constraint. The gap between the top two is small; cost, procurement and Azure-native Capture decided it, not raw capability. Recorded as <a href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0003-event-hubs-for-tap-ingestion/">ADR-0003</a>.</p>
+</blockquote>
+<h2 id="1-decision-context">1. Decision Context</h2>
+<ul>
+<li><strong>Decision to be made:</strong> which streaming platform carries taps from the Device Gateway to the Fare Engine, and domain events between contexts.</li>
+<li><strong>Why now / what's forcing this decision:</strong> the Fare Engine and Device Gateway designs (Phase 0) depend on the platform's ordering, replay and replication guarantees. The Phase 0 walking skeleton must start in July 2026.</li>
+<li><strong>Decision owner:</strong> Aisha Karimi, for the ARB.</li>
+<li><strong>Deadline / driver:</strong> ARB of 2026-06-10.</li>
+<li><strong>Related requirements:</strong>
+<ul>
+<li><a href="/topics/solution-architecture/documentation-and-example/example/01-requirements/non-functional-requirements/">NFRs</a>: NFR-SCALE-01 (12,000 taps/min), NFR-AVAIL-04 (no lost taps), NFR-AVAIL-05/07 (ledger RPO 0 across regions), NFR-INTEG-01 (re-rating), NFR-COST-01.</li>
+<li><a href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0002-account-based-fare-model/">ADR-0002</a> (account-based) and the "managed services first" principle.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Hard constraints (must-haves).</strong> An option failing any of these is excluded, not scored.</p>
+<ol>
+<li>Ordered delivery per key (rider key / media token).</li>
+<li>Retention of at least 7 days with consumer-controlled replay.</li>
+<li>Runs in Azure East US 2 and Central US with Private Link.</li>
+<li>A managed service: no CRT-operated broker clusters.</li>
+</ol>
+<h2 id="2-evaluation-criteria--weights">2. Evaluation Criteria &amp; Weights</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Criterion</th><th>Weight (%)</th><th>Description / Why It Matters</th></tr></thead><tbody><tr><td>Throughput and partitioned ordering</td><td>20</td><td>200 taps/s sustained at design capacity with per-key order (NFR-SCALE-01)</td></tr><tr><td>Durability and cross-region replication</td><td>20</td><td>Synchronous or near-zero-loss replication for RPO 0 (NFR-AVAIL-05, -07)</td></tr><tr><td>Retention, replay and archive</td><td>15</td><td>Replay for re-rating and recovery; immutable archive of raw taps (NFR-INTEG-01, Data Architecture)</td></tr><tr><td>Operational burden</td><td>15</td><td>CRT's small platform team must run it 24/7</td></tr><tr><td>Cost (5-year)</td><td>10</td><td>Must fit within the $2.1M/yr cloud budget (NFR-COST-01)</td></tr><tr><td>.NET ecosystem and team familiarity</td><td>10</td><td>SDK quality, team skills, hiring</td></tr><tr><td>Azure integration</td><td>10</td><td>Managed identity, Private Link, Capture, Monitor, one support contract</td></tr></tbody></table>
+<p><strong>Total: 100%</strong></p>
+<h2 id="3-options-considered">3. Options Considered</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Option</th><th>Summary</th><th>Included in Scoring?</th><th>Reason if Excluded</th></tr></thead><tbody><tr><td>A</td><td><strong>Azure Event Hubs Premium</strong>: partitioned log, Kafka-compatible endpoint, Capture, geo-replication</td><td>Y</td><td></td></tr><tr><td>B</td><td><strong>Confluent Cloud</strong> (managed Apache Kafka) on Azure, dedicated cluster</td><td>Y</td><td></td></tr><tr><td>C</td><td><strong>Azure Service Bus Premium</strong>: queues and topics with sessions for ordering</td><td>Y</td><td></td></tr><tr><td>D</td><td><strong>Apache Kafka self-managed on AKS</strong> (Strimzi operator)</td><td>N</td><td>Fails hard constraint 4 (managed service)</td></tr><tr><td>E</td><td><strong>Azure SQL as a queue</strong> (outbox tables polled by consumers)</td><td>N</td><td>Fails constraint 1 at scale in practice and adds load to the databases the Fare Engine depends on. Kept only for the transactional outbox pattern.</td></tr></tbody></table>
+<h2 id="4-scoring-matrix">4. Scoring Matrix</h2>
+<p>Scale 1–5 (1 = poor fit, 5 = excellent). Weighted score = raw × weight ÷ 100. Scores are the average of four independent scorers (Karimi, Patel, Ortega, Cole), rounded to the nearest whole point after discussion.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Criterion</th><th>Weight</th><th>A: Event Hubs Premium (raw / weighted)</th><th>B: Confluent Cloud (raw / weighted)</th><th>C: Service Bus Premium (raw / weighted)</th></tr></thead><tbody><tr><td>Throughput and partitioned ordering</td><td>20</td><td>4 / 0.80</td><td>5 / 1.00</td><td>2 / 0.40</td></tr><tr><td>Durability and cross-region replication</td><td>20</td><td>4 / 0.80</td><td>4 / 0.80</td><td>3 / 0.60</td></tr><tr><td>Retention, replay and archive</td><td>15</td><td>4 / 0.60</td><td>5 / 0.75</td><td>1 / 0.15</td></tr><tr><td>Operational burden</td><td>15</td><td>5 / 0.75</td><td>4 / 0.60</td><td>5 / 0.75</td></tr><tr><td>Cost (5-year)</td><td>10</td><td>4 / 0.40</td><td>2 / 0.20</td><td>4 / 0.40</td></tr><tr><td>.NET ecosystem and team familiarity</td><td>10</td><td>4 / 0.40</td><td>3 / 0.30</td><td>5 / 0.50</td></tr><tr><td>Azure integration</td><td>10</td><td>5 / 0.50</td><td>3 / 0.30</td><td>4 / 0.40</td></tr><tr><td><strong>Total</strong></td><td>100%</td><td><strong>4.25</strong></td><td><strong>3.95</strong></td><td><strong>3.20</strong></td></tr></tbody></table>
+<p><strong>Sensitivity.</strong> B overtakes A only if throughput and retention together carry about half of all the weight while cost and Azure integration together fall below about 12%. Today they carry 35% and 20%. No scorer proposed weights like that. Changing the weight of durability doesn't change the order, because A and B both score 4.</p>
+<h2 id="5-detailed-option-assessments">5. Detailed Option Assessments</h2>
+<h3 id="51-option-azure-event-hubs-premium-a">5.1 Option: Azure Event Hubs Premium (A)</h3>
+<ul>
+<li><strong>Description:</strong> managed partitioned log. Premium tier gives dedicated capacity (processing units), up to 90-day retention, Capture to ADLS, geo-replication with a synchronous mode, and a Kafka-compatible endpoint.</li>
+<li><strong>Strengths:</strong>
+<ul>
+<li>Ordering per partition key.</li>
+<li>Capture writes the raw tap archive with no code.</li>
+<li>Synchronous geo-replication supports RPO 0.</li>
+<li>Managed identity and Private Link.</li>
+<li>The Kafka endpoint is an exit path.</li>
+</ul>
+</li>
+<li><strong>Weaknesses:</strong>
+<ul>
+<li>Retention is capped (90 days), so long-term history must live in the archive.</li>
+<li>The partition count is effectively fixed after creation.</li>
+<li>No built-in stream processing beyond consumers.</li>
+<li>Synchronous geo-replication is newer than the rest of the service.</li>
+</ul>
+</li>
+<li><strong>Cost implications:</strong> estimated <strong>$95k a year</strong> for 4 PUs in East US 2 plus the geo-replica (Phase 2 load), plus ADLS storage for Capture.</li>
+<li><strong>Team familiarity / learning curve:</strong> two engineers have production Event Hubs experience; the Azure SDK <code>EventProcessorClient</code> is well documented.</li>
+<li><strong>Ecosystem / community / long-term support:</strong> first-party Azure service under CRT's Enterprise Agreement and Microsoft Unified Support.</li>
+<li><strong>Migration/exit cost if we need to change later:</strong> moderate. Producers and consumers sit behind CRT abstractions, and the Kafka protocol endpoint allows a staged move.</li>
+</ul>
+<h3 id="52-option-confluent-cloud-b">5.2 Option: Confluent Cloud (B)</h3>
+<ul>
+<li><strong>Description:</strong> managed Kafka, dedicated cluster on Azure, with Schema Registry, connectors and Flink stream processing.</li>
+<li><strong>Strengths:</strong> best-in-class throughput and ecosystem; unlimited retention (tiered storage); mature schema governance; stream processing if Tapline ever needs it.</li>
+<li><strong>Weaknesses:</strong>
+<ul>
+<li>Cross-region replication (cluster linking) is asynchronous, so RPO 0 would need the same event-replay design as with A but with a larger loss window.</li>
+<li>A new vendor for procurement, security assessment and PCI service-provider evidence.</li>
+<li>Separate support contract.</li>
+</ul>
+</li>
+<li><strong>Cost implications:</strong> estimated <strong>$240k a year</strong> for a dedicated cluster with cluster linking at Phase 2 load, plus networking.</li>
+<li><strong>Team familiarity / learning curve:</strong> one engineer has Kafka experience; Confluent's .NET client is solid but less idiomatic than the Azure SDK.</li>
+<li><strong>Ecosystem / community / long-term support:</strong> very strong.</li>
+<li><strong>Migration/exit cost if we need to change later:</strong> low within the Kafka ecosystem; moderate to anything else.</li>
+</ul>
+<h3 id="53-option-azure-service-bus-premium-c">5.3 Option: Azure Service Bus Premium (C)</h3>
+<ul>
+<li><strong>Description:</strong> enterprise message broker: queues, topics, sessions, transactions.</li>
+<li><strong>Strengths:</strong> CRT already uses it; sessions give per-key ordering; dead-lettering built in; geo-disaster recovery.</li>
+<li><strong>Weaknesses:</strong>
+<ul>
+<li>Messages are removed when consumed: <strong>no replay</strong>, which is fatal for re-rating and recovery.</li>
+<li>Session throughput is far below the design capacity in the vendor's guidance.</li>
+<li>No capture to storage.</li>
+</ul>
+</li>
+<li><strong>Cost implications:</strong> estimated <strong>$70k a year</strong> for 4 messaging units in two regions.</li>
+<li><strong>Team familiarity / learning curve:</strong> highest of all options.</li>
+<li><strong>Ecosystem / community / long-term support:</strong> first-party Azure.</li>
+<li><strong>Migration/exit cost if we need to change later:</strong> moderate.</li>
+</ul>
+<h2 id="6-recommendation">6. Recommendation</h2>
+<ul>
+<li><strong>Recommended option:</strong> <strong>A, Azure Event Hubs Premium</strong>, for <code>taps</code>, <code>rider-taps</code> and <code>domain-events</code>. Keep Service Bus for commands and work queues.</li>
+<li><strong>Deciding factors:</strong>
+<ul>
+<li>A meets every requirement Tapline actually has, at under half the cost of B.</li>
+<li>It removes the need to build an archive pipeline, because Capture writes the immutable tap archive directly.</li>
+<li>It is the only option with synchronous cross-region replication.</li>
+<li>B's advantages are real but unused: unlimited retention and stream processing. Tapline's long-term record is the archive and the ledger, and its processing is ordinary .NET consumers.</li>
+</ul>
+</li>
+<li><strong>Confidence level:</strong> Medium–High. The one significant uncertainty is synchronous geo-replication's maturity.</li>
+<li><strong>Conditions that would change this recommendation:</strong>
+<ul>
+<li>Synchronous geo-replication failing the Phase 0 failover test.</li>
+<li>A requirement for stream joins or windowed aggregation at scale that ordinary consumers can't meet.</li>
+<li>Event Hubs Premium pricing rising more than 50%.</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-consequences--risks-of-chosen-option">7. Consequences / Risks of Chosen Option</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead><tbody><tr><td>Synchronous geo-replication immature or adds latency</td><td>RPO 0 not met; ingestion latency</td><td>Phase 0 failover test in staging; fallback is validators retaining taps 24 h after acknowledgement, plus replay</td></tr><tr><td>32 partitions too few for Phase 4 growth</td><td>Re-partitioning means a new hub and migration</td><td>Sized at 32 for 12,000 taps/min design capacity (~7× expected 2030 normal peak); review at Phase 3</td></tr><tr><td>PU capacity insufficient during unannounced surges</td><td>Ingestion throttling</td><td>Device Gateway buffers and retries; validators hold taps; PU auto-inflate for planned events</td></tr><tr><td>Retention cap (90 days)</td><td>Older replay must come from the archive</td><td>Replay tool reads from both Event Hubs and the ADLS archive</td></tr></tbody></table>
+<p><strong>Trade-offs knowingly accepted:</strong></p>
+<ul>
+<li>Less ecosystem richness than Kafka, in exchange for lower cost, one vendor and native Capture.</li>
+<li>Partition count fixed early, in exchange for simple, ordered, per-partition single-writer processing.</li>
+</ul>
+<h2 id="8-related">8. Related</h2>
+<ul>
+<li>Resulting ADR: <a href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0003-event-hubs-for-tap-ingestion/">ADR-0003</a></li>
+<li>Tech radar entry: Event Hubs <strong>Adopt</strong>; self-managed Kafka <strong>Hold</strong> (<a href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/reference-architecture-and-technology-radar/">Reference Architecture &amp; Technology Radar</a>)</li>
+<li>Requirements driving this decision: <a href="/topics/solution-architecture/documentation-and-example/example/01-requirements/non-functional-requirements/">Non-Functional Requirements</a></li>
+</ul></div></article></div></div></div></div><!--]--></main><footer class="v-footer v-theme--scottLight d-flex align-center justify-center footer" style="bottom:0px;z-index:1004;transform:translateY(0px);position:fixed;left:0px;width:calc(100% - 0px - 0px);"><span class="text-body-1">© 2026. Created by Scott Vercuski</span></footer><!--]--><!--]--></div></div></div>
+
+
+
+</body></html>

@@ -1,0 +1,908 @@
+<!DOCTYPE html><html lang="en"><head>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-423SL0YDHG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-423SL0YDHG');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Scott Vercuski">
+    <meta name="description" content="The contracts themselves are machine-readable files in tapline-platform/specs/: OpenAPI 3.1 for REST, AsyncAPI 3.0 for events, and JSON Schema for event…">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Scott Vercuski | Software Architect">
+    <meta name="google-site-verification" content="ZHe0GpV-ugL5aqoWWPA-TtJK4-8xT49Vkgx4UzQVkj0">
+    <meta property="og:site_name" content="Scott Vercuski Portfolio Website">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://scott.vercuski.com/images/me.jpg">
+    <meta property="og:image:alt" content="Portrait of Scott Vercuski">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://scott.vercuski.com/images/me.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Specifications — Project Tapline | Architecture Documentation Example | Scott Vercuski</title>
+  <script type="module" crossorigin="" src="/assets/app-D6qqIIQm.js"></script>
+  <link rel="stylesheet" crossorigin="" href="/assets/app-BtO1POyz.css">
+<link rel="modulepreload" crossorigin="" href="/assets/DocumentationBrowser-pcF5qxTV.js"><link rel="stylesheet" href="/assets/DocumentationBrowser-CvcsScn1.css"><style id="vuetify-theme-stylesheet">:root {
+      --v-theme-background: 245,245,245;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 105,102,219;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 102,98,122;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 204,191,214;
+      --v-theme-surface-bright-overlay-multiplier: 2;
+      --v-theme-surface-light: 66,66,66;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 163,163,163;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 66,66,66;
+      --v-theme-primary: 33,150,243;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 39,124,193;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 84,182,178;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 72,169,166;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 1;
+      --v-medium-emphasis-opacity: 0.7;
+      --v-disabled-opacity: 0.5;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .v-theme--scottLight {
+      color-scheme: normal;
+      --v-theme-background: 245,245,245;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 105,102,219;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 102,98,122;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background-color: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-bright {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-bright-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-bright)) !important;
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .bg-surface-light {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-light-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-light)) !important;
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background-color: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background-color: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background-color: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background-color: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-bright {
+      color: rgb(var(--v-theme-surface-bright)) !important;
+    }
+    .border-surface-bright {
+      --v-border-color: var(--v-theme-surface-bright);
+    }
+    .text-surface-light {
+      color: rgb(var(--v-theme-surface-light)) !important;
+    }
+    .border-surface-light {
+      --v-border-color: var(--v-theme-surface-light);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-surface-bright {
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .on-surface-light {
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style><link rel="canonical" href="https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/api-specification-guide/"><meta property="og:url" content="https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/api-specification-guide/"><meta property="og:title" content="API Specifications — Project Tapline | Architecture Documentation Example | Scott Vercuski"><meta property="og:description" content="The contracts themselves are machine-readable files in tapline-platform/specs/: OpenAPI 3.1 for REST, AsyncAPI 3.0 for events, and JSON Schema for event…"><meta name="twitter:title" content="API Specifications — Project Tapline | Architecture Documentation Example | Scott Vercuski"><meta name="twitter:description" content="The contracts themselves are machine-readable files in tapline-platform/specs/: OpenAPI 3.1 for REST, AsyncAPI 3.0 for events, and JSON Schema for event…"></head>
+
+<body>
+    <div id="app" data-server-rendered="true"><div class="v-application v-theme--scottLight v-layout v-layout--full-height v-locale--is-ltr" style="" id="app"><div class="v-application__wrap"><!--[--><!--[--><div app="" class="d-flex align-center justify-end header"><a href="/" class="headerrouterlink my-5 mx-5">HOME</a><a href="/about/" class="headerrouterlink my-5 mx-5">ABOUT</a><a href="/projects/" class="headerrouterlink my-5 mx-5">PROJECTS</a><a href="/skills/" class="headerrouterlink my-5 mx-5">SKILLS</a><a href="/topics/" class="router-link-active headerrouterlink my-5 mx-5">TOPICS</a></div><main class="v-main main" style="--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:32px;transition:none !important;"><!--[--><div class="topicslayout" data-v-5e4b00c1=""><nav class="topicsnav" data-v-5e4b00c1=""><div class="text-overline font-weight-bold px-4 pt-4" data-v-5e4b00c1="">Topics</div><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-comfortable v-list--one-line" style="" tabindex="0" role="listbox" data-v-5e4b00c1=""><!--[--><!--[--><div class="v-list-group v-list-group--open" style="" data-v-5e4b00c1=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/" tabindex="-2" id="v-list-group--id-solution-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Solution Architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture"><!--[--><!--[--><div class="v-list-group v-list-group--open" style=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/documentation-and-example/" tabindex="-2" id="v-list-group--id-solution-architecture/documentation-and-example"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Documentation and Example</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture/documentation-and-example"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/templates/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Templates</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Example</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></div><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/" tabindex="-2" data-v-5e4b00c1=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Architecture</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-design-patterns/" tabindex="-2" data-v-5e4b00c1=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Design Patterns</div><!----><!----></div><!----></a><!--]--><!--]--></div></nav><div class="topicscontent pa-6" data-v-5e4b00c1=""><div class="px-2" data-v-5e4b00c1=""><div class="text-h5" style="font-weight:bold;">Architecture Documentation Example</div><br><p>Every template filled in for Project Tapline, a fictional program in which a regional transit agency replaces its legacy smart-card fare system with an account-based fare platform on .NET and Azure.</p><br><div class="docbrowser" data-v-203546dc=""><nav class="doctree" aria-label="Documents" data-v-203546dc=""><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-compact v-list--one-line" style="" tabindex="0" role="listbox" data-v-203546dc=""><!--[--><!--[--><!--[--><div class="v-list-group" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-00-vision-and-strategy"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">00-vision-and-strategy</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-00-vision-and-strategy" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/architecture-roadmap/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-roadmap</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/architecture-vision/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-vision</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/business-case/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">business-case</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-01-requirements"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">01-requirements</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-01-requirements" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/01-requirements/business-requirements/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">business-requirements</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/01-requirements/functional-requirements/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">functional-requirements</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/01-requirements/non-functional-requirements/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">non-functional-requirements</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/01-requirements/use-cases-and-user-stories/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">use-cases-and-user-stories</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-02-core-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">02-core-architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-02-core-architecture" style="display:none;"><!--[--><!--[--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-02-core-architecture/c4-model"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">c4-model</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-02-core-architecture/c4-model" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/component-diagram/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">component-diagram</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/container-diagram/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">container-diagram</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/context-diagram/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">context-diagram</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/4plus1-views/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">4plus1-views</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/data-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">data-architecture</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/domain-model/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">domain-model</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/sequence-diagrams/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">sequence-diagrams</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/02-core-architecture/solution-architecture-document/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">solution-architecture-document</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend v-list-group--open" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-03-interfaces-and-integration"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6.1,10L4,18V8H21A2,2 0 0,0 19,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H19C19.9,20 20.7,19.4 20.9,18.5L23.2,10H6.1M19,18H6L7.6,12H20.6L19,18Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">03-interfaces-and-integration</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-03-interfaces-and-integration"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/api-specification-guide/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">api-specification-guide</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/integration-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">integration-architecture</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/interface-control-document/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">interface-control-document</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-04-infrastructure-and-network"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">04-infrastructure-and-network</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-04-infrastructure-and-network" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/deployment-topology/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">deployment-topology</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/infrastructure-as-code-notes/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">infrastructure-as-code-notes</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/network-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">network-architecture</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-05-security"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">05-security</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-05-security" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/05-security/security-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">security-architecture</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/05-security/threat-model/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">threat-model</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-06-decisions-and-standards"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">06-decisions-and-standards</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-06-decisions-and-standards" style="display:none;"><!--[--><!--[--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-06-decisions-and-standards/adr"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">adr</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-06-decisions-and-standards/adr" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0001-record-architecture-decisions/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0001-record-architecture-decisions</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0002-account-based-fare-model/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0002-account-based-fare-model</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0003-event-hubs-for-tap-ingestion/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0003-event-hubs-for-tap-ingestion</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0004-offline-first-validators-with-signed-deny-lists/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0004-offline-first-validators-with-signed-deny-lists</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0005-no-card-numbers-in-crt-systems/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0005-no-card-numbers-in-crt-systems</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0006-azure-sql-ledger-tables-for-fare-ledger/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0006-azure-sql-ledger-tables-for-fare-ledger</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0007-services-by-bounded-context/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0007-services-by-bounded-context</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0008-time-handling-utc-instants-and-service-day-boundaries/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">0008-time-handling-utc-instants-and-service-day-boundaries</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/adr-log/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">adr-log</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/adr-template/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">adr-template</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/architecture-principles/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-principles</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/coding-standards/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">coding-standards</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/reference-architecture-and-technology-radar/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">reference-architecture-and-technology-radar</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/technology-evaluation-trade-study/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">technology-evaluation-trade-study</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-07-governance"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">07-governance</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-07-governance" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/arb-minutes-template/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">arb-minutes-template</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/architecture-exception-request/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-exception-request</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/compliance-matrix/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">compliance-matrix</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/governance-framework/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">governance-framework</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/07-governance/rfc-template/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">rfc-template</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-08-risk-and-operations"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">08-risk-and-operations</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-08-risk-and-operations" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/capacity-planning/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">capacity-planning</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/disaster-recovery-plan/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">disaster-recovery-plan</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/incident-postmortem/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">incident-postmortem</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/observability-strategy/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">observability-strategy</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/risk-register/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">risk-register</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/runbook-template/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">runbook-template</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/sla-slo-sli-definitions/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">sla-slo-sli-definitions</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-09-transition-and-migration"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">09-transition-and-migration</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-09-transition-and-migration" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/data-migration-strategy/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">data-migration-strategy</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/gap-analysis/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">gap-analysis</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/migration-plan/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">migration-plan</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/transition-architecture/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">transition-architecture</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-10-testing-and-validation"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">10-testing-and-validation</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-10-testing-and-validation" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/10-testing-and-validation/architecture-compliance-review/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">architecture-compliance-review</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/10-testing-and-validation/test-strategy/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">test-strategy</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><div class="v-list-group v-list-group--prepend" style=""><!--[--><!--[--><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" tabindex="-2" id="v-list-group--id-11-handover"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">11-handover</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></div><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-11-handover" style="display:none;"><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/11-handover/as-built-documentation/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">as-built-documentation</div><!----><!----></div><!----></a><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/11-handover/onboarding-knowledge-transfer/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">onboarding-knowledge-transfer</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></div><!--]--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Project Tapline Brief</div><!----><!----></div><!----></a><!--]--><!--]--><!--]--></div></nav><article class="docviewer" data-v-203546dc=""><div class="text-caption text-medium-emphasis mb-4" data-v-203546dc="">03-interfaces-and-integration/api-specification-guide.md</div><div class="markdownbody" data-v-203546dc=""><h1 id="api-specifications--project-tapline">API Specifications — Project Tapline</h1>
+<blockquote class="callout callout-summary"><div class="callout-title">This is a pointer, not the spec</div>
+<p>The contracts themselves are machine-readable files in <code>tapline-platform/specs/</code>: OpenAPI 3.1 for REST, AsyncAPI 3.0 for events, and JSON Schema for event payloads. They are linted in CI, used to generate clients and mocks, and checked by contract tests. This page explains where they are and the rules every Tapline API follows. Integration patterns are in the <a href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/integration-architecture/">Integration Architecture</a>.</p>
+</blockquote>
+<h2 id="1-inventory">1. Inventory</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>API</th><th>Type</th><th>Spec Location</th><th>Owning Team</th><th>Status</th></tr></thead><tbody><tr><td>Rider API</td><td>REST</td><td><code>specs/openapi/rider-api.v1.yaml</code></td><td>Rider Team</td><td>Draft (Stable at Phase 1)</td></tr><tr><td>Back-Office API: Accounts</td><td>REST</td><td><code>specs/openapi/backoffice-accounts.v1.yaml</code></td><td>Rider Team</td><td>Draft</td></tr><tr><td>Back-Office API: Fare Policy</td><td>REST</td><td><code>specs/openapi/backoffice-farepolicy.v1.yaml</code></td><td>Journey Team</td><td>Draft</td></tr><tr><td>Back-Office API: Payments and Ledger</td><td>REST</td><td><code>specs/openapi/backoffice-money.v1.yaml</code></td><td>Money Team</td><td>Draft</td></tr><tr><td>Back-Office API: Device Fleet</td><td>REST</td><td><code>specs/openapi/backoffice-fleet.v1.yaml</code></td><td>Edge Team</td><td>Draft</td></tr><tr><td>Device API</td><td>REST (mutual TLS)</td><td><code>specs/openapi/device-api.v1.yaml</code></td><td>Edge Team</td><td>Draft; frozen by ICD-002</td></tr><tr><td>Inspection API</td><td>REST</td><td><code>specs/openapi/inspection-api.v1.yaml</code></td><td>Edge Team</td><td>Draft</td></tr><tr><td>Partner API</td><td>REST</td><td><code>specs/openapi/partner-api.v1.yaml</code></td><td>Money Team</td><td>Planned (Phase 4)</td></tr><tr><td>Fare Data API (public)</td><td>REST, read-only</td><td><code>specs/openapi/fare-data-api.v1.yaml</code></td><td>Journey Team</td><td>Draft</td></tr><tr><td>GTFS-Fares v2 feed</td><td>Static files (zip)</td><td>Generated; format by the GTFS specification</td><td>Journey Team</td><td>Draft</td></tr><tr><td>CornerPay Load Webhook</td><td>REST webhook (inbound)</td><td><code>specs/openapi/cornerpay-webhook.v1.yaml</code></td><td>Money Team</td><td>Planned (ICD-004)</td></tr><tr><td>Tapline domain events</td><td>Async (Event Hubs, CloudEvents)</td><td><code>specs/asyncapi/tapline-events.yaml</code> + <code>src/Contracts/schemas/**</code></td><td>Each producing team</td><td>Draft (v1 events)</td></tr><tr><td>Northgate interfaces (consumed)</td><td>REST, SFTP files</td><td><code>specs/external/northgate/</code> (Northgate-owned formats)</td><td>Money Team</td><td>Stable (<a href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/interface-control-document/">ICD-001</a>)</td></tr></tbody></table>
+<p><strong>How specs are produced</strong></p>
+<ul>
+<li><strong>Code-first for our REST APIs.</strong> ASP.NET Core 10 generates OpenAPI 3.1 at build time (<code>Microsoft.AspNetCore.OpenApi</code>). The build writes the document to <code>specs/openapi/</code>, and CI fails if the committed file differs from the generated one. The committed spec is therefore always the truth, and changes to it are reviewed like code.</li>
+<li><strong>Schema-first for events.</strong> JSON Schemas are written by hand in <code>src/Contracts/schemas/</code>, and C# types are generated from them. This keeps the contract independent of any one consumer's language.</li>
+<li><strong>Linting:</strong> Spectral with CRT's ruleset (<code>specs/.spectral.yaml</code>) checks naming, problem-details responses, pagination, security schemes and examples.</li>
+<li><strong>Mocks:</strong> a Prism mock server is published for every OpenAPI spec, so the app teams can build against an API before it exists.</li>
+<li><strong>Breaking-change check:</strong> <code>oasdiff</code> runs on every pull request and blocks breaking changes to a published major version.</li>
+</ul>
+<h2 id="2-versioning-strategy">2. Versioning Strategy</h2>
+<ul>
+<li><strong>URI major version:</strong> <code>/v1/…</code>. The major version changes only for a breaking change.</li>
+<li><strong>Contract version:</strong> <code>info.version</code> in each spec uses semantic versioning. Minor for additive changes, patch for documentation fixes.</li>
+<li><strong>What counts as breaking:</strong> removing or renaming a field, endpoint or enum value; making an optional field required; changing a type or format; tightening validation; changing authentication or scopes; changing the meaning of a field.</li>
+<li><strong>What doesn't:</strong> adding endpoints, optional request fields, response fields or new error codes. Clients must ignore unknown fields. This is in the client contract and is tested in the app.</li>
+<li><strong>Events:</strong> see <a href="/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/integration-architecture/">Integration Architecture §6</a>. The version is in the event type (<code>…fare-calculated.v1</code>), and evolution is backward-compatible only.</li>
+</ul>
+<h2 id="3-deprecation-policy">3. Deprecation Policy</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>API</th><th>Minimum support for an old major version after its replacement ships</th><th>Notes</th></tr></thead><tbody><tr><td>Rider API</td><td><strong>12 months</strong></td><td>Phone apps update slowly. The app checks a minimum supported version and prompts riders to update 60 days before cut-off.</td></tr><tr><td>Partner API</td><td><strong>12 months</strong></td><td>Partners need budget cycles to change. Notice is also given through the Partner Operator Council.</td></tr><tr><td>Fare Data API (public)</td><td><strong>12 months</strong></td><td>Announced on the open-data portal and GTFS mailing list.</td></tr><tr><td>Back-Office, Inspection APIs</td><td><strong>Until the matching client release is live</strong></td><td>CRT controls both sides.</td></tr><tr><td>Device API</td><td><strong>Per ICD-002</strong></td><td>Validator firmware changes need Vantor releases and fleet rollout. Expect 6 months or more.</td></tr></tbody></table>
+<p>Deprecated endpoints return the <code>Deprecation</code> header (RFC 9745) and a <code>Sunset</code> header (RFC 8594) with the removal date, plus a <code>Link</code> to the migration notes. Usage of deprecated endpoints is tracked per client ID, and owners of remaining clients are contacted directly 90 and 30 days before sunset.</p>
+<h2 id="4-authentication--authorization">4. Authentication &amp; Authorization</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>API</th><th>Who calls it</th><th>Authentication</th><th>Authorization</th></tr></thead><tbody><tr><td>Rider API</td><td>Riders via app and portal</td><td>OAuth 2.0 authorization code + PKCE, Entra External ID; access tokens 15 min; refresh tokens bound to device</td><td>Scopes <code>rider.read</code>, <code>rider.write</code>, <code>payments.topup</code>. A rider can only reach their own account; enforced in the service, not just at the gateway.</td></tr><tr><td>Back-Office APIs</td><td>CRT staff</td><td>Entra ID, phishing-resistant MFA; Back-Office Portal acts on behalf of the user</td><td>App roles: <code>cs.agent</code>, <code>cs.supervisor</code>, <code>fare.analyst</code>, <code>fare.approver</code>, <code>revenue.analyst</code>, <code>fleet.operator</code>. Two-person rules enforced in the service (FR-CS-02, FR-POL-02).</td></tr><tr><td>Partner API</td><td>Partner finance systems</td><td>OAuth 2.0 client credentials (Entra ID B2B app registration per partner)</td><td>Scope <code>partner.statements.read</code>; data filtered to the caller's operator code</td></tr><tr><td>Device API</td><td>Validators</td><td>Mutual TLS with a per-device X.509 certificate issued by CRT's device CA</td><td>Device must be registered and active; tap signatures verified per device</td></tr><tr><td>Inspection API</td><td>Inspection App</td><td>Entra ID (inspector sign-in) + device certificate</td><td>Role <code>inspector</code>; returns only paid/not-paid data (FR-INSP-02)</td></tr><tr><td>Fare Data API</td><td>Anyone</td><td>None (public); API key optional for higher rate limits</td><td>Read-only, Public data only</td></tr><tr><td>CornerPay webhook</td><td>CornerPay</td><td>Mutual TLS + HMAC-SHA256 signature with timestamp</td><td>Fixed source; idempotent by CornerPay load ID</td></tr></tbody></table>
+<p>Rate limits are applied at API Management per client and per user. Full security design: <a href="/topics/solution-architecture/documentation-and-example/example/05-security/security-architecture/">Security Architecture</a>.</p>
+<h2 id="5-error-handling-convention">5. Error Handling Convention</h2>
+<p>Every Tapline REST API returns errors as <strong>Problem Details (RFC 9457)</strong> with <code>Content-Type: application/problem+json</code>, so each client writes one error handler. RFC 9457 replaced RFC 7807 and is compatible with it.</p>
+<pre><code class="language-json">{
+  "type": "https://api.crt-transit.example/problems/medium-limit-reached",
+  "title": "Medium limit reached",
+  "status": 409,
+  "detail": "An account can have at most 5 linked cards or devices. Remove one to add another.",
+  "instance": "/v1/accounts/acct_7Q2M9X/media",
+  "code": "TAPLINE-ACCT-0004",
+  "traceId": "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01",
+  "errors": null
+}
+</code></pre>
+<p><strong>Rules</strong></p>
+<ul>
+<li>
+<p><strong><code>type</code></strong> is a stable URI per problem. Its page documents the cause and the fix. <strong><code>code</code></strong> is the machine-readable code: <code>TAPLINE-&lt;CONTEXT&gt;-nnnn</code>. Clients branch on <code>code</code>, never on <code>title</code> or <code>detail</code>.</p>
+</li>
+<li>
+<p><strong><code>detail</code></strong> is safe to show to the user and is translated per the request's <code>Accept-Language</code> (English, Spanish, Vietnamese, Simplified Chinese). It never contains internal details, stack traces, tokens or other people's data.</p>
+</li>
+<li>
+<p><strong><code>traceId</code></strong> is the W3C trace context, so support can find the request in Application Insights.</p>
+</li>
+<li>
+<p><strong>Validation errors</strong> use status 400, code <code>TAPLINE-VALIDATION</code>, and an <code>errors</code> object keyed by field (the ASP.NET Core <code>ValidationProblemDetails</code> shape).</p>
+</li>
+<li>
+<p><strong>Status codes:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Code</th><th>Meaning</th></tr></thead><tbody><tr><td>400</td><td>Validation</td></tr><tr><td>401</td><td>Not authenticated</td></tr><tr><td>403</td><td>Not allowed</td></tr><tr><td>404</td><td>Not found, or not yours (never reveal which)</td></tr><tr><td>409</td><td>Business rule conflict</td></tr><tr><td>412</td><td>Concurrency (stale <code>If-Match</code>)</td></tr><tr><td>422</td><td>Not used; business-rule failures return 409</td></tr><tr><td>429</td><td>Rate limited, with <code>Retry-After</code></td></tr><tr><td>503</td><td>Dependency down, with <code>Retry-After</code></td></tr></tbody></table>
+</li>
+<li>
+<p><strong>Idempotency:</strong> every <code>POST</code> that moves money or changes state accepts an <code>Idempotency-Key</code> header. A repeat within 24 hours returns the original response.</p>
+</li>
+<li>
+<p><strong>Pagination:</strong> cursor-based (<code>?cursor=…&amp;limit=…</code>), returning <code>next</code> in the body. No offset pagination on large collections.</p>
+</li>
+</ul>
+<p><strong>Error code catalog</strong> is generated from code into <code>specs/errors.md</code>. Examples:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Code</th><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td><code>TAPLINE-ACCT-0004</code></td><td>409</td><td>Medium limit reached (FR-ACCT-02)</td></tr><tr><td><code>TAPLINE-ACCT-0011</code></td><td>409</td><td>Medium already linked to another account</td></tr><tr><td><code>TAPLINE-PAY-0002</code></td><td>409</td><td>Top-up amount outside $5–$100 (FR-PAY-02)</td></tr><tr><td><code>TAPLINE-PAY-0009</code></td><td>503</td><td>Payment processor unavailable; try again</td></tr><tr><td><code>TAPLINE-POL-0003</code></td><td>409</td><td>Fare rule version needs a second approver (FR-POL-02)</td></tr><tr><td><code>TAPLINE-ELIG-0005</code></td><td>202</td><td>Eligibility check pending with DHS (not an error; returned as a status resource)</td></tr></tbody></table>
+<h2 id="6-example-openapi-skeleton">6. Example OpenAPI Skeleton</h2>
+<p>The Rider API's trips endpoint as it appears in the generated spec (abridged):</p>
+<pre><code class="language-yaml">openapi: 3.1.0
+info:
+  title: Tapline Rider API
+  version: 1.3.0
+  description: Accounts, media, trips and payments for riders.
+servers:
+  - url: https://api.crt-transit.example/rider/v1
+security:
+  - riderAuth: [rider.read]
+paths:
+  /accounts/{accountId}/trips:
+    get:
+      summary: List the rider's trips, newest first
+      operationId: listTrips
+      parameters:
+        - { name: accountId, in: path, required: true, schema: { type: string } }
+        - { name: from, in: query, schema: { type: string, format: date } }
+        - { name: cursor, in: query, schema: { type: string } }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 100, default: 25 } }
+      responses:
+        '200':
+          description: A page of trips
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TripPage' }
+        '404':
+          description: Account not found or not yours
+          content:
+            application/problem+json:
+              schema: { $ref: '#/components/schemas/ProblemDetails' }
+components:
+  securitySchemes:
+    riderAuth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.crt-transit.example/oauth2/v2.0/authorize
+          tokenUrl: https://login.crt-transit.example/oauth2/v2.0/token
+          scopes:
+            rider.read: Read your account and trips
+            rider.write: Change your account and cards
+            payments.topup: Add money to your account
+  schemas:
+    Money:
+      type: object
+      required: [amountCents, currency]
+      properties:
+        amountCents: { type: integer }
+        currency: { type: string, const: USD }
+    Trip:
+      type: object
+      required: [tripId, serviceDate, startedAt, operator, fare, capped]
+      properties:
+        tripId: { type: string }
+        serviceDate: { type: string, format: date }
+        startedAt: { type: string, format: date-time }
+        operator: { type: string, examples: [CRT] }
+        taps:
+          type: array
+          items: { $ref: '#/components/schemas/TapSummary' }
+        fare: { $ref: '#/components/schemas/Money' }
+        capped: { type: boolean, description: True when a cap reduced this fare }
+    TapSummary:
+      type: object
+      properties:
+        tappedAt: { type: string, format: date-time }
+        stopName: { type: string }
+        routeName: { type: [string, 'null'] }
+    TripPage:
+      type: object
+      required: [items]
+      properties:
+        items: { type: array, items: { $ref: '#/components/schemas/Trip' } }
+        next: { type: [string, 'null'], description: Cursor for the next page }
+    ProblemDetails:
+      type: object
+      required: [type, title, status, code]
+      properties:
+        type: { type: string, format: uri }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        instance: { type: string }
+        code: { type: string, pattern: '^TAPLINE-[A-Z]+-\d{4}$|^TAPLINE-VALIDATION$' }
+        traceId: { type: string }
+</code></pre>
+<p>And the matching AsyncAPI entry for one event (abridged from <code>specs/asyncapi/tapline-events.yaml</code>):</p>
+<pre><code class="language-yaml">asyncapi: 3.0.0
+info:
+  title: Tapline domain events
+  version: 1.0.0
+channels:
+  domainEvents:
+    address: domain-events
+    messages:
+      fareCalculated:
+        name: crt.tapline.journey.fare-calculated.v1
+        contentType: application/cloudevents+json
+        payload:
+          $ref: '../../src/Contracts/schemas/journey/fare-calculated.v1.json'
+operations:
+  publishFareCalculated:
+    action: send
+    channel: { $ref: '#/channels/domainEvents' }
+    messages:
+      - $ref: '#/channels/domainEvents/messages/fareCalculated'
+</code></pre></div></article></div></div></div></div><!--]--></main><footer class="v-footer v-theme--scottLight d-flex align-center justify-center footer" style="bottom:0px;z-index:1004;transform:translateY(0px);position:fixed;left:0px;width:calc(100% - 0px - 0px);"><span class="text-body-1">© 2026. Created by Scott Vercuski</span></footer><!--]--><!--]--></div></div></div>
+
+
+
+</body></html>
