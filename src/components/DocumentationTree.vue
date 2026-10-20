@@ -10,14 +10,13 @@
           :title="node.name"
         />
       </template>
-      <DocumentationTree :nodes="node.children ?? []" :selected="selected" />
+      <DocumentationTree :nodes="node.children ?? []" :selected="selected" :link-for="linkFor" />
     </v-list-group>
-    <!-- exact: without it Vuetify ignores the query when deciding whether a
-         link is active, so every document would count as active and
-         Vuetify would expand its parent folder on load. -->
+    <!-- exact: otherwise Vuetify treats every document link as active
+         (they share one route) and expands each one's folder on load. -->
     <v-list-item
       v-else-if="node.type === 'markdown'"
-      :to="{ query: { doc: node.path } }"
+      :to="linkFor(node.path)"
       exact
       :active="node.path === selected"
       :prepend-icon="mdiFileDocumentOutline"
@@ -42,6 +41,8 @@ defineProps<{
   nodes: DocNode[]
   // Path of the document currently shown
   selected?: string
+  // URL of a document's page
+  linkFor: (path: string) => string | undefined
 }>()
 
 function displayName (name: string) {

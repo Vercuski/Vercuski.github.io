@@ -31,13 +31,14 @@ import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { allTopics, topics } from '../data/topics'
 import TopicNavItem from '../components/TopicNavItem.vue'
+import { topicUrl } from '../utils/docPaths'
 
 // Start with a sub-menu open when the current page is that topic or one
 // of its sub-topics (at any depth).
 const route = useRoute()
 const openedGroups = ref<string[]>(
   allTopics
-    .filter(topic => topic.children?.length && route.path.startsWith(`/Topics/${topic.slug}`))
+    .filter(topic => topic.children?.length && `${route.path.toLowerCase()}/`.startsWith(topicUrl(topic.slug)))
     .map(topic => topic.slug),
 )
 </script>

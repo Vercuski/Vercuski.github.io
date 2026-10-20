@@ -2,7 +2,7 @@
   <v-container fill-height fluid>
     <br/>
     <v-row class="align-center justify-center">
-      <span class="text-h4 text-center" style="font-weight: bold">ABOUT ME</span>
+      <h1 class="text-h4 text-center" style="font-weight: bold">ABOUT ME</h1>
     </v-row>
     <br/>
     <v-row class="align-center justify-center">
@@ -51,7 +51,7 @@
         >
         to chat about development, a project, my hobbies/interests, or just to say
         hi. Check out my list of
-        <router-link to="/Skills">skills</router-link> to see if I'm a good fit for a project you
+        <router-link to="/skills/">skills</router-link> to see if I'm a good fit for a project you
         have in mind.</p>
       </v-col>
       <v-col cols="12" md="6" class="px-6">
@@ -83,16 +83,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '@unhead/vue'
+import { usePageMeta } from '../composables/usePageMeta'
 import profilePhoto from '../assets/icons/Me.jpg'
 
-useHead({
+usePageMeta({
   title: 'About | Scott Vercuski',
-  meta: [
-    {
-      name: 'description',
-      content: 'Background and career history of Scott Vercuski — a long time developer with experience as a network administrator, DevOps engineer, project manager, and software architect — plus hobbies and interests outside of work.',
-    },
-  ],
+  description: 'Background and career history of Scott Vercuski — a long time developer with experience as a network administrator, DevOps engineer, project manager, and software architect — plus hobbies and interests outside of work.',
 })
 </script>

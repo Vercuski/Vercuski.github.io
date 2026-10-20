@@ -6,7 +6,7 @@
     <template #activator="{ props }">
       <v-list-item
         v-bind="props"
-        :to="`/Topics/${topic.slug}`"
+        :to="topicUrl(topic.slug)"
         :title="topic.title"
         color="primary"
       />
@@ -15,7 +15,7 @@
   </v-list-group>
   <v-list-item
     v-else
-    :to="`/Topics/${topic.slug}`"
+    :to="topicUrl(topic.slug)"
     :title="topic.title"
     color="primary"
   />
@@ -23,6 +23,7 @@
 
 <script lang="ts" setup>
 import type { Topic } from '../types/topic'
+import { topicUrl } from '../utils/docPaths'
 
 defineProps<{ topic: Topic }>()
 </script>

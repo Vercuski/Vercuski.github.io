@@ -1,0 +1,10 @@
+# Netlify redirects (https://docs.netlify.com/routing/redirects/).
+# Topic URLs moved from /topics/solutionarchitecture/... to hyphenated
+# slugs; send the old addresses to the new ones permanently. Most specific
+# rules first: Netlify uses the first rule that matches.
+/topics/solutionarchitecture/documentationandexample/templates/*  /topics/solution-architecture/documentation-and-example/templates/:splat  301
+/topics/solutionarchitecture/documentationandexample/example/*    /topics/solution-architecture/documentation-and-example/example/:splat    301
+/topics/solutionarchitecture/documentationandexample/*            /topics/solution-architecture/documentation-and-example/:splat            301
+/topics/solutionarchitecture/*                                    /topics/solution-architecture/:splat                                      301
+/topics/softwarearchitecture/*                                    /topics/software-architecture/:splat                                      301
+/topics/softwaredesignpatterns/*                                  /topics/software-design-patterns/:splat                                   301

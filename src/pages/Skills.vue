@@ -2,7 +2,7 @@
   <v-container fill-height fluid>
     <br/>
     <v-row class="align-center justify-center">
-      <span class="text-h4 text-center" style="font-weight: bold">SKILLS</span>
+      <h1 class="text-h4 text-center" style="font-weight: bold">SKILLS</h1>
     </v-row>
     <br/>
     <v-row class="align-center justify-center">
@@ -82,17 +82,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '@unhead/vue'
+import { usePageMeta } from '../composables/usePageMeta'
 import type { SkillCategory } from '../types/skill'
 
-useHead({
+usePageMeta({
   title: 'Skills | Scott Vercuski',
-  meta: [
-    {
-      name: 'description',
-      content: 'Technical skills and expertise of Scott Vercuski across languages, databases, frameworks, cloud platforms, DevOps tooling, and software architecture patterns.',
-    },
-  ],
+  description: 'Technical skills and expertise of Scott Vercuski across languages, databases, frameworks, cloud platforms, DevOps tooling, and software architecture patterns.',
 })
 
 // Headline skills, called out in the Core Expertise band above the full

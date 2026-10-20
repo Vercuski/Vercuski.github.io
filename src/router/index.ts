@@ -7,7 +7,7 @@
  * (ADR-0002 in the FrontendRedesign architecture docs).
  */
 
-import type { RouteRecordRaw } from 'vue-router'
+import type { RouteLocationNormalized, RouteRecordRaw } from 'vue-router'
 
 import AboutView from '../pages/About.vue'
 import IndexView from '../pages/index.vue'
@@ -19,13 +19,15 @@ import TopicDetailView from '../pages/TopicDetail.vue'
 import NotFoundView from '../pages/NotFound.vue'
 import { allTopics } from '../data/topics'
 
+// Paths are lowercase: the live host redirects every URL to lowercase with
+// a trailing slash, and links point straight at that form (see site.ts).
 export const routes: RouteRecordRaw[] = [
   { path: '/', component: IndexView },
-  { path: '/About', component: AboutView },
-  { path: '/Projects', component: ProjectsView },
-  { path: '/Skills', component: SkillsView },
+  { path: '/about', component: AboutView },
+  { path: '/projects', component: ProjectsView },
+  { path: '/skills', component: SkillsView },
   {
-    path: '/Topics',
+    path: '/topics',
     component: TopicsView,
     children: [
       { path: '', component: TopicsIndexView },
@@ -35,6 +37,17 @@ export const routes: RouteRecordRaw[] = [
         path: topic.slug,
         component: TopicDetailView,
         props: { slug: topic.slug },
+      })),
+      // One page per document in a documentation set, e.g.
+      // /topics/<slug>/01-requirements/business-requirements/. These are
+      // dynamic, so vite.config.mts lists them for prerendering.
+      ...allTopics.filter(topic => topic.documentation).map(topic => ({
+        path: `${topic.slug}/:doc(.*)`,
+        component: TopicDetailView,
+        props: (route: RouteLocationNormalized) => ({
+          slug: topic.slug,
+          doc: String(route.params.doc).replace(/\/+$/, ''),
+        }),
       })),
     ],
   },

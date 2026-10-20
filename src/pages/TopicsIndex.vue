@@ -1,5 +1,7 @@
 <template>
   <div class="px-2">
+    <h1 class="text-h5" style="font-weight: bold">Topics</h1>
+    <br/>
     <p class="text-h6" style="font-weight: bold">Pick a topic from the menu.</p>
     <br/>
     <p>
@@ -10,15 +12,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '@unhead/vue'
+import { usePageMeta } from '../composables/usePageMeta'
 
-useHead({
+usePageMeta({
   title: 'Topics | Scott Vercuski',
-  meta: [
-    {
-      name: 'description',
-      content: 'Topics by Scott Vercuski on solution architecture, software architecture, and software design patterns.',
-    },
-  ],
+  description: 'Topics by Scott Vercuski on solution architecture, software architecture, and software design patterns.',
 })
 </script>

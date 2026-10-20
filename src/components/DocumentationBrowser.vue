@@ -1,9 +1,9 @@
 <template>
   <div class="docbrowser">
-    <!-- File tree for the documentation set. Markdown files link to
-         ?doc=<path>, so a document can be bookmarked and the back button
-         works. -->
-    <nav class="doctree">
+    <!-- File tree for the documentation set. Each document has its own
+         prerendered page, so the tree is made of ordinary links that
+         search engines can follow. -->
+    <nav class="doctree" aria-label="Documents">
       <v-list
         v-model:opened="openedFolders"
         open-strategy="multiple"
@@ -11,59 +11,68 @@
         density="compact"
         bg-color="transparent"
       >
-        <DocumentationTree :nodes="tree" :selected="currentPath" />
+        <DocumentationTree :nodes="tree" :selected="currentPath" :link-for="path => urlFor(set, path)" />
       </v-list>
     </nav>
 
     <article ref="viewer" class="docviewer">
       <div v-if="currentPath" class="text-caption text-medium-emphasis mb-4">{{ currentPath }}</div>
       <div v-if="error" class="text-error">{{ error }}</div>
-      <div v-else-if="markdown === null" class="text-medium-emphasis">Loading…</div>
-      <VueMarkdown
-        v-else
-        :key="currentPath"
-        class="markdownbody"
-        :markdown="markdown"
-        :remark-plugins="remarkPlugins"
-        :rehype-plugins="rehypePlugins"
-        :custom-attrs="customAttrs"
-      >
-        <template #mermaid-diagram="{ code }">
-          <MermaidDiagram :code="code" />
+      <Suspense v-else-if="currentPath" @resolve="onDocumentShown">
+        <DocumentView
+          :key="currentPath"
+          :set="set"
+          :path="currentPath"
+          :custom-attrs="customAttrs"
+          :set-page-meta="!!doc"
+        />
+        <template #fallback>
+          <div class="text-medium-emphasis">Loading…</div>
         </template>
-      </VueMarkdown>
+      </Suspense>
     </article>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, ref, watch } from 'vue'
-import { useRoute, useRouter, type RouteLocationRaw } from 'vue-router'
-import { type CustomAttrs, type PluggableList, VueMarkdown } from '@crazydos/vue-markdown'
-import remarkGfm from 'remark-gfm'
-import rehypeRaw from 'rehype-raw'
-import rehypeSlug from 'rehype-slug'
+import { computed, onErrorCaptured, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import type { CustomAttrs } from '@crazydos/vue-markdown'
 import {
   defaultDocument,
+  documentForSlug,
   findDocumentByName,
   getDocumentationTree,
   hasMarkdown,
-  loadMarkdown,
 } from '../data/documentation'
 import { allTopics } from '../data/topics'
-import { prepareMarkdown, rehypeCallouts, rehypeMermaid, resolveRelativePath } from '../utils/markdown'
+import { docUrl } from '../utils/docPaths'
+import { resolveRelativePath } from '../utils/markdown'
+import DocumentView from './DocumentView.vue'
 
-// Name of the folder under src/assets/documentation to show
-const props = defineProps<{ set: string }>()
+const props = defineProps<{
+  // Name of the folder under src/assets/documentation to show
+  set: string
+  // Document URL segment from the route (see router/index.ts); omitted on
+  // the set's own page, which shows its default document
+  doc?: string
+}>()
 
 const route = useRoute()
 const router = useRouter()
 
 const tree = computed(() => getDocumentationTree(props.set))
 
-const currentPath = computed(() => {
-  const doc = route.query.doc
-  return typeof doc === 'string' && hasMarkdown(props.set, doc) ? doc : defaultDocument(props.set)
+const currentPath = computed(() => props.doc ? documentForSlug(props.set, props.doc) : defaultDocument(props.set))
+
+const error = ref('')
+watch(currentPath, path => {
+  error.value = path ? '' : props.doc ? 'Document not found.' : 'This documentation set has no documents.'
+}, { immediate: true })
+
+onErrorCaptured(() => {
+  error.value = `Couldn't load ${currentPath.value}.`
+  return false
 })
 
 // Keep the folders containing the current document open.
@@ -75,12 +84,7 @@ watch(currentPath, path => {
   openedFolders.value = [...new Set([...openedFolders.value, ...ancestors])]
 }, { immediate: true })
 
-const markdown = ref<string | null>(null)
-const error = ref('')
 const viewer = ref<HTMLElement>()
-
-const remarkPlugins: PluggableList = [remarkGfm]
-const rehypePlugins: PluggableList = [rehypeRaw, rehypeSlug, rehypeCallouts, rehypeMermaid]
 
 // Obsidian heading links ('#Some Heading') -> rehype-slug ids ('some-heading').
 function headingId (hash: string) {
@@ -91,27 +95,28 @@ function scrollToHeading (hash: string) {
   document.getElementById(headingId(hash))?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-// Route to show `path` from documentation set `set`, which may be on
+// URL of document `path` from documentation set `set`, which may be on
 // another Topics page (e.g. the Example linking to the Templates README).
-function documentLocation (set: string, path: string, hash?: string): RouteLocationRaw | undefined {
+function urlFor (set: string, path: string, hash?: string): string | undefined {
   const topic = allTopics.find(t => t.documentation === set)
   if (!topic) return undefined
-  return { path: `/Topics/${topic.slug}`, query: { doc: path }, hash: hash ? `#${headingId(hash)}` : undefined }
+  return docUrl(topic.slug, path, defaultDocument(set)) + (hash ? `#${headingId(hash)}` : '')
 }
 
-function routerLinkAttrs (location: RouteLocationRaw) {
+function routerLinkAttrs (url: string) {
   return {
-    href: router.resolve(location).href,
+    href: url,
     onClick: (e: MouseEvent) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return
       e.preventDefault()
-      router.push(location)
+      router.push(url)
     },
   }
 }
 
-// Links in the markdown: relative .md links and [[wikilinks]] open in this
-// viewer, '#heading' links scroll, and external links open in a new tab.
+// Links in the markdown: relative .md links and [[wikilinks]] go to that
+// document's page, '#heading' links scroll, and external links open in a
+// new tab.
 const customAttrs = computed<CustomAttrs>(() => ({
   a: node => {
     const href = String(node.properties?.href ?? '')
@@ -123,9 +128,9 @@ const customAttrs = computed<CustomAttrs>(() => ({
     if (href.startsWith('wiki:')) {
       const [name, hash] = href.slice('wiki:'.length).split('#')
       const doc = findDocumentByName(name, props.set)
-      const location = doc && documentLocation(doc.set, doc.path, hash)
+      const url = doc && urlFor(doc.set, doc.path, hash)
       // Unresolvable wikilinks render as plain text.
-      return location ? routerLinkAttrs(location) : { href: undefined }
+      return url ? routerLinkAttrs(url) : { href: undefined }
     }
 
     if (/^[a-z][a-z\d+.-]*:/i.test(href)) {
@@ -134,45 +139,31 @@ const customAttrs = computed<CustomAttrs>(() => ({
 
     const [relative, hash] = href.split('#')
     const path = resolveRelativePath(currentPath.value ?? '', relative)
-    const location = hasMarkdown(props.set, path) && documentLocation(props.set, path, hash)
-    return location ? routerLinkAttrs(location) : {}
+    const url = hasMarkdown(props.set, path) && urlFor(props.set, path, hash)
+    return url ? routerLinkAttrs(url) : {}
   },
 }))
 
-function scrollAfterLoad () {
+// After a document is shown: go to the linked heading, or bring the top
+// of the document into view if the reader had scrolled past it.
+let firstDocument = true
+function onDocumentShown () {
   if (route.hash) {
     scrollToHeading(route.hash.slice(1))
-  } else if (viewer.value && viewer.value.getBoundingClientRect().top < 0) {
+  } else if (!firstDocument && viewer.value && viewer.value.getBoundingClientRect().top < 0) {
     viewer.value.scrollIntoView({ block: 'start' })
   }
+  firstDocument = false
 }
 
-let loadCount = 0
-async function load (path: string | undefined) {
-  const thisLoad = ++loadCount
-  error.value = ''
-  markdown.value = null
-  if (!path) {
-    error.value = 'This documentation set has no documents.'
-    return
-  }
-  try {
-    const content = await loadMarkdown(props.set, path)
-    // Ignore a slower earlier load finishing after a newer one.
-    if (thisLoad !== loadCount) return
-    markdown.value = prepareMarkdown(content)
-    await nextTick()
-    scrollAfterLoad()
-  } catch {
-    if (thisLoad === loadCount) error.value = `Couldn't load ${path}.`
-  }
-}
-
-// Markdown is loaded in the browser only; the prerendered page shows the
-// tree and a loading message.
 onMounted(() => {
-  load(currentPath.value)
-  watch(currentPath, path => load(path))
+  // Documents used to be addressed as ?doc=<path>; send those links to
+  // the document's own page.
+  const legacy = route.query.doc
+  if (typeof legacy === 'string' && hasMarkdown(props.set, legacy)) {
+    const url = urlFor(props.set, legacy)
+    if (url) router.replace(url)
+  }
   watch(() => route.hash, hash => hash && scrollToHeading(hash.slice(1)))
 })
 </script>

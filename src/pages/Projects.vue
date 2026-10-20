@@ -2,7 +2,7 @@
   <v-container fill-height fluid>
     <br/>
     <v-row class="align-center justify-center">
-      <span class="text-h4 text-center" style="font-weight: bold">PROJECTS</span>
+      <h1 class="text-h4 text-center" style="font-weight: bold">PROJECTS</h1>
     </v-row>
     <br/><br/>
     <v-row class="align-start justify-center">
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '@unhead/vue'
+import { usePageMeta } from '../composables/usePageMeta'
 
 import messagingIcon from '../assets/icons/messagingicon.webp'
 import microserviceIcon from '../assets/icons/microservice-icon.webp'
@@ -30,14 +30,9 @@ import onionIcon from '../assets/icons/onion-architecture-icon.webp'
 import dockerIcon from '../assets/icons/docker-icon.webp'
 import type { Project } from '../types/project'
 
-useHead({
+usePageMeta({
   title: 'Projects | Scott Vercuski',
-  meta: [
-    {
-      name: 'description',
-      content: 'A selection of software architecture and backend project templates by Scott Vercuski, including Onion Architecture, Microservice Architecture, messaging, and Docker Compose scripts.',
-    },
-  ],
+  description: 'A selection of software architecture and backend project templates by Scott Vercuski, including Onion Architecture, Microservice Architecture, messaging, and Docker Compose scripts.',
 })
 
 // Adding a new project card going forward is just appending an entry here

@@ -6,8 +6,9 @@
  * layout and the detail page read from the same source.
  */
 export interface Topic {
-  // URL path under /Topics, e.g. 'SolutionArchitecture' or, for a
-  // sub-topic, 'SolutionArchitecture/DocumentationAndExample'
+  // URL path under /topics/ (lowercase, hyphenated), e.g.
+  // 'solution-architecture' or, for a sub-topic,
+  // 'solution-architecture/documentation-and-example'
   slug: string
   title: string
   summary: string

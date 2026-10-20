@@ -8,6 +8,29 @@ import VueRouter from 'unplugin-vue-router/vite'
 // Utilities
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
+import { readdirSync, writeFileSync } from 'node:fs'
+import { canonicalUrl } from './src/site'
+import { allTopics } from './src/data/topics'
+import { docUrl, pickDefaultDocument } from './src/utils/docPaths'
+
+// Routes prerendered by vite-ssg, collected for the sitemap.
+const sitemapRoutes: string[] = []
+
+// Page URL of every document in every documentation set (see the
+// /topics/<slug>/:doc route in src/router/index.ts), for prerendering.
+function documentRoutes (): string[] {
+  const root = fileURLToPath(new URL('./src/assets/documentation/', import.meta.url))
+  return allTopics.flatMap(topic => {
+    if (!topic.documentation) return []
+    const paths = (readdirSync(`${root}${topic.documentation}`, { recursive: true }) as string[])
+      .map(path => path.replace(/\\/g, '/'))
+      .filter(path => path.toLowerCase().endsWith('.md'))
+    const defaultPath = pickDefaultDocument(paths)
+    return paths
+      .filter(path => path !== defaultPath)
+      .map(path => docUrl(topic.slug, path, defaultPath).replace(/\/$/, ''))
+  })
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -57,10 +80,34 @@ export default defineConfig({
   ssr: {
     noExternal: ['vuetify'],
   },
-  // '/About' -> 'About/index.html' rather than 'About.html' — matches
-  // GitHub Pages' unambiguous directory-serving behavior instead of
-  // relying on extensionless-.html resolution.
+  // '/about' -> 'about/index.html' rather than 'about.html', so every page
+  // is served at its directory URL ('/about/') without relying on
+  // extensionless-.html resolution.
   ssgOptions: {
     dirStyle: 'nested',
+    // vite-ssg skips dynamic routes, so add each document page.
+    includedRoutes (paths) {
+      return [...paths.filter(path => !path.includes(':')), ...documentRoutes()]
+    },
+    // Build sitemap.xml from the pages vite-ssg actually prerendered, so
+    // new pages (e.g. topics added in src/data/topics.ts) are included
+    // automatically. Pages marked noindex are left out.
+    onPageRendered (route, renderedHTML) {
+      if (!/<meta[^>]+name="robots"[^>]+noindex/i.test(renderedHTML)) {
+        sitemapRoutes.push(route)
+      }
+      return renderedHTML
+    },
+    onFinished () {
+      const urls = [...new Set(sitemapRoutes.map(canonicalUrl))].sort()
+      const xml = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        ...urls.map(url => `  <url>\n    <loc>${url}</loc>\n  </url>`),
+        '</urlset>',
+        '',
+      ].join('\n')
+      writeFileSync(fileURLToPath(new URL('./dist/sitemap.xml', import.meta.url)), xml)
+    },
   },
 })

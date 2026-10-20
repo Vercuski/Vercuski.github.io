@@ -3,10 +3,10 @@
     <v-row>
       <v-col>
         <v-row class="d flex align-center justify-center">
-          <div class="text-h2 text-center" style="font-weight: bold">Scott Vercuski</div>
+          <h1 class="text-h2 text-center" style="font-weight: bold">Scott Vercuski</h1>
         </v-row>
         <v-row class="align-center justify-center">
-          <div class="text-h4 text-center" style="font-weight: 500">Software &amp; Solution Architect</div>
+          <h2 class="text-h4 text-center" style="font-weight: 500">Software &amp; Solution Architect</h2>
         </v-row>
         <br />
         <v-row class="align-center justify-center">
@@ -31,7 +31,7 @@
           <v-btn
             variant="outlined"
             size="large"
-            to="/Projects"
+            to="/projects/"
             class="mx-2"
           >
             View my projects
@@ -50,6 +50,7 @@
 
 <script lang="ts" setup>
 import { useHead } from '@unhead/vue'
+import { usePageMeta } from '../composables/usePageMeta'
 
 // Person/ProfilePage JSON-LD (ADR-0003 / migration plan Wave 2) — describes
 // Scott as a Person, nested as the mainEntity of this page as a ProfilePage.
@@ -72,14 +73,12 @@ const personJsonLd = {
   },
 }
 
-useHead({
+usePageMeta({
   title: 'Scott Vercuski | Software Architect',
-  meta: [
-    {
-      name: 'description',
-      content: "I'm a long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer, gamer, hobbyist, and enthusiast of many things.",
-    },
-  ],
+  description: "I'm a long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer, gamer, hobbyist, and enthusiast of many things.",
+})
+
+useHead({
   script: [
     {
       type: 'application/ld+json',

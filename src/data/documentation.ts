@@ -10,6 +10,8 @@
  * exposed as plain asset URLs so they can be downloaded.
  */
 
+import { docSlug, pickDefaultDocument } from '../utils/docPaths'
+
 const ROOT = '../assets/documentation/'
 
 const markdownLoaders = import.meta.glob<string>(
@@ -93,17 +95,111 @@ export function getDocumentationTree (set: string): DocNode[] {
   return sortNodes(root)
 }
 
-// The document shown when a set is opened with nothing selected: its
-// README, else the first top-level markdown file, else the first one found.
-export function defaultDocument (set: string): string | undefined {
-  const paths = Object.keys(markdownLoaders)
+function markdownPaths (set: string): string[] {
+  return Object.keys(markdownLoaders)
     .map(splitKey)
     .filter(entry => entry.set === set)
     .map(entry => entry.path)
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-  return paths.find(p => p.toLowerCase() === 'readme.md') ??
-    paths.find(p => !p.includes('/')) ??
-    paths[0]
+}
+
+// The document shown on the set's own page (see utils/docPaths.ts).
+export function defaultDocument (set: string): string | undefined {
+  return pickDefaultDocument(markdownPaths(set))
+}
+
+// URL segment from a document page's route -> document path.
+export function documentForSlug (set: string, slug: string): string | undefined {
+  const wanted = slug.toLowerCase()
+  return markdownPaths(set).find(path => docSlug(path) === wanted)
+}
+
+// Title and description for a document page's <head>.
+//   title: the first '# ' heading (else the file name), with template
+//          placeholders such as '— {Project Name}' removed
+//   description: the front-matter `summary`, else the document's first
+//          '> [!summary]' callout, else its first prose paragraph of
+//          reasonable length, else `fallback` - trimmed to snippet length
+export function documentMeta (path: string, markdown: string, fallback: string) {
+  const lines = markdown.split(/\r?\n/)
+
+  // Front matter: from a leading '---' line to the next '---' line.
+  let frontMatter: string[] = []
+  if (lines[0]?.trim() === '---') {
+    const end = lines.indexOf('---', 1)
+    if (end > 0) {
+      frontMatter = lines.slice(1, end)
+      lines.splice(0, end + 1)
+    }
+  }
+
+  // Drop fenced code blocks (e.g. Mermaid diagrams) before looking for text.
+  const body: string[] = []
+  let fence: string | undefined
+  for (const line of lines) {
+    const marker = /^\s*(```|~~~)/.exec(line)?.[1]
+    if (marker && (!fence || marker === fence)) {
+      fence = fence ? undefined : marker
+      continue
+    }
+    if (!fence) body.push(line)
+  }
+
+  const heading = body.find(line => /^#\s+/.test(line))?.replace(/^#\s+/, '')
+  const title = withoutPlaceholders(plainText(heading ?? path.split('/').pop()!.replace(/\.md$/i, '')))
+
+  const frontMatterSummary = frontMatter
+    .find(line => /^summary:\s*\S/.test(line))
+    ?.replace(/^summary:\s*/, '').replace(/^(['"])(.*)\1$/, '$2')
+
+  let calloutSummary: string | undefined
+  const calloutStart = body.findIndex(line => /^>\s*\[!summary\]/i.test(line))
+  if (calloutStart >= 0) {
+    const calloutLines: string[] = []
+    for (const line of body.slice(calloutStart + 1)) {
+      if (!line.startsWith('>')) break
+      calloutLines.push(line.replace(/^>\s?/, ''))
+    }
+    calloutSummary = calloutLines.join(' ')
+  }
+
+  // Paragraphs: runs of plain prose lines (not headings, lists, tables,
+  // quotes or HTML), split on blank lines and non-prose lines.
+  const paragraphs: string[] = []
+  let current: string[] = []
+  for (const line of body) {
+    const trimmed = line.trim()
+    if (!trimmed || /^(#|>|\||[-*+]\s|\d+\.\s|<|---)/.test(trimmed)) {
+      if (current.length) paragraphs.push(current.join(' '))
+      current = []
+    } else {
+      current.push(trimmed)
+    }
+  }
+  if (current.length) paragraphs.push(current.join(' '))
+  const paragraph = paragraphs.map(plainText).find(text => text.length >= 80 && !/[{}]/.test(text))
+
+  let description = plainText(frontMatterSummary || calloutSummary || paragraph || fallback)
+  if (description.length > 160) description = `${description.slice(0, 157).replace(/\s+\S*$/, '')}…`
+
+  return { title, description }
+}
+
+// 'Risk Register — {Project Name}' -> 'Risk Register', 'RFC: <Title>' -> 'RFC'
+function withoutPlaceholders (title: string) {
+  return title
+    .replace(/\{[^}]*\}|\\?<[^>]*>/g, '')
+    .replace(/[\s—–:-]+$/, '')
+    .trim()
+}
+
+// Markdown inline syntax -> plain text, for <head> tags.
+function plainText (markdown: string) {
+  return markdown
+    .replace(/\[\[([^\]|]+)\|?([^\]]*)\]\]/g, (_m, target: string, alias: string) => alias || target)
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`~]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
 }
 
 // Resolves an Obsidian-style [[wikilink]] target (a file name without
