@@ -12,50 +12,89 @@
 
 import { docSlug, pickDefaultDocument } from '../utils/docPaths'
 
+/** Prefix of every glob key below; the documentation folder relative to this file. */
 const ROOT = '../assets/documentation/'
 
+/** Lazy loader for each markdown file's raw text, keyed by its path from this file. */
 const markdownLoaders = import.meta.glob<string>(
   '../assets/documentation/**/*.md',
   { query: '?raw', import: 'default' },
 )
 
+/** Built asset URL of each non-markdown file, keyed by its path from this file. */
 const fileUrls = import.meta.glob<string>(
   ['../assets/documentation/**/*', '!../assets/documentation/**/*.md'],
   { query: '?url', import: 'default', eager: true },
 )
 
+/** One folder or file in a documentation set's tree. */
 export interface DocNode {
+  /** File or folder name, e.g. 'business-requirements.md'. */
   name: string
-  // Path relative to the documentation set's folder, e.g.
-  // '01-requirements/business-requirements.md'
+  /**
+   * Path relative to the documentation set's folder, e.g.
+   * '01-requirements/business-requirements.md'.
+   */
   path: string
+  /** 'markdown' documents open in the viewer; other 'file's are downloads. */
   type: 'folder' | 'markdown' | 'file'
-  // Download URL, for non-markdown files
+  /** Download URL, for non-markdown files. */
   url?: string
+  /** Contents, for folders. */
   children?: DocNode[]
 }
 
-// '../assets/documentation/<set>/<path>' -> { set, path }
+/**
+ * Splits a glob key into its set and path:
+ * '../assets/documentation/<set>/<path>' -> { set, path }.
+ *
+ * @param key - A key of {@link markdownLoaders} or {@link fileUrls}.
+ */
 function splitKey (key: string) {
   const relative = key.slice(ROOT.length)
   const slash = relative.indexOf('/')
   return { set: relative.slice(0, slash), path: relative.slice(slash + 1) }
 }
 
+/**
+ * The inverse of {@link splitKey}.
+ *
+ * @param set - Documentation set folder name.
+ * @param path - Path within the set.
+ * @returns The glob key for that file.
+ */
 function keyFor (set: string, path: string) {
   return `${ROOT}${set}/${path}`
 }
 
+/**
+ * @param set - Documentation set folder name.
+ * @param path - Path within the set.
+ * @returns Whether the set has a markdown document at `path`.
+ */
 export function hasMarkdown (set: string, path: string): boolean {
   return keyFor(set, path) in markdownLoaders
 }
 
+/**
+ * Loads a document's raw markdown, fetching its chunk on first use.
+ *
+ * @param set - Documentation set folder name.
+ * @param path - Path of the document within the set.
+ * @returns The markdown text; rejects if there is no such document.
+ */
 export function loadMarkdown (set: string, path: string): Promise<string> {
   const loader = markdownLoaders[keyFor(set, path)]
   return loader ? loader() : Promise.reject(new Error(`Document not found: ${set}/${path}`))
 }
 
-// Folders first, then files; numeric-aware so '2-x' sorts before '10-x'.
+/**
+ * Sorts a tree in place, at every level: folders first, then files;
+ * numeric-aware so '2-x' sorts before '10-x'.
+ *
+ * @param nodes - One level of the tree.
+ * @returns The same array, sorted.
+ */
 function sortNodes (nodes: DocNode[]) {
   nodes.sort((a, b) => {
     if ((a.type === 'folder') !== (b.type === 'folder')) return a.type === 'folder' ? -1 : 1
@@ -65,6 +104,13 @@ function sortNodes (nodes: DocNode[]) {
   return nodes
 }
 
+/**
+ * Builds the folder tree of a documentation set from the files bundled
+ * under its folder.
+ *
+ * @param set - Documentation set folder name.
+ * @returns The set's top-level folders and files, sorted.
+ */
 export function getDocumentationTree (set: string): DocNode[] {
   const root: DocNode[] = []
   const entries = [
@@ -95,6 +141,10 @@ export function getDocumentationTree (set: string): DocNode[] {
   return sortNodes(root)
 }
 
+/**
+ * @param set - Documentation set folder name.
+ * @returns The path of every markdown document in the set.
+ */
 function markdownPaths (set: string): string[] {
   return Object.keys(markdownLoaders)
     .map(splitKey)
@@ -102,23 +152,40 @@ function markdownPaths (set: string): string[] {
     .map(entry => entry.path)
 }
 
-// The document shown on the set's own page (see utils/docPaths.ts).
+/**
+ * @param set - Documentation set folder name.
+ * @returns The document shown on the set's own page (see utils/docPaths.ts).
+ */
 export function defaultDocument (set: string): string | undefined {
   return pickDefaultDocument(markdownPaths(set))
 }
 
-// URL segment from a document page's route -> document path.
+/**
+ * Maps the URL segment from a document page's route back to its document.
+ *
+ * @param set - Documentation set folder name.
+ * @param slug - The route's document segment (see utils/docPaths.ts docSlug).
+ * @returns The document's path, or `undefined` if none matches.
+ */
 export function documentForSlug (set: string, slug: string): string | undefined {
   const wanted = slug.toLowerCase()
   return markdownPaths(set).find(path => docSlug(path) === wanted)
 }
 
-// Title and description for a document page's <head>.
-//   title: the first '# ' heading (else the file name), with template
-//          placeholders such as '— {Project Name}' removed
-//   description: the front-matter `summary`, else the document's first
-//          '> [!summary]' callout, else its first prose paragraph of
-//          reasonable length, else `fallback` - trimmed to snippet length
+/**
+ * Derives the title and description for a document page's `<head>`.
+ *
+ * - title: the first '# ' heading (else the file name), with template
+ *   placeholders such as '— {Project Name}' removed
+ * - description: the front-matter `summary`, else the document's first
+ *   '> [!summary]' callout, else its first prose paragraph of reasonable
+ *   length, else `fallback` - trimmed to snippet length
+ *
+ * @param path - Path of the document within its set.
+ * @param markdown - The document's raw markdown.
+ * @param fallback - Description to use when the document has none.
+ * @returns Plain-text `title` and `description` (160 characters at most).
+ */
 export function documentMeta (path: string, markdown: string, fallback: string) {
   const lines = markdown.split(/\r?\n/)
 
@@ -184,7 +251,12 @@ export function documentMeta (path: string, markdown: string, fallback: string) 
   return { title, description }
 }
 
-// 'Risk Register — {Project Name}' -> 'Risk Register', 'RFC: <Title>' -> 'RFC'
+/**
+ * Removes template placeholders and the punctuation before them:
+ * 'Risk Register — {Project Name}' -> 'Risk Register', 'RFC: <Title>' -> 'RFC'.
+ *
+ * @param title - A document title.
+ */
 function withoutPlaceholders (title: string) {
   return title
     .replace(/\{[^}]*\}|\\?<[^>]*>/g, '')
@@ -192,7 +264,13 @@ function withoutPlaceholders (title: string) {
     .trim()
 }
 
-// Markdown inline syntax -> plain text, for <head> tags.
+/**
+ * Strips inline markdown (links, wikilinks, emphasis, code) to plain text,
+ * for `<head>` tags.
+ *
+ * @param markdown - A line or paragraph of markdown.
+ * @returns The text with whitespace collapsed.
+ */
 function plainText (markdown: string) {
   return markdown
     .replace(/\[\[([^\]|]+)\|?([^\]]*)\]\]/g, (_m, target: string, alias: string) => alias || target)
@@ -202,8 +280,14 @@ function plainText (markdown: string) {
     .trim()
 }
 
-// Resolves an Obsidian-style [[wikilink]] target (a file name without
-// extension) to a document, preferring the given set.
+/**
+ * Resolves an Obsidian-style [[wikilink]] target (a file name without
+ * extension) to a document, preferring the given set.
+ *
+ * @param name - The wikilink target, e.g. 'adr-template'.
+ * @param preferredSet - Set to look in first, usually the linking document's.
+ * @returns The matching document's `set` and `path`, or `undefined`.
+ */
 export function findDocumentByName (name: string, preferredSet: string) {
   const wanted = `${name.toLowerCase()}.md`
   const matches = Object.keys(markdownLoaders)

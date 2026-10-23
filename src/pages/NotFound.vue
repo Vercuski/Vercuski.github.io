@@ -15,6 +15,9 @@
 <script lang="ts" setup>
 import { useHead } from '@unhead/vue'
 
+// Catch-all page for unknown routes. Marked noindex, which also keeps it
+// out of the sitemap (see vite.config.mts).
+
 useHead({
   title: 'Page Not Found | Scott Vercuski',
   meta: [

@@ -94,6 +94,9 @@ import { onMounted, ref } from 'vue'
 import { usePageMeta } from '../composables/usePageMeta'
 import { CONTACT_FORM } from '../site'
 
+// Contact form: validates the fields, requires an hCaptcha check, and
+// emails the message through Web3Forms (see CONTACT_FORM in site.ts).
+
 usePageMeta({
   title: 'Contact | Scott Vercuski',
   description: 'Send Scott Vercuski a message about development, a project, hobbies and interests, or just to say hi.',
@@ -107,8 +110,13 @@ const MESSAGE_MAX = 2000
 // hand rather than with their client script.
 const HCAPTCHA_SITEKEY = '50b2fe65-b00b-4b9e-ad62-3ba471098be2'
 
+/** A Vuetify validation rule: `true` when valid, else the error to show. */
 type Rule = (value: string) => true | string
 
+/**
+ * @param label - Field name used in the error message.
+ * @returns A rule that fails on an empty or whitespace-only value.
+ */
 const required = (label: string): Rule => value => !!value?.trim() || `${label} is required`
 
 // Stricter than the browser's type="email" check, which accepts addresses
@@ -117,6 +125,10 @@ const required = (label: string): Rule => value => !!value?.trim() || `${label} 
 // characters, within the RFC 5321 length limits.
 const EMAIL_PATTERN = /^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@([A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,63}$/
 
+/**
+ * @param value - A trimmed email address.
+ * @returns Whether it matches {@link EMAIL_PATTERN} within the length limits.
+ */
 function isValidEmail (value: string): boolean {
   const [local] = value.split('@')
   return value.length <= EMAIL_MAX && local.length <= 64 && EMAIL_PATTERN.test(value)
@@ -146,8 +158,11 @@ const errorMessage = ref('')
 
 // hCaptcha is loaded in the browser only: the page is also prerendered in
 // Node by vite-ssg, where there is no window to load it into.
+/** The parts of hCaptcha's global API this page uses. */
 interface HCaptcha {
+  /** Draws a widget in `el` and returns its id. */
   render (el: HTMLElement, options: Record<string, unknown>): string
+  /** Clears a widget's response so it must be completed again. */
   reset (id?: string): void
 }
 declare global {
@@ -162,6 +177,10 @@ const captchaToken = ref('')
 const captchaError = ref('')
 let captchaId: string | undefined
 
+/**
+ * Draws the hCaptcha widget and keeps {@link captchaToken} in step with
+ * it. Called once hCaptcha's script has loaded.
+ */
 function renderCaptcha () {
   if (!window.hcaptcha || !captchaEl.value) return
   captchaId = window.hcaptcha.render(captchaEl.value, {
@@ -188,11 +207,17 @@ onMounted(() => {
   }
 })
 
+/** Clears the captcha so the next submission needs a fresh check. */
 function resetCaptcha () {
   captchaToken.value = ''
   window.hcaptcha?.reset(captchaId)
 }
 
+/**
+ * Validates the form and captcha, then sends the message to Web3Forms.
+ * Shows a success or error alert, clears the form on success, and resets
+ * the captcha either way (each token can only be used once).
+ */
 async function submit () {
   errorMessage.value = ''
   status.value = 'idle'

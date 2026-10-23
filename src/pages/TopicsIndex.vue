@@ -14,6 +14,8 @@
 <script lang="ts" setup>
 import { usePageMeta } from '../composables/usePageMeta'
 
+// Shown at /topics/ before a topic is chosen from the navigation.
+
 usePageMeta({
   title: 'Topics | Scott Vercuski',
   description: 'Topics by Scott Vercuski on solution architecture, software architecture, and software design patterns.',

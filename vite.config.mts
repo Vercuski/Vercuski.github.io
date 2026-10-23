@@ -13,11 +13,17 @@ import { canonicalUrl } from './src/site'
 import { allTopics } from './src/data/topics'
 import { docUrl, pickDefaultDocument } from './src/utils/docPaths'
 
-// Routes prerendered by vite-ssg, collected for the sitemap.
+/** Routes prerendered by vite-ssg, collected for the sitemap. */
 const sitemapRoutes: string[] = []
 
-// Page URL of every document in every documentation set (see the
-// /topics/<slug>/:doc route in src/router/index.ts), for prerendering.
+/**
+ * Lists the page URL of every document in every documentation set (see the
+ * /topics/<slug>/:doc route in src/router/index.ts), for prerendering. Each
+ * set's default document is left out: it is served at the set's own page,
+ * which vite-ssg already prerenders.
+ *
+ * @returns Route paths without a trailing slash.
+ */
 function documentRoutes (): string[] {
   const root = fileURLToPath(new URL('./src/assets/documentation/', import.meta.url))
   return allTopics.flatMap(topic => {

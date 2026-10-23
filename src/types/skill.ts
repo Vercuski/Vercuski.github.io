@@ -7,6 +7,8 @@
  * editing the array in Skills.vue.
  */
 export interface SkillCategory {
+  /** Category heading, e.g. 'Languages'. */
   name: string
+  /** Skills in the category, most familiar first. */
   skills: string[]
 }

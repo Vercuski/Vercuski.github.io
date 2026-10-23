@@ -69,6 +69,11 @@
 <script lang="ts" setup>
 import { usePageMeta } from '../composables/usePageMeta'
 
+// Privacy notice covering the contact form, hCaptcha, Google Analytics and
+// hosting. Update it, and LAST_UPDATED, when the site starts collecting
+// anything new.
+
+/** Date shown as when the notice last changed. */
 const LAST_UPDATED = 'October 20, 2026'
 
 usePageMeta({

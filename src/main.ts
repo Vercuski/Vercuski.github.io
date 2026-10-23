@@ -23,6 +23,10 @@ import App from './App.vue'
 import { routes } from './router'
 import { registerPlugins } from '@/plugins'
 
+/**
+ * App factory vite-ssg calls once in the browser and once per prerendered
+ * route at build time.
+ */
 export const createApp = ViteSSG(
   App,
   {

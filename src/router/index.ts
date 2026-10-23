@@ -21,8 +21,11 @@ import NotFoundView from '../pages/NotFound.vue'
 import PrivacyView from '../pages/Privacy.vue'
 import { allTopics } from '../data/topics'
 
-// Paths are lowercase: the live host redirects every URL to lowercase with
-// a trailing slash, and links point straight at that form (see site.ts).
+/**
+ * Every route in the site. Paths are lowercase: the live host redirects
+ * every URL to lowercase with a trailing slash, and links point straight
+ * at that form (see site.ts).
+ */
 export const routes: RouteRecordRaw[] = [
   { path: '/', component: IndexView },
   { path: '/about', component: AboutView },

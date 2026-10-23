@@ -38,13 +38,18 @@ import { mdiDownload, mdiFileDocumentOutline, mdiFolderOpenOutline, mdiFolderOut
 import type { DocNode } from '../data/documentation'
 
 defineProps<{
+  /** Folders and files at this level of the tree. */
   nodes: DocNode[]
-  // Path of the document currently shown
+  /** Path of the document currently shown. */
   selected?: string
-  // URL of a document's page
+  /** URL of a document's page. */
   linkFor: (path: string) => string | undefined
 }>()
 
+/**
+ * @param name - A markdown file name.
+ * @returns The name without its `.md` extension.
+ */
 function displayName (name: string) {
   return name.replace(/\.md$/i, '')
 }

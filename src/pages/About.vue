@@ -87,6 +87,8 @@
 import { usePageMeta } from '../composables/usePageMeta'
 import profilePhoto from '../assets/icons/Me.jpg'
 
+// About page: career background on the left, hobbies and interests on the right.
+
 usePageMeta({
   title: 'About | Scott Vercuski',
   description: 'Background and career history of Scott Vercuski — a long time developer with experience as a network administrator, DevOps engineer, project manager, and software architect — plus hobbies and interests outside of work.',

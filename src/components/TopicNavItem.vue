@@ -25,5 +25,8 @@
 import type { Topic } from '../types/topic'
 import { topicUrl } from '../utils/docPaths'
 
-defineProps<{ topic: Topic }>()
+defineProps<{
+  /** The topic to show, with any sub-topics. */
+  topic: Topic
+}>()
 </script>

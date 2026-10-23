@@ -33,6 +33,9 @@ import { allTopics, topics } from '../data/topics'
 import TopicNavItem from '../components/TopicNavItem.vue'
 import { topicUrl } from '../utils/docPaths'
 
+// Layout for every /topics/ page: the topic navigation on the left and
+// the current topic (a child route) beside it.
+
 // Start with a sub-menu open when the current page is that topic or one
 // of its sub-topics (at any depth).
 const route = useRoute()

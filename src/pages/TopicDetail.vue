@@ -31,11 +31,15 @@ import { topicUrl } from '../utils/docPaths'
 // documentation pages need it.
 const DocumentationBrowser = defineAsyncComponent(() => import('../components/DocumentationBrowser.vue'))
 
-// Passed from the route table (router/index.ts) so each topic gets its
-// own static route for vite-ssg to prerender.
+// A topic's page: its summary, then its documentation set, links to its
+// sub-topics, or a placeholder.
+//
+// Props are passed from the route table (router/index.ts) so each topic
+// gets its own static route for vite-ssg to prerender.
 const props = defineProps<{
+  /** Slug of the topic to show (see data/topics.ts). */
   slug: string
-  // Document URL segment, on a documentation set's document pages
+  /** Document URL segment, on a documentation set's document pages. */
   doc?: string
 }>()
 

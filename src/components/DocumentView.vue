@@ -28,11 +28,16 @@ import MermaidDiagram from './MermaidDiagram.vue'
 // the document's full text into the prerendered HTML: vite-ssg waits for
 // it, and the browser hydrates the same content without a loading flash.
 const props = defineProps<{
+  /** Documentation set folder name. */
   set: string
+  /** Path of the document within the set. */
   path: string
+  /** Attributes for rendered elements, e.g. link click handlers. */
   customAttrs: CustomAttrs
-  // Set the page <title>/description from the document. Off for a set's
-  // own page, which keeps the topic's title and description.
+  /**
+   * Set the page <title>/description from the document. Off for a set's
+   * own page, which keeps the topic's title and description.
+   */
   setPageMeta: boolean
 }>()
 

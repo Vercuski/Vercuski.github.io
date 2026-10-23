@@ -8,6 +8,7 @@
  */
 import type { Topic } from '../types/topic'
 
+/** Top-level topics, in navigation order, with their sub-topics nested. */
 export const topics: Topic[] = [
   {
     slug: 'solution-architecture',
@@ -47,10 +48,16 @@ export const topics: Topic[] = [
   },
 ]
 
-// Every topic and sub-topic (at any depth) in one flat list, for building
-// routes and looking a topic up by slug.
+/**
+ * @param list - Topics, possibly with nested `children`.
+ * @returns Each topic followed by its sub-topics, depth first.
+ */
 function flatten (list: Topic[]): Topic[] {
   return list.flatMap(topic => [topic, ...flatten(topic.children ?? [])])
 }
 
+/**
+ * Every topic and sub-topic (at any depth) in one flat list, for building
+ * routes and looking a topic up by slug.
+ */
 export const allTopics: Topic[] = flatten(topics)

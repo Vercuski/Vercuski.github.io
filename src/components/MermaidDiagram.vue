@@ -14,7 +14,10 @@ import { onMounted, ref } from 'vue'
 // (see utils/markdown.ts rehypeMermaid). Mermaid is large, so it is only
 // loaded in the browser, the first time a diagram is shown; if a diagram
 // fails to parse, its source is shown instead.
-const props = defineProps<{ code: string }>()
+const props = defineProps<{
+  /** The diagram's Mermaid source. */
+  code: string
+}>()
 
 const svg = ref('')
 const failed = ref(false)
@@ -22,6 +25,11 @@ const failed = ref(false)
 let nextId = 0
 let mermaidReady: Promise<typeof import('mermaid')['default']> | undefined
 
+/**
+ * Imports and initializes Mermaid once, shared by every diagram.
+ *
+ * @returns The initialized Mermaid API.
+ */
 function loadMermaid () {
   mermaidReady ??= import('mermaid').then(({ default: mermaid }) => {
     mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', theme: 'default' })

@@ -35,9 +35,11 @@ usePageMeta({
   description: 'A selection of software architecture and backend project templates by Scott Vercuski, including Onion Architecture, Microservice Architecture, messaging, and Docker Compose scripts.',
 })
 
-// Adding a new project card going forward is just appending an entry here
-// — ProjectCard.vue handles the layout, and the grid above wraps
-// automatically as the list grows.
+/**
+ * Projects shown as cards, in display order. Adding a new project card
+ * going forward is just appending an entry here — ProjectCard.vue handles
+ * the layout, and the grid above wraps automatically as the list grows.
+ */
 const projects: Project[] = [
   {
     repoName: 'Messaging.Template',

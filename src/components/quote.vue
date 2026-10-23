@@ -5,6 +5,9 @@
 </template>
 
 <script lang="ts" setup>
+// Shows one quote, picked at random, on the homepage.
+
+/** Quotes to choose from, each with its attribution. */
 const quotes: string[] = [
     "\"Books are uniquely portable magic.\" - Stephen King",
     "\"I cannot live without books.\" - Thomas Jefferson",
@@ -89,5 +92,6 @@ const quotes: string[] = [
     "\"Life does not come with instructions, you have to figure it out as you go.\"",
   ];
 
+/** The quote shown on this page load. */
 const quote = quotes[Math.floor(Math.random() * quotes.length)];
 </script>

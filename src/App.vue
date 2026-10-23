@@ -51,8 +51,13 @@ import { useHead } from '@unhead/vue'
 import { mdiMenu } from '@mdi/js'
 import { canonicalUrl } from './site'
 
+// The site shell around every page: header navigation, the routed page,
+// and the footer.
+
+/** Year shown in the footer's copyright line. */
 const currentYear = new Date().getFullYear()
 
+/** Header navigation, in display order; shared by the link row and the phone menu. */
 const navLinks = [
   { to: '/', label: 'HOME' },
   { to: '/about/', label: 'ABOUT' },

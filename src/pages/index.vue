@@ -57,6 +57,8 @@
 import { useHead } from '@unhead/vue'
 import { usePageMeta } from '../composables/usePageMeta'
 
+// Homepage: name, headline, calls to action and a random quote.
+
 // Person/ProfilePage JSON-LD (ADR-0003 / migration plan Wave 2) — describes
 // Scott as a Person, nested as the mainEntity of this page as a ProfilePage.
 // Only added here (the homepage) rather than on every route, since this is

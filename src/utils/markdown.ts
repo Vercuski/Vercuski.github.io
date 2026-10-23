@@ -8,14 +8,23 @@
  */
 import type { Element, ElementContent, Root, RootContent } from 'hast'
 
-// Removes a leading YAML front-matter block.
+/**
+ * Removes a leading YAML front-matter block.
+ *
+ * @param markdown - A document's raw markdown.
+ */
 function stripFrontMatter (markdown: string) {
   return markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, '')
 }
 
-// [[target]] / [[target|alias]] / [[target#heading|alias]] ->
-// [alias](<wiki:target#heading>), outside fenced and inline code (Mermaid
-// node shapes like A[["taps"]] must survive untouched).
+/**
+ * Rewrites wikilinks as ordinary markdown links on the `wiki:` scheme:
+ * [[target]] / [[target|alias]] / [[target#heading|alias]] ->
+ * [alias](<wiki:target#heading>), outside fenced and inline code (Mermaid
+ * node shapes like A[["taps"]] must survive untouched).
+ *
+ * @param markdown - A document's markdown.
+ */
 function convertWikilinks (markdown: string) {
   let inFence = false
   return markdown.split('\n').map(line => {
@@ -34,12 +43,25 @@ function convertWikilinks (markdown: string) {
   }).join('\n')
 }
 
+/**
+ * Prepares Obsidian-authored markdown for the renderer: drops front matter
+ * and converts [[wikilinks]] to `wiki:` links.
+ *
+ * @param markdown - A document's raw markdown.
+ * @returns Markdown ready for VueMarkdown.
+ */
 export function prepareMarkdown (markdown: string) {
   return convertWikilinks(stripFrontMatter(markdown))
 }
 
-// Resolves a relative link (e.g. '../01-requirements/x.md') against the
-// path of the document it appears in. Returns the normalized path.
+/**
+ * Resolves a relative link (e.g. '../01-requirements/x.md') against the
+ * path of the document it appears in.
+ *
+ * @param fromPath - Path of the linking document within its set.
+ * @param href - The link's (URI-encoded) relative target.
+ * @returns The normalized path within the set.
+ */
 export function resolveRelativePath (fromPath: string, href: string) {
   const segments = fromPath.split('/').slice(0, -1)
   for (const segment of decodeURI(href).split('/')) {
@@ -49,10 +71,18 @@ export function resolveRelativePath (fromPath: string, href: string) {
   return segments.join('/')
 }
 
+/** Type guard for HTML element nodes in a hast tree. */
 function isElement (node: RootContent | ElementContent): node is Element {
   return node.type === 'element'
 }
 
+/**
+ * Visits every element below `node`, depth first.
+ *
+ * @param node - Tree or element to start from (not itself visited).
+ * @param visit - Called with each element, its parent and its index in the
+ *   parent's children; it may replace `parent.children[index]`.
+ */
 function walk (node: Root | Element, visit: (el: Element, parent: Root | Element, index: number) => void) {
   node.children.forEach((child, index) => {
     if (isElement(child)) {
@@ -62,14 +92,21 @@ function walk (node: Root | Element, visit: (el: Element, parent: Root | Element
   })
 }
 
+/**
+ * @param node - A hast node.
+ * @returns All text inside the node, concatenated.
+ */
 function textOf (node: ElementContent): string {
   if (node.type === 'text') return node.value
   if (node.type === 'element') return node.children.map(textOf).join('')
   return ''
 }
 
-// Obsidian callouts: '> [!warning] Title' becomes
-// <blockquote class="callout callout-warning"> with a title row.
+/**
+ * Rehype plugin for Obsidian callouts: '> [!warning] Title' becomes
+ * <blockquote class="callout callout-warning"> with a title row. Without
+ * a title, the callout type is used ('Warning').
+ */
 export function rehypeCallouts () {
   return (tree: Root) => walk(tree, el => {
     if (el.tagName !== 'blockquote') return
@@ -95,8 +132,11 @@ export function rehypeCallouts () {
   })
 }
 
-// ```mermaid blocks become <mermaid-diagram code="..."> so the viewer can
-// render them through a scoped slot (see components/MermaidDiagram.vue).
+/**
+ * Rehype plugin that turns ```mermaid blocks into
+ * <mermaid-diagram code="..."> so the viewer can render them through a
+ * scoped slot (see components/MermaidDiagram.vue).
+ */
 export function rehypeMermaid () {
   return (tree: Root) => walk(tree, (el, parent, index) => {
     if (el.tagName !== 'pre') return

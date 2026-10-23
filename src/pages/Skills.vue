@@ -90,9 +90,11 @@ usePageMeta({
   description: 'Technical skills and expertise of Scott Vercuski across languages, databases, frameworks, cloud platforms, DevOps tooling, and software architecture patterns.',
 })
 
-// Headline skills, called out in the Core Expertise band above the full
-// inventory. Scott's own wording/ordering — not derived from the
-// categorized list below.
+/**
+ * Headline skills, called out in the Core Expertise band above the full
+ * inventory. Scott's own wording/ordering — not derived from the
+ * categorized list below.
+ */
 const coreSkills: string[] = [
   'Software/Solution Architecture',
   'C# / .NET',
@@ -104,6 +106,7 @@ const coreSkills: string[] = [
   'TypeScript',
 ]
 
+/** The full skill inventory, one entry per category, in display order. */
 const categories: SkillCategory[] = [
   {
     name: 'Languages',

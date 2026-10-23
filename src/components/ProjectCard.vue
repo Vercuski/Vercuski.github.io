@@ -56,7 +56,10 @@
 import githubMark from '../assets/icons/github-mark.png'
 import type { Project } from '../types/project'
 
+// A project's card on the Projects page: icon and name, description with
+// framework and language chips, and a link to its source.
 defineProps<{
+  /** The project to show. */
   project: Project
 }>()
 </script>

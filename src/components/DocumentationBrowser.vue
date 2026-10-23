@@ -50,11 +50,15 @@ import { docUrl } from '../utils/docPaths'
 import { resolveRelativePath } from '../utils/markdown'
 import DocumentView from './DocumentView.vue'
 
+// A documentation set's file tree beside the current document, with the
+// markdown's links wired up to the site's document pages.
 const props = defineProps<{
-  // Name of the folder under src/assets/documentation to show
+  /** Name of the folder under src/assets/documentation to show. */
   set: string
-  // Document URL segment from the route (see router/index.ts); omitted on
-  // the set's own page, which shows its default document
+  /**
+   * Document URL segment from the route (see router/index.ts); omitted on
+   * the set's own page, which shows its default document.
+   */
   doc?: string
 }>()
 
@@ -86,23 +90,47 @@ watch(currentPath, path => {
 
 const viewer = ref<HTMLElement>()
 
-// Obsidian heading links ('#Some Heading') -> rehype-slug ids ('some-heading').
+/**
+ * Converts an Obsidian heading link to the id rehype-slug gives that
+ * heading: '#Some Heading' -> 'some-heading'.
+ *
+ * @param hash - The link's fragment, without the '#'.
+ */
 function headingId (hash: string) {
   return decodeURIComponent(hash).trim().toLowerCase().replace(/[^\p{L}\p{N}\s_-]/gu, '').replace(/\s/g, '-')
 }
 
+/**
+ * Smoothly scrolls the heading a fragment points at into view, if present.
+ *
+ * @param hash - The link's fragment, without the '#'.
+ */
 function scrollToHeading (hash: string) {
   document.getElementById(headingId(hash))?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-// URL of document `path` from documentation set `set`, which may be on
-// another Topics page (e.g. the Example linking to the Templates README).
+/**
+ * Builds the URL of document `path` from documentation set `set`, which
+ * may be on another Topics page (e.g. the Example linking to the
+ * Templates README).
+ *
+ * @param set - Documentation set folder name.
+ * @param path - Path of the document within the set.
+ * @param hash - Optional heading to link to.
+ * @returns The URL, or `undefined` if no topic shows that set.
+ */
 function urlFor (set: string, path: string, hash?: string): string | undefined {
   const topic = allTopics.find(t => t.documentation === set)
   if (!topic) return undefined
   return docUrl(topic.slug, path, defaultDocument(set)) + (hash ? `#${headingId(hash)}` : '')
 }
 
+/**
+ * Attributes that make a rendered `<a>` behave like a router-link: a real
+ * href for crawlers and new tabs, client-side navigation on a plain click.
+ *
+ * @param url - The site URL to link to.
+ */
 function routerLinkAttrs (url: string) {
   return {
     href: url,
@@ -144,9 +172,11 @@ const customAttrs = computed<CustomAttrs>(() => ({
   },
 }))
 
-// After a document is shown: go to the linked heading, or bring the top
-// of the document into view if the reader had scrolled past it.
 let firstDocument = true
+/**
+ * Runs after a document is shown: goes to the linked heading, or brings
+ * the top of the document into view if the reader had scrolled past it.
+ */
 function onDocumentShown () {
   if (route.hash) {
     scrollToHeading(route.hash.slice(1))
