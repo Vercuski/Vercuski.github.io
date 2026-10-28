@@ -12,7 +12,15 @@
         density="compact"
         bg-color="transparent"
       >
-        <DocumentationTree :nodes="tree" :selected="currentPath" :link-for="path => urlFor(set, path)" />
+        <!-- The only document is already shown below, so offer it as a
+             download instead of a link to this same page. -->
+        <v-list-item
+          v-if="isSingleDocument"
+          :prepend-icon="mdiDownload"
+          :title="tree[0].name"
+          @click="downloadMarkdown(tree[0].path)"
+        />
+        <DocumentationTree v-else :nodes="tree" :selected="currentPath" :link-for="path => urlFor(set, path)" />
       </v-list>
     </nav>
 
@@ -36,6 +44,7 @@
 </template>
 
 <script lang="ts" setup>
+import { mdiDownload } from '@mdi/js'
 import { computed, onErrorCaptured, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { CustomAttrs } from '@crazydos/vue-markdown'
@@ -45,6 +54,7 @@ import {
   findDocumentByName,
   getDocumentationTree,
   hasMarkdown,
+  loadMarkdown,
 } from '../data/documentation'
 import { allTopics } from '../data/topics'
 import { docUrl } from '../utils/docPaths'
@@ -69,6 +79,22 @@ const router = useRouter()
 const tree = computed(() => getDocumentationTree(props.set))
 
 const isSingleDocument = computed(() => tree.value.length === 1 && tree.value[0].type !== 'folder')
+
+/**
+ * Saves a document's raw markdown as a file. Markdown is bundled as text
+ * rather than as asset URLs, so the file is built in the browser.
+ *
+ * @param path - Path of the document within the set.
+ */
+async function downloadMarkdown (path: string) {
+  const markdown = await loadMarkdown(props.set, path)
+  const url = URL.createObjectURL(new Blob([markdown], { type: 'text/markdown' }))
+  const link = document.createElement('a')
+  link.href = url
+  link.download = path.split('/').pop()!
+  link.click()
+  URL.revokeObjectURL(url)
+}
 
 const currentPath = computed(() => props.doc ? documentForSlug(props.set, props.doc) : defaultDocument(props.set))
 
