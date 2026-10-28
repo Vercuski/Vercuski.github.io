@@ -16,29 +16,29 @@ export const topics: Topic[] = [
     summary: 'How systems, services, and platforms fit together to solve a business problem end to end.',
     children: [
       {
+        slug: 'solution-architecture/design-checklist',
+        title: 'Design Checklist',
+        summary: 'Questions to work through before and during solution design: business context, constraints, quality attributes, data, integration and operations, then decisions, boundaries, risk, validation and evolution.',
+        documentation: 'Solution Architecture Design Checklist',
+      },
+      {
         slug: 'solution-architecture/documentation-and-example',
         title: 'Documentation and Example',
         summary: 'How to document a solution architecture, with a worked example.',
         children: [
-          {
-            slug: 'solution-architecture/documentation-and-example/templates',
-            title: 'Templates',
-            summary: 'A library of 50 architecture documentation templates in 12 folders, organized by phase of the architecture lifecycle: vision, requirements, design, decisions, governance, operations, migration, validation and handover.',
-            documentation: 'Architecture Documentation Templates',
-          },
           {
             slug: 'solution-architecture/documentation-and-example/example',
             title: 'Example',
             summary: 'Every template filled in for Project Tapline, a fictional program in which a regional transit agency replaces its legacy smart-card fare system with an account-based fare platform on .NET and Azure.',
             documentation: 'Architecture Documentation Example',
           },
+          {
+            slug: 'solution-architecture/documentation-and-example/templates',
+            title: 'Templates',
+            summary: 'A library of 50 architecture documentation templates in 12 folders, organized by phase of the architecture lifecycle: vision, requirements, design, decisions, governance, operations, migration, validation and handover.',
+            documentation: 'Architecture Documentation Templates',
+          },
         ],
-      },
-      {
-        slug: 'solution-architecture/design-checklist',
-        title: 'Design Checklist',
-        summary: 'Questions to work through before and during solution design: business context, constraints, quality attributes, data, integration and operations, then decisions, boundaries, risk, validation and evolution.',
-        documentation: 'Solution Architecture Design Checklist',
       },
     ],
   },
