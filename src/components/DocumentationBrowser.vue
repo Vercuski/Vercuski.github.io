@@ -1,8 +1,9 @@
 <template>
-  <div class="docbrowser">
+  <div class="docbrowser" :class="{ 'docbrowser--stacked': isSingleDocument }">
     <!-- File tree for the documentation set. Each document has its own
          prerendered page, so the tree is made of ordinary links that
-         search engines can follow. -->
+         search engines can follow. A set with a single document shows
+         it above the document instead of beside it. -->
     <nav class="doctree" aria-label="Documents">
       <v-list
         v-model:opened="openedFolders"
@@ -66,6 +67,8 @@ const route = useRoute()
 const router = useRouter()
 
 const tree = computed(() => getDocumentationTree(props.set))
+
+const isSingleDocument = computed(() => tree.value.length === 1 && tree.value[0].type !== 'folder')
 
 const currentPath = computed(() => props.doc ? documentForSlug(props.set, props.doc) : defaultDocument(props.set))
 
@@ -223,6 +226,20 @@ onMounted(() => {
   background-color: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
   border-radius: 8px;
+}
+
+.docbrowser--stacked {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.docbrowser--stacked .doctree {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: 320px;
+  max-width: 100%;
+  position: static;
+  max-height: none;
 }
 
 @media (max-width: 1279px) {

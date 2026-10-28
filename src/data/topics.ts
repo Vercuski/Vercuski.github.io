@@ -34,6 +34,12 @@ export const topics: Topic[] = [
           },
         ],
       },
+      {
+        slug: 'solution-architecture/design-checklist',
+        title: 'Design Checklist',
+        summary: 'Questions to work through before and during solution design: business context, constraints, quality attributes, data, integration and operations, then decisions, boundaries, risk, validation and evolution.',
+        documentation: 'Solution Architecture Design Checklist',
+      },
     ],
   },
   {
