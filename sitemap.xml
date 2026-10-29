@@ -2,710 +2,946 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://scott.vercuski.com/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/about/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/contact/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/privacy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/projects/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/skills/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/abstraction-inversion/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/action-at-a-distance/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/ambiguous-viewpoint/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/anemic-domain-model/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/big-ball-of-mud/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/boat-anchor/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/busy-waiting/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/caching-failure/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/call-super/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/cargo-cult-programming/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/circle-ellipse-problem/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/circular-dependency/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/coding-by-exception/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/constant-interface/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/copy-and-paste-programming/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/database-as-ipc/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/dependency-hell/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/dll-hell/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/error-hiding/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/extension-conflict/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/god-object/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/golden-hammer/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/hard-coding/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/inner-platform-effect/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/input-kludge/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/interface-bloat/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/invented-here/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/jar-hell/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/lasagna-code/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/lava-flow/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/loop-switch-sequence/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/magic-number/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/magic-pushbutton/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/magic-strings/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/not-invented-here/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/object-cesspool/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/object-orgy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/poltergeist-anti-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/premature-optimization/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/programming-by-permutation/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/race-hazard/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/reinventing-the-square-wheel/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/repeating-yourself/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/sequential-coupling/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/shooting-the-messenger/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/shotgun-surgery/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/silver-bullet-anti-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/soft-coding/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/spaghetti-code/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/stovepipe-system/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/tester-driven-development/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/yo-yo-problem/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/abstract-factory/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/active-object/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/adapter-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/balking-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/binding-properties/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/blackboard-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/bridge-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/builder-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/chain-of-responsibility/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/command-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/composite-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/compute-kernel/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/cpu-atomic-operation/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/decorator-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/delegation-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/dependency-injection/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/double-checked-locking/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/entity-component-system/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/event-based-asynchronous-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/extension-object/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/facade-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/factory-method/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/fluent-interface/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/flyweight-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/front-controller/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/guarded-suspension/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/interpreter-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/iterator-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/join-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/lazy-initialization/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/lock-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/marker-interface/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/mediator-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/memento-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/messaging-design-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/module-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/monitor-object/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/multiton-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/null-object/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/object-pool/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/observer-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/pipeline-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/prototype-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/proxy-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/reactor-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/read-write-lock/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/repository-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/resource-acquisition-is-initialization/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/result-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/safe-concurrency-with-exclusive-ownership/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/scheduler-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/servant-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/service-handler-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/singleton-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/specification-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/state-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/strategy-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/template-method/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/thread-pool/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/thread-specific-storage/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/twin-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/visitor-pattern/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/design-checklist/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/architecture-roadmap/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/architecture-vision/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/00-vision-and-strategy/business-case/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/01-requirements/business-requirements/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/01-requirements/functional-requirements/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/01-requirements/non-functional-requirements/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/01-requirements/use-cases-and-user-stories/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/02-core-architecture/4plus1-views/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/component-diagram/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/container-diagram/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/02-core-architecture/c4-model/context-diagram/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/02-core-architecture/data-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/02-core-architecture/domain-model/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/02-core-architecture/sequence-diagrams/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/02-core-architecture/solution-architecture-document/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/api-specification-guide/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/integration-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/03-interfaces-and-integration/interface-control-document/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/deployment-topology/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/infrastructure-as-code-notes/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/04-infrastructure-and-network/network-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/05-security/security-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/05-security/threat-model/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0001-record-architecture-decisions/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0002-account-based-fare-model/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0003-event-hubs-for-tap-ingestion/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0004-offline-first-validators-with-signed-deny-lists/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0005-no-card-numbers-in-crt-systems/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0006-azure-sql-ledger-tables-for-fare-ledger/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0007-services-by-bounded-context/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/0008-time-handling-utc-instants-and-service-day-boundaries/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/adr-log/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/adr-template/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/architecture-principles/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/coding-standards/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/reference-architecture-and-technology-radar/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/technology-evaluation-trade-study/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/07-governance/arb-minutes-template/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/07-governance/architecture-exception-request/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/07-governance/compliance-matrix/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/07-governance/governance-framework/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/07-governance/rfc-template/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/capacity-planning/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/disaster-recovery-plan/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/incident-postmortem/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/observability-strategy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/risk-register/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/runbook-template/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/08-risk-and-operations/sla-slo-sli-definitions/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/data-migration-strategy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/gap-analysis/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/migration-plan/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/09-transition-and-migration/transition-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/10-testing-and-validation/architecture-compliance-review/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/10-testing-and-validation/test-strategy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/11-handover/as-built-documentation/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/11-handover/onboarding-knowledge-transfer/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/00-vision-and-strategy/architecture-roadmap/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/00-vision-and-strategy/architecture-vision/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/00-vision-and-strategy/business-case/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/01-requirements/business-requirements/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/01-requirements/functional-requirements/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/01-requirements/non-functional-requirements/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/01-requirements/use-cases-and-user-stories/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/4plus1-views/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/c4-model/component-diagram/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/c4-model/container-diagram/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/c4-model/context-diagram/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/data-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/domain-model/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/sequence-diagrams/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/solution-architecture-document/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/03-interfaces-and-integration/api-specification-guide/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/03-interfaces-and-integration/integration-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/03-interfaces-and-integration/interface-control-document/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/04-infrastructure-and-network/deployment-topology/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/04-infrastructure-and-network/infrastructure-as-code-notes/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/04-infrastructure-and-network/network-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/05-security/security-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/05-security/threat-model/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/adr/0001-record-architecture-decisions/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/adr/adr-log/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/adr/adr-template/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/architecture-principles/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/coding-standards/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/reference-architecture-and-technology-radar/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/technology-evaluation-trade-study/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/arb-minutes-template/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/architecture-exception-request/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/compliance-matrix/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/governance-framework/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/rfc-template/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/capacity-planning/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/disaster-recovery-plan/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/incident-postmortem/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/observability-strategy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/risk-register/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/runbook-template/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/sla-slo-sli-definitions/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/09-transition-and-migration/data-migration-strategy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/09-transition-and-migration/gap-analysis/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/09-transition-and-migration/migration-plan/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/09-transition-and-migration/transition-architecture/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/10-testing-and-validation/architecture-compliance-review/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/10-testing-and-validation/test-strategy/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/11-handover/as-built-documentation/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/11-handover/onboarding-knowledge-transfer/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
 </urlset>
