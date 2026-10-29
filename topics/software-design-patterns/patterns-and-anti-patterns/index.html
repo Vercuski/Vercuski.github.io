@@ -1,0 +1,1115 @@
+<!DOCTYPE html><html lang="en"><head>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-423SL0YDHG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-423SL0YDHG');
+    </script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Scott Vercuski">
+    <meta name="description" content="A catalog of classic design patterns grouped as creational, structural, behavioral and concurrency, followed by named anti-patterns: generic, object-oriented, programming, methodological, configuration management and architecture.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Scott Vercuski | Software Architect">
+    <meta name="google-site-verification" content="ZHe0GpV-ugL5aqoWWPA-TtJK4-8xT49Vkgx4UzQVkj0">
+    <meta property="og:site_name" content="Scott Vercuski Portfolio Website">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://scott.vercuski.com/images/me.jpg">
+    <meta property="og:image:alt" content="Portrait of Scott Vercuski">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://scott.vercuski.com/images/me.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Design Patterns &amp; Anti Patterns | Topics | Scott Vercuski</title>
+  <script type="module" crossorigin="" src="/assets/app-CsKF5tSh.js"></script>
+  <link rel="stylesheet" crossorigin="" href="/assets/app-CdEyEiqC.css">
+<link rel="modulepreload" crossorigin="" href="/assets/DocumentationBrowser-C-uBqu_Q.js"><link rel="stylesheet" href="/assets/DocumentationBrowser-Bj055UfL.css"><style id="vuetify-theme-stylesheet">:root {
+      --v-theme-background: 245,245,245;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 105,102,219;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 102,98,122;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 204,191,214;
+      --v-theme-surface-bright-overlay-multiplier: 2;
+      --v-theme-surface-light: 66,66,66;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 163,163,163;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 66,66,66;
+      --v-theme-primary: 33,150,243;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 39,124,193;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 84,182,178;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 72,169,166;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 1;
+      --v-medium-emphasis-opacity: 0.7;
+      --v-disabled-opacity: 0.5;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .v-theme--scottLight {
+      color-scheme: normal;
+      --v-theme-background: 245,245,245;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 105,102,219;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 102,98,122;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background-color: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-bright {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-bright-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-bright)) !important;
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .bg-surface-light {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-light-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-light)) !important;
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background-color: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background-color: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background-color: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background-color: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-bright {
+      color: rgb(var(--v-theme-surface-bright)) !important;
+    }
+    .border-surface-bright {
+      --v-border-color: var(--v-theme-surface-bright);
+    }
+    .text-surface-light {
+      color: rgb(var(--v-theme-surface-light)) !important;
+    }
+    .border-surface-light {
+      --v-border-color: var(--v-theme-surface-light);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-surface-bright {
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .on-surface-light {
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style><link rel="canonical" href="https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/"><meta property="og:url" content="https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/"><meta property="og:title" content="Software Design Patterns &amp; Anti Patterns | Topics | Scott Vercuski"><meta property="og:description" content="A catalog of classic design patterns grouped as creational, structural, behavioral and concurrency, followed by named anti-patterns: generic, object-oriented, programming, methodological, configuration management and architecture."><meta name="twitter:title" content="Software Design Patterns &amp; Anti Patterns | Topics | Scott Vercuski"><meta name="twitter:description" content="A catalog of classic design patterns grouped as creational, structural, behavioral and concurrency, followed by named anti-patterns: generic, object-oriented, programming, methodological, configuration management and architecture."></head>
+
+<body>
+    <div id="app" data-server-rendered="true"><div class="v-application v-theme--scottLight v-layout v-layout--full-height v-locale--is-ltr" style="" id="app"><div class="v-application__wrap"><!--[--><!--[--><a href="#main-content" class="skiplink">Skip to content</a><header class="d-flex align-center justify-end header px-3"><nav aria-label="Main"><ul class="navlinks d-none d-md-flex align-center"><!--[--><li><a href="/" class="headerrouterlink my-5 mx-5">HOME</a></li><li><a href="/about/" class="headerrouterlink my-5 mx-5">ABOUT</a></li><li><a href="/projects/" class="headerrouterlink my-5 mx-5">PROJECTS</a></li><li><a href="/skills/" class="headerrouterlink my-5 mx-5">SKILLS</a></li><li><a href="/topics/" class="router-link-active headerrouterlink my-5 mx-5">TOPICS</a></li><li><a href="/contact/" class="headerrouterlink my-5 mx-5">CONTACT</a></li><!--]--></ul><!--[--><!--[--><button type="button" class="v-btn v-btn--icon v-theme--scottLight text-white v-btn--density-default v-btn--size-default v-btn--variant-text d-md-none" style="" aria-haspopup="menu" aria-expanded="false" aria-owns="v-menu-42" aria-label="Open menu"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator=""><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg></i></span><!----><!----></button><!--]--><!----><!--]--></nav></header><main class="v-main main" style="--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:32px;transition:none !important;" id="main-content" tabindex="-1"><!--[--><div class="topicslayout" data-v-c737f2e3=""><nav class="topicsnav" data-v-c737f2e3=""><div class="text-overline font-weight-bold px-4 pt-4" data-v-c737f2e3="">Topics</div><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-comfortable v-list--one-line" style="" tabindex="0" role="listbox" data-v-c737f2e3=""><!--[--><!--[--><div class="v-list-group" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/" tabindex="-2" id="v-list-group--id-solution-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Solution Architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/design-checklist/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Design Checklist</div><!----><!----></div><!----></a><div class="v-list-group" style=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/documentation-and-example/" tabindex="-2" id="v-list-group--id-solution-architecture/documentation-and-example"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Documentation and Example</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture/documentation-and-example" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Example</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/templates/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Templates</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></div><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/" tabindex="-2" data-v-c737f2e3=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Architecture</div><!----><!----></div><!----></a><div class="v-list-group v-list-group--open" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/software-design-patterns/" tabindex="-2" id="v-list-group--id-software-design-patterns"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Design Patterns</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-software-design-patterns"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-design-patterns/patterns-and-anti-patterns/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Patterns &amp; Anti-Patterns</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></nav><div class="topicscontent pa-6" data-v-c737f2e3=""><div class="px-2" data-v-c737f2e3=""><div class="text-h5" style="font-weight:bold;">Software Design Patterns &amp; Anti Patterns</div><br><p>A catalog of classic design patterns grouped as creational, structural, behavioral and concurrency, followed by named anti-patterns: generic, object-oriented, programming, methodological, configuration management and architecture.</p><br><div class="docbrowser" data-v-f5455b2c=""><!----><article class="docviewer" data-v-f5455b2c=""><!----><!----> <div class="markdownbody" data-v-f5455b2c=""><blockquote class="callout callout-summary"><div class="callout-title">TL;DR</div>
+<p>A lookup table of classic design patterns grouped as creational, structural, behavioral and concurrency, followed by named anti-patterns. Each name links to its own note (problem, solution, structure, when to use, trade-offs); pattern notes live in <code>Design Patterns/Classic Patterns</code> and anti-pattern notes in <code>Design Patterns/Anti-Patterns</code>. The <a>Pattern Catalog</a> lists them all by category. Distributed-systems patterns are in <a>Distributed Systems Pattern Catalog</a>; architecture styles are in <a>Architecture Styles Compared</a>.</p>
+</blockquote>
+<h1 id="patterns">Patterns</h1>
+<h3 id="links">Links</h3>
+<ul>
+<li><a href="https://java-design-patterns.com/" target="_blank" rel="noopener noreferrer">https://java-design-patterns.com/</a></li>
+<li><a href="https://www.tutorialspoint.com/design_pattern/index.htm" target="_blank" rel="noopener noreferrer">https://www.tutorialspoint.com/design_pattern/index.htm</a></li>
+</ul>
+<h3 id="enterprise-application-patterns">Enterprise application patterns</h3>
+<p>Distributed-systems patterns (API Gateway, Circuit Breaker, CQRS, Event Sourcing, Outbox, Retry, Saga) live in <a>Distributed Systems Pattern Catalog</a>; cache-aside lives in <a>Caching Patterns</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/entity-component-system/">Entity Component System</a></td><td>Entities are composed of data components, and systems operate on entities that have particular components. Most associated with game development for representing game-world objects.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/pipeline-pattern/">Pipeline Pattern</a></td><td>Executes cross-cutting concerns such as validation and logging before or after handlers.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/repository-pattern/">Repository Pattern</a></td><td>Encapsulates data access and keeps business logic independent of persistence. With EF Core, <code>DbContext</code> and <code>DbSet</code> already play this role; see <a>7 .NET Habits to Reconsider</a>.</td></tr></tbody></table>
+<h3 id="creational">Creational</h3>
+<p>A&nbsp;<a href="https://en.wikipedia.org/wiki/Creational_pattern" title="Creational pattern" target="_blank" rel="noopener noreferrer">creational pattern</a>&nbsp;creates objects.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/abstract-factory/">Abstract Factory</a></td><td>Provide an interface for creating <em>families</em> of related or dependent objects without specifying their concrete classes.<br><strong>Example:</strong> GUI Factory</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/builder-pattern/">Builder Pattern</a></td><td>Separate the construction of a complex object from its representation, allowing the same construction process to create various representations.<br><strong>Example:</strong> StringBuilder</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/dependency-injection/">Dependency Injection</a></td><td>A class accepts the objects it requires from an injector instead of creating the objects directly.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/factory-method/">Factory Method</a></td><td>Define an interface for creating a <em>single</em> object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.<br><strong>Example:</strong> Shape Factory</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/lazy-initialization/">Lazy Initialization</a></td><td>Tactic of delaying the creation of an object, the calculation of a value, or some other expensive process until the first time it is needed. This pattern appears in the GoF catalog as "virtual proxy", an implementation strategy for the Proxy pattern.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/multiton-pattern/">Multiton Pattern</a></td><td>Ensure a class has only named instances, and provide a global point of access to them.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/object-pool/">Object Pool</a></td><td>Avoid expensive acquisition and release of resources by recycling objects that are no longer in use. Can be considered a generalisation of connection pool and thread pool patterns.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/prototype-pattern/">Prototype Pattern</a></td><td>Specify the kinds of objects to create using a prototypical instance, and create new objects from the 'skeleton' of an existing object, thus boosting performance and keeping memory footprints to a minimum.<br><strong>Example:</strong> Object.clone()</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/resource-acquisition-is-initialization/">Resource Acquisition Is Initialization</a></td><td>Ensure that resources are properly released by tying them to the lifespan of suitable objects.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/singleton-pattern/">Singleton Pattern</a></td><td>Ensure a class has only one instance, and provide a global point of access to it.<br><strong>Example:</strong> Logger</td></tr></tbody></table>
+<h3 id="structural">Structural</h3>
+<p>A&nbsp;<a href="https://en.wikipedia.org/wiki/Structural_pattern" title="Structural pattern" target="_blank" rel="noopener noreferrer">structural pattern</a>&nbsp;organizes classes and objects to form larger structures that provide new functionality.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/adapter-pattern/">Adapter Pattern</a></td><td>Convert the interface of a class into another interface clients expect. An adapter lets classes work together that could not otherwise because of incompatible interfaces. The enterprise integration pattern equivalent is the translator.<br><strong>Example:</strong> SocketAdapter</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/bridge-pattern/">Bridge Pattern</a></td><td>Decouple an abstraction from its implementation allowing the two to vary independently.<br><strong>Example:</strong> JDBC Driver</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/composite-pattern/">Composite Pattern</a></td><td>Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.<br><strong>Example:</strong> File System</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/decorator-pattern/">Decorator Pattern</a></td><td>Attach additional responsibilities to an object dynamically keeping the same interface. Decorators provide a flexible alternative to subclassing for extending functionality.<br><strong>Example:</strong> I/O Streams</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/delegation-pattern/">Delegation Pattern</a></td><td>Extend a class by composition instead of subclassing. The object handles a request by delegating to a second object (the delegate)</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/extension-object/">Extension Object</a></td><td>Adding functionality to a hierarchy without changing the hierarchy.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/facade-pattern/">Facade Pattern</a></td><td>Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.<br><strong>Example:</strong> JDBC Template</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/flyweight-pattern/">Flyweight Pattern</a></td><td>Use sharing to support large numbers of similar objects efficiently.<br><strong>Example:</strong> Character Cache</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/front-controller/">Front Controller</a></td><td>The pattern relates to the design of Web applications. It provides a centralized entry point for handling requests.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/marker-interface/">Marker Interface</a></td><td>Empty interface to associate metadata with a class.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/module-pattern/">Module Pattern</a></td><td>Group several related elements, such as classes, singletons, methods, globally used, into a single conceptual entity.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/proxy-pattern/">Proxy Pattern</a></td><td>Provide a surrogate or placeholder for another object to control access to it.<br><strong>Example:</strong> Virtual Proxy</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/twin-pattern/">Twin Pattern</a></td><td>Twin allows modeling of multiple inheritance in programming languages that do not support this feature.</td></tr></tbody></table>
+<h3 id="behavioral">Behavioral</h3>
+<p>A&nbsp;<a href="https://en.wikipedia.org/wiki/Behavioral_pattern" title="Behavioral pattern" target="_blank" rel="noopener noreferrer">behavioral pattern</a>&nbsp;describes collaboration between objects.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/blackboard-pattern/">Blackboard Pattern</a></td><td>Artificial intelligence pattern for combining disparate sources of data (see blackboard system)</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/chain-of-responsibility/">Chain of Responsibility</a></td><td>Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.<br><strong>Example:</strong> Filter Chain</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/command-pattern/">Command Pattern</a></td><td>Encapsulate a request as an object, thereby allowing for the parameterization of clients with different requests, and the queuing or logging of requests. It also allows for the support of undoable operations.<br><strong>Example:</strong> Runnable</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/fluent-interface/">Fluent Interface</a></td><td>Design an API to be method chained so that it reads like a DSL. Each method call returns a context through which the next logical method call(s) are made available.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/interpreter-pattern/">Interpreter Pattern</a></td><td>Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.<br><strong>Example:</strong> SQL Parser</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/iterator-pattern/">Iterator Pattern</a></td><td>Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.<br><strong>Example:</strong> Iterator, List Iterator</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/mediator-pattern/">Mediator Pattern</a></td><td>Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it allows their interaction to vary independently.<br><strong>Example:</strong> Chat Room</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/memento-pattern/">Memento Pattern</a></td><td>Without violating encapsulation, capture and externalize an object's internal state allowing the object to be restored to this state later.<br><strong>Example:</strong> Undo Mechanism</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/null-object/">Null Object</a></td><td>Avoid null references by providing a default object.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/observer-pattern/">Observer Pattern</a></td><td>Define a one-to-many dependency between objects where a state change in one object results in all its dependents being notified and updated automatically.<br><strong>Example:</strong> Event Listeners</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/result-pattern/">Result Pattern</a></td><td>Return explicit success or failure instead of relying on exceptions for expected failures.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/servant-pattern/">Servant Pattern</a></td><td>Define common functionality for a group of classes. The servant pattern is also frequently called helper class or utility class implementation for a given set of classes. The helper classes generally have no objects hence they have all static methods that act upon different kinds of class objects.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/specification-pattern/">Specification Pattern</a></td><td>Recombinable business logic in a Boolean fashion.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/state-pattern/">State Pattern</a></td><td>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.<br><strong>Example:</strong> ATM States</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/strategy-pattern/">Strategy Pattern</a></td><td>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.<br><strong>Example:</strong> Payment Methods</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/template-method/">Template Method</a></td><td>Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.<br><strong>Example:</strong> AbstractClass.execute()</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/visitor-pattern/">Visitor Pattern</a></td><td>Represent an operation to be performed on instances of a set of classes. Visitor lets a new operation be defined without changing the classes of the elements on which it operates.<br><strong>Example:</strong> Document Export</td></tr></tbody></table>
+<h3 id="concurrency">Concurrency</h3>
+<p>A&nbsp;<a href="https://en.wikipedia.org/wiki/Concurrency_pattern" title="Concurrency pattern" target="_blank" rel="noopener noreferrer">concurrency pattern</a>&nbsp;supports&nbsp;<a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)" title="Concurrency (computer science)" target="_blank" rel="noopener noreferrer">concurrent processing</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/active-object/">Active Object</a></td><td>Decouples method execution from method invocation that reside in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler") for handling requests.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/balking-pattern/">Balking Pattern</a></td><td>Only execute an action on an object when the object is in a particular state.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/binding-properties/">Binding Properties</a></td><td>Combining multiple observers to force properties in different objects to be synchronized or coordinated in some way.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/compute-kernel/">Compute Kernel</a></td><td>The same calculation many times in parallel, differing by integer parameters used with non-branching pointer math into shared arrays, such as GPU-optimized Matrix multiplication or Convolutional neural network.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/cpu-atomic-operation/">CPU Atomic Operation</a></td><td>x86 and other CPU architectures support a range of atomic instructions that guarantee memory safety for modifying and accessing primitive values (integers). For example, two threads may both increment a counter safely. These capabilities can also be used to implement the mechanisms for other concurrency patterns as above. The C#") language uses the Interlocked class for these capabilities.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/double-checked-locking/">Double-Checked Locking</a></td><td>Reduce the overhead of acquiring a lock by first testing the locking criterion (the 'lock hint') in an unsafe manner; only if that succeeds does the actual locking logic proceed.<br><br>Can be unsafe when implemented in some language/hardware combinations. It can therefore sometimes be considered an anti-pattern.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/event-based-asynchronous-pattern/">Event-Based Asynchronous Pattern</a></td><td>Addresses problems with the asynchronous pattern that occur in multithreaded programs.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/guarded-suspension/">Guarded Suspension</a></td><td>Manages operations that require both a lock to be acquired and a precondition to be satisfied before the operation can be executed.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/join-pattern/">Join Pattern</a></td><td>Join-pattern provides a way to write concurrent, parallel and distributed programs by message passing. Compared to the use of threads and locks, this is a high-level programming model.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/lock-pattern/">Lock Pattern</a></td><td>One thread puts a "lock" on a resource, preventing other threads from accessing or modifying it.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/messaging-design-pattern/">Messaging Design Pattern</a></td><td>Allows the interchange of information (i.e. messages) between components and applications.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/monitor-object/">Monitor Object</a></td><td>An object whose methods are subject to mutual exclusion, thus preventing multiple objects from erroneously trying to use it at the same time.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/reactor-pattern/">Reactor Pattern</a></td><td>A reactor object provides an asynchronous interface to resources that must be handled synchronously.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/read-write-lock/">Read-Write Lock</a></td><td>Allows concurrent read access to an object, but requires exclusive access for write operations. An underlying semaphore might be used for writing, and a Copy-on-write mechanism may or may not be used.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/safe-concurrency-with-exclusive-ownership/">Safe Concurrency with Exclusive Ownership</a></td><td>Avoiding the need for runtime concurrent mechanisms, because exclusive ownership can be proven. This is a notable capability of the Rust language, but compile-time checking isn't the only means, a programmer will often manually design such patterns into code - omitting the use of locking mechanism because the programmer assesses that a given variable is never going to be concurrently accessed.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/scheduler-pattern/">Scheduler Pattern</a></td><td>Explicitly control when threads may execute single-threaded code.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/service-handler-pattern/">Service Handler Pattern</a></td><td>For each request, a server spawns a dedicated client handler to handle a request. Also referred to as <em>thread-per-session</em>.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/thread-pool/">Thread Pool</a></td><td>A number of threads are created to perform a number of tasks, which are usually organized in a queue. Typically, there are many more tasks than threads. Can be considered a special case of the object pool pattern.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/thread-specific-storage/">Thread-Specific Storage</a></td><td>Static or "global" memory local to a thread.</td></tr></tbody></table>
+<h1 id="anti-patterns">Anti Patterns</h1>
+<h3 id="generic">Generic</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/abstraction-inversion/">Abstraction Inversion</a></td><td>Users need functions implemented within an object but not exposed by the interface.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/ambiguous-viewpoint/">Ambiguous Viewpoint</a></td><td>Lack of clarity during software design</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/big-ball-of-mud/">Big Ball of Mud</a></td><td>A software system that lacks a perceivable architecture. Although undesirable from a software engineering point of view, such systems are common in practice due to business pressures, developer turnover and software entropy.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/database-as-ipc/">Database-as-IPC</a></td><td>Misusing databases for temporary messages</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/inner-platform-effect/">Inner-Platform Effect</a></td><td>Tendency of software architects to replicate their development platform</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/input-kludge/">Input Kludge</a></td><td>Code fails to properly validate or sanitize user input, handling it in an ad-hoc/inconsistent manner.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/interface-bloat/">Interface Bloat</a></td><td>Overload of elements on an interface</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/magic-pushbutton/">Magic Pushbutton</a></td><td>User interface and business logic coupled through a single button click.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/race-hazard/">Race Hazard</a></td><td>When a system's behavior depends on timing of uncontrollable events</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/stovepipe-system/">Stovepipe System</a></td><td>Isolated IT system. For the architecture version, see <a>Stovepipe Architecture Anti-Pattern</a>.</td></tr></tbody></table>
+<h3 id="object-oriented">Object-oriented</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/anemic-domain-model/">Anemic Domain Model</a></td><td>Domain objects hold data but no behavior; the business logic lives in separate service classes.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/call-super/">Call Super</a></td><td>A subclass override is required to call the base-class method for the code to work.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/circle-ellipse-problem/">Circle-Ellipse Problem</a></td><td>A subtype that can't honor all of its supertype's behavior (a circle can't stretch like an ellipse), breaking substitutability.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/circular-dependency/">Circular Dependency</a></td><td>Two or more modules depend on each other directly or indirectly, so neither can change or be reused alone.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/constant-interface/">Constant Interface</a></td><td>An interface used only to hold constants, leaking implementation details into every implementing class.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/god-object/">God Object</a></td><td>A single class handles all control in a program rather than control being distributed across multiple classes.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/object-cesspool/">Object Cesspool</a></td><td>Reusing pooled objects whose state wasn't reset, so later callers get stale data.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/object-orgy/">Object Orgy</a></td><td>Allowing excessive access to object data</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/poltergeist-anti-pattern/">Poltergeist Anti-Pattern</a></td><td>Ephemeral controller classes that only exist to invoke other methods on classes.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/sequential-coupling/">Sequential Coupling</a></td><td>A class whose methods must be called in a particular order to work.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/yo-yo-problem/">Yo-Yo Problem</a></td><td>An inheritance hierarchy so deep and fragmented that you keep jumping between classes to follow the logic.</td></tr></tbody></table>
+<h3 id="programming">Programming</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a>Accidental Complexity Anti-Pattern</a></td><td>Complexity the solution introduces that the problem doesn't require.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/action-at-a-distance/">Action at a Distance</a></td><td>Behavior in one part of a program changes unexpectedly because of an operation somewhere else (often shared mutable state).</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/boat-anchor/">Boat Anchor</a></td><td>Code or components kept in the system although they serve no current purpose.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/busy-waiting/">Busy Waiting</a></td><td>Continuously checking a condition in computing</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/caching-failure/">Caching Failure</a></td><td>Cache used to remember failed or missing responses</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/cargo-cult-programming/">Cargo Cult Programming</a></td><td>Ritual inclusion of computer code that serves no purpose</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/coding-by-exception/">Coding by Exception</a></td><td>Adding a special-case branch for every new requirement instead of generalizing the design.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/error-hiding/">Error Hiding</a></td><td>Failing to report details of an error</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/hard-coding/">Hard Coding</a></td><td>Putting data in the source code of a program</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/lasagna-code/">Lasagna Code</a></td><td>So many thin layers that a simple change has to pass through all of them.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/lava-flow/">Lava Flow</a></td><td>Dead or obsolete code nobody dares to remove, which hardens into the codebase.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/loop-switch-sequence/">Loop-Switch Sequence</a></td><td>A loop containing a switch that runs each case in order, encoding a plain sequence of steps as a loop.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/magic-number/">Magic Number</a></td><td>A literal value with an important yet unexplained meaning which could be replaced with a named constant.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/magic-strings/">Magic Strings</a></td><td>Unexplained string literals used as identifiers or to drive behavior instead of named constants or enums.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/repeating-yourself/">Repeating Yourself</a></td><td>Duplicating the same knowledge or logic in several places (violates DRY).</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/shooting-the-messenger/">Shooting the Messenger</a></td><td>Metaphor referring to blaming the carrier of unwelcome information</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/shotgun-surgery/">Shotgun Surgery</a></td><td>One change requires many small edits across many classes.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/soft-coding/">Soft Coding</a></td><td>Moving so much logic into configuration that the configuration becomes an unmaintainable program.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/spaghetti-code/">Spaghetti Code</a></td><td>Software source code with poor structure</td></tr></tbody></table>
+<h3 id="methodological">Methodological</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/copy-and-paste-programming/">Copy and Paste Programming</a></td><td>Duplicating code instead of creating a reusable abstraction.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/golden-hammer/">Golden Hammer</a></td><td>Applying a familiar tool or technology to every problem, whether or not it fits.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/invented-here/">Invented Here</a></td><td>Rejecting anything built in-house in favor of external products, even when in-house is the better fit.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/not-invented-here/">Not Invented Here</a></td><td>Rejecting external solutions and rebuilding them in-house.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/premature-optimization/">Premature Optimization</a></td><td>Optimizing before measuring, trading clarity for speed that may not matter.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/programming-by-permutation/">Programming by Permutation</a></td><td>Changing code by trial and error until it seems to work, without understanding why.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/reinventing-the-square-wheel/">Reinventing the Square Wheel</a></td><td>Idiomatic expression, meaning to waste effort on something that has already been achieved.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/silver-bullet-anti-pattern/">Silver Bullet Anti-Pattern</a></td><td>Expecting one tool, technique or process to solve a fundamental difficulty.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/tester-driven-development/">Tester-Driven Development</a></td><td>A project whose new requirements come mainly from bug reports.</td></tr></tbody></table>
+<h3 id="configuration-management">Configuration management</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/dependency-hell/">Dependency Hell</a></td><td>Colloquial term for software requiring many conflicting dependencies</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/dll-hell/">DLL Hell</a></td><td>Colloquial term for dependency hell with DLLs (Dynamically Linked LIbraries)</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/extension-conflict/">Extension Conflict</a></td><td>Plug-ins or extensions that modify the same part of a host system and break each other.</td></tr><tr><td><a href="/topics/software-design-patterns/patterns-and-anti-patterns/anti-patterns/jar-hell/">JAR Hell</a></td><td>Colloquial term for dependency hell with JARs (Java Libraries)</td></tr></tbody></table>
+<h3 id="architecture-anti-patterns-vault-notes">Architecture anti-patterns (vault notes)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Anti-pattern</th><th>One line</th></tr></thead><tbody><tr><td><a>Accidental Complexity Anti-Pattern</a></td><td>Making a problem harder than it is</td></tr><tr><td><a>Analysis Paralysis</a></td><td>Deferring a decision out of fear of being wrong</td></tr><tr><td><a>Architecture by Implication Anti-Pattern</a></td><td>Coding without thinking about the architecture</td></tr><tr><td><a>Cart Before the Horse Anti-Pattern</a></td><td>Choosing an architecture before understanding the needs</td></tr><tr><td><a>Elephant Migration Anti-Pattern</a></td><td>Migrating a monolith bite by bite with no dependency view</td></tr><tr><td><a>Email-Driven Architecture Anti-Pattern</a></td><td>Architecture decisions living in email bodies</td></tr><tr><td><a>Entity Trap</a></td><td>Deriving components from entities ("Customer Manager")</td></tr><tr><td><a>Frozen Caveman Anti-Pattern</a></td><td>Deciding from past burns or outdated criteria</td></tr><tr><td><a>Infinity Architecture Anti-Pattern</a></td><td>An architecture so generic it fits nothing well</td></tr><tr><td><a>Microservice All the Things Pitfall</a></td><td>Making every function a microservice</td></tr><tr><td><a>Out-of-Context Scorecard Anti-Pattern</a></td><td>Tallying pros and cons without filtering by context</td></tr><tr><td><a>Stovepipe Architecture Anti-Pattern</a></td><td>Ill-related components bolted on ad hoc</td></tr><tr><td><a>Swarm of Gnats Anti-Pattern</a></td><td>Too many fine-grained derived events</td></tr><tr><td><a>Witch's Brew Anti-Pattern</a></td><td>A team with no unified vision mixing ideas</td></tr><tr><td><a>Anemic Events</a></td><td>Event payloads missing what consumers need</td></tr><tr><td><a>7 .NET Habits to Reconsider</a></td><td>.NET habits that became anti-patterns</td></tr></tbody></table></div></article></div></div></div></div><!--]--></main><footer class="v-footer v-theme--scottLight d-flex flex-column align-center justify-center footer" style="bottom:0px;z-index:1004;transform:translateY(0px);position:fixed;left:0px;width:calc(100% - 0px - 0px);"><div class="d-flex flex-wrap justify-center footerlinks"><a href="https://www.linkedin.com/in/scott-vercuski/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Vercuski" target="_blank" rel="noopener">GitHub</a><a href="/contact/" class="">Contact</a><a href="/privacy/" class="">Privacy</a></div><span class="text-body-2">© 2026. Created by Scott Vercuski</span></footer><!--]--><!--]--></div></div></div>
+
+
+
+</body></html>
