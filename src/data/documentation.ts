@@ -27,6 +27,9 @@ const fileUrls = import.meta.glob<string>(
   { query: '?url', import: 'default', eager: true },
 )
 
+/** Images are shown inside documents, so they are left out of the tree. */
+const IMAGE = /\.(png|jpe?g|gif|svg|webp)$/i
+
 /** One folder or file in a documentation set's tree. */
 export interface DocNode {
   /** File or folder name, e.g. 'business-requirements.md'. */
@@ -120,7 +123,7 @@ export function getDocumentationTree (set: string): DocNode[] {
 
   for (const { key, url } of entries) {
     const { set: entrySet, path } = splitKey(key)
-    if (entrySet !== set) continue
+    if (entrySet !== set || IMAGE.test(path)) continue
 
     const segments = path.split('/')
     let level = root
@@ -294,4 +297,21 @@ export function findDocumentByName (name: string, preferredSet: string) {
     .map(splitKey)
     .filter(entry => entry.path.toLowerCase().split('/').pop() === wanted)
   return matches.find(entry => entry.set === preferredSet) ?? matches[0]
+}
+
+/**
+ * Resolves an Obsidian embed target (a file name with extension, e.g.
+ * 'Pasted image 20260618091439.png') to a bundled file, preferring the
+ * given set.
+ *
+ * @param name - The embed target.
+ * @param preferredSet - Set to look in first, usually the embedding document's.
+ * @returns The file's URL, or `undefined` if no set has it.
+ */
+export function findFileUrlByName (name: string, preferredSet: string): string | undefined {
+  const wanted = name.toLowerCase()
+  const matches = Object.keys(fileUrls)
+    .filter(key => key.toLowerCase().split('/').pop() === wanted)
+  const key = matches.find(k => splitKey(k).set === preferredSet) ?? matches[0]
+  return key && fileUrls[key]
 }

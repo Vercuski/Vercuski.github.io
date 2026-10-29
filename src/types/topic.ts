@@ -21,6 +21,13 @@ export interface Topic {
    * documentation set on this topic's page.
    */
   documentation?: string
+  /**
+   * Hide the `documentation` set's document list (or, for a single
+   * document, its download link). The set's
+   * other document pages show a link back to this topic's page and the
+   * document's name instead.
+   */
+  hideDocumentList?: boolean
   /** Sub-topics, shown as a sub-menu under this topic in the navigation. */
   children?: Topic[]
 }

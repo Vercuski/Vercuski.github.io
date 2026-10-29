@@ -51,6 +51,15 @@ export const topics: Topic[] = [
     slug: 'software-design-patterns',
     title: 'Software Design Patterns',
     summary: 'Reusable solutions to common problems in object-oriented and application design.',
+    children: [
+      {
+        slug: 'software-design-patterns/patterns-and-anti-patterns',
+        title: 'Patterns & Anti-Patterns',
+        summary: 'A catalog of classic design patterns grouped as creational, structural, behavioral and concurrency, followed by named anti-patterns: generic, object-oriented, programming, methodological, configuration management and architecture.',
+        documentation: 'Software Design Patterns & Anti Patterns',
+        hideDocumentList: true,
+      },
+    ],
   },
 ]
 

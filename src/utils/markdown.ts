@@ -21,7 +21,9 @@ function stripFrontMatter (markdown: string) {
  * Rewrites wikilinks as ordinary markdown links on the `wiki:` scheme:
  * [[target]] / [[target|alias]] / [[target#heading|alias]] ->
  * [alias](<wiki:target#heading>), outside fenced and inline code (Mermaid
- * node shapes like A[["taps"]] must survive untouched).
+ * node shapes like A[["taps"]] must survive untouched). Embeds such as
+ * ![[image.png|600]] become ![image.png](<wiki:image.png>); the size is
+ * dropped.
  *
  * @param markdown - A document's markdown.
  */
@@ -35,9 +37,9 @@ function convertWikilinks (markdown: string) {
     if (inFence) return line
     return line.split(/(`[^`]*`)/).map(part => part.startsWith('`')
       ? part
-      : part.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_match, target: string, alias?: string) => {
-        const label = alias ?? target.split('#')[0]
-        return `[${label}](<wiki:${target.trim()}>)`
+      : part.replace(/(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_match, embed: string, target: string, alias?: string) => {
+        const label = embed ? target.trim() : alias ?? target.split('#')[0]
+        return `${embed}[${label}](<wiki:${target.trim()}>)`
       }),
     ).join('')
   }).join('\n')

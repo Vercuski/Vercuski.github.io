@@ -4,7 +4,7 @@
          prerendered page, so the tree is made of ordinary links that
          search engines can follow. A set with a single document shows
          it above the document instead of beside it. -->
-    <nav class="doctree" aria-label="Documents">
+    <nav v-if="!hideDocumentList" class="doctree" aria-label="Documents">
       <v-list
         v-model:opened="openedFolders"
         open-strategy="multiple"
@@ -25,8 +25,11 @@
     </nav>
 
     <article ref="viewer" class="docviewer">
-      <div v-if="currentPath" class="text-caption text-medium-emphasis mb-4">{{ currentPath }}</div>
-      <div v-if="error" class="text-error">{{ error }}</div>
+      <router-link v-if="backLink" :to="backLink.url" class="docback">
+        <v-icon :icon="mdiArrowLeft" size="small" />
+        Back to {{ backLink.title }}
+      </router-link>
+      <h1 v-if="backLink && currentPath" class="doctitle">{{ documentName(currentPath) }}</h1>      <div v-if="error" class="text-error">{{ error }}</div>
       <Suspense v-else-if="currentPath" @resolve="onDocumentShown">
         <DocumentView
           :key="currentPath"
@@ -44,7 +47,7 @@
 </template>
 
 <script lang="ts" setup>
-import { mdiDownload } from '@mdi/js'
+import { mdiArrowLeft, mdiDownload } from '@mdi/js'
 import { computed, onErrorCaptured, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import type { CustomAttrs } from '@crazydos/vue-markdown'
@@ -52,12 +55,13 @@ import {
   defaultDocument,
   documentForSlug,
   findDocumentByName,
+  findFileUrlByName,
   getDocumentationTree,
   hasMarkdown,
   loadMarkdown,
 } from '../data/documentation'
 import { allTopics } from '../data/topics'
-import { docUrl } from '../utils/docPaths'
+import { docUrl, topicUrl } from '../utils/docPaths'
 import { resolveRelativePath } from '../utils/markdown'
 import DocumentView from './DocumentView.vue'
 
@@ -79,6 +83,24 @@ const router = useRouter()
 const tree = computed(() => getDocumentationTree(props.set))
 
 const isSingleDocument = computed(() => tree.value.length === 1 && tree.value[0].type !== 'folder')
+
+const topic = computed(() => allTopics.find(t => t.documentation === props.set))
+
+const hideDocumentList = computed(() => topic.value?.hideDocumentList ?? false)
+
+/**
+ * @param path - Path of a document within the set.
+ * @returns Its file name without the `.md` extension.
+ */
+function documentName (path: string) {
+  return path.split('/').pop()!.replace(/\.md$/i, '')
+}
+
+// Without the document list, other documents link back to the set's page
+// and are headed by their name.
+const backLink = computed(() => hideDocumentList.value && props.doc && topic.value
+  ? { url: topicUrl(topic.value.slug), title: topic.value.title }
+  : undefined)
 
 /**
  * Saves a document's raw markdown as a file. Markdown is bundled as text
@@ -173,8 +195,13 @@ function routerLinkAttrs (url: string) {
 
 // Links in the markdown: relative .md links and [[wikilinks]] go to that
 // document's page, '#heading' links scroll, and external links open in a
-// new tab.
+// new tab. ![[image]] embeds load the bundled image.
 const customAttrs = computed<CustomAttrs>(() => ({
+  img: node => {
+    const src = String(node.properties?.src ?? '')
+    return src.startsWith('wiki:') ? { src: findFileUrlByName(decodeURIComponent(src.slice('wiki:'.length)), props.set) } : {}
+  },
+
   a: node => {
     const href = String(node.properties?.href ?? '')
 
@@ -183,7 +210,8 @@ const customAttrs = computed<CustomAttrs>(() => ({
     }
 
     if (href.startsWith('wiki:')) {
-      const [name, hash] = href.slice('wiki:'.length).split('#')
+      // The markdown parser percent-encodes the target ('Big%20Ball%20of%20Mud').
+      const [name, hash] = decodeURIComponent(href.slice('wiki:'.length)).split('#')
       const doc = findDocumentByName(name, props.set)
       const url = doc && urlFor(doc.set, doc.path, hash)
       // Unresolvable wikilinks render as plain text.
@@ -254,6 +282,26 @@ onMounted(() => {
   border-radius: 8px;
 }
 
+.docback {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+  color: rgb(var(--v-theme-primary));
+  text-decoration: none;
+}
+
+.docback:hover {
+  text-decoration: underline;
+}
+
+.doctitle {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 0.6em;
+}
+
 .docbrowser--stacked {
   flex-direction: column;
   align-items: stretch;
@@ -322,6 +370,11 @@ onMounted(() => {
 
 .markdownbody :deep(a) {
   color: rgb(var(--v-theme-primary));
+}
+
+.markdownbody :deep(img) {
+  max-width: 100%;
+  height: auto;
 }
 
 .markdownbody :deep(hr) {
