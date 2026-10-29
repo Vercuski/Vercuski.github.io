@@ -31,9 +31,9 @@
     <meta name="twitter:image" content="https://scott.vercuski.com/images/me.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solution Architecture Design Checklist | Topics | Scott Vercuski</title>
-  <script type="module" crossorigin="" src="/assets/app-CsKF5tSh.js"></script>
+  <script type="module" crossorigin="" src="/assets/app-BnLST7zt.js"></script>
   <link rel="stylesheet" crossorigin="" href="/assets/app-CdEyEiqC.css">
-<link rel="modulepreload" crossorigin="" href="/assets/DocumentationBrowser-C-uBqu_Q.js"><link rel="stylesheet" href="/assets/DocumentationBrowser-Bj055UfL.css"><style id="vuetify-theme-stylesheet">:root {
+<link rel="modulepreload" crossorigin="" href="/assets/DocumentationBrowser-Cj5gCHu2.js"><link rel="stylesheet" href="/assets/DocumentationBrowser-Bj055UfL.css"><style id="vuetify-theme-stylesheet">:root {
       --v-theme-background: 245,245,245;
       --v-theme-background-overlay-multiplier: 1;
       --v-theme-surface: 255,255,255;
@@ -449,7 +449,834 @@
 </style><link rel="canonical" href="https://scott.vercuski.com/topics/solution-architecture/design-checklist/"><meta property="og:url" content="https://scott.vercuski.com/topics/solution-architecture/design-checklist/"><meta property="og:title" content="Solution Architecture Design Checklist | Topics | Scott Vercuski"><meta property="og:description" content="Questions to work through before and during solution design: business context, constraints, quality attributes, data, integration and operations, then decisions, boundaries, risk, validation and evolution."><meta name="twitter:title" content="Solution Architecture Design Checklist | Topics | Scott Vercuski"><meta name="twitter:description" content="Questions to work through before and during solution design: business context, constraints, quality attributes, data, integration and operations, then decisions, boundaries, risk, validation and evolution."></head>
 
 <body>
-    <div id="app" data-server-rendered="true"><div class="v-application v-theme--scottLight v-layout v-layout--full-height v-locale--is-ltr" style="" id="app"><div class="v-application__wrap"><!--[--><!--[--><a href="#main-content" class="skiplink">Skip to content</a><header class="d-flex align-center justify-end header px-3"><nav aria-label="Main"><ul class="navlinks d-none d-md-flex align-center"><!--[--><li><a href="/" class="headerrouterlink my-5 mx-5">HOME</a></li><li><a href="/about/" class="headerrouterlink my-5 mx-5">ABOUT</a></li><li><a href="/projects/" class="headerrouterlink my-5 mx-5">PROJECTS</a></li><li><a href="/skills/" class="headerrouterlink my-5 mx-5">SKILLS</a></li><li><a href="/topics/" class="router-link-active headerrouterlink my-5 mx-5">TOPICS</a></li><li><a href="/contact/" class="headerrouterlink my-5 mx-5">CONTACT</a></li><!--]--></ul><!--[--><!--[--><button type="button" class="v-btn v-btn--icon v-theme--scottLight text-white v-btn--density-default v-btn--size-default v-btn--variant-text d-md-none" style="" aria-haspopup="menu" aria-expanded="false" aria-owns="v-menu-24" aria-label="Open menu"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator=""><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg></i></span><!----><!----></button><!--]--><!----><!--]--></nav></header><main class="v-main main" style="--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:32px;transition:none !important;" id="main-content" tabindex="-1"><!--[--><div class="topicslayout" data-v-c737f2e3=""><nav class="topicsnav" data-v-c737f2e3=""><div class="text-overline font-weight-bold px-4 pt-4" data-v-c737f2e3="">Topics</div><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-comfortable v-list--one-line" style="" tabindex="0" role="listbox" data-v-c737f2e3=""><!--[--><!--[--><div class="v-list-group v-list-group--open" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/" tabindex="-2" id="v-list-group--id-solution-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Solution Architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/design-checklist/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Design Checklist</div><!----><!----></div><!----></a><div class="v-list-group" style=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/documentation-and-example/" tabindex="-2" id="v-list-group--id-solution-architecture/documentation-and-example"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Documentation and Example</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture/documentation-and-example" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Example</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/templates/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Templates</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></div><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/" tabindex="-2" data-v-c737f2e3=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Architecture</div><!----><!----></div><!----></a><div class="v-list-group" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/software-design-patterns/" tabindex="-2" id="v-list-group--id-software-design-patterns"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Design Patterns</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-software-design-patterns" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-design-patterns/patterns-and-anti-patterns/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Patterns &amp; Anti-Patterns</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></nav><div class="topicscontent pa-6" data-v-c737f2e3=""><div class="px-2" data-v-c737f2e3=""><div class="text-h5" style="font-weight:bold;">Solution Architecture Design Checklist</div><br><p>Questions to work through before and during solution design: business context, constraints, quality attributes, data, integration and operations, then decisions, boundaries, risk, validation and evolution.</p><br><div class="docbrowser docbrowser--stacked" data-v-f5455b2c=""><nav class="doctree" aria-label="Documents" data-v-f5455b2c=""><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-compact v-list--one-line" style="" tabindex="0" role="listbox" data-v-f5455b2c=""><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" tabindex="-2" data-v-f5455b2c=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Solution Architecture Design Checklist.md</div><!----><!----></div><!----></div><!--]--></div></nav><article class="docviewer" data-v-f5455b2c=""><!----><!----> <div class="markdownbody" data-v-f5455b2c=""><h1 id="solution-architecture-design-checklist">Solution Architecture Design Checklist</h1>
+    <div id="app" data-server-rendered="true"><div class="v-application v-theme--scottLight v-layout v-layout--full-height v-locale--is-ltr" style="" id="app"><div class="v-application__wrap"><!--[--><!--[--><a href="#main-content" class="skiplink">Skip to content</a><header class="d-flex align-center justify-end header px-3"><nav aria-label="Main"><ul class="navlinks d-none d-md-flex align-center"><!--[--><li><a href="/" class="headerrouterlink my-5 mx-5">HOME</a></li><li><a href="/about/" class="headerrouterlink my-5 mx-5">ABOUT</a></li><li><a href="/projects/" class="headerrouterlink my-5 mx-5">PROJECTS</a></li><li><a href="/skills/" class="headerrouterlink my-5 mx-5">SKILLS</a></li><li><a href="/topics/" class="router-link-active headerrouterlink my-5 mx-5">TOPICS</a></li><li><a href="/contact/" class="headerrouterlink my-5 mx-5">CONTACT</a></li><!--]--></ul><!--[--><!--[--><button type="button" class="v-btn v-btn--icon v-theme--scottLight text-white v-btn--density-default v-btn--size-default v-btn--variant-text d-md-none" style="" aria-haspopup="menu" aria-expanded="false" aria-owns="v-menu-24" aria-label="Open menu"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator=""><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg></i></span><!----><!----></button><!--]--><!----><!--]--></nav></header><main class="v-main main" style="--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:32px;transition:none !important;" id="main-content" tabindex="-1"><!--[--><div class="topicslayout" data-v-c737f2e3=""><nav class="topicsnav" data-v-c737f2e3=""><div class="text-overline font-weight-bold px-4 pt-4" data-v-c737f2e3="">Topics</div><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-comfortable v-list--one-line" style="" tabindex="0" role="listbox" data-v-c737f2e3=""><!--[--><!--[--><div class="v-list-group v-list-group--open" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/" tabindex="-2" id="v-list-group--id-solution-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Solution Architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/design-checklist/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Design Checklist</div><!----><!----></div><!----></a><div class="v-list-group" style=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/documentation-and-example/" tabindex="-2" id="v-list-group--id-solution-architecture/documentation-and-example"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Documentation and Example</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture/documentation-and-example" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Example</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/templates/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Templates</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></div><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/" tabindex="-2" data-v-c737f2e3=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Architecture</div><!----><!----></div><!----></a><div class="v-list-group" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/software-design-patterns/" tabindex="-2" id="v-list-group--id-software-design-patterns"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Design Patterns</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-software-design-patterns" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-design-patterns/patterns-and-anti-patterns/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Patterns &amp; Anti-Patterns</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></nav><div class="topicscontent pa-6" data-v-c737f2e3=""><div class="px-2" data-v-c737f2e3=""><div class="text-h5" style="font-weight:bold;">Solution Architecture Design Checklist</div><br><p>Questions to work through before and during solution design: business context, constraints, quality attributes, data, integration and operations, then decisions, boundaries, risk, validation and evolution.</p><br><div class="docbrowser docbrowser--stacked" data-v-f5455b2c=""><nav class="doctree" aria-label="Documents" data-v-f5455b2c=""><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-compact v-list--one-line" style="" tabindex="0" role="listbox" data-v-f5455b2c=""><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" tabindex="-2" data-v-f5455b2c=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Solution Architecture Design Checklist.md</div><!----><!----></div><!----></div><!--]--></div></nav><article class="docviewer" data-v-f5455b2c=""><!----><!----> <div class="markdownbody" data-v-f5455b2c=""><h1 id="system-design-question-bank">System Design Question Bank</h1>
+<blockquote class="callout callout-summary"><div class="callout-title">TL;DR</div>
+<p><strong>Part 1</strong> is asked before drawing any boxes: it turns vague requirements into numbers, priorities and constraints, and each answer settles a specific design decision. <strong>Part 2</strong> reviews a candidate design against those answers. Start with the <strong>Core 12</strong>.</p>
+</blockquote>
+<blockquote class="callout callout-tip"><div class="callout-title">How to use</div>
+
+<ul>
+<li><strong>Interviews:</strong> ask the Core 12 in the first 5–10 minutes, then state assumptions out loud for anything left unanswered.</li>
+<li><strong>Real projects:</strong> copy the <a></a> and the sections you need into the project note, record the answers as given, and turn each significant answer into an <a>ADR</a> or a fitness function.</li>
+<li><strong>Push for numbers.</strong> "Fast" becomes a p99 in ms; "highly available" becomes a number of nines and a downtime budget.</li>
+<li><strong>"It depends" is a trade-off to record,</strong> not a gap to paper over. See <a>Trade-off Analysis</a>.</li>
+<li><strong>IDs are stable</strong> (B3, R2, A1…), so project notes and ADRs can cite the question they answer.</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="core-12">Core 12</h2>
+<ol>
+<li>What problem does this solve, for whom, and how is it handled today?</li>
+<li>What are the 3–5 must-have use cases for the first release? What is explicitly out of scope?</li>
+<li>How many users (total, daily active, peak concurrent), and where are they?</li>
+<li>What is peak load (requests/sec, messages/sec), and what is the read:write ratio?</li>
+<li>How much data is there on day one, and how fast does it grow?</li>
+<li>Which three architecture characteristics matter most, and which are we willing to sacrifice?</li>
+<li>What is the availability target, and what does an hour of downtime cost?</li>
+<li>What latency do users need (p95/p99), and for which operations?</li>
+<li>Where is strong consistency required, and where is eventual consistency acceptable?</li>
+<li>What data is sensitive, and which regulations apply?</li>
+<li>What do we integrate with, and what happens when those dependencies fail?</li>
+<li>What are the fixed constraints: deadline, budget, team skills, mandated platforms?</li>
+</ol>
+<hr>
+<h1 id="part-1--discovery-before-design">Part 1 · Discovery (before design)</h1>
+<h2 id="1-business-context">1. Business context</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>B1</td><td>What business problem does this solve, what is the measurable outcome (revenue, cost, risk, compliance), and how does it support current strategy or OKRs?</td><td>Success criteria; which characteristics to prioritize</td></tr><tr><td>B2</td><td>Who are the stakeholders, who has the final say on scope and trade-offs, and who can veto?</td><td>Decision rights; ADR approvers</td></tr><tr><td>B3</td><td>What does the current process or system do, what's wrong with it, and what are users' biggest pain points today?</td><td>Migration strategy; behavior that must not regress</td></tr><tr><td>B4</td><td>What is the deadline, and what drives it (contract, regulation, market)?</td><td>Build vs buy; scope cuts; how ambitious the architecture can be</td></tr><tr><td>B5</td><td>What is the expected lifespan: throwaway, tactical (1–2 years) or strategic (10+)?</td><td>Investment in evolvability vs time to market</td></tr><tr><td>B6</td><td>What is the growth plan over 1, 3 and 5 years (markets, products, acquisitions)?</td><td>Scalability headroom; extension points</td></tr><tr><td>B7</td><td>What happens to the business if the system is down, slow, or wrong?</td><td>Availability, latency, consistency and durability targets</td></tr><tr><td>B8</td><td>Is this capability a differentiator or a commodity?</td><td>Build vs buy vs SaaS</td></tr><tr><td>B9</td><td>Why now? What happens if we don't build this, or build it six months later?</td><td>Urgency; scope of the first release; build vs buy</td></tr></tbody></table>
+<h2 id="2-users-and-usage-patterns">2. Users and usage patterns</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>U1</td><td>Who are the user types: customers, staff, partners, other systems?</td><td>Authentication models; BFFs; API surface</td></tr><tr><td>U2</td><td>How many users: total, daily active, peak concurrent?</td><td>Capacity planning</td></tr><tr><td>U3</td><td>Where are users located, and on what devices and networks?</td><td>Regions; CDN and edge; offline or mobile support</td></tr><tr><td>U4</td><td>What does traffic look like across a day, week, and year? Any flash events (sales, month-end, campaigns)?</td><td>Elasticity; autoscaling; queue-based load leveling</td></tr><tr><td>U5</td><td>Which operations are most frequent, and which are most important? (They often differ.)</td><td>Where to optimize and cache</td></tr><tr><td>U6</td><td>Do users need real-time updates (live dashboards, notifications)?</td><td>SignalR/WebSockets, SSE, or polling</td></tr><tr><td>U7</td><td>Are localization, multiple time zones or currencies, or accessibility standards required?</td><td>UI and data model</td></tr><tr><td>U8</td><td>Is the system multi-tenant? How isolated must tenants be, and do any need dedicated resources?</td><td>Tenancy model (shared DB, schema per tenant, DB per tenant)</td></tr><tr><td>U9</td><td>How technically skilled are the users, and how much training or support will they get?</td><td>UX complexity; guided vs self-service workflows; support load</td></tr></tbody></table>
+<h2 id="3-functional-scope">3. Functional scope</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>F1</td><td>What are the core use cases, in priority order? What's MVP (must-have) and what's later (nice-to-have)?</td><td>Scope; release plan</td></tr><tr><td>F2</td><td>What is explicitly out of scope?</td><td>Prevents silent scope creep</td></tr><tr><td>F3</td><td>What are the core domain entities and the business rules that govern them?</td><td>Domain model; bounded contexts; service boundaries</td></tr><tr><td>F4</td><td>Which workflows span several steps or systems, and what happens if one fails halfway?</td><td>Sagas; orchestration vs choreography; compensation</td></tr><tr><td>F5</td><td>Which operations must complete while the user waits, and which can run in the background?</td><td>Async processing; queues; workers</td></tr><tr><td>F6</td><td>What reporting, search, or analytics is needed? Who uses it, and how fresh must it be?</td><td>Read models; CQRS; reporting store; search index</td></tr><tr><td>F7</td><td>Are there batch, scheduled, or long-running jobs?</td><td>Worker services; job scheduling</td></tr><tr><td>F8</td><td>What must business users be able to change without a deployment?</td><td>Rules engine; feature flags; admin UI</td></tr></tbody></table>
+<h2 id="4-scale-and-capacity">4. Scale and capacity</h2>
+<p>Get numbers here, even rough ones. Back-of-envelope estimates come from these answers.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>S1</td><td>What are average and peak requests per second? What's the peak-to-average ratio?</td><td>Instance sizing; autoscaling policy</td></tr><tr><td>S2</td><td>What is the read:write ratio?</td><td>Caching; read replicas; CQRS</td></tr><tr><td>S3</td><td>How much data at launch, how much growth per month, and kept for how long?</td><td>Storage choice; partitioning; archiving</td></tr><tr><td>S4</td><td>How big are typical and largest payloads (records, files, media)?</td><td>Blob storage; streaming; upload strategy</td></tr><tr><td>S5</td><td>Are there hot spots (a huge tenant, a popular product, a celebrity account)?</td><td>Partition/shard key; hot-partition mitigation</td></tr><tr><td>S6</td><td>How many messages or events per second, and how large?</td><td>Broker choice; partition count</td></tr><tr><td>S7</td><td>How fast must capacity grow: minutes (autoscale) or seconds (pre-warmed)?</td><td>Elasticity strategy</td></tr><tr><td>S8</td><td>What headroom is needed in three years: 2×, 10×, 100×?</td><td>Whether horizontal scale is designed in now or later</td></tr></tbody></table>
+<p>See <a>Scalability</a> and <a>Caching Patterns</a>.</p>
+<h2 id="5-architecture-characteristics">5. Architecture characteristics</h2>
+<p>See <a>Architecture Characteristics</a>. Aim for the <em>least worst</em> architecture: you can't maximize everything.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>Q1</td><td>What are the top three characteristics, and which can we trade away?</td><td>Architecture style; see <a>Architecture Styles Compared</a></td></tr><tr><td>Q2</td><td>What is the availability target? (99.9% ≈ 8.8 h/year down; 99.99% ≈ 53 min/year.) Are maintenance windows allowed?</td><td>Redundancy; deployment strategy; cost</td></tr><tr><td>Q3</td><td>What are the latency targets at p95/p99 for each key operation?</td><td>Caching; data locality; sync vs async</td></tr><tr><td>Q4</td><td>Which data must be strongly consistent, which can be eventually consistent, and how stale is acceptable?</td><td>Transaction boundaries; replication; <a>CAP Theorem</a> trade-offs</td></tr><tr><td>Q5</td><td>What are the RPO (data loss tolerated) and RTO (time to recover)?</td><td>Backups; replication; DR design</td></tr><tr><td>Q6</td><td>How often must we release, and is zero-downtime deployment required?</td><td>CI/CD; blue-green or canary; DB migration style</td></tr><tr><td>Q7</td><td>How many teams change this system, and how independently must they ship?</td><td>Modularity; service granularity</td></tr><tr><td>Q8</td><td>Must it be cloud-portable or run on-premises?</td><td>Use of managed services; abstraction layers</td></tr><tr><td>Q9</td><td>Do some characteristics apply to only part of the system?</td><td>Architecture quanta; separate deployment units</td></tr></tbody></table>
+<h2 id="6-data">6. Data</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>D1</td><td>What are the main entities, which system is the source of truth for each, and who owns or stewards that data?</td><td>Data ownership; service boundaries</td></tr><tr><td>D2</td><td>What are the access patterns: by key, range, full text, relationships, aggregations?</td><td>Database type; indexing</td></tr><tr><td>D3</td><td>Which operations need ACID transactions, and do any span entities or services?</td><td>Transaction boundaries; see <a>Atomic vs Eventual Transactions</a></td></tr><tr><td>D4</td><td>How long is data retained, and must it be deletable on request?</td><td>Archiving; purge jobs; crypto-shredding</td></tr><tr><td>D5</td><td>Is history or audit needed (who changed what, when; point-in-time views)?</td><td>Temporal tables; event sourcing; audit log</td></tr><tr><td>D6</td><td>What existing data must be migrated, and how clean is it?</td><td>Migration and cutover plan</td></tr><tr><td>D7</td><td>Who else needs this data (reports, other systems, a warehouse)?</td><td>CDC; domain events; outbox; read replicas</td></tr><tr><td>D8</td><td>Are there data residency requirements?</td><td>Region pinning; per-region deployments</td></tr><tr><td>D9</td><td>How often will the schema change?</td><td>Migration tooling; schema versioning; expand/contract</td></tr><tr><td>D10</td><td>Which data is critical (must never be lost or wrong), and which is derived (can be rebuilt)?</td><td>Backup and replication scope; what can live only in caches or read models</td></tr></tbody></table>
+<h2 id="7-integration-and-interfaces">7. Integration and interfaces</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>I1</td><td>Which upstream and downstream systems and existing processes do we integrate with, and who owns them?</td><td>Context map; dependency risk</td></tr><tr><td>I2</td><td>For each: synchronous or asynchronous, and over what (REST, gRPC, messaging, files)?</td><td>Communication style; coupling</td></tr><tr><td>I3</td><td>What are their SLAs, rate limits, and failure behavior?</td><td>Circuit breaker; retry; bulkhead; cache fallback</td></tr><tr><td>I4</td><td>Who consumes our APIs: internal teams, partners, the public?</td><td>API gateway; documentation; throttling</td></tr><tr><td>I5</td><td>How are contracts versioned, and how are breaking changes communicated?</td><td>Versioning strategy; consumer-driven contract tests</td></tr><tr><td>I6</td><td>Can messages arrive twice or out of order? Must operations be idempotent?</td><td>Idempotency keys; deduplication; ordered partitions</td></tr><tr><td>I7</td><td>Must a DB write and an event publish succeed together?</td><td>Transactional outbox</td></tr><tr><td>I8</td><td>Are there legacy or file-based integrations?</td><td>Anti-corruption layer; adapters</td></tr></tbody></table>
+<p>See <a>Distributed Systems Pattern Catalog</a>.</p>
+<h2 id="8-security-and-compliance">8. Security and compliance</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>X1</td><td>Who authenticates, and how (OIDC/SSO, API keys, mTLS)? Is there an existing identity provider?</td><td>Identity integration</td></tr><tr><td>X2</td><td>What is the authorization model: roles, permissions, resource-level, attribute-based, tenant-scoped?</td><td>Policy design; where checks are enforced</td></tr><tr><td>X3</td><td>How is the data classified: PII, PHI, payment card data, secrets?</td><td>Encryption; masking; access controls</td></tr><tr><td>X4</td><td>Which regulations or standards apply (GDPR, HIPAA, PCI DSS, SOC 2, SOX), and do they dictate data handling or residency?</td><td>Controls; hosting; audit; see <a>Data Compliance Standards Compared</a></td></tr><tr><td>X5</td><td>What encryption is required at rest and in transit? Customer-managed keys?</td><td>Key management</td></tr><tr><td>X6</td><td>What audit trail is required, and who reviews it?</td><td>Audit logging; retention</td></tr><tr><td>X7</td><td>What are the trust boundaries and main threats?</td><td><a>Threat Modeling</a> (STRIDE)</td></tr><tr><td>X8</td><td>How are secrets stored and rotated?</td><td>Key Vault or equivalent; managed identities</td></tr><tr><td>X9</td><td>Is anything exposed to the public internet?</td><td>WAF; DDoS protection; rate limiting; bot defense</td></tr></tbody></table>
+<h2 id="9-reliability-and-failure-handling">9. Reliability and failure handling</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>R1</td><td>What happens when each dependency is slow, down, or returns garbage? What degraded behavior is acceptable?</td><td>Graceful degradation; fallbacks; timeouts</td></tr><tr><td>R2</td><td>Which components are single points of failure, and what is the blast radius if each one fails?</td><td>Redundancy; isolation (bulkheads, cells)</td></tr><tr><td>R3</td><td>Is single-region acceptable, or is multi-zone or multi-region needed? Active-active or active-passive?</td><td>Topology; data replication; cost</td></tr><tr><td>R4</td><td>How are partial failures in multi-step workflows resolved?</td><td>Compensation; reconciliation jobs</td></tr><tr><td>R5</td><td>How is the system protected from overload: bursts, retry storms, noisy tenants?</td><td>Rate limiting; load shedding; backpressure; bulkheads</td></tr><tr><td>R6</td><td>How are backups taken, and when was a restore last tested?</td><td>Backup policy; restore drills</td></tr><tr><td>R7</td><td>What is the disaster recovery plan, and who runs it?</td><td>DR runbooks; failover automation</td></tr></tbody></table>
+<h2 id="10-operations-and-observability">10. Operations and observability</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>O1</td><td>How do we know the system is healthy? Which SLIs and SLOs?</td><td>Dashboards; alerts; error budgets</td></tr><tr><td>O2</td><td>What are the logging, metrics, and tracing standards? Is there an existing platform?</td><td>OpenTelemetry setup; correlation IDs; see <a>Monitoring vs Observability</a></td></tr><tr><td>O3</td><td>Who is on call, what's the support model, and how are incidents detected and escalated?</td><td>Alert routing; runbooks; incident process</td></tr><tr><td>O4</td><td>Where is it deployed, and which environments exist?</td><td>Hosting (containers, PaaS, serverless); pipeline design</td></tr><tr><td>O5</td><td>How is a bad release rolled back, including its database changes?</td><td>Expand/contract migrations; feature flags</td></tr><tr><td>O6</td><td>How are configuration and feature flags managed per environment?</td><td>Config service; flag tooling</td></tr><tr><td>O7</td><td>What alerts and runbooks must exist at launch?</td><td>Operational readiness checklist</td></tr><tr><td>O8</td><td>After launch, how are changes requested, approved, and prioritized, and who owns the system?</td><td>Change governance; ownership; backlog</td></tr><tr><td>O9</td><td>How and when will the system be retired, and what happens to its data?</td><td>Decommissioning plan; data export and retention</td></tr></tbody></table>
+<h2 id="11-constraints">11. Constraints</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>C1</td><td>How big is the team, and what are they experienced with?</td><td>Technology choices the team can actually operate</td></tr><tr><td>C2</td><td>Are platforms, languages, cloud providers, or enterprise standards mandated?</td><td>Solution space</td></tr><tr><td>C3</td><td>What's the budget to build and to run (CapEx/OpEx)? Is there a monthly cloud ceiling?</td><td>Managed vs self-hosted; serverless vs reserved capacity</td></tr><tr><td>C4</td><td>Are there licensing constraints (open source policy, commercial licenses)?</td><td>Library and product selection</td></tr><tr><td>C5</td><td>For each major capability: build, buy, or SaaS?</td><td>Integration effort; vendor lock-in</td></tr><tr><td>C6</td><td>How are teams organized, and who will own which parts?</td><td>Service boundaries (Conway's law)</td></tr><tr><td>C7</td><td>Which existing systems must be reused or replaced?</td><td>Integration and migration scope</td></tr><tr><td>C8</td><td>Which constraints are truly fixed, and which are negotiable?</td><td>Where to push back; the real solution space</td></tr></tbody></table>
+<hr>
+<h1 id="part-2--design-review-during-design">Part 2 · Design review (during design)</h1>
+<p>Run this once a candidate design exists, and again before sign-off. Each question tests the design against the Part 1 answers.</p>
+<h2 id="12-decisions">12. Decisions</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>A1</td><td>What are the key architectural decisions? Is each recorded as an ADR with alternatives and trade-offs, and who signs off?</td><td><a>Architecture Decision Records</a></td></tr><tr><td>A2</td><td>Which decisions are hard or expensive to reverse, and have they had proportionate scrutiny?</td><td>Where to spend analysis time (one-way vs two-way doors)</td></tr><tr><td>A3</td><td>Can any decision be deferred until we know more?</td><td>Last responsible moment; options kept open</td></tr><tr><td>A4</td><td>Is each pattern or technology chosen because it fits the Part 1 drivers, or because it's familiar or fashionable?</td><td>Traceability from characteristics to style</td></tr></tbody></table>
+<h2 id="13-structure-and-boundaries">13. Structure and boundaries</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>M1</td><td>What are the key components, and does each have one clear responsibility?</td><td>Component view; ownership</td></tr><tr><td>M2</td><td>Do service and module boundaries align with business domains (bounded contexts)?</td><td>Service granularity; team ownership</td></tr><tr><td>M3</td><td>Where is coupling unavoidable, and is it explicit (contracts, shared libraries, shared data)?</td><td>Integration contracts; fitness functions that guard it</td></tr><tr><td>M4</td><td>Could this start as a modular monolith and extract services later?</td><td>Deployment complexity now vs later</td></tr></tbody></table>
+<h2 id="14-risk">14. Risk</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>K1</td><td>What are the biggest technical risks and unknowns, and which spike or proof of concept retires each one early?</td><td>Early prototypes; iteration plan</td></tr><tr><td>K2</td><td>Walking each dependency through slow, down, and wrong: does the design behave as R1 requires?</td><td>Timeouts; circuit breakers; validation at boundaries</td></tr><tr><td>K3</td><td>Has the design been threat-modeled against its trust boundaries (X7)?</td><td><a>Threat Modeling</a></td></tr><tr><td>K4</td><td>Which risks are we explicitly accepting, and who has signed off on them?</td><td>Risk register; ADR consequences</td></tr></tbody></table>
+<h2 id="15-validation">15. Validation</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>V1</td><td>How will we prove the design meets its targets: load tests, chaos tests, fitness functions?</td><td>Test strategy; see <a>Load Testing Tools</a></td></tr><tr><td>V2</td><td>Have stakeholders reviewed the design against real scenarios, not just diagrams?</td><td>Scenario walkthroughs</td></tr><tr><td>V3</td><td>Which assumptions are we making that nobody has confirmed, and how will we know if they're wrong?</td><td>Assumption log; follow-ups</td></tr><tr><td>V4</td><td>What business and technical metrics will we track after launch, and how will we gather user feedback?</td><td>Post-launch success measures; feedback loop</td></tr></tbody></table>
+<h2 id="16-evolution-and-cost">16. Evolution and cost</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Question</th><th>What the answer drives</th></tr></thead><tbody><tr><td>E1</td><td>Which parts are most likely to change over the next 2–3 years, and how often?</td><td>Isolating volatility; modularity</td></tr><tr><td>E2</td><td>Are future requirements already known (channels, markets, products), and how do we avoid over-engineering for them today?</td><td>Extension points; avoiding premature generality</td></tr><tr><td>E3</td><td>If replacing a legacy system: big bang or incremental?</td><td>Strangler Fig; see <a>Legacy Migration Approaches</a></td></tr><tr><td>E4</td><td>How will we detect architectural drift over time?</td><td><a>Architectural Fitness Functions</a></td></tr><tr><td>E5</td><td>What's the total cost of ownership, including infrastructure, licensing, and operational headcount?</td><td>Hosting model; build vs buy; staffing</td></tr><tr><td>E6</td><td>What technical debt are we knowingly taking on, and what's the plan to pay it down?</td><td>Debt register; roadmap</td></tr><tr><td>E7</td><td>Will a new developer understand this system in a year?</td><td>Documentation; diagrams; ADRs</td></tr></tbody></table>
+<hr>
+<h2 id="red-flags-in-answers">Red flags in answers</h2>
+<ul>
+<li><strong>"It must scale infinitely" or "100% uptime."</strong> No number. Ask what an hour of downtime actually costs.</li>
+<li><strong>"Everything is critical."</strong> No priorities. Force a top-three ranking of characteristics.</li>
+<li><strong>"Real-time" with no latency figure.</strong> Ask: sub-100 ms, a few seconds, or a few minutes?</li>
+<li><strong>"Same as the old system."</strong> The old system's behavior is a set of undocumented requirements; capture them.</li>
+<li><strong>Requirements stated as solutions</strong> ("we need Kafka", "it has to be microservices"). Ask what problem the solution is meant to solve.</li>
+<li><strong>"We'll handle security later."</strong> Compliance and data classification shape hosting and data design from the start.</li>
+</ul>
+<h2 id="project-worksheet">Project worksheet</h2>
+<p>Copy this section into the project note and fill it in as the questions are answered.</p>
 
 
 
@@ -476,91 +1303,12 @@
 
 
 <table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Project</td><td></td></tr><tr><td>Architect</td><td></td></tr><tr><td>Date</td><td></td></tr><tr><td>Status</td><td>Draft / In Review / Approved</td></tr></tbody></table>
-<hr>
-<h2 id="part-1-before-design-context-and-constraints">Part 1: Before Design (Context and Constraints)</h2>
-<h3 id="business-and-purpose">Business and Purpose</h3>
 <ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> What business problem are we solving, and how will we know it's solved (measurable outcomes)?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What happens if we don't build this, or build it six months later?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Is this a strategic differentiator or a commodity capability we could buy?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What's the expected lifespan: throwaway, 3 years, 10+ years?</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> Core 12 answered</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> Part 1 answered, or assumptions recorded for each gap</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> Part 2 review held with stakeholders</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> ADRs written for the decisions in A1</li>
 </ul>
-<h3 id="stakeholders-and-organization">Stakeholders and Organization</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> Who are the decision-makers, and who can veto?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What team(s) will build and own this, and what are their skills?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> How is the team structured? (Conway's Law will shape the architecture whether we plan for it or not.)</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What existing standards, approved tech stacks, or enterprise constraints apply?</li>
-</ul>
-<h3 id="constraints">Constraints</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> What are the hard constraints on budget, timeline, regulation, licensing, and hosting?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What's fixed versus negotiable?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Are there compliance requirements (<a href="https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act" target="_blank" rel="noopener noreferrer">HIPAA</a>, <a href="https://en.wikipedia.org/wiki/Payment_Card_Industry_Security_Standards_Council" target="_blank" rel="noopener noreferrer">PCI</a>, <a href="https://en.wikipedia.org/wiki/System_and_organization_controls" target="_blank" rel="noopener noreferrer">SOC 2</a>, <a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation" target="_blank" rel="noopener noreferrer">GDPR</a>) that dictate data handling or residency?</li>
-</ul>
-<h3 id="quality-attributes">Quality Attributes</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> What are the concrete targets for availability, latency, throughput, and recovery (RTO/RPO)?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Which quality attributes matter most, and which will we trade away when they conflict?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What load is expected at launch, at peak, and in 2–3 years?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What's the cost of downtime or data loss per hour?</li>
-</ul>
-<h3 id="data">Data</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> Who owns each piece of data, and what's the system of record?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What are the consistency requirements: strong, eventual, or does it vary by domain?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What are the data volume, growth rate, and retention/archival rules?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What's sensitive, and how must it be classified, encrypted, and audited?</li>
-</ul>
-<h3 id="integration-and-environment">Integration and Environment</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> What upstream and downstream systems do we depend on, and how reliable are they?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What are the contracts (sync vs. async, versioning, SLAs) with those systems?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What legacy systems must we coexist with or migrate from?</li>
-</ul>
-<h3 id="operations">Operations</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> Who runs this in production, and who gets paged at 3 a.m.?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> How will we deploy, observe, and roll back?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What does "healthy" look like, and how will we measure it?</li>
-</ul>
-<hr>
-<h2 id="part-2-during-design-decisions-and-validation">Part 2: During Design (Decisions and Validation)</h2>
-<h3 id="decisions">Decisions</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> What are the key architectural decisions, and have we recorded them (ADRs) with alternatives and trade-offs?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Which decisions are expensive to reverse, and have they gotten proportionate scrutiny?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Can we defer any decision until we have more information?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Are we choosing this pattern or technology because it fits, or because it's familiar or fashionable?</li>
-</ul>
-<h3 id="boundaries-and-structure">Boundaries and Structure</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> Do our service and module boundaries align with business domains (bounded contexts)?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Where is coupling unavoidable, and is it explicit?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Could this be a modular monolith first, with extraction later?</li>
-</ul>
-<h3 id="risk-and-failure">Risk and Failure</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> What are the biggest technical risks, and how do we spike or prototype to reduce them early?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What happens when each dependency is slow, down, or returns garbage?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What are the single points of failure?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What's the threat model, and where are the trust boundaries?</li>
-</ul>
-<h3 id="validation">Validation</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> How will we verify that the architecture meets the quality attribute targets (load tests, fitness functions, chaos testing)?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> Have stakeholders reviewed the design against real scenarios, not just diagrams?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What assumptions have we made, and how will we know if they're wrong?</li>
-</ul>
-<h3 id="evolution-and-cost">Evolution and Cost</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled=""> How will this design accommodate likely changes over the next 2–3 years?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What's the total cost of ownership, including infrastructure, licensing, and operational headcount?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> What technical debt are we knowingly taking on, and what's the plan to pay it down?</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> How will new developers understand this system in a year?</li>
-</ul>
-<hr>
-<h2 id="notes-and-open-items">Notes and Open Items</h2>
 
 
 
