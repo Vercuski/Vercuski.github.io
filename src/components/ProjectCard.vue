@@ -38,6 +38,7 @@
       <a
         :href="project.githubUrl"
         target="_blank"
+        rel="noopener noreferrer"
         class="github-link d-flex align-center"
         :aria-label="`View ${project.repoName} on GitHub`"
       >

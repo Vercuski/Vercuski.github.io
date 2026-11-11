@@ -63,11 +63,11 @@
         <ul class="ml-10">
           <li>Video Games</li>
           <li>
-            Role Playing Games (<a href="https://dnd.wizards.com/" target="_blank"
+            Role Playing Games (<a href="https://dnd.wizards.com/" target="_blank" rel="noopener noreferrer"
               >D&D</a
             >
             and
-            <a href="https://www.battletech.com/" target="_blank">Battletech</a>
+            <a href="https://www.battletech.com/" target="_blank" rel="noopener noreferrer">Battletech</a>
             for the most part)
           </li>
           <li>Reading (Fantasy, Sci-Fi, Coding)</li>

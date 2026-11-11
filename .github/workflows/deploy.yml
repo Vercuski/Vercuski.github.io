@@ -22,6 +22,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Read-only token by default; the deploy job asks for write access itself.
+permissions:
+  contents: read
+
 concurrency:
   group: pages-deploy
   cancel-in-progress: false
