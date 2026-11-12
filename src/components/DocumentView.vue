@@ -17,7 +17,8 @@ import { type CustomAttrs, type PluggableList, VueMarkdown } from '@crazydos/vue
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
-import { documentMeta, loadMarkdown } from '../data/documentation'
+import { defaultDocument, documentMeta, frontMatterField, hasMarkdown, loadMarkdown } from '../data/documentation'
+import { docUrl } from '../utils/docPaths'
 import { allTopics } from '../data/topics'
 import { useRoute } from 'vue-router'
 import { useHead } from '@unhead/vue'
@@ -49,11 +50,52 @@ const remarkPlugins: PluggableList = [remarkGfm]
 const rehypePlugins: PluggableList = [rehypeRaw, rehypeSlug, rehypeCallouts, rehypeMermaid]
 
 const source = await loadMarkdown(props.set, props.path)
-const markdown = prepareMarkdown(source)
+const topic = allTopics.find(topic => topic.documentation === props.set)
+const { title, description } = documentMeta(props.path, source, topic?.summary ?? props.set)
+const markdown = withIntro(prepareMarkdown(source), introCallouts())
+
+/**
+ * Callouts shown under the document's title: its front-matter `about`
+ * note on when to use it, and a link to the matching document in the
+ * companion topic's set (a template's filled-in example, or the reverse).
+ *
+ * @returns Markdown for the callouts, or '' if there are none.
+ */
+function introCallouts (): string {
+  const callouts: string[] = []
+
+  const about = frontMatterField(source, 'about')
+  if (about) callouts.push(`> [!info] When to use it\n> ${about}`)
+
+  const companion = topic?.companion && allTopics.find(t => t.slug === topic.companion!.slug)
+  if (companion?.documentation && hasMarkdown(companion.documentation, props.path)) {
+    const url = docUrl(companion.slug, props.path, defaultDocument(companion.documentation))
+    callouts.push(`> [!tip] ${topic!.companion!.label}\n> [${title} →](${url})`)
+  }
+
+  return callouts.join('\n\n')
+}
+
+/**
+ * Inserts `intro` after the document's first top-level heading (outside
+ * code fences), or at the top if it has none.
+ *
+ * @param doc - Prepared markdown.
+ * @param intro - Markdown to insert.
+ */
+function withIntro (doc: string, intro: string): string {
+  if (!intro) return doc
+  const lines = doc.split('\n')
+  let inFence = false
+  const heading = lines.findIndex(line => {
+    if (/^\s*(```|~~~)/.test(line)) inFence = !inFence
+    return !inFence && /^#\s/.test(line)
+  })
+  lines.splice(heading + 1, 0, '', intro, '')
+  return lines.join('\n')
+}
 
 if (props.setPageMeta) {
-  const topic = allTopics.find(topic => topic.documentation === props.set)
-  const { title, description } = documentMeta(props.path, source, topic?.summary ?? props.set)
   usePageMeta({ title: `${title} | ${props.set} | Scott Vercuski`, description })
 
   // JSON-LD: the document as a TechArticle by the site owner, and a

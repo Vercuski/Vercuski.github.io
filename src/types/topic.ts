@@ -28,6 +28,17 @@ export interface Topic {
    * document's name instead.
    */
   hideDocumentList?: boolean
+  /**
+   * Another topic whose documentation set has a matching document at the
+   * same path (e.g. a blank template and its filled-in example). Each
+   * document page links to its counterpart there.
+   */
+  companion?: {
+    /** Slug of the companion topic. */
+    slug: string
+    /** Heading of the link box, e.g. 'See this template filled in'. */
+    label: string
+  }
   /** Sub-topics, shown as a sub-menu under this topic in the navigation. */
   children?: Topic[]
 }

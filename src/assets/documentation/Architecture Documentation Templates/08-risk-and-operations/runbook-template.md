@@ -1,5 +1,7 @@
 ---
 title: "Runbook: {Service/Scenario Name}"
+summary: "Runbook template for one operational scenario: trigger, symptoms, likely causes, diagnosis and resolution steps, verification, rollback and escalation."
+about: "Write one runbook per scenario, such as a deployment, a common incident type or a scaling event, not one giant runbook per service. Write it for someone tired and under pressure: exact commands, dashboards to check, how to verify the fix, and when to escalate. Keep an index so the right one can be found quickly."
 status: draft
 owner: TBD
 version: 1.0.0

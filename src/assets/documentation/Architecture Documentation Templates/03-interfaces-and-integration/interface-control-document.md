@@ -1,5 +1,7 @@
 ---
 title: "ICD: {System A} <-> {System B}"
+summary: "Interface control document (ICD) template: a formal agreement between two systems covering data exchanged, error handling, SLAs and change management."
+about: "Use an ICD where formal, two-way sign-off matters, typically across organizations, with vendors, or between teams that release independently. For two services owned by the same team it is overkill. The change management section is the one teams most often regret leaving empty."
 status: draft
 owner: TBD
 version: 1.0.0

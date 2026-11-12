@@ -1,5 +1,7 @@
 ---
 title: Network Architecture
+summary: "Network architecture template: network zones and trust boundaries, allowed traffic between them, connectivity, load balancing, DNS and firewall rules."
+about: "Start from trust boundaries: public internet, DMZ, application tier, data tier, and exactly what may cross each one. A zone table with allowed inbound and outbound traffic is easier to review than a firewall rule dump, and gives the security architecture and threat model a shared picture."
 status: draft
 owner: TBD
 version: 1.0.0

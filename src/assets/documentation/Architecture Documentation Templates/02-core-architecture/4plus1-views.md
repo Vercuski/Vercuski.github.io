@@ -1,5 +1,7 @@
 ---
 title: 4+1 Architectural View Model
+summary: "4+1 architectural view model template: logical, process, development and physical views, tied together by key scenarios."
+about: "Use Kruchten's 4+1 model instead of, or alongside, C4 when your stakeholders already know it. Each view has its own audience, from developers to operations. The '+1' scenarios matter most: pick a handful of key use cases and show how they run through all four views."
 status: draft
 owner: TBD
 version: 1.0.0

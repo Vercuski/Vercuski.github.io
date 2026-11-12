@@ -1,5 +1,7 @@
 ---
 title: "C4 Model — Level 2: Container Diagram"
+summary: "C4 model level 2 container diagram template: applications, data stores and services, their technologies, and how they communicate."
+about: "This is usually the most useful single diagram for a development team. List each container's technology and responsibility, and for every connection record the protocol and what flows across it. It is also the natural starting point for a threat model's data flow diagram."
 status: draft
 owner: TBD
 version: 1.0.0

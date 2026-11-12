@@ -1,5 +1,7 @@
 ---
 title: Solution Architecture Document (SAD)
+summary: "Solution architecture document (SAD) template: the umbrella document linking goals, architectural views, tech stack, cross-cutting concerns and decisions."
+about: "Treat it as a table of contents with connecting narrative, not a place to repeat everything. Each section links out to the dedicated documents: C4 diagrams, data architecture, ADRs, the risk register. When a section starts duplicating another document, replace it with a link."
 status: draft
 owner: TBD
 version: 1.0.0

@@ -1,5 +1,6 @@
 ---
 title: "ADR-XXXX: {Short Title}"
+summary: "The ADR template Project Tapline copies for each new decision: Michael Nygard format with status, context, decision, alternatives and consequences."
 status: draft
 owner: TBD
 version: 1.0.0

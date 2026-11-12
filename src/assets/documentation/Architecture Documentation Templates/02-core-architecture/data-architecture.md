@@ -1,5 +1,7 @@
 ---
 title: Data Architecture
+summary: "Data architecture template: conceptual and logical data models, data dictionary, data flows, storage and retention, governance and data classification."
+about: "This covers the physical and logical side of data: where it is stored, how it moves, how long it is kept and who owns it. Flag personal data in the data dictionary from the start; it drives classification, encryption and retention decisions. The domain model template covers the conceptual, business-language side."
 status: draft
 owner: TBD
 version: 1.0.0

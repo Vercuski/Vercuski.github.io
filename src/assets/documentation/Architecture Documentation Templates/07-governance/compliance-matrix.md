@@ -1,5 +1,7 @@
 ---
 title: Compliance Matrix
+summary: "Compliance matrix template: applicable standards and regulations, each requirement mapped to its control, implementation and evidence, and open gaps."
+about: "Use it when the system must meet SOC 2, GDPR, PCI DSS, HIPAA or similar. The evidence location column is what auditors ask for first, so fill it in as controls are built rather than at audit time. Track open gaps with a remediation plan and a target date."
 status: draft
 owner: TBD
 version: 1.0.0

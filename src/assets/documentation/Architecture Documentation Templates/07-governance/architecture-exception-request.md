@@ -1,5 +1,7 @@
 ---
 title: "Architecture Exception Request: {Short Title}"
+summary: "Architecture exception request template: request a scoped, time-limited deviation from an approved standard, with risks and compensating controls."
+about: "Use it when a team can't follow a standard and can't wait for the standard to change. Quote the specific rule being excepted, limit the scope, describe the compensating controls, and always set an expiry or review date; an exception with no end date is an unreviewed standards change."
 status: draft
 owner: TBD
 version: 1.0.0

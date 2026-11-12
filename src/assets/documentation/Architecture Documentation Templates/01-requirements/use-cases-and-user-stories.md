@@ -1,5 +1,7 @@
 ---
 title: Use Cases / User Stories
+summary: "Use case and user story template: actors, preconditions, main and alternate flows, plus user stories with Given/When/Then acceptance criteria."
+about: "Use the use case format when flows have meaningful alternates, preconditions or several actors; use user stories for smaller, independent increments. Link each use case to the non-functional requirements it exercises so performance and security expectations stay attached to real behavior."
 status: draft
 owner: TBD
 version: 1.0.0

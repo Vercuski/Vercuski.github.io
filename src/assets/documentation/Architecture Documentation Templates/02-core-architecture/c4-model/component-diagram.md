@@ -1,5 +1,7 @@
 ---
 title: "C4 Model — Level 3: Component Diagram"
+summary: "C4 model level 3 component diagram template: the internal components of one container, their responsibilities and dependencies."
+about: "Repeat it for each container that is complex or important enough to need explaining; simple containers don't need one. Link the key interactions to sequence diagrams rather than drawing every call, and skip level 4 code diagrams unless your tools can generate them."
 status: draft
 owner: TBD
 version: 1.0.0

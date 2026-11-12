@@ -1,5 +1,7 @@
 ---
 title: "ADR-0001: Record Architecture Decisions"
+summary: "ADR-0001, the first architecture decision record: the decision to record architecture decisions as numbered ADRs, with alternatives and consequences."
+about: "Most ADR collections start with this record. It explains to future readers why decisions are written down and where, and it shows the format in use. Keep it as the first entry in your ADR log, and copy the ADR template for every decision after it."
 status: Accepted
 date: TBD
 deciders: TBD

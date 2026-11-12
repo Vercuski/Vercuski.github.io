@@ -1,5 +1,7 @@
 ---
 title: Key Sequence / Interaction Diagrams
+summary: "Sequence diagram template: Mermaid interaction diagrams for critical flows, with notes on failure modes, idempotency, timeouts and retries."
+about: "Only diagram flows that are non-obvious, cross several services or are business-critical, such as checkout, authentication or payment. The notes under each diagram are where the value is: what happens when a step fails, times out or is retried."
 status: draft
 owner: TBD
 version: 1.0.0

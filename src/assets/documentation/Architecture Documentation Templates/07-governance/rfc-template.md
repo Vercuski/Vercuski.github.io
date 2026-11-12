@@ -1,5 +1,7 @@
 ---
 title: "RFC: {Title}"
+summary: "Request for comments (RFC) template: summary, motivation, detailed design, alternatives considered, impact and open questions for a proposed change."
+about: "Use an RFC to gather feedback on a significant proposal before it is decided; once accepted, record the outcome as an ADR. The motivation and alternatives sections matter as much as the design, since reviewers need to know why the change is needed and what else was considered."
 status: draft
 owner: TBD
 version: 1.0.0

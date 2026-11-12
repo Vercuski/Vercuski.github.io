@@ -1,5 +1,7 @@
 ---
 title: Onboarding / Knowledge Transfer
+summary: "Onboarding and knowledge transfer template: system overview, local development setup, key repositories, who to ask, glossary and FAQ."
+about: "Write it for someone joining the team next month. Test the local setup steps on a clean machine, keep the 'who to ask' table current, and grow the FAQ from the questions new people actually ask."
 status: draft
 owner: TBD
 version: 1.0.0

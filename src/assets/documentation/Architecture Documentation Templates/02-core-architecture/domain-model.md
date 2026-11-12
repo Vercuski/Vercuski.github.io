@@ -1,5 +1,7 @@
 ---
 title: Domain Model / Conceptual Data Model
+summary: "Domain model template: bounded contexts, ubiquitous language glossary, core entities with invariants, aggregates and a context map."
+about: "If you use domain-driven design, this doubles as the ubiquitous language glossary: define terms once here and link to them elsewhere. Record each entity's invariants and lifecycle, not only its attributes, and use the context map to make the relationships between bounded contexts explicit."
 status: draft
 owner: TBD
 version: 1.0.0

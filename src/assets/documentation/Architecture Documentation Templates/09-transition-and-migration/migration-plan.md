@@ -1,5 +1,7 @@
 ---
 title: Migration Plan
+summary: "Migration plan template: strategy (big bang, phased, strangler fig, parallel run), waves, cutover with go/no-go criteria, rollback and communication."
+about: "Choose the migration strategy deliberately and write down why. Define go/no-go criteria before cutover day, give every wave its own rollback plan, and plan who needs to hear what and when; most migration surprises reach people through poor communication."
 status: draft
 owner: TBD
 version: 1.0.0

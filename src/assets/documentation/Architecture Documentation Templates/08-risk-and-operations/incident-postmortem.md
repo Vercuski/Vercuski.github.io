@@ -1,5 +1,7 @@
 ---
 title: "Incident Postmortem: {Incident Name}"
+summary: "Blameless incident postmortem template: impact, timeline, 5 Whys root cause analysis, contributing factors, detection review and action items."
+about: "Complete it within a few days of resolution, while details are fresh, and keep it blameless: assume people made reasonable decisions with what they knew. Push past the first plausible cause, note where you got lucky, and give every action item an owner and a due date."
 status: draft
 owner: TBD
 version: 1.0.0

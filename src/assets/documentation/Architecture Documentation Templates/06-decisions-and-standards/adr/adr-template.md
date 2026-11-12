@@ -1,5 +1,7 @@
 ---
 title: "ADR-XXXX: {Short Title}"
+summary: "Architecture decision record (ADR) template in the Michael Nygard format: status, context, decision, alternatives considered and consequences."
+about: "Write one ADR per decision, numbered in sequence, and never delete an accepted one; supersede it with a new ADR that links back. State the decision as a full sentence, such as 'We will use X to do Y because Z', and list the negative consequences honestly alongside the positive ones."
 status: draft
 owner: TBD
 version: 1.0.0

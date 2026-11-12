@@ -1,5 +1,7 @@
 ---
 title: Integration Architecture
+summary: "Integration architecture template: integration patterns and why they were chosen, API and event inventories, retry strategy and third-party integrations."
+about: "Use it to show how the system connects to everything around it. Explain why each integration is synchronous or asynchronous, request/response or publish/subscribe, rather than only listing them. Interfaces that need formal sign-off from another team or organization get their own interface control document."
 status: draft
 owner: TBD
 version: 1.0.0

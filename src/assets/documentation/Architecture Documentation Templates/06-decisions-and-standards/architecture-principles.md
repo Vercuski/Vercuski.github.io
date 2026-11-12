@@ -1,5 +1,7 @@
 ---
 title: Architecture Principles
+summary: "Architecture principles template: each principle with its statement, rationale and implications, plus a categorized principle register."
+about: "A principle is only useful if it rules something out. For each one, write the implications: what it means in practice and which options it excludes. Keep the list short enough that people remember it; a team can apply ten principles but will ignore fifty."
 status: draft
 owner: TBD
 version: 1.0.0

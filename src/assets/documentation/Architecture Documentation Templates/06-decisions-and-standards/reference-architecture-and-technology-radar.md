@@ -1,5 +1,7 @@
 ---
 title: Reference Architecture, Standards & Technology Radar
+summary: "Reference architecture and tech radar template: approved stack and patterns, disallowed technologies, standards, and an Adopt/Trial/Assess/Hold radar."
+about: "This is the 'how we build things here' document, usually owned by an architecture review board. Pair every disallowed technology with its replacement, keep a change log for radar moves, and define the exception process so teams know how to ask when the standard doesn't fit."
 status: draft
 owner: TBD
 version: 1.0.0

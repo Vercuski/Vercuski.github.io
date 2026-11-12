@@ -1,5 +1,7 @@
 ---
 title: Transition Architecture
+summary: "Transition architecture template: the interim architecture states between current and target, with temporary components and exit criteria for each."
+about: "Use it when a migration happens in waves and the system must stay operational throughout. Document each interim state as a real architecture, including temporary bridges and dual-running components, and define the exit criteria that trigger the next transition."
 status: draft
 owner: TBD
 version: 1.0.0

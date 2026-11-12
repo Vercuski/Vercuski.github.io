@@ -1,5 +1,7 @@
 ---
 title: Disaster Recovery & Business Continuity Plan
+summary: "Disaster recovery and business continuity plan template: RTO and RPO targets, disaster scenarios, backups, recovery procedures, roles and communication."
+about: "Write a recovery procedure for each scenario you plan for, such as a region outage, data corruption or ransomware, rather than one generic plan. Then test it: a DR plan that has never been tested is a hypothesis, not a plan."
 status: draft
 owner: TBD
 version: 1.0.0

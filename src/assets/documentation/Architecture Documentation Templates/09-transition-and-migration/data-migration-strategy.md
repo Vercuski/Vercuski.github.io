@@ -1,5 +1,7 @@
 ---
 title: Data Migration Strategy
+summary: "Data migration strategy template: sources and targets, migration approach, validation and reconciliation, cutover window, rollback and PII handling."
+about: "Plan how you will prove the migrated data is correct before deciding how to move it; reconciliation is usually harder than the copy. Rehearse the migration with realistic volumes to size the cutover window, and treat personal data in transit with the same controls as in production."
 status: draft
 owner: TBD
 version: 1.0.0

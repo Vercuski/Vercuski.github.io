@@ -1,5 +1,7 @@
 ---
 title: Observability Strategy
+summary: "Observability strategy template: metrics (RED, USE or golden signals), structured logging, tracing, dashboards, alerting, retention and ownership."
+about: "Use it to own metrics, logging and tracing as one strategy rather than scattered requirements. Pick one metrics model and apply it consistently, alert on symptoms that need action, and link every alert to a runbook. Security audit logging stays in the security architecture."
 status: draft
 owner: TBD
 version: 1.0.0

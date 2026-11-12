@@ -1,5 +1,7 @@
 ---
 title: Non-Functional Requirements / Quality Attributes
+summary: "Non-functional requirements template: measurable quality attributes like performance, availability and security, with scenarios and trade-offs."
+about: "Vague NFRs like 'the system should be fast' can't be designed for or tested. Give every attribute a number, write a full quality attribute scenario (source, stimulus, environment, artifact, response, measure) for the ones that shape the architecture, and state which attributes win when they conflict."
 status: draft
 owner: TBD
 version: 1.0.0

@@ -1,5 +1,6 @@
 ---
 title: Architecture Review Board — Minutes, 2026-06-24
+summary: "Project Tapline review board minutes, June 2026: offline-first validators (ADR-0004) accepted, a ferry validator exception approved, fare cap RFC deferred."
 status: approved
 owner: Dana Okafor (Chief Architect, ARB chair)
 version: 1.0.0

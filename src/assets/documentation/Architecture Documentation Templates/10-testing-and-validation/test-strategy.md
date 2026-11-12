@@ -1,5 +1,7 @@
 ---
 title: Test Strategy
+summary: "Test strategy template: testing levels from unit to chaos, NFR validation, load and security testing, test environments, test data and exit criteria."
+about: "Most test strategies cover only functional correctness. The architecture-relevant part is showing how each non-functional requirement will be validated, with load, resilience and security tests whose pass criteria come straight from the NFR scenarios."
 status: draft
 owner: TBD
 version: 1.0.0

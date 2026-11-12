@@ -1,5 +1,7 @@
 ---
 title: Technology Evaluation / Trade Study
+summary: "Technology trade study template: weighted evaluation criteria, a scoring matrix and detailed option assessments that lead to a recommendation and an ADR."
+about: "Use it when choosing between several viable technologies or approaches, before recording the outcome as an ADR. Take criteria and weights from the non-functional requirements, exclude options that fail a hard constraint instead of letting high scores elsewhere hide it, and explain the recommendation in prose."
 status: draft
 owner: TBD
 version: 1.0.0

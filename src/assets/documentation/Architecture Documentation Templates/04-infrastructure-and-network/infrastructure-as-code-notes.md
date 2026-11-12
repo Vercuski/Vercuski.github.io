@@ -1,5 +1,7 @@
 ---
 title: Infrastructure-as-Code Notes
+summary: "Infrastructure-as-code notes template: a map into the IaC repository covering module structure, state management, promotion process and secrets."
+about: "The IaC repository is the real documentation; this page is the map into it. Don't copy Terraform or Bicep content here. Focus on what the code doesn't make obvious: where state lives and who can change it, how a change is promoted from dev to production, and how secrets reach the infrastructure."
 status: draft
 owner: TBD
 version: 1.0.0

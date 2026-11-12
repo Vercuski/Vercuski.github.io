@@ -1,5 +1,7 @@
 ---
 title: Security Architecture
+summary: "Security architecture template: authentication, authorization, trust boundaries, data classification, encryption, secrets and audit logging."
+about: "Use it to record the security decisions the whole system relies on. Classify data first, since handling, encryption and audit requirements follow from the class. Keep the full threat analysis in the threat model and link compliance requirements to the controls they drive."
 status: draft
 owner: TBD
 version: 1.0.0

@@ -31,12 +31,20 @@ export const topics: Topic[] = [
             title: 'Example',
             summary: 'Every template filled in for Project Tapline, a fictional program in which a regional transit agency replaces its legacy smart-card fare system with an account-based fare platform on .NET and Azure.',
             documentation: 'Architecture Documentation Example',
+            companion: {
+              slug: 'solution-architecture/documentation-and-example/templates',
+              label: 'Start from the blank template',
+            },
           },
           {
             slug: 'solution-architecture/documentation-and-example/templates',
             title: 'Templates',
             summary: 'A library of 50 architecture documentation templates in 12 folders, organized by phase of the architecture lifecycle: vision, requirements, design, decisions, governance, operations, migration, validation and handover.',
             documentation: 'Architecture Documentation Templates',
+            companion: {
+              slug: 'solution-architecture/documentation-and-example/example',
+              label: 'See this template filled in for Project Tapline',
+            },
           },
         ],
       },

@@ -1,5 +1,7 @@
 ---
 title: Risk Register
+summary: "Risk register template: architecture and delivery risks scored by likelihood and impact, with mitigation, owner, status and a review cadence."
+about: "Give every risk an owner and a mitigation, and review the register on a fixed schedule; a register nobody reviews is just a list of worries. Close or re-score risks as the project learns more, rather than letting them accumulate."
 status: draft
 owner: TBD
 version: 1.0.0

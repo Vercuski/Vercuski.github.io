@@ -1,5 +1,7 @@
 ---
 title: Architecture Review Board — Minutes
+summary: "Architecture review board (ARB) minutes template: agenda, discussion notes, decisions with owners and follow-up ADRs or RFCs, and action items."
+about: "Record decisions and actions, not a transcript. Every decision should name an owner and the ADR or RFC that will capture it, so the minutes connect to the rest of the documentation instead of being the only record of what was agreed."
 status: draft
 owner: TBD
 version: 1.0.0

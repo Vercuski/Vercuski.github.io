@@ -1,5 +1,7 @@
 ---
 title: As-Built Documentation
+summary: "As-built documentation template: the architecture as actually deployed, deviations from the design and why, environments, configuration and known issues."
+about: "Write it at handover to record reality, which often differs from the original architecture document. The deviations table is the most valuable part: what changed, and why, saves the next team from rediscovering it."
 status: draft
 owner: TBD
 version: 1.0.0

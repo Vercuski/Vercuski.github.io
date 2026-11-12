@@ -1,5 +1,7 @@
 ---
 title: Architecture Vision
+summary: "Architecture vision template: problem statement, goals, stakeholders, scope, measurable success criteria and constraints for a new initiative."
+about: "Start here for any new initiative. A stakeholder should understand why the project exists and what done looks like in about five minutes. Spend real effort on Out of Scope and on making success criteria measurable, since both feed the non-functional requirements later."
 status: draft
 owner: TBD
 version: 1.0.0

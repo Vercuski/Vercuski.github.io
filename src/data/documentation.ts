@@ -217,9 +217,7 @@ export function documentMeta (path: string, markdown: string, fallback: string) 
   const heading = body.find(line => /^#\s+/.test(line))?.replace(/^#\s+/, '')
   const title = withoutPlaceholders(plainText(heading ?? path.split('/').pop()!.replace(/\.md$/i, '')))
 
-  const frontMatterSummary = frontMatter
-    .find(line => /^summary:\s*\S/.test(line))
-    ?.replace(/^summary:\s*/, '').replace(/^(['"])(.*)\1$/, '$2')
+  const frontMatterSummary = fieldFrom(frontMatter, 'summary')
 
   let calloutSummary: string | undefined
   const calloutStart = body.findIndex(line => /^>\s*\[!summary\]/i.test(line))
@@ -252,6 +250,42 @@ export function documentMeta (path: string, markdown: string, fallback: string) 
   if (description.length > 160) description = `${description.slice(0, 157).replace(/\s+\S*$/, '')}…`
 
   return { title, description }
+}
+
+/**
+ * Reads a single-line `key: value` field from front-matter lines,
+ * unquoting a quoted value.
+ *
+ * @param frontMatter - The lines between the front matter's '---' markers.
+ * @param key - Field name, e.g. 'summary'.
+ */
+function fieldFrom (frontMatter: string[], key: string): string | undefined {
+  const value = frontMatter
+    .find(line => line.startsWith(`${key}:`))
+    ?.slice(key.length + 1).trim()
+  if (!value) return undefined
+  if (value.startsWith('"')) {
+    try {
+      return JSON.parse(value) as string
+    } catch {
+      // Not JSON-style quoting; fall through to stripping the quotes.
+    }
+  }
+  return value.replace(/^(['"])(.*)\1$/, '$2')
+}
+
+/**
+ * Reads a single-line field from a document's YAML front matter.
+ *
+ * @param markdown - The document's raw markdown.
+ * @param key - Field name, e.g. 'about'.
+ * @returns The unquoted value, or `undefined` if the field is missing or empty.
+ */
+export function frontMatterField (markdown: string, key: string): string | undefined {
+  const lines = markdown.split(/\r?\n/)
+  if (lines[0]?.trim() !== '---') return undefined
+  const end = lines.findIndex((line, i) => i > 0 && line.trim() === '---')
+  return end > 0 ? fieldFrom(lines.slice(1, end), key) : undefined
 }
 
 /**

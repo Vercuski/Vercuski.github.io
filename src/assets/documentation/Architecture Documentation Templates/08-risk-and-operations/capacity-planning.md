@@ -1,5 +1,7 @@
 ---
 title: Capacity Planning
+summary: "Capacity planning template: current and peak load profile, growth projections with assumptions, scaling strategy and cost implications."
+about: "Start from measured load, not guesses, and write down the assumptions behind each growth projection so they can be checked later. Identify the component that will saturate first; that bottleneck usually decides the scaling strategy and much of the cost."
 status: draft
 owner: TBD
 version: 1.0.0

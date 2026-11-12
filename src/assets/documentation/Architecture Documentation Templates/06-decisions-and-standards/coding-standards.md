@@ -1,5 +1,7 @@
 ---
 title: Coding Standards / Guidelines
+summary: "Coding standards template: naming conventions, project structure, error handling, logging, testing expectations, code review checklist and linting tools."
+about: "Record only what isn't already enforced by tooling, and enforce as much as possible with linters and formatters so reviews can focus on design. Error handling and logging standards matter most, because they decide whether production problems can be diagnosed at all."
 status: draft
 owner: TBD
 version: 1.0.0

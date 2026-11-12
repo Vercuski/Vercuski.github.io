@@ -218,6 +218,9 @@ const customAttrs = computed<CustomAttrs>(() => ({
       return url ? routerLinkAttrs(url) : { href: undefined }
     }
 
+    // Site paths, e.g. the link to a template's filled-in example.
+    if (href.startsWith('/')) return routerLinkAttrs(href)
+
     if (/^[a-z][a-z\d+.-]*:/i.test(href)) {
       return { target: '_blank', rel: 'noopener noreferrer' }
     }

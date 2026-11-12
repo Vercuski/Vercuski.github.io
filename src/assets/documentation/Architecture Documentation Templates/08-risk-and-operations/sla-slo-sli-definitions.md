@@ -1,5 +1,7 @@
 ---
 title: SLA / SLO / SLI Definitions & Error Budget
+summary: "SLA, SLO and SLI template: service level indicators, internal objectives, external agreements, error budgets and the policy when a budget runs out."
+about: "Define all three so they aren't confused: the SLI is what you measure, the SLO is your internal target, and the SLA is the external promise, set looser than the SLO to leave a buffer. Agree the error budget policy in advance, for example pausing feature releases when the budget is spent."
 status: draft
 owner: TBD
 version: 1.0.0

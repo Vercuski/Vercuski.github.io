@@ -1,5 +1,7 @@
 ---
 title: API Specification Guide
+summary: "API specification guide template: an API inventory with spec locations, plus versioning, deprecation, authentication and error-handling conventions."
+about: "This is a map to your API contracts, not the contracts themselves. Keep those machine-readable (OpenAPI for REST, AsyncAPI for events, .proto files for gRPC) so they can be linted, mocked and used for code generation, and standardize one error format, such as RFC 7807 Problem Details, across every API."
 status: draft
 owner: TBD
 version: 1.0.0

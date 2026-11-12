@@ -1,5 +1,7 @@
 ---
 title: Deployment / Topology
+summary: "Deployment topology template: environments, regions and availability zones, how services map onto infrastructure, scaling and environment parity."
+about: "Show how the containers from the C4 diagrams land on real infrastructure in each environment. Record the deliberate differences between staging and production, such as data volumes or sandbox versus live third parties, so an incident isn't misdiagnosed as a code problem."
 status: draft
 owner: TBD
 version: 1.0.0

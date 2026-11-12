@@ -1,5 +1,7 @@
 ---
 title: Business Case
+summary: "Business case template: problem statement, options considered, multi-year cost/benefit analysis, ROI and the risks of not proceeding."
+about: "Use it when an initiative needs funding or a go/no-go decision. Always include a do-nothing option and the risks of not proceeding; a business case that compares only the preferred option against nothing invites the question of what else was considered."
 status: draft
 owner: TBD
 version: 1.0.0

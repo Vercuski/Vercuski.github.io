@@ -1,5 +1,7 @@
 ---
 title: Threat Model (STRIDE)
+summary: "STRIDE threat model template: walk each trust boundary for spoofing, tampering, repudiation, disclosure, denial of service and privilege escalation."
+about: "Work from a data flow diagram with trust boundaries marked; the C4 container diagram is a good starting point. For each flow that crosses a boundary, ask which STRIDE categories apply. Record residual risk honestly: not every threat gets mitigated, so note what was accepted and by whom."
 status: draft
 owner: TBD
 version: 1.0.0

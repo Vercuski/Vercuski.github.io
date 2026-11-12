@@ -1,5 +1,7 @@
 ---
 title: Gap Analysis
+summary: "Gap analysis template: summarize the current and target states, list the gaps between them by area and priority, and recommend how to close them."
+about: "Keep the current and target state summaries brief and link to the detailed architecture; the gaps table is the point. Each gap should be specific enough to turn into a roadmap item or migration wave, and prioritized by business impact rather than technical interest."
 status: draft
 owner: TBD
 version: 1.0.0

@@ -1,5 +1,7 @@
 ---
 title: Architecture Roadmap
+summary: "Architecture roadmap template: a phased plan from current to target state, with capability gaps, milestones, dependencies and cross-phase risks."
+about: "Use it once the vision is agreed and the work is too big to deliver in one step. Keep the current and target state sections short and link to the real diagrams; the value is in the phased plan, the dependencies between phases, and a stated review cadence so the roadmap doesn't quietly go stale."
 status: draft
 owner: TBD
 version: 1.0.0

@@ -1,5 +1,7 @@
 ---
 title: Architecture Governance Framework
+summary: "Architecture governance framework template: roles and responsibilities, the RFC-to-ADR review process, escalation path and review board cadence."
+about: "Use it to make clear who decides what, and how a proposal moves from RFC through review to a recorded ADR. Keep governance proportionate: reserve review board time for decisions that are expensive to reverse or that affect other teams."
 status: draft
 owner: TBD
 version: 1.0.0
