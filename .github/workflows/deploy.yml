@@ -8,12 +8,15 @@ name: Build and Deploy
 #   `main` -- useful now that work lands on `dev` first and gets reviewed
 #   before merging.
 # - Only a push to `main` actually deploys, publishing `dist/` to the
-#   `gh-pages` branch (unchanged from how GitHub Pages is already
-#   configured for this repo -- Settings > Pages > Deploy from a branch:
-#   gh-pages). This keeps the manual `yarn deploy` fallback in the
-#   migration plan's rollback strategy fully intact: it pushes to the same
-#   branch this workflow does, so either one can be used interchangeably
-#   if the pipeline ever needs to be bypassed.
+#   `gh-pages` branch, which Netlify serves at scott.vercuski.com (its
+#   _headers and _redirects files are Netlify's). This keeps the manual
+#   `yarn deploy` fallback in the migration plan's rollback strategy fully
+#   intact: it pushes to the same branch this workflow does, so either one
+#   can be used interchangeably if the pipeline ever needs to be bypassed.
+# - GitHub Pages (vercuski.github.io) can't be turned off for a
+#   <username>.github.io repo, so the github-pages job publishes only a
+#   redirect to scott.vercuski.com there (github-pages/). Settings > Pages
+#   > Source must be "GitHub Actions".
 
 on:
   push:
@@ -83,3 +86,30 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+
+  # Publishes the redirect in github-pages/ to vercuski.github.io, so the
+  # github.io address sends people and search engines to scott.vercuski.com
+  # instead of serving a stale or duplicate copy of the site.
+  github-pages:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: github-pages
+
+      - name: Upload redirect site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: github-pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
