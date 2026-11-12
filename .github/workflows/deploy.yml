@@ -68,6 +68,23 @@ jobs:
           path: dist
           retention-days: 1
 
+      # The sitemap currently deployed, read before the deploy job
+      # replaces it, so the indexnow job can tell which pages changed.
+      - name: Save the deployed sitemap
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          mkdir -p indexnow
+          git show origin/gh-pages:sitemap.xml > indexnow/previous-sitemap.xml || rm -f indexnow/previous-sitemap.xml
+          cp dist/sitemap.xml indexnow/sitemap.xml
+
+      - name: Upload sitemaps for IndexNow
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow
+          path: indexnow
+          retention-days: 1
+
   deploy:
     needs: build
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -86,6 +103,34 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+
+  # Tells IndexNow search engines (Bing and others; not Google) which pages
+  # this deploy added, changed or removed, once Netlify is serving them.
+  # A failure here doesn't affect the site, only how soon Bing recrawls.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts
+            public
+
+      - name: Download sitemaps
+        uses: actions/download-artifact@v4
+        with:
+          name: indexnow
+          path: indexnow
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Submit changed pages
+        run: node scripts/indexnow.mjs indexnow/sitemap.xml indexnow/previous-sitemap.xml
 
   # Publishes the redirect in github-pages/ to vercuski.github.io, so the
   # github.io address sends people and search engines to scott.vercuski.com
