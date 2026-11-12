@@ -26,6 +26,7 @@ import { computed, defineAsyncComponent } from 'vue'
 import { allTopics } from '../data/topics'
 import { usePageMeta } from '../composables/usePageMeta'
 import { topicUrl } from '../utils/docPaths'
+import { breadcrumbList, topicTrail, useJsonLd } from '../utils/structuredData'
 
 // Loaded on demand: the markdown pipeline is large and only these
 // documentation pages need it.
@@ -51,4 +52,8 @@ usePageMeta(() => ({
   title: `${topic.value.documentation ?? topic.value.title} | Topics | Scott Vercuski`,
   description: topic.value.summary,
 }))
+
+// Breadcrumb trail for search results. Document pages replace it with
+// one that ends at the document (see components/DocumentView.vue).
+useJsonLd('breadcrumb', () => [breadcrumbList(topicTrail(props.slug))])
 </script>

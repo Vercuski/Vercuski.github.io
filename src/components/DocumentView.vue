@@ -19,7 +19,10 @@ import rehypeRaw from 'rehype-raw'
 import rehypeSlug from 'rehype-slug'
 import { documentMeta, loadMarkdown } from '../data/documentation'
 import { allTopics } from '../data/topics'
+import { useRoute } from 'vue-router'
 import { usePageMeta } from '../composables/usePageMeta'
+import { canonicalUrl } from '../site'
+import { breadcrumbList, personRef, topicTrail, useJsonLd } from '../utils/structuredData'
 import { prepareMarkdown, rehypeCallouts, rehypeMermaid } from '../utils/markdown'
 import MermaidDiagram from './MermaidDiagram.vue'
 
@@ -48,8 +51,29 @@ const source = await loadMarkdown(props.set, props.path)
 const markdown = prepareMarkdown(source)
 
 if (props.setPageMeta) {
-  const setSummary = allTopics.find(topic => topic.documentation === props.set)?.summary ?? props.set
-  const { title, description } = documentMeta(props.path, source, setSummary)
+  const topic = allTopics.find(topic => topic.documentation === props.set)
+  const { title, description } = documentMeta(props.path, source, topic?.summary ?? props.set)
   usePageMeta({ title: `${title} | ${props.set} | Scott Vercuski`, description })
+
+  // JSON-LD: the document as a TechArticle by the site owner, and a
+  // breadcrumb trail ending at it that replaces its topic page's.
+  const route = useRoute()
+  const url = canonicalUrl(route.path)
+  const dateModified = __DOC_DATES__[`${props.set}/${props.path}`]
+  const trail = [...(topic ? topicTrail(topic.slug) : []), { name: title, path: route.path }]
+  useJsonLd('breadcrumb', [breadcrumbList(trail)])
+  useJsonLd('page', [{
+    '@type': 'TechArticle',
+    '@id': `${url}#article`,
+    headline: title,
+    description,
+    url,
+    mainEntityOfPage: url,
+    inLanguage: 'en',
+    ...(dateModified && { dateModified }),
+    author: personRef,
+    publisher: personRef,
+    isPartOf: { '@type': 'CreativeWorkSeries', name: props.set },
+  }])
 }
 </script>

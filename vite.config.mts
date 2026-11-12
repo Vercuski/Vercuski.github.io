@@ -96,6 +96,21 @@ function lastModified (files: string[]): Map<string, string> {
   return dates
 }
 
+/**
+ * When each document last changed, keyed by '<set>/<path within set>',
+ * for the document pages' JSON-LD dateModified (see
+ * components/DocumentView.vue). Same dates as the sitemap's <lastmod>.
+ */
+function documentDates (): Record<string, string> {
+  const prefix = 'src/assets/documentation/'
+  const files = (readdirSync(prefix, { recursive: true }) as string[])
+    .map(path => path.replace(/\\/g, '/'))
+    .filter(path => path.toLowerCase().endsWith('.md'))
+    .map(path => `${prefix}${path}`)
+  return Object.fromEntries(
+    [...lastModified(files)].map(([file, date]) => [file.slice(prefix.length), date]))
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -120,7 +135,10 @@ export default defineConfig({
       },
     }),
   ],
-  define: { 'process.env': {} },
+  define: {
+    'process.env': {},
+    __DOC_DATES__: JSON.stringify(documentDates()),
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

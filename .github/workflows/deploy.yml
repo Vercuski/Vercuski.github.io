@@ -36,6 +36,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history: the build dates each page from its last commit
+          # (sitemap <lastmod>, document JSON-LD dateModified). A shallow
+          # clone would date every page to the latest commit.
+          fetch-depth: 0
 
       - name: Enable Corepack
         run: corepack enable

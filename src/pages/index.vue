@@ -54,43 +54,29 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '@unhead/vue'
 import { usePageMeta } from '../composables/usePageMeta'
+import { canonicalUrl } from '../site'
+import { PERSON_ID, WEBSITE_ID, person, useJsonLd, website } from '../utils/structuredData'
 
 // Homepage: name, headline, calls to action and a random quote.
 
-// Person/ProfilePage JSON-LD (ADR-0003 / migration plan Wave 2) — describes
-// Scott as a Person, nested as the mainEntity of this page as a ProfilePage.
-// Only added here (the homepage) rather than on every route, since this is
-// the site's canonical profile page.
-const personJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfilePage',
-  mainEntity: {
-    '@type': 'Person',
-    name: 'Scott Vercuski',
-    url: 'https://scott.vercuski.com/',
-    image: 'https://scott.vercuski.com/images/me.jpg',
-    jobTitle: 'Solution/Software Architect',
-    description: "Solution/Software Architect, long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer.",
-    sameAs: [
-      'https://www.linkedin.com/in/scott-vercuski/',
-      'https://github.com/Vercuski',
-    ],
+// JSON-LD (ADR-0003 / migration plan Wave 2): the WebSite, and this page
+// as the ProfilePage of its owner. The Person is described in full only
+// here; other pages refer to it by its @id (see utils/structuredData.ts).
+useJsonLd('page', [
+  website,
+  {
+    '@type': 'ProfilePage',
+    '@id': `${canonicalUrl('/')}#profilepage`,
+    url: canonicalUrl('/'),
+    isPartOf: { '@id': WEBSITE_ID },
+    mainEntity: { '@id': PERSON_ID },
   },
-}
+  person,
+])
 
 usePageMeta({
   title: 'Scott Vercuski | Software Architect',
   description: "I'm a long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer, gamer, hobbyist, and enthusiast of many things.",
-})
-
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify(personJsonLd),
-    },
-  ],
 })
 </script>
