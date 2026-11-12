@@ -41,6 +41,13 @@
           >
             View my projects
           </v-btn>
+          <v-btn
+            variant="outlined"
+            size="large"
+            to="/topics/"
+          >
+            Architecture guides &amp; templates
+          </v-btn>
         </v-row>
         <br /><br />
         <v-row class="align-center justify-center">
@@ -76,7 +83,7 @@ useJsonLd('page', [
 ])
 
 usePageMeta({
-  title: 'Scott Vercuski | Software Architect',
-  description: "I'm a long time developer, mainly in C#/Typescript/Vue/SQL spaces, a pseudo DBA, one time DevOps/Network engineer, gamer, hobbyist, and enthusiast of many things.",
+  title: 'Scott Vercuski | Software & Solution Architect',
+  description: 'Software & solution architect with 30+ years in C#/.NET, SQL and Vue. Architecture documentation templates, a worked example, and design pattern guides.',
 })
 </script>
