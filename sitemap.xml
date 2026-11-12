@@ -30,11 +30,11 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/</loc>
@@ -498,7 +498,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/design-checklist/</loc>
@@ -506,7 +506,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/</loc>
@@ -642,7 +642,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/adr/adr-template/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/06-decisions-and-standards/architecture-principles/</loc>
@@ -662,7 +662,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/07-governance/arb-minutes-template/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/07-governance/architecture-exception-request/</loc>
@@ -746,202 +746,202 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/00-vision-and-strategy/architecture-roadmap/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/00-vision-and-strategy/architecture-vision/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/00-vision-and-strategy/business-case/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/01-requirements/business-requirements/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/01-requirements/functional-requirements/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/01-requirements/non-functional-requirements/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/01-requirements/use-cases-and-user-stories/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/4plus1-views/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/c4-model/component-diagram/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/c4-model/container-diagram/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/c4-model/context-diagram/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/data-architecture/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/domain-model/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/sequence-diagrams/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/02-core-architecture/solution-architecture-document/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/03-interfaces-and-integration/api-specification-guide/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/03-interfaces-and-integration/integration-architecture/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/03-interfaces-and-integration/interface-control-document/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/04-infrastructure-and-network/deployment-topology/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/04-infrastructure-and-network/infrastructure-as-code-notes/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/04-infrastructure-and-network/network-architecture/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/05-security/security-architecture/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/05-security/threat-model/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/adr/0001-record-architecture-decisions/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/adr/adr-log/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/adr/adr-template/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/architecture-principles/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/coding-standards/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/reference-architecture-and-technology-radar/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/06-decisions-and-standards/technology-evaluation-trade-study/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/arb-minutes-template/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/architecture-exception-request/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/compliance-matrix/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/governance-framework/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/07-governance/rfc-template/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/capacity-planning/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/disaster-recovery-plan/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/incident-postmortem/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/observability-strategy/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/risk-register/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/runbook-template/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/08-risk-and-operations/sla-slo-sli-definitions/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/09-transition-and-migration/data-migration-strategy/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/09-transition-and-migration/gap-analysis/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/09-transition-and-migration/migration-plan/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/09-transition-and-migration/transition-architecture/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/10-testing-and-validation/architecture-compliance-review/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/10-testing-and-validation/test-strategy/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/11-handover/as-built-documentation/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/templates/11-handover/onboarding-knowledge-transfer/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-12</lastmod>
   </url>
 </urlset>
