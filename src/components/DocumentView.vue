@@ -20,6 +20,7 @@ import rehypeSlug from 'rehype-slug'
 import { documentMeta, loadMarkdown } from '../data/documentation'
 import { allTopics } from '../data/topics'
 import { useRoute } from 'vue-router'
+import { useHead } from '@unhead/vue'
 import { usePageMeta } from '../composables/usePageMeta'
 import { canonicalUrl } from '../site'
 import { breadcrumbList, personRef, topicTrail, useJsonLd } from '../utils/structuredData'
@@ -62,6 +63,14 @@ if (props.setPageMeta) {
   const dateModified = __DOC_DATES__[`${props.set}/${props.path}`]
   const trail = [...(topic ? topicTrail(topic.slug) : []), { name: title, path: route.path }]
   useJsonLd('breadcrumb', [breadcrumbList(trail)])
+  // Link previews: an article rather than the site-wide 'website'.
+  useHead({
+    meta: [
+      { property: 'og:type', content: 'article' },
+      ...(dateModified ? [{ property: 'article:modified_time', content: dateModified }] : []),
+      { property: 'article:author', content: personRef.url },
+    ],
+  })
   useJsonLd('page', [{
     '@type': 'TechArticle',
     '@id': `${url}#article`,

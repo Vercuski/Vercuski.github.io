@@ -49,7 +49,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHead } from '@unhead/vue'
 import { mdiMenu } from '@mdi/js'
-import { canonicalUrl } from './site'
+import { OG_CARD_SIZE, canonicalUrl, ogCardFor } from './site'
 
 // The site shell around every page: header navigation, the routed page,
 // and the footer.
@@ -68,11 +68,23 @@ const navLinks = [
 ]
 
 // Per-page canonical URL (and matching og:url), in the same form the
-// sitemap uses (see site.ts).
+// sitemap uses (see site.ts), and the page's section's social card image.
 const route = useRoute()
 const pageUrl = computed(() => canonicalUrl(route.path))
+const card = computed(() => ogCardFor(route.path))
+const cardUrl = computed(() => card.value.url)
+const cardAlt = computed(() => card.value.alt)
 useHead({
   link: [{ rel: 'canonical', href: pageUrl }],
-  meta: [{ property: 'og:url', content: pageUrl }],
+  meta: [
+    { property: 'og:url', content: pageUrl },
+    { property: 'og:image', content: cardUrl },
+    { property: 'og:image:width', content: String(OG_CARD_SIZE.width) },
+    { property: 'og:image:height', content: String(OG_CARD_SIZE.height) },
+    { property: 'og:image:alt', content: cardAlt },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: cardUrl },
+    { name: 'twitter:image:alt', content: cardAlt },
+  ],
 })
 </script>
