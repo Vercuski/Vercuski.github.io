@@ -10,9 +10,9 @@
         <v-avatar size="56" color="primary" variant="tonal" class="mr-4">
           <v-img :src="project.icon" :alt="project.iconAlt" cover />
         </v-avatar>
-        <div>
+        <div style="min-width: 0">
           <div class="text-overline text-medium-emphasis" style="line-height: 1.2">Repository</div>
-          <div class="text-body-1 font-weight-bold">{{ project.repoName }}</div>
+          <div class="text-body-1 font-weight-bold" style="overflow-wrap: anywhere">{{ project.repoName }}</div>
         </div>
       </div>
     </v-card-item>

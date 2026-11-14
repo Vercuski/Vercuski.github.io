@@ -28,11 +28,12 @@ import messagingIcon from '../assets/icons/messagingicon.webp'
 import microserviceIcon from '../assets/icons/microservice-icon.webp'
 import onionIcon from '../assets/icons/onion-architecture-icon.webp'
 import dockerIcon from '../assets/icons/docker-icon.webp'
+import verticalSliceIcon from '../assets/icons/vertical-slice-icon.png'
 import type { Project } from '../types/project'
 
 usePageMeta({
   title: 'Projects | Scott Vercuski',
-  description: 'A selection of software architecture and backend project templates by Scott Vercuski, including Onion Architecture, Microservice Architecture, messaging, and Docker Compose scripts.',
+  description: 'A selection of software architecture and backend project templates by Scott Vercuski, including Vertical Slice + Clean Architecture, Onion Architecture, Microservice Architecture, messaging, and Docker Compose scripts.',
 })
 
 /**
@@ -63,10 +64,19 @@ const projects: Project[] = [
     repoName: 'OnionArch.Template',
     icon: onionIcon,
     iconAlt: 'OnionArch.Template icon',
-    description: 'A reference implementation of Onion Architecture — domain logic at the center, infrastructure and frameworks kept at the edges, so business rules stay testable and technology choices stay swappable.',
-    framework: '.NET 9',
+    description: 'A dotnet new template for Onion Architecture — a dependency-free domain at the center, in-house CQRS dispatch in the application layer, and API, console and Blazor front ends at the edge. Persistence pairs EF Core and Dapper, with SQL Server, PostgreSQL or MySQL picked per read and write side in configuration.',
+    framework: '.NET 10',
     language: 'C#',
     githubUrl: 'https://github.com/Vercuski/ONIONARCH.Template',
+  },
+  {
+    repoName: 'Vertical_Slice-Clean_Architecture.Template',
+    icon: verticalSliceIcon,
+    iconAlt: 'Vertical_Slice-Clean_Architecture.Template icon',
+    description: 'A dotnet new template for a Minimal API that organizes each use case as a self-contained vertical slice on top of Clean Architecture layers — pick EF Core or Dapper on SQL Server, PostgreSQL or MySQL, with architecture tests that keep slices from reaching into each other.',
+    framework: '.NET 10',
+    language: 'C#',
+    githubUrl: 'https://github.com/Vercuski/Vertical_Slice-Clean_Architecture.Template',
   },
   {
     repoName: 'Docker-Scripts',
