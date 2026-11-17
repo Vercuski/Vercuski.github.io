@@ -82,7 +82,7 @@ const projects: Project[] = [
     repoName: 'Docker-Scripts',
     icon: dockerIcon,
     iconAlt: 'Docker-Scripts icon',
-    description: "A working library of Docker Compose configurations for common local-dev and self-hosted scenarios — the kind of infrastructure scaffolding that turns 'works on my machine' into 'works everywhere.'",
+    description: "A working library of 165 Docker Compose configurations across 30 categories for common local-dev and self-hosted scenarios — the kind of infrastructure scaffolding that turns 'works on my machine' into 'works everywhere.'",
     framework: 'Various',
     language: 'Various',
     githubUrl: 'https://github.com/Vercuski/Docker-Scripts',
