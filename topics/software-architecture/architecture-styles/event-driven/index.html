@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="en"><head>
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
+  <link rel="preload" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&amp;display=swap">
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-423SL0YDHG"></script>
+    <script src="/gtag-init.js"></script>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Scott Vercuski">
+    <!-- Fallbacks for any page that doesn't set its own; keep the
+         description and title in step with the homepage's (src/pages/index.vue). -->
+    <meta name="description" content="Services react asynchronously to an initiating event and to each other's derived events via a simple broker, trading simplicity and consistency for performance and scalability.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Scott Vercuski">
+    <meta name="google-site-verification" content="ZHe0GpV-ugL5aqoWWPA-TtJK4-8xT49Vkgx4UzQVkj0">
+    <meta property="og:site_name" content="Scott Vercuski">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <!-- og:image, twitter:card and twitter:image are set per page in App.vue. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Architecture | Topics | Scott Vercuski</title>
+  <script type="module" crossorigin="" src="/assets/app-p_tH-nHr.js"></script>
+  <link rel="stylesheet" crossorigin="" href="/assets/app-BHFI15Kl.css">
+<link rel="modulepreload" crossorigin="" href="/assets/DocumentationBrowser-DxGyNdRU.js"><link rel="stylesheet" href="/assets/DocumentationBrowser-D77eMQN2.css"><style id="vuetify-theme-stylesheet">:root {
+      --v-theme-background: 245,245,245;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 105,102,219;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 102,98,122;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 204,191,214;
+      --v-theme-surface-bright-overlay-multiplier: 2;
+      --v-theme-surface-light: 66,66,66;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 163,163,163;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 66,66,66;
+      --v-theme-primary: 33,150,243;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 39,124,193;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 84,182,178;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 72,169,166;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 1;
+      --v-medium-emphasis-opacity: 0.7;
+      --v-disabled-opacity: 0.5;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .v-theme--scottLight {
+      color-scheme: normal;
+      --v-theme-background: 245,245,245;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 105,102,219;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 102,98,122;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background-color: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-bright {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-bright-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-bright)) !important;
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .bg-surface-light {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-light-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-light)) !important;
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background-color: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background-color: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background-color: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background-color: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-bright {
+      color: rgb(var(--v-theme-surface-bright)) !important;
+    }
+    .border-surface-bright {
+      --v-border-color: var(--v-theme-surface-bright);
+    }
+    .text-surface-light {
+      color: rgb(var(--v-theme-surface-light)) !important;
+    }
+    .border-surface-light {
+      --v-border-color: var(--v-theme-surface-light);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-surface-bright {
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .on-surface-light {
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style><link rel="canonical" href="https://scott.vercuski.com/topics/software-architecture/architecture-styles/event-driven/"><meta property="og:url" content="https://scott.vercuski.com/topics/software-architecture/architecture-styles/event-driven/"><meta property="og:image" content="https://scott.vercuski.com/images/og/default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Scott Vercuski, Software &amp; Solution Architect: architecture guides, documentation templates, and design patterns."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://scott.vercuski.com/images/og/default.png"><meta name="twitter:image:alt" content="Scott Vercuski, Software &amp; Solution Architect: architecture guides, documentation templates, and design patterns."><meta property="og:title" content="Event-Driven Architecture | Topics | Scott Vercuski"><meta property="og:description" content="Services react asynchronously to an initiating event and to each other's derived events via a simple broker, trading simplicity and consistency for performance and scalability."><meta name="twitter:title" content="Event-Driven Architecture | Topics | Scott Vercuski"><meta name="twitter:description" content="Services react asynchronously to an initiating event and to each other's derived events via a simple broker, trading simplicity and consistency for performance and scalability."><script type="application/ld+json" data-hid="c62b1fa">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://scott.vercuski.com/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://scott.vercuski.com/topics/"},{"@type":"ListItem","position":3,"name":"Software Architecture","item":"https://scott.vercuski.com/topics/software-architecture/"},{"@type":"ListItem","position":4,"name":"Architecture Styles","item":"https://scott.vercuski.com/topics/software-architecture/architecture-styles/"},{"@type":"ListItem","position":5,"name":"Event-Driven","item":"https://scott.vercuski.com/topics/software-architecture/architecture-styles/event-driven/"}]}</script></head>
+
+<body>
+    <div id="app" data-server-rendered="true"><div class="v-application v-theme--scottLight v-layout v-layout--full-height v-locale--is-ltr" style="" id="app"><div class="v-application__wrap"><!--[--><!--[--><a href="#main-content" class="skiplink">Skip to content</a><header class="d-flex align-center justify-end header px-3"><nav aria-label="Main"><ul class="navlinks d-none d-md-flex align-center"><!--[--><li><a href="/" class="headerrouterlink my-5 mx-5">HOME</a></li><li><a href="/about/" class="headerrouterlink my-5 mx-5">ABOUT</a></li><li><a href="/projects/" class="headerrouterlink my-5 mx-5">PROJECTS</a></li><li><a href="/skills/" class="headerrouterlink my-5 mx-5">SKILLS</a></li><li><a href="/topics/" class="router-link-active headerrouterlink my-5 mx-5">TOPICS</a></li><li><a href="/contact/" class="headerrouterlink my-5 mx-5">CONTACT</a></li><!--]--></ul><!--[--><!--[--><button type="button" class="v-btn v-btn--icon v-theme--scottLight text-white v-btn--density-default v-btn--size-default v-btn--variant-text d-md-none" style="" aria-haspopup="menu" aria-expanded="false" aria-owns="v-menu-0" aria-label="Open menu"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator=""><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg></i></span><!----><!----></button><!--]--><!----><!--]--></nav></header><main class="v-main main" style="--v-layout-left:0px;--v-layout-right:0px;--v-layout-top:0px;--v-layout-bottom:32px;transition:none !important;" id="main-content" tabindex="-1"><!--[--><div class="topicslayout" data-v-c737f2e3=""><nav class="topicsnav" data-v-c737f2e3=""><div class="text-overline font-weight-bold px-4 pt-4" data-v-c737f2e3="">Topics</div><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-comfortable v-list--one-line" style="" tabindex="0" role="listbox" data-v-c737f2e3=""><!--[--><!--[--><div class="v-list-group" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/" tabindex="-2" id="v-list-group--id-solution-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Solution Architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/design-checklist/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Design Checklist</div><!----><!----></div><!----></a><div class="v-list-group" style=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/solution-architecture/documentation-and-example/" tabindex="-2" id="v-list-group--id-solution-architecture/documentation-and-example"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Documentation and Example</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-solution-architecture/documentation-and-example" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/example/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Example</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/solution-architecture/documentation-and-example/templates/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Templates</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></div><div class="v-list-group v-list-group--open" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/software-architecture/" tabindex="-2" id="v-list-group--id-software-architecture"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Architecture</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-software-architecture"><!--[--><!--[--><div class="v-list-group v-list-group--open" style=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--active v-list-item--link v-list-item--nav v-theme--scottLight text-primary v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/software-architecture/architecture-styles/" tabindex="-2" id="v-list-group--id-software-architecture/architecture-styles"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Architecture Styles</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-software-architecture/architecture-styles"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/monolithic/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Monolithic</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/client-server/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Client-Server</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/layered/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Layered (N-Tier)</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/modular-monolith/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Modular Monolith</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/microkernel/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Microkernel (Plug-In)</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/pipeline/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Pipeline (Pipes and Filters)</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/hexagonal/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Hexagonal</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/onion/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Onion</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/clean/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Clean</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/vertical-slice/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Vertical Slice</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/service-based/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Service-Based</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/service-oriented/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Service-Oriented (SOA)</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/microservices/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Microservices</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/event-driven/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Event-Driven</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/space-based/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Space-Based</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/serverless/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Serverless</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/peer-to-peer/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Peer-to-Peer</div><!----><!----></div><!----></a><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-architecture/architecture-styles/primary-replica/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Primary-Replica (Master-Worker)</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></div><div class="v-list-group" style="" data-v-c737f2e3=""><!--[--><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text v-list-group__header" style="" href="/topics/software-design-patterns/" tabindex="-2" id="v-list-group--id-software-design-patterns"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Software Design Patterns</div><!----><!----></div><div class="v-list-item__append"><!--[--><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="comfortable"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"></path></svg></i><!----><!--]--><div class="v-list-item__spacer"></div></div></a><!--]--><!--]--><!--]--><div class="v-list-group__items" role="group" aria-labelledby="v-list-group--id-software-design-patterns" style="display:none;"><!--[--><!--[--><a class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-comfortable v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" href="/topics/software-design-patterns/patterns-and-anti-patterns/" tabindex="-2"><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Patterns &amp; Anti-Patterns</div><!----><!----></div><!----></a><!--]--><!--]--></div></div><!--]--><!--]--></div></nav><div class="topicscontent pa-6" data-v-c737f2e3=""><div class="px-2" data-v-c737f2e3=""><div class="text-h5" style="font-weight:bold;">Event-Driven Architecture</div><br><p>Services react asynchronously to an initiating event and to each other's derived events via a simple broker, trading simplicity and consistency for performance and scalability.</p><br><div class="docbrowser docbrowser--stacked" data-v-1f0bdd08=""><nav class="doctree" aria-label="Documents" data-v-1f0bdd08=""><div class="v-list v-list--nav v-theme--scottLight bg-transparent v-list--density-compact v-list--one-line" style="" tabindex="0" role="listbox" data-v-1f0bdd08=""><!--[--><div class="v-list-item v-list-item--link v-list-item--nav v-theme--scottLight v-list-item--density-compact v-list-item--one-line v-list-item--rounded v-list-item--variant-text" style="" tabindex="-2" data-v-1f0bdd08=""><!--[--><span class="v-list-item__overlay"></span><span class="v-list-item__underlay"></span><!--]--><div class="v-list-item__prepend"><!--[--><!----><i class="v-icon notranslate v-theme--scottLight v-icon--size-default" style="" aria-hidden="true" density="compact"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"></path></svg></i><!--]--><div class="v-list-item__spacer"></div></div><div class="v-list-item__content" data-no-activator=""><div class="v-list-item-title" style="">Event-Driven Architecture.md</div><!----><!----></div><!----></div><!--]--></div></nav><article class="docviewer" data-v-1f0bdd08=""><!----><!----> <div class="markdownbody" data-v-1f0bdd08=""><blockquote class="callout callout-summary"><div class="callout-title">TL;DR</div>
+<p>An <strong>initiating event</strong> starts the work; <strong>event processors</strong> (services) react and publish <strong>derived events</strong> fire-and-forget through a "dumb" event or streaming broker, and other services react in turn. Asynchronous, parallel processing gives five-star performance, scalability, elasticity, fault tolerance, evolvability and abstraction. It costs simplicity and testability, and it fits poorly where you need tight consistency, synchronous flows or strict event ordering.</p>
+</blockquote>
+<h2 id="problem">Problem</h2>
+<ul>
+<li>Synchronous request chains couple services in time: one slow or failed service stalls the whole workflow.</li>
+<li>The domain is about reacting to things that happen (bids, payments, sensor readings), often non-deterministically and at unpredictable volume.</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<ul>
+<li>
+<p><strong>Definition:</strong> a style that asynchronously responds to events triggered in the system; everything is async.</p>
+</li>
+<li>
+<p><strong>Broker:</strong> a streaming or event broker with event channels; a simple broker that only accepts events and makes them available (not a smart message bus as in SOA).</p>
+</li>
+<li>
+<p><strong>Initiating event:</strong> the one external or internal event that kicks off all processing.</p>
+</li>
+<li>
+<p><strong>Event processors:</strong> the formal term; usually just called services today.</p>
+</li>
+<li>
+<p><strong>Derived events:</strong> formally "processing events"; a service advertises what it did so interested services can react. See <a>Events vs Messages</a>, <a>Anemic Events</a> and <a>Swarm of Gnats Anti-Pattern</a> for payload and granularity design.</p>
+</li>
+<li>
+<p><strong>Abstraction without a performance penalty:</strong> unlike largely synchronous SOA, async parallel processing keeps abstraction from lowering performance.</p>
+</li>
+<li>
+<p><strong>Fault tolerance via asynchrony:</strong> a service doesn't depend on others, so services can come and go and events are processed when they're available (microservices get the same rating by isolating each function).</p>
+</li>
+<li>
+<p><strong>Domain fit:</strong> listen for "event" and "triggered" in the business problem (bidding and auction systems; defined contribution and defined benefit systems); suits non-deterministic systems. See <a>Domain to Architecture Isomorphism</a>.</p>
+</li>
+<li>
+<p><strong>History:</strong> decades old; it fell into the trough of disillusionment on complexity and immature tooling, and has resurged with new tools, microservices and non-deterministic systems.</p>
+</li>
+<li>
+<p><strong>Handoff</strong> (Lesson 110): a processor announces what happened ("payment applied") and doesn't care who responds; one event fans out to many responders in parallel (order placed → payment, notify customer, update inventory).</p>
+</li>
+<li>
+<p><strong>Back pressure</strong> (Lesson 110): the queue or topic between services is a back-pressure point, so you can accept orders faster than they're processed and each service scales as its own island.</p>
+</li>
+<li>
+<p><strong>Mid-day redeploys</strong> (Lesson 110): persistent queues, durable topics or durable subscribers let you take a processor down and redeploy it while others keep firing events, an agility edge over pure microservices.</p>
+</li>
+<li>
+<p><strong>The hard parts</strong> (Lesson 110): error handling (when was an event handled, how to restart or recover, who owns its state); workflow control, especially with complex event processing (CEP); event timing and ordering (very few ways to force event 1 before event 2); coupling through event contracts; and end-to-end scenario testing, where unexpected events fire and timing changes results.</p>
+</li>
+<li>
+<p><strong>Advertise every derived event</strong> (course: <a>11. Examining Event-Driven Architectures</a>): publish what a processor did even if nobody listens yet; it is the hook future consumers use (extensible derived events). Fit test: if the domain is about responding to events, the style suits it; if it is mostly CRUD, use a request-based style.</p>
+</li>
+</ul>
+<h2 id="structure">Structure</h2>
+<!--[--><div class="mermaiddiagram my-4" data-v-3b6a3153=""><div class="text-medium-emphasis text-body-2" data-v-3b6a3153="">Loading diagram…</div></div><!--]-->
+<h2 id="event-driven-topics">Event-driven topics</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Topic</th><th>One line</th><th>Home note</th></tr></thead><tbody><tr><td>Why choose it</td><td>One of two basic models; buys responsiveness, scale and extensibility at the cost of consistency, control and testability (Lesson 69)</td><td><a>Request-Based vs Event-Driven Architecture</a></td></tr><tr><td>Not microservices</td><td>EDA constrains neither service nor data granularity nor bounded context (Lesson 131)</td><td><a>Microservices vs Event-Driven Architecture</a> · <a>Hybrid Architectures</a></td></tr><tr><td>Decoupling has a price</td><td>Fire-and-forget drops coupling to near zero but costs workflow control, error handling and consistency (Lesson 59)</td><td><a>Service Coupling</a></td></tr><tr><td>Extensibility</td><td>New features add durable subscribers without changing the producer (Lesson 61)</td><td><a>Point-to-Point vs Publish-Subscribe Messaging</a></td></tr><tr><td>Keeping data in sync</td><td>Publish an event to durable subscribers after commit (Lesson 109)</td><td><a>Eventual Consistency Patterns</a></td></tr><tr><td>Self-healing errors</td><td>Forward failed events to a workflow processor to repair and resubmit (Lesson 81)</td><td><a>Workflow Event Pattern</a></td></tr><tr><td>No lost messages</td><td>Persisted queues, synchronous send, client acknowledge, ack after commit (Lesson 70)</td><td><a>Guaranteed Message Delivery</a></td></tr><tr><td>Broker throughput</td><td>Spread sends across several brokers (Lesson 72)</td><td><a>Multi-Broker Pattern</a></td></tr><tr><td>Ratings</td><td>Performance, responsiveness, scalability and elasticity (Lessons 83, 85)</td><td><a>Performance vs Responsiveness</a> · <a>Scalability</a> · <a>Elasticity</a></td></tr></tbody></table>
+<h2 id="when-to-use--when-not-to">When to use / when not to</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Use when</th><th>Avoid when</th></tr></thead><tbody><tr><td>High performance through async, parallel processing</td><td>Simplicity and low cost matter (simplicity rated one star)</td></tr><tr><td>High scalability or elasticity</td><td>Testability matters (async flows are hard to test)</td></tr><tr><td>High fault tolerance</td><td>Tight data synchronization, consistency and integrity are needed</td></tr><tr><td>The domain is event-shaped ("triggered", bids, auctions)</td><td>Most processing must be synchronous while the user waits (use request-driven)</td></tr><tr><td>Non-deterministic workflows with many paths</td><td>Tight control over event ordering; deterministic systems</td></tr></tbody></table>
+<h2 id="trade-offs">Trade-offs</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Pro</th><th>Con</th></tr></thead><tbody><tr><td>Five stars for performance, scalability, elasticity, fault tolerance, evolvability, abstraction</td><td>Complex; simplicity one star, which drives cost</td></tr><tr><td>Services decoupled in time; no dependence on others to process</td><td>Hard to test</td></tr><tr><td>Mostly operational characteristics rated highly</td><td>Weak on consistency and ordering guarantees</td></tr></tbody></table>
+<h2 id="related-patterns">Related patterns</h2>
+<ul>
+<li><strong>Alternatives:</strong> request-based styles (see <a>Request-Based vs Event-Driven Architecture</a>); <a href="/topics/software-architecture/architecture-styles/space-based/">Space-Based Architecture</a>; <a href="/topics/software-architecture/architecture-styles/service-based/">Service-Based Architecture</a></li>
+<li><strong>Often combined with:</strong> <a href="/topics/software-architecture/architecture-styles/microservices/">Microservices Architecture</a> (see <a>Microservices vs Event-Driven Architecture</a>); <a>Event Sourcing</a>; <a>Broker Architecture</a>; <a>Workflow Event Pattern</a>; <a>Guaranteed Message Delivery</a>; <a>Multi-Broker Pattern</a>; <a>Point-to-Point vs Publish-Subscribe Messaging</a></li>
+<li><strong>Anti-pattern to watch for:</strong> <a>Anemic Events</a>; <a>Swarm of Gnats Anti-Pattern</a></li>
+<li><strong>Context:</strong> <a>Service Coupling</a> · <a>Events vs Messages</a> · <a>Atomic vs Eventual Transactions</a> · <a>Domain to Architecture Isomorphism</a> · <a>Scalability</a> · <a>Performance vs Responsiveness</a></li>
+<li>Index: <a>Architecture Styles Compared</a>. MOC: <a>Architecture</a></li>
+</ul>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a>Lesson 165 — Event-Driven Architecture</a> (Mark Richards, Software Architecture Monday)</li>
+<li><a>Lesson 131 — Microservices vs Event-Driven Architecture</a> (Mark Richards, Software Architecture Monday): EDA's lack of granularity, data and bounded-context constraints vs microservices</li>
+<li><a>Lesson 110 — The Pros and Cons of Event Driven Architecture</a> (Mark Richards, Software Architecture Monday): pros and cons; error handling, timing, contract coupling and scenario testing</li>
+<li><a>Lesson 109 — BASE Transactions and Eventual Consistency</a> (Mark Richards, Software Architecture Monday): event-based synchronization with durable subscribers</li>
+<li><a>Lesson 89 — Becoming A Software Architect Part 4</a> (Mark Richards, Software Architecture Monday): EDA usually melded into hybrids</li>
+<li><a>Lesson 81 — Workflow Event Pattern</a> (Mark Richards, Software Architecture Monday): self-healing error handling for asynchronous processing</li>
+<li><a>Lesson 85 — Defining Scalability and Elasticity</a> (Mark Richards, Software Architecture Monday): scalability, elasticity and mean time to startup</li>
+<li><a>Lesson 83 — Defining Performance and Responsiveness</a> (Mark Richards, Software Architecture Monday): asynchrony and parallelism for responsiveness and performance</li>
+<li><a>Lesson 72 — Multi Broker Pattern Part 1</a> (Mark Richards, Software Architecture Monday): multi-broker pattern for messaging throughput and capacity</li>
+<li><a>Lesson 70 — Preventing Data Loss When Using Messaging</a> (Mark Richards, Software Architecture Monday): three loss points in messaging and how to close them</li>
+<li><a>Lesson 69 — Importance of Event Driven Architecture</a> (Mark Richards, Software Architecture Monday): request-based vs event-driven, advantages, disadvantages and when to choose each</li>
+<li><a>Lesson 61 — Extensibility Using PubSub Messaging</a> (Mark Richards, Software Architecture Monday): extensibility through pub/sub and its three trade-offs</li>
+<li><a>Lesson 59 — The Tradeoffs of Loose Coupling</a> (Mark Richards, Software Architecture Monday): fully decoupling services with a topic and queues, and the four trade-offs of loose coupling</li>
+<li><a>9. Understanding Event-Driven Architecture Style</a> (O'Reilly Software Architecture course): initiating events, event processors and derived events</li>
+<li><a>11. Examining Event-Driven Architectures</a> (O'Reilly Software Architecture course): derived events, extensibility, when the style fits</li>
+</ul></div></article></div></div></div></div><!--]--></main><footer class="v-footer v-theme--scottLight d-flex flex-column align-center justify-center footer" style="bottom:0px;z-index:1004;transform:translateY(0px);position:fixed;left:0px;width:calc(100% - 0px - 0px);"><div class="d-flex flex-wrap justify-center footerlinks"><a href="https://www.linkedin.com/in/scott-vercuski/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Vercuski" target="_blank" rel="noopener">GitHub</a><a href="/contact/" class="">Contact</a><a href="/privacy/" class="">Privacy</a></div><span class="text-body-2">© 2026. Created by Scott Vercuski</span></footer><!--]--><!--]--></div></div></div>
+
+
+
+</body></html>

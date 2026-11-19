@@ -30,11 +30,87 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/clean/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/client-server/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/event-driven/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/hexagonal/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/layered/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/microkernel/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/microservices/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/modular-monolith/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/monolithic/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/onion/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/peer-to-peer/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/pipeline/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/primary-replica/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/serverless/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/service-based/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/service-oriented/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/space-based/</loc>
+    <lastmod>2026-11-19</lastmod>
+  </url>
+  <url>
+    <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/vertical-slice/</loc>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/</loc>
@@ -498,7 +574,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/design-checklist/</loc>
@@ -506,7 +582,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/documentation-and-example/example/</loc>
