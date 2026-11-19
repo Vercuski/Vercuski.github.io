@@ -54,6 +54,14 @@ export const topics: Topic[] = [
     slug: 'software-architecture',
     title: 'Software Architecture',
     summary: 'The high-level structure of an application: its layers, boundaries, and the trade-offs behind them.',
+    children: [
+      {
+        slug: 'software-architecture/architecture-styles',
+        title: 'Architecture Styles',
+        summary: 'Common software architecture styles, from monoliths and layers to microservices, event-driven and serverless: how each is shaped, when it fits, and what it costs.',
+        children: architectureStyles(),
+      },
+    ],
   },
   {
     slug: 'software-design-patterns',
@@ -70,6 +78,43 @@ export const topics: Topic[] = [
     ],
   },
 ]
+
+/**
+ * The Architecture Styles sub-topics, in the order of the "The styles"
+ * table in the Architecture Styles Compared note. Each shows the
+ * documentation set (a folder under src/assets/documentation) holding
+ * that style's single note.
+ *
+ * @returns One topic per style.
+ */
+function architectureStyles (): Topic[] {
+  const styles: Array<[slug: string, title: string, documentation: string, summary: string]> = [
+    ['monolithic', 'Monolithic', 'Monolithic Architecture', 'The whole application is built, deployed and scaled as one unit. Simple and cheap to start; layered, modular monolith, microkernel and pipeline are its structured forms.'],
+    ['client-server', 'Client-Server', 'Client-Server Architecture', 'Clients request services; servers own the resources and answer. The base topology under the web, databases and most APIs, from two-tier fat clients to N-tier.'],
+    ['layered', 'Layered (N-Tier)', 'Layered Architecture', 'Monolithic style, one deployment unit grouped by technical layer (presentation, business, persistence); strong on cost and simplicity, weak on agility, scale and fault tolerance.'],
+    ['modular-monolith', 'Modular Monolith', 'Modular Monolith Architecture', 'Monolithic architecture style with one deployment unit whose functionality is grouped by domain area; strong on cost and simplicity, weak on time to market, scalability and fault tolerance.'],
+    ['microkernel', 'Microkernel (Plug-In)', 'Microkernel Architecture', 'Monolithic architecture style with a core system and independent, self-contained plug-ins; strong on cost, simplicity, evolvability and configurability, weak on scalability and fault tolerance.'],
+    ['pipeline', 'Pipeline (Pipes and Filters)', 'Pipes and Filters Architecture', 'Pipeline style: self-contained filters each transform data and pass it along pipes, so processing is a chain of reusable, independently testable steps. Technically partitioned.'],
+    ['hexagonal', 'Hexagonal', 'Hexagonal Architecture', 'Ports and Adapters: the application core exposes ports (interfaces); adapters connect UIs, databases and external systems, so the core runs and tests with no infrastructure.'],
+    ['onion', 'Onion', 'Onion Architecture', "Jeffrey Palermo's style: concentric layers around an independent domain model, with every dependency pointing toward the center and infrastructure pushed to the outer ring."],
+    ['clean', 'Clean', 'Clean Architecture', "Clean Architecture keeps business rules at the center with dependencies pointing inward; in .NET that's Domain ← Application ← Infrastructure and Presentation projects."],
+    ['vertical-slice', 'Vertical Slice', 'Vertical Slice Architecture', 'Organize code by feature, not layer: each request\'s endpoint, handler, mapping and validation live in one slice; add Domain and Infrastructure projects only when needed.'],
+    ['service-based', 'Service-Based', 'Service-Based Architecture', 'Distributed architecture style of coarse-grained domain services that usually share one database; a common stepping stone before microservices.'],
+    ['service-oriented', 'Service-Oriented (SOA)', 'Service-Oriented Architecture', 'Shares core functionality across enterprise systems via a strict service taxonomy and an enterprise service bus, trading cost, agility and performance for interoperability.'],
+    ['microservices', 'Microservices', 'Microservices Architecture', 'Single-purpose, separately deployed services that own their data in a bounded context, trading cost, simplicity and performance for agility, scalability and fault tolerance.'],
+    ['event-driven', 'Event-Driven', 'Event-Driven Architecture', "Services react asynchronously to an initiating event and to each other's derived events via a simple broker, trading simplicity and consistency for performance and scalability."],
+    ['space-based', 'Space-Based', 'Space-Based Architecture', 'Distributed architecture style that keeps all transactional data in replicated in-memory caches and writes to the database asynchronously, for the highest elasticity, scalability and performance.'],
+    ['serverless', 'Serverless', 'Serverless Architecture', "Event-triggered functions and managed services run on the provider's infrastructure, scale to zero and bill per execution; you trade control and cold starts for no server management."],
+    ['peer-to-peer', 'Peer-to-Peer', 'Peer-to-Peer Architecture', 'Every node is both client and server; peers share resources directly with no central authority. Scales with its users and resists single points of failure, at the cost of control.'],
+    ['primary-replica', 'Primary-Replica (Master-Worker)', 'Primary-Replica Architecture', 'One coordinator (master/primary/leader) distributes work or writes to identical subordinates (replicas/workers) and owns the authoritative result or state.'],
+  ]
+  return styles.map(([slug, title, documentation, summary]) => ({
+    slug: `software-architecture/architecture-styles/${slug}`,
+    title,
+    summary,
+    documentation,
+  }))
+}
 
 /**
  * @param list - Topics, possibly with nested `children`.
