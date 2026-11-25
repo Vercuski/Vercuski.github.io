@@ -38,8 +38,6 @@ flowchart TB
     U4["Bot"] <--> M
 ```
 
-![[Pasted image 20260607085021.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

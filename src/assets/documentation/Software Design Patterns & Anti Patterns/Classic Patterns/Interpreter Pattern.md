@@ -51,8 +51,6 @@ classDiagram
     OrExpression o-- IExpression
 ```
 
-![[Pasted image 20260607165347.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

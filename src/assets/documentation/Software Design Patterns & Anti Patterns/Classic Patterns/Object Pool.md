@@ -38,8 +38,6 @@ flowchart LR
     P -- "create if empty<br/>and under limit" --> F["Factory"]
 ```
 
-![[Pasted image 20260607123950.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

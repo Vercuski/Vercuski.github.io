@@ -39,8 +39,6 @@ flowchart LR
     C2 -- no --> N["Create, volatile publish"] --> U
 ```
 
-![[Pasted image 20260607170232.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

@@ -42,8 +42,6 @@ stateDiagram-v2
     Dispensing --> Idle : Done
 ```
 
-![[Pasted image 20260607165535.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

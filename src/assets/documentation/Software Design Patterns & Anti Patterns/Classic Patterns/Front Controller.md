@@ -38,8 +38,6 @@ flowchart LR
     H1 & H2 & H3 --> V["View / response"]
 ```
 
-![[Pasted image 20260607124434.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

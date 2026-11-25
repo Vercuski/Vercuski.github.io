@@ -54,8 +54,6 @@ classDiagram
     IObserver <|.. AlertService
 ```
 
-![[Pasted image 20260607085053.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

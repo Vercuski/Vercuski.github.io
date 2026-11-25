@@ -45,8 +45,6 @@ classDiagram
     MoveServant ..> IMovable : operates on
 ```
 
-![[Pasted image 20260607085108.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

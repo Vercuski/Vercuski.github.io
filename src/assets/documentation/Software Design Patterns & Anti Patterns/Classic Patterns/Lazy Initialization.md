@@ -35,8 +35,6 @@ flowchart LR
     G -- yes --> R
 ```
 
-![[Pasted image 20260607124145.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

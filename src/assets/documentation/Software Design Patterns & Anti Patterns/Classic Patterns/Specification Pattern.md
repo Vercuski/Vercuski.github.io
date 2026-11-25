@@ -48,8 +48,6 @@ classDiagram
     AndSpecification o-- ISpecification~T~
 ```
 
-![[Pasted image 20260607165503.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

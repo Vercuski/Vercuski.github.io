@@ -43,8 +43,6 @@ flowchart LR
     DS["Damage system<br/>Health"] -.queries.-> W
 ```
 
-![[Pasted image 20260618091715.png|601]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

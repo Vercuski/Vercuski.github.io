@@ -34,8 +34,6 @@ flowchart LR
     S["Query.From(orders)"] --> W[".Where(paid)"] --> O[".OrderBy(date)"] --> T[".Take(10)"] --> X[".ToList()"]
 ```
 
-![[Pasted image 20260607165314.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

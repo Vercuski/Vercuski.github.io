@@ -40,8 +40,6 @@ flowchart LR
     R --> H3["Write handler"]
 ```
 
-![[Pasted image 20260607170712.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

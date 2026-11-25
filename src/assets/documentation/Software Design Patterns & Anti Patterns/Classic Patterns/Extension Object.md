@@ -48,8 +48,6 @@ classDiagram
     Client --> Subject : asks for extension
 ```
 
-![[Pasted image 20260607124329.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

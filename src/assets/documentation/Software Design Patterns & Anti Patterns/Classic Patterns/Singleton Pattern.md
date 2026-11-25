@@ -41,8 +41,6 @@ classDiagram
     ClientB --> Logger : Instance
 ```
 
-![[Pasted image 20260607084656.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

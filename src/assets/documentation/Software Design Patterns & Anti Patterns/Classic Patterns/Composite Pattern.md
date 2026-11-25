@@ -50,8 +50,6 @@ classDiagram
     Folder o-- IFileSystemItem : children
 ```
 
-![[Pasted image 20260607084748.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

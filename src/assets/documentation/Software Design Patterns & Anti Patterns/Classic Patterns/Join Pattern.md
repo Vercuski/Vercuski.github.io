@@ -36,8 +36,6 @@ flowchart LR
     J -- yes --> H["Chord body<br/>dispatch request to worker"]
 ```
 
-![[Pasted image 20260607170430.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

@@ -49,8 +49,6 @@ classDiagram
     BallItem <--> BallThread : twins
 ```
 
-![[Pasted image 20260607124631.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

@@ -45,8 +45,6 @@ sequenceDiagram
     T2->>L: release
 ```
 
-![[Pasted image 20260607170517.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

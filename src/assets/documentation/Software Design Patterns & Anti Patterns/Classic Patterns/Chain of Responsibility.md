@@ -42,8 +42,6 @@ flowchart LR
     H3 -- handled --> X
 ```
 
-![[Pasted image 20260607084934.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

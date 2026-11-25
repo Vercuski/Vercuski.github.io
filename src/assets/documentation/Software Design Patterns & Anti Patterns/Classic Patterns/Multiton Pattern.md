@@ -38,8 +38,6 @@ flowchart LR
     M --> US["Instance 'us'"]
 ```
 
-![[Pasted image 20260607123804.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

@@ -39,8 +39,6 @@ flowchart LR
     Q --> W3["Worker n"]
 ```
 
-![[Pasted image 20260607171014.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

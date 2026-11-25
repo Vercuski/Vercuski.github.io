@@ -44,8 +44,6 @@ classDiagram
     AuditInterceptor ..> IAuditable : checks entity is IAuditable
 ```
 
-![[Pasted image 20260607124518.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

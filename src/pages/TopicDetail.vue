@@ -1,9 +1,10 @@
 <template>
   <div class="px-2">
-    <!-- On documentation pages the document's own title is the page's
-         <h1>, so the set name is a plain label there. -->
-    <div v-if="topic.documentation" class="text-h5" style="font-weight: bold">{{ topic.documentation }}</div>
-    <h1 v-else class="text-h5" style="font-weight: bold">{{ topic.title }}</h1>
+    <!-- A document's own page is headed by the document's title (see
+         components/DocumentView.vue), so the set name is a plain label
+         there. Everywhere else this is the page's one <h1>. -->
+    <div v-if="topic.documentation && doc" class="text-h5" style="font-weight: bold">{{ topic.documentation }}</div>
+    <h1 v-else class="text-h5" style="font-weight: bold">{{ topic.documentation ?? topic.title }}</h1>
     <br/>
     <p>{{ topic.summary }}</p>
     <br/>

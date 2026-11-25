@@ -46,8 +46,6 @@ flowchart LR
     F --> N
 ```
 
-![[Pasted image 20260607084822.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

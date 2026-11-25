@@ -46,8 +46,6 @@ classDiagram
     Checkout --> IDiscount
 ```
 
-![[Pasted image 20260607165417.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

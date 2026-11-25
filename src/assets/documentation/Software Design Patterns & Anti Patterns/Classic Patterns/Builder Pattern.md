@@ -50,8 +50,6 @@ classDiagram
     PdfReportBuilder ..> Report : creates
 ```
 
-![[Pasted image 20260607084549.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

@@ -39,8 +39,6 @@ flowchart LR
     end
 ```
 
-![[Pasted image 20260607124540.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

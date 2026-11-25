@@ -51,9 +51,6 @@ flowchart LR
     T3 -->|pipe| C[Consumer<br/>bulk insert to SQL]
 ```
 
-![[Pasted image 20260607193818.png|900]]
-*Pipeline style diagram (from the architecture styles infographic already in the vault).*
-
 ## When to use / when not to
 | Use when | Avoid when |
 | -------- | ---------- |

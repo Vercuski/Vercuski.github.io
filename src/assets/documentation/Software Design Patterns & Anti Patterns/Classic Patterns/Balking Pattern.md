@@ -35,8 +35,6 @@ flowchart LR
     G -- yes --> M["Mark saving"] --> W["Write file"] --> R["Mark clean"]
 ```
 
-![[Pasted image 20260607165730.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

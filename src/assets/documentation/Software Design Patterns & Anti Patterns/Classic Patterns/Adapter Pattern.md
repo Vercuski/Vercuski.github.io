@@ -52,8 +52,6 @@ classDiagram
     StripeAdapter --> StripeClient : translates to
 ```
 
-![[Pasted image 20260607084715.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

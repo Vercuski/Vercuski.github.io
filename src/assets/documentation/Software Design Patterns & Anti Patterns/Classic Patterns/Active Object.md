@@ -41,8 +41,6 @@ flowchart LR
     S --> SV["Servant<br/>single-threaded state"]
 ```
 
-![[Pasted image 20260607165621.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

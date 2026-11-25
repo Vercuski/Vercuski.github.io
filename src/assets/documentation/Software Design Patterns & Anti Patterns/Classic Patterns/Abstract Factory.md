@@ -53,8 +53,6 @@ classDiagram
     Client --> GuiFactory
 ```
 
-![[Pasted image 20260618091439.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

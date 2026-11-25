@@ -39,8 +39,6 @@ flowchart LR
     E --> D["Destructor / Dispose<br/>releases resource"]
 ```
 
-![[Pasted image 20260607124237.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

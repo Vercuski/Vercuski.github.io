@@ -46,8 +46,6 @@ classDiagram
     TextRun --> Glyph : uses with extrinsic state
 ```
 
-![[Pasted image 20260607084845.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

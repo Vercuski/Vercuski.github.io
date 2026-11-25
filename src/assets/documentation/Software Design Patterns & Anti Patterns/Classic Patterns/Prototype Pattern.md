@@ -49,8 +49,6 @@ classDiagram
     Client --> PrototypeRegistry
 ```
 
-![[Pasted image 20260607084635.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

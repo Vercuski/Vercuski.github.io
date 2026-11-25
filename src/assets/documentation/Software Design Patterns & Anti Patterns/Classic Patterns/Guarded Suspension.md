@@ -40,8 +40,6 @@ flowchart LR
     P["Producer: Add()"] --> S["Enqueue, signal waiters"]
 ```
 
-![[Pasted image 20260607165715.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

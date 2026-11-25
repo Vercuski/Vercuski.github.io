@@ -52,8 +52,6 @@ classDiagram
     Client --> IImage
 ```
 
-![[Pasted image 20260607084905.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

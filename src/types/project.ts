@@ -15,7 +15,7 @@ export interface Project {
   iconAlt: string
   /** What the project is and why it is useful. */
   description: string
-  /** Framework chip, e.g. '.NET 9'. */
+  /** Framework chip, e.g. '.NET 10'. */
   framework: string
   /** Language chip, e.g. 'C#'. */
   language: string

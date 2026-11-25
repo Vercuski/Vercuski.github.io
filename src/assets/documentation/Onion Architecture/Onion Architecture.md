@@ -121,4 +121,4 @@ Assert.True(result.IsSuccessful);
 
 ## Sources
 - Jeffrey Palermo, *The Onion Architecture* parts 1–4 (2008): https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/
-- Clean vs Onion infographic (see [[Clean Architecture#Original]])
+- Clean vs Onion comparison: see [[Clean Architecture#Clean vs Onion]]

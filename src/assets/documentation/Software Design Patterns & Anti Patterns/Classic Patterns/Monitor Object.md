@@ -45,8 +45,6 @@ each signals the other with Monitor.Pulse"
     Consumer --> BoundedBuffer
 ```
 
-![[Pasted image 20260607170650.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

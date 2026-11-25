@@ -24,8 +24,8 @@ import { useRoute } from 'vue-router'
 import { useHead } from '@unhead/vue'
 import { usePageMeta } from '../composables/usePageMeta'
 import { canonicalUrl } from '../site'
-import { breadcrumbList, personRef, topicTrail, useJsonLd } from '../utils/structuredData'
-import { prepareMarkdown, rehypeCallouts, rehypeMermaid } from '../utils/markdown'
+import { WEBSITE_ID, breadcrumbList, personRef, topicTrail, useJsonLd } from '../utils/structuredData'
+import { prepareMarkdown, rehypeCallouts, rehypeMermaid, withSingleH1 } from '../utils/markdown'
 import MermaidDiagram from './MermaidDiagram.vue'
 
 // One rendered document. Its setup awaits the markdown, so it must sit
@@ -52,7 +52,13 @@ const rehypePlugins: PluggableList = [rehypeRaw, rehypeSlug, rehypeCallouts, reh
 const source = await loadMarkdown(props.set, props.path)
 const topic = allTopics.find(topic => topic.documentation === props.set)
 const { title, description } = documentMeta(props.path, source, topic?.summary ?? props.set)
-const markdown = withIntro(prepareMarkdown(source), introCallouts())
+// Document pages are headed by the document's title. A set's own page is
+// headed by the set's name instead (pages/TopicDetail.vue), so there the
+// document's headings all sit under that.
+const markdown = withIntro(
+  withSingleH1(prepareMarkdown(source), props.setPageMeta ? title : undefined),
+  introCallouts(),
+)
 
 /**
  * Callouts shown under the document's title: its front-matter `about`
@@ -95,36 +101,43 @@ function withIntro (doc: string, intro: string): string {
   return lines.join('\n')
 }
 
+const route = useRoute()
+
 if (props.setPageMeta) {
   usePageMeta({ title: `${title} | ${props.set} | Scott Vercuski`, description })
 
-  // JSON-LD: the document as a TechArticle by the site owner, and a
-  // breadcrumb trail ending at it that replaces its topic page's.
-  const route = useRoute()
-  const url = canonicalUrl(route.path)
-  const dateModified = __DOC_DATES__[`${props.set}/${props.path}`]
+  // A breadcrumb trail ending at the document, replacing its topic page's.
   const trail = [...(topic ? topicTrail(topic.slug) : []), { name: title, path: route.path }]
   useJsonLd('breadcrumb', [breadcrumbList(trail)])
-  // Link previews: an article rather than the site-wide 'website'.
-  useHead({
-    meta: [
-      { property: 'og:type', content: 'article' },
-      ...(dateModified ? [{ property: 'article:modified_time', content: dateModified }] : []),
-      { property: 'article:author', content: personRef.url },
-    ],
-  })
-  useJsonLd('page', [{
-    '@type': 'TechArticle',
-    '@id': `${url}#article`,
-    headline: title,
-    description,
-    url,
-    mainEntityOfPage: url,
-    inLanguage: 'en',
-    ...(dateModified && { dateModified }),
-    author: personRef,
-    publisher: personRef,
-    isPartOf: { '@type': 'CreativeWorkSeries', name: props.set },
-  }])
 }
+
+// JSON-LD: the document as a TechArticle by the site owner, on its own
+// page and on its set's page alike. A set's page (e.g. a single-note
+// architecture style) keeps its topic's title and description, so the
+// article is described the same way.
+const url = canonicalUrl(route.path)
+const dateModified = __DOC_DATES__[`${props.set}/${props.path}`]
+// Link previews: an article rather than the site-wide 'website'.
+useHead({
+  meta: [
+    { property: 'og:type', content: 'article' },
+    ...(dateModified ? [{ property: 'article:modified_time', content: dateModified }] : []),
+    { property: 'article:author', content: personRef.url },
+  ],
+})
+useJsonLd('page', [{
+  '@type': 'TechArticle',
+  '@id': `${url}#article`,
+  headline: props.setPageMeta ? title : props.set,
+  description: props.setPageMeta ? description : (topic?.summary ?? description),
+  url,
+  mainEntityOfPage: url,
+  inLanguage: 'en',
+  ...(dateModified && { dateModified }),
+  author: personRef,
+  publisher: personRef,
+  isPartOf: props.setPageMeta
+    ? { '@type': 'CreativeWorkSeries', name: props.set }
+    : { '@id': WEBSITE_ID },
+}])
 </script>

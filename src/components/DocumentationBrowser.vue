@@ -29,7 +29,7 @@
         <v-icon :icon="mdiArrowLeft" size="small" />
         Back to {{ backLink.title }}
       </router-link>
-      <h1 v-if="backLink && currentPath" class="doctitle">{{ documentName(currentPath) }}</h1>      <div v-if="error" class="text-error">{{ error }}</div>
+      <div v-if="error" class="text-error">{{ error }}</div>
       <Suspense v-else-if="currentPath" @resolve="onDocumentShown">
         <DocumentView
           :key="currentPath"
@@ -88,16 +88,7 @@ const topic = computed(() => allTopics.find(t => t.documentation === props.set))
 
 const hideDocumentList = computed(() => topic.value?.hideDocumentList ?? false)
 
-/**
- * @param path - Path of a document within the set.
- * @returns Its file name without the `.md` extension.
- */
-function documentName (path: string) {
-  return path.split('/').pop()!.replace(/\.md$/i, '')
-}
-
-// Without the document list, other documents link back to the set's page
-// and are headed by their name.
+// Without the document list, other documents link back to the set's page.
 const backLink = computed(() => hideDocumentList.value && props.doc && topic.value
   ? { url: topicUrl(topic.value.slug), title: topic.value.title }
   : undefined)
@@ -296,13 +287,6 @@ onMounted(() => {
 
 .docback:hover {
   text-decoration: underline;
-}
-
-.doctitle {
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.3;
-  margin-bottom: 0.6em;
 }
 
 .docbrowser--stacked {

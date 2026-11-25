@@ -153,3 +153,60 @@ export function rehypeMermaid () {
     }
   })
 }
+
+/**
+ * Calls `visit` with each ATX heading line's index and level, skipping
+ * fenced code blocks (a '#' comment in a code sample isn't a heading).
+ *
+ * @param lines - A document's markdown, split into lines.
+ * @param visit - Receives the line index and heading level (1-6).
+ */
+function forEachHeading (lines: string[], visit: (index: number, level: number) => void) {
+  let fence: string | undefined
+  lines.forEach((line, index) => {
+    const marker = /^\s*(```|~~~)/.exec(line)?.[1]
+    if (marker && (!fence || marker === fence)) {
+      fence = fence ? undefined : marker
+      return
+    }
+    const level = fence ? 0 : /^(#{1,6})\s/.exec(line)?.[1].length ?? 0
+    if (level) visit(index, level)
+  })
+}
+
+/**
+ * Makes a document's markdown fit a page that has exactly one <h1>.
+ *
+ * - `title` given: the document heads the page. A document whose first
+ *   heading is its only top-level ('#') heading keeps it. One with no
+ *   top-level heading gets `# title` added at the top. One with several
+ *   (or a top-level heading after a lower one) has every heading moved
+ *   down a level, then gets `# title`.
+ * - `title` omitted: the page supplies its own <h1> (a documentation
+ *   set's own page, see pages/TopicDetail.vue), so any top-level
+ *   heading moves down a level, along with the headings under it.
+ *
+ * @param markdown - Prepared markdown (front matter already removed).
+ * @param title - Plain-text page title, or undefined if the page has one.
+ * @returns Markdown with at most one top-level heading.
+ */
+export function withSingleH1 (markdown: string, title?: string) {
+  const lines = markdown.split('\n')
+  const headings: Array<{ index: number, level: number }> = []
+  forEachHeading(lines, (index, level) => headings.push({ index, level }))
+
+  const topLevel = headings.filter(h => h.level === 1).length
+  if (title !== undefined && topLevel === 1 && headings[0].level === 1) return markdown
+  if (title === undefined && topLevel === 0) return markdown
+
+  if (topLevel > 0) {
+    for (const { index, level } of headings) {
+      if (level < 6) lines[index] = `#${lines[index]}`
+    }
+  }
+  if (title !== undefined) {
+    // Escape characters markdown would treat as formatting.
+    lines.unshift(`# ${title.replace(/([\\`*_[\]<>#])/g, '\\$1')}`, '')
+  }
+  return lines.join('\n')
+}

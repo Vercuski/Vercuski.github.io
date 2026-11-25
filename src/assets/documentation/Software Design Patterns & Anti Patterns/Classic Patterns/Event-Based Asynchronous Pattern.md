@@ -41,8 +41,6 @@ sequenceDiagram
     C-->>UI: DownloadStringCompleted event (on UI context)
 ```
 
-![[Pasted image 20260607170349.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

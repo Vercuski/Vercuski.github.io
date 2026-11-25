@@ -238,7 +238,3 @@ public static class CreateShipment
 - Milan Jovanović, [Vertical Slice Architecture](https://milanjovanovic.tech/blog/vertical-slice-architecture)
 - Adrián Bailador, [Vertical Slice Architecture](https://adrianbailador.github.io/blog/47-vertical-slice-architecture/)
 - Reference .NET template: [nadirbad/VerticalSliceArchitecture](https://github.com/nadirbad/VerticalSliceArchitecture)
-
-## Original
-
-![[Vertical Slice Architecture.jpg|600]]

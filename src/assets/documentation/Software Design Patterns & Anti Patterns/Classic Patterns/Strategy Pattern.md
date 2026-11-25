@@ -51,8 +51,6 @@ classDiagram
     IPaymentStrategy <|.. InvoicePayment
 ```
 
-![[Pasted image 20260607085123.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

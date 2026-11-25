@@ -52,8 +52,6 @@ classDiagram
     RetryDecorator o-- IOrderService : wraps
 ```
 
-![[Pasted image 20260607084805.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

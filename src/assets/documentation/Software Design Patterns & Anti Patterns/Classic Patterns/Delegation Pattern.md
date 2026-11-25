@@ -45,8 +45,6 @@ classDiagram
     IPrintEngine <|.. InkjetEngine
 ```
 
-![[Pasted image 20260607124307.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

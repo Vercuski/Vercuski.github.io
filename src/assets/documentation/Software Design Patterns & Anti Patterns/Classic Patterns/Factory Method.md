@@ -51,8 +51,6 @@ classDiagram
     Creator --> Shape
 ```
 
-![[Pasted image 20260607084614.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

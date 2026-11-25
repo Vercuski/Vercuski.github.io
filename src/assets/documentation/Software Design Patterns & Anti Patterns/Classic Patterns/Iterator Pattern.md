@@ -51,8 +51,6 @@ classDiagram
     Client --> IEnumerable~T~
 ```
 
-![[Pasted image 20260607085007.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

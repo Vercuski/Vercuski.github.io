@@ -39,8 +39,6 @@ flowchart TB
     CT -. monitors .-> BB
 ```
 
-![[Pasted image 20260607124702.png]]
-
 ## When to use / when not to
 | Use when | Avoid when |
 | --- | --- |

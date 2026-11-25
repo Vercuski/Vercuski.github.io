@@ -54,12 +54,12 @@ A typical solution layout:
 
 | Project | Contains |
 | ------- | -------- |
-| **Domain** (core) | Entities; interfaces (e.g. `ICustomerRepository`); `DependencyInjection.cs` |
+| **Domain** (core) | Entities; value objects; interfaces (e.g. `ICustomerRepository`). No `DependencyInjection.cs`: it has nothing to register |
 | **Application** | Commands / queries (CQRS, with MediatR or plain handlers); DTOs; events; exceptions; mapping; `DependencyInjection.cs` |
 | **Infrastructure** | `AppDbContext` (EF Core); migrations; repositories; external services (email, files); `DependencyInjection.cs` |
 | **Presentation** | Controllers or endpoints; `Program.cs`; `DependencyInjection.cs` |
 
-- Each project exposes a `DependencyInjection.cs` extension method that registers its own services; `Program.cs` calls them.
+- Application, Infrastructure and Presentation each expose a `DependencyInjection.cs` extension method that registers their own services; `Program.cs` calls them.
 - Infrastructure *implements* the interfaces the inner layers define (Dependency Inversion).
 - MediatR is optional: see [[7 .NET Habits to Reconsider]] for the plain-handler alternative, and the habit of grouping by feature (vertical slices) instead of by layer.
 - Enforce the dependency rule with architecture tests (NetArchTest, ArchUnitNET): see [[Architecture Governance Tests]].
@@ -84,9 +84,6 @@ A typical solution layout:
 - [[DotNet Learning Path]]
 
 ## Sources
-- Clean vs Onion infographic
-- .NET Clean Architecture infographic
-
-## Original
-![[Pasted image 20260819071350.png|700]]
-![[Pasted image 20260730111843.png|550]]
+- Robert C. Martin, [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) (2012)
+- Robert C. Martin, *Clean Architecture: A Craftsman's Guide to Software Structure and Design* (2017)
+- Jeffrey Palermo, [The Onion Architecture](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/) (2008), for the Clean vs Onion comparison
