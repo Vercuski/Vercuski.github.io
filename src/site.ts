@@ -21,6 +21,22 @@ export const CONTACT_FORM = {
   replyTo: 'no-reply@scott.vercuski.com',
 }
 
+/** Longest `<title>` search results show in full, roughly. */
+const TITLE_MAX = 60
+
+/**
+ * Builds a page's `<title>`: its own name, then the site owner's. Kept to
+ * two parts so most titles fit in the ~60 characters search results show;
+ * the page's section is carried by its breadcrumb trail instead. A name
+ * too long for both goes alone, so the words that matter aren't cut off.
+ *
+ * @param name - The page's name, e.g. 'Strategy Pattern'.
+ */
+export function pageTitle (name: string): string {
+  const full = `${name} | Scott Vercuski`
+  return full.length <= TITLE_MAX ? full : name
+}
+
 /** A social card image (og:image) in public/images/og/. */
 export interface OgCard {
   /** Absolute image URL. */

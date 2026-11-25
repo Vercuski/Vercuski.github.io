@@ -41,6 +41,7 @@ export const topics: Topic[] = [
             title: 'Templates',
             summary: 'A library of 50 architecture documentation templates in 12 folders, organized by phase of the architecture lifecycle: vision, requirements, design, decisions, governance, operations, migration, validation and handover.',
             documentation: 'Architecture Documentation Templates',
+            titleSuffix: ' Template',
             companion: {
               slug: 'solution-architecture/documentation-and-example/example',
               label: 'See this template filled in for Project Tapline',

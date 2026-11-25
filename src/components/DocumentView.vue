@@ -23,7 +23,7 @@ import { allTopics } from '../data/topics'
 import { useRoute } from 'vue-router'
 import { useHead } from '@unhead/vue'
 import { usePageMeta } from '../composables/usePageMeta'
-import { canonicalUrl } from '../site'
+import { canonicalUrl, pageTitle } from '../site'
 import { WEBSITE_ID, breadcrumbList, personRef, topicTrail, useJsonLd } from '../utils/structuredData'
 import { prepareMarkdown, rehypeCallouts, rehypeMermaid, withSingleH1 } from '../utils/markdown'
 import MermaidDiagram from './MermaidDiagram.vue'
@@ -104,7 +104,11 @@ function withIntro (doc: string, intro: string): string {
 const route = useRoute()
 
 if (props.setPageMeta) {
-  usePageMeta({ title: `${title} | ${props.set} | Scott Vercuski`, description })
+  // The set's suffix keeps a template's title distinct from its example's.
+  const suffix = topic?.titleSuffix
+  const core = suffix?.replace(/^[\s—–-]+/, '')
+  const name = suffix && core && !title.includes(core) ? `${title}${suffix}` : title
+  usePageMeta({ title: pageTitle(name), description })
 
   // A breadcrumb trail ending at the document, replacing its topic page's.
   const trail = [...(topic ? topicTrail(topic.slug) : []), { name: title, path: route.path }]

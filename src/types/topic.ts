@@ -39,6 +39,13 @@ export interface Topic {
     /** Heading of the link box, e.g. 'See this template filled in'. */
     label: string
   }
+  /**
+   * Added to the `<title>` of each document page in the `documentation`
+   * set, unless the document's title already contains it (e.g.
+   * ' Template'). Keeps a blank template's title distinct from its
+   * filled-in example's, several of which share a name.
+   */
+  titleSuffix?: string
   /** Sub-topics, shown as a sub-menu under this topic in the navigation. */
   children?: Topic[]
 }

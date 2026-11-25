@@ -26,6 +26,7 @@
 import { computed, defineAsyncComponent } from 'vue'
 import { allTopics } from '../data/topics'
 import { usePageMeta } from '../composables/usePageMeta'
+import { pageTitle } from '../site'
 import { topicUrl } from '../utils/docPaths'
 import { breadcrumbList, topicTrail, useJsonLd } from '../utils/structuredData'
 
@@ -50,7 +51,7 @@ const topic = computed(() => allTopics.find(t => t.slug === props.slug)!)
 // Document pages override this with the document's own title and
 // description (see components/DocumentView.vue).
 usePageMeta(() => ({
-  title: `${topic.value.documentation ?? topic.value.title} | Topics | Scott Vercuski`,
+  title: pageTitle(topic.value.documentation ?? topic.value.title),
   description: topic.value.summary,
 }))
 
