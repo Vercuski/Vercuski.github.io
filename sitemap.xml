@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/projects/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/skills/</loc>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/clean/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/client-server/</loc>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/onion/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/peer-to-peer/</loc>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/pipeline/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/primary-replica/</loc>
@@ -106,7 +106,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-architecture/architecture-styles/vertical-slice/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/</loc>
@@ -326,19 +326,19 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/abstract-factory/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/active-object/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/adapter-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/balking-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/binding-properties/</loc>
@@ -346,27 +346,27 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/blackboard-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/bridge-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/builder-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/chain-of-responsibility/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/command-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/composite-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/compute-kernel/</loc>
@@ -378,11 +378,11 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/decorator-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/delegation-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/dependency-injection/</loc>
@@ -390,75 +390,75 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/double-checked-locking/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/entity-component-system/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/event-based-asynchronous-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/extension-object/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/facade-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/factory-method/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/fluent-interface/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/flyweight-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/front-controller/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/guarded-suspension/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/interpreter-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/iterator-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/join-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/lazy-initialization/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/lock-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/marker-interface/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/mediator-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/memento-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/messaging-design-pattern/</loc>
@@ -466,27 +466,27 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/module-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/monitor-object/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/multiton-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/null-object/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/object-pool/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/observer-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/pipeline-pattern/</loc>
@@ -494,15 +494,15 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/prototype-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/proxy-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/reactor-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/read-write-lock/</loc>
@@ -514,7 +514,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/resource-acquisition-is-initialization/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/result-pattern/</loc>
@@ -530,7 +530,7 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/servant-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/service-handler-pattern/</loc>
@@ -538,27 +538,27 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/singleton-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/specification-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/state-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/strategy-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/template-method/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/thread-pool/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/thread-specific-storage/</loc>
@@ -566,11 +566,11 @@
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/twin-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/software-design-patterns/patterns-and-anti-patterns/classic-patterns/visitor-pattern/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-25</lastmod>
   </url>
   <url>
     <loc>https://scott.vercuski.com/topics/solution-architecture/</loc>
